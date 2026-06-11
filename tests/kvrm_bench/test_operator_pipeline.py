@@ -19,7 +19,7 @@ def test_build_operator_refresh_plan_for_focused_domain() -> None:
     ]
     assert steps[0].label == "Train FINANCE compact model"
     assert steps[1].label == "Benchmark FINANCE demo"
-    assert steps[0].command[:4] == ["python3", "train_kvrm_model.py", "--domain", "finance"]
+    assert steps[0].command[:4] == ["python3", "scripts/train_kvrm_model.py", "--domain", "finance"]
     assert steps[1].command[-1].endswith("kvrm-demos/finance-risk-router/scripts/run_benchmark.py")
     assert steps[2].command == ["python3", "kvrm-demos/compare_demos.py"]
 

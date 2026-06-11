@@ -133,7 +133,7 @@ def _train_command(repo_root: Path, domain: str) -> list[str]:
     data_dir = repo_root / DOMAIN_CONFIG[domain]["data_dir"]
     return [
         "python3",
-        "train_kvrm_model.py",
+        "scripts/train_kvrm_model.py",
         "--domain",
         domain,
         "--registry",

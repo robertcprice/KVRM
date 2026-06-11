@@ -9,7 +9,7 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent  # repo root (this script lives in scripts/)
 
 OLLAMA_URL = "http://127.0.0.1:11434/api/generate"
 ABSTAIN_SENTINEL = "ABSTAIN"

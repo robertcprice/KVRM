@@ -7,7 +7,7 @@ from pathlib import Path
 
 # ── helpers ──────────────────────────────────────────────────────────────────
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent  # repo root (this script lives in scripts/)
 
 
 def build_domains(base: Path, eval_filename: str) -> dict[str, dict[str, Path | str]]:

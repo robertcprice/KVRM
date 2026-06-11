@@ -13,7 +13,7 @@ from datetime import datetime
 from pathlib import Path
 
 
-REPO_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parent.parent  # repo root (this script lives in scripts/)
 
 from kvrm_bench.dashboard import load_dashboard_snapshot
 from kvrm_bench.demo import (
@@ -69,7 +69,7 @@ def _train_command(domain: str) -> list[str]:
     data_dir = _domain_data_dir(domain)
     return [
         "python3",
-        "train_kvrm_model.py",
+        "scripts/train_kvrm_model.py",
         "--domain",
         domain,
         "--registry",
