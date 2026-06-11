@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kvrm-workspace"
+version = "0.1.0"
+description = "KVRM monorepo workspace - install all sub-packages"
+requires-python = ">=3.10"
+dependencies = [
+    "kvrm-core",
+    "kvrm-bench",
+    "soc-playbook-router",
+    "sre-policy-router",
+    "drone-mission-router",
+    "grid-ops-router",
+    "finance-risk-router",
+    "medical-workflow-router",
+    "iam-access-router",
+    "customer-support-router",
+    "content-moderation-router",
+    "cicd-pipeline-router",
+    "legal-compliance-router",
+    "insurance-claims-router",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0", "shap>=0.44"]
+
+[tool.setuptools]
+packages = []
+
+[tool.kvrm.workspace]
+members = [
+    "kvrm-core",
+    "kvrm-bench",
+    "kvrm-demos/soc-playbook-router",
+    "kvrm-demos/sre-policy-router",
+    "kvrm-demos/drone-mission-router",
+    "kvrm-demos/grid-ops-router",
+    "kvrm-demos/finance-risk-router",
+    "kvrm-demos/medical-workflow-router",
+    "kvrm-demos/iam-access-router",
+    "kvrm-demos/customer-support-router",
+    "kvrm-demos/content-moderation-router",
+    "kvrm-demos/cicd-pipeline-router",
+    "kvrm-demos/legal-compliance-router",
+    "kvrm-demos/insurance-claims-router",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "kvrm-demos/tests"]

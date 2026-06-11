@@ -1,0 +1,8 @@
+{
+  "domain": "sre",
+  "model": "qwen3:0.6b",
+  "variant": "abstain_json",
+  "eval_filename": "cases_v2.jsonl",
+  "train_cases": 15,
+  "eval_cases": 110
+}

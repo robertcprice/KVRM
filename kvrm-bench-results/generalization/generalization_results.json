@@ -1,0 +1,2237 @@
+{
+  "content_moderation": {
+    "domain": "content_moderation",
+    "n_cases": 31,
+    "n_classes": 7,
+    "label_distribution": {
+      "remove_content": 6,
+      "escalate_trust_safety": 6,
+      "suspend_account": 5,
+      "flag_for_human_review": 4,
+      "request_human_review": 4,
+      "auto_approve": 3,
+      "reduce_visibility": 3
+    },
+    "train_accuracy": 1.0,
+    "loocv": {
+      "accuracy": 0.1935483870967742,
+      "n_correct": 6,
+      "n_misclassified": 25,
+      "misclassified": [
+        {
+          "index": "3",
+          "case_id": "cm_train_004",
+          "true": "reduce_visibility",
+          "predicted": "escalate_trust_safety"
+        },
+        {
+          "index": "4",
+          "case_id": "cm_train_005",
+          "true": "reduce_visibility",
+          "predicted": "flag_for_human_review"
+        },
+        {
+          "index": "5",
+          "case_id": "cm_train_006",
+          "true": "reduce_visibility",
+          "predicted": "remove_content"
+        },
+        {
+          "index": "6",
+          "case_id": "cm_train_007",
+          "true": "flag_for_human_review",
+          "predicted": "escalate_trust_safety"
+        },
+        {
+          "index": "7",
+          "case_id": "cm_train_008",
+          "true": "flag_for_human_review",
+          "predicted": "remove_content"
+        },
+        {
+          "index": "8",
+          "case_id": "cm_train_009",
+          "true": "flag_for_human_review",
+          "predicted": "remove_content"
+        },
+        {
+          "index": "9",
+          "case_id": "cm_train_010",
+          "true": "flag_for_human_review",
+          "predicted": "suspend_account"
+        },
+        {
+          "index": "10",
+          "case_id": "cm_train_011",
+          "true": "remove_content",
+          "predicted": "suspend_account"
+        },
+        {
+          "index": "11",
+          "case_id": "cm_train_012",
+          "true": "remove_content",
+          "predicted": "suspend_account"
+        },
+        {
+          "index": "13",
+          "case_id": "cm_train_014",
+          "true": "remove_content",
+          "predicted": "escalate_trust_safety"
+        },
+        {
+          "index": "14",
+          "case_id": "cm_train_015",
+          "true": "suspend_account",
+          "predicted": "escalate_trust_safety"
+        },
+        {
+          "index": "15",
+          "case_id": "cm_train_016",
+          "true": "suspend_account",
+          "predicted": "escalate_trust_safety"
+        },
+        {
+          "index": "16",
+          "case_id": "cm_train_017",
+          "true": "suspend_account",
+          "predicted": "flag_for_human_review"
+        },
+        {
+          "index": "17",
+          "case_id": "cm_train_018",
+          "true": "escalate_trust_safety",
+          "predicted": "remove_content"
+        },
+        {
+          "index": "18",
+          "case_id": "cm_train_019",
+          "true": "escalate_trust_safety",
+          "predicted": "suspend_account"
+        },
+        {
+          "index": "19",
+          "case_id": "cm_train_020",
+          "true": "escalate_trust_safety",
+          "predicted": "remove_content"
+        },
+        {
+          "index": "20",
+          "case_id": "cm_train_021",
+          "true": "request_human_review",
+          "predicted": "auto_approve"
+        },
+        {
+          "index": "21",
+          "case_id": "cm_train_022",
+          "true": "request_human_review",
+          "predicted": "reduce_visibility"
+        },
+        {
+          "index": "22",
+          "case_id": "cm_train_023",
+          "true": "request_human_review",
+          "predicted": "suspend_account"
+        },
+        {
+          "index": "23",
+          "case_id": "cm_train_024",
+          "true": "request_human_review",
+          "predicted": "escalate_trust_safety"
+        },
+        {
+          "index": "24",
+          "case_id": "cm_train_037",
+          "true": "remove_content",
+          "predicted": "escalate_trust_safety"
+        },
+        {
+          "index": "27",
+          "case_id": "cm_train_040",
+          "true": "suspend_account",
+          "predicted": "remove_content"
+        },
+        {
+          "index": "28",
+          "case_id": "cm_train_041",
+          "true": "escalate_trust_safety",
+          "predicted": "request_human_review"
+        },
+        {
+          "index": "29",
+          "case_id": "cm_train_042",
+          "true": "escalate_trust_safety",
+          "predicted": "flag_for_human_review"
+        },
+        {
+          "index": "30",
+          "case_id": "cm_train_043",
+          "true": "escalate_trust_safety",
+          "predicted": "suspend_account"
+        }
+      ]
+    },
+    "stratified_kfold": {
+      "k": 3,
+      "overall_accuracy": 0.3548387096774194,
+      "mean_fold_accuracy": 0.35454545454545455,
+      "std_fold_accuracy": 0.04132782332419958,
+      "fold_accuracies": [
+        0.36363636363636365,
+        0.4,
+        0.3
+      ]
+    },
+    "per_class_accuracy": {
+      "auto_approve": {
+        "support": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "escalate_trust_safety": {
+        "support": 6,
+        "correct": 0,
+        "accuracy": 0.0,
+        "errors": {
+          "remove_content": 2,
+          "suspend_account": 2,
+          "request_human_review": 1,
+          "flag_for_human_review": 1
+        }
+      },
+      "flag_for_human_review": {
+        "support": 4,
+        "correct": 0,
+        "accuracy": 0.0,
+        "errors": {
+          "escalate_trust_safety": 1,
+          "remove_content": 2,
+          "suspend_account": 1
+        }
+      },
+      "reduce_visibility": {
+        "support": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "errors": {
+          "escalate_trust_safety": 1,
+          "flag_for_human_review": 1,
+          "remove_content": 1
+        }
+      },
+      "remove_content": {
+        "support": 6,
+        "correct": 2,
+        "accuracy": 0.3333333333333333,
+        "errors": {
+          "suspend_account": 2,
+          "escalate_trust_safety": 2
+        }
+      },
+      "request_human_review": {
+        "support": 4,
+        "correct": 0,
+        "accuracy": 0.0,
+        "errors": {
+          "auto_approve": 1,
+          "reduce_visibility": 1,
+          "suspend_account": 1,
+          "escalate_trust_safety": 1
+        }
+      },
+      "suspend_account": {
+        "support": 5,
+        "correct": 1,
+        "accuracy": 0.2,
+        "errors": {
+          "escalate_trust_safety": 2,
+          "flag_for_human_review": 1,
+          "remove_content": 1
+        }
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "auto_approve",
+        "escalate_trust_safety",
+        "flag_for_human_review",
+        "reduce_visibility",
+        "remove_content",
+        "request_human_review",
+        "suspend_account"
+      ],
+      "matrix": [
+        [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          2,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          2,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          2,
+          0,
+          2
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          2,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      ]
+    }
+  },
+  "customer_support": {
+    "domain": "customer_support",
+    "n_cases": 25,
+    "n_classes": 7,
+    "label_distribution": {
+      "escalate_to_manager": 7,
+      "send_knowledge_article": 3,
+      "auto_resolve_billing": 3,
+      "assign_specialist": 3,
+      "schedule_callback": 3,
+      "issue_refund": 3,
+      "request_human_review": 3
+    },
+    "train_accuracy": 1.0,
+    "loocv": {
+      "accuracy": 0.16,
+      "n_correct": 4,
+      "n_misclassified": 21,
+      "misclassified": [
+        {
+          "index": "0",
+          "case_id": "cs_train_001",
+          "true": "send_knowledge_article",
+          "predicted": "escalate_to_manager"
+        },
+        {
+          "index": "1",
+          "case_id": "cs_train_002",
+          "true": "send_knowledge_article",
+          "predicted": "auto_resolve_billing"
+        },
+        {
+          "index": "3",
+          "case_id": "cs_train_004",
+          "true": "auto_resolve_billing",
+          "predicted": "send_knowledge_article"
+        },
+        {
+          "index": "4",
+          "case_id": "cs_train_005",
+          "true": "auto_resolve_billing",
+          "predicted": "issue_refund"
+        },
+        {
+          "index": "5",
+          "case_id": "cs_train_006",
+          "true": "auto_resolve_billing",
+          "predicted": "assign_specialist"
+        },
+        {
+          "index": "6",
+          "case_id": "cs_train_007",
+          "true": "assign_specialist",
+          "predicted": "escalate_to_manager"
+        },
+        {
+          "index": "7",
+          "case_id": "cs_train_008",
+          "true": "assign_specialist",
+          "predicted": "escalate_to_manager"
+        },
+        {
+          "index": "8",
+          "case_id": "cs_train_009",
+          "true": "assign_specialist",
+          "predicted": "auto_resolve_billing"
+        },
+        {
+          "index": "9",
+          "case_id": "cs_train_010",
+          "true": "schedule_callback",
+          "predicted": "assign_specialist"
+        },
+        {
+          "index": "10",
+          "case_id": "cs_train_011",
+          "true": "schedule_callback",
+          "predicted": "escalate_to_manager"
+        },
+        {
+          "index": "11",
+          "case_id": "cs_train_012",
+          "true": "schedule_callback",
+          "predicted": "escalate_to_manager"
+        },
+        {
+          "index": "13",
+          "case_id": "cs_train_014",
+          "true": "issue_refund",
+          "predicted": "escalate_to_manager"
+        },
+        {
+          "index": "16",
+          "case_id": "cs_train_017",
+          "true": "escalate_to_manager",
+          "predicted": "schedule_callback"
+        },
+        {
+          "index": "17",
+          "case_id": "cs_train_018",
+          "true": "escalate_to_manager",
+          "predicted": "schedule_callback"
+        },
+        {
+          "index": "18",
+          "case_id": "cs_train_019",
+          "true": "request_human_review",
+          "predicted": "assign_specialist"
+        },
+        {
+          "index": "19",
+          "case_id": "cs_train_020",
+          "true": "request_human_review",
+          "predicted": "assign_specialist"
+        },
+        {
+          "index": "20",
+          "case_id": "cs_train_021",
+          "true": "request_human_review",
+          "predicted": "assign_specialist"
+        },
+        {
+          "index": "21",
+          "case_id": "cs_train_031",
+          "true": "escalate_to_manager",
+          "predicted": "assign_specialist"
+        },
+        {
+          "index": "22",
+          "case_id": "cs_train_032",
+          "true": "escalate_to_manager",
+          "predicted": "schedule_callback"
+        },
+        {
+          "index": "23",
+          "case_id": "cs_train_033",
+          "true": "escalate_to_manager",
+          "predicted": "schedule_callback"
+        },
+        {
+          "index": "24",
+          "case_id": "cs_train_034",
+          "true": "escalate_to_manager",
+          "predicted": "assign_specialist"
+        }
+      ]
+    },
+    "stratified_kfold": {
+      "k": 3,
+      "overall_accuracy": 0.32,
+      "mean_fold_accuracy": 0.3194444444444444,
+      "std_fold_accuracy": 0.05196746370519363,
+      "fold_accuracies": [
+        0.3333333333333333,
+        0.25,
+        0.375
+      ]
+    },
+    "per_class_accuracy": {
+      "assign_specialist": {
+        "support": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "errors": {
+          "escalate_to_manager": 2,
+          "auto_resolve_billing": 1
+        }
+      },
+      "auto_resolve_billing": {
+        "support": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "errors": {
+          "send_knowledge_article": 1,
+          "issue_refund": 1,
+          "assign_specialist": 1
+        }
+      },
+      "escalate_to_manager": {
+        "support": 7,
+        "correct": 1,
+        "accuracy": 0.14285714285714285,
+        "errors": {
+          "schedule_callback": 4,
+          "assign_specialist": 2
+        }
+      },
+      "issue_refund": {
+        "support": 3,
+        "correct": 2,
+        "accuracy": 0.6666666666666666,
+        "errors": {
+          "escalate_to_manager": 1
+        }
+      },
+      "request_human_review": {
+        "support": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "errors": {
+          "assign_specialist": 3
+        }
+      },
+      "schedule_callback": {
+        "support": 3,
+        "correct": 0,
+        "accuracy": 0.0,
+        "errors": {
+          "assign_specialist": 1,
+          "escalate_to_manager": 2
+        }
+      },
+      "send_knowledge_article": {
+        "support": 3,
+        "correct": 1,
+        "accuracy": 0.3333333333333333,
+        "errors": {
+          "escalate_to_manager": 1,
+          "auto_resolve_billing": 1
+        }
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "assign_specialist",
+        "auto_resolve_billing",
+        "escalate_to_manager",
+        "issue_refund",
+        "request_human_review",
+        "schedule_callback",
+        "send_knowledge_article"
+      ],
+      "matrix": [
+        [
+          0,
+          1,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          2,
+          0,
+          1,
+          0,
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      ]
+    }
+  },
+  "drone": {
+    "domain": "drone",
+    "n_cases": 25,
+    "n_classes": 8,
+    "label_distribution": {
+      "climb_for_signal_recovery": 4,
+      "descend_for_safety": 4,
+      "return_to_home": 3,
+      "hold_position": 3,
+      "switch_to_low_observable_path": 3,
+      "conserve_battery_mode": 3,
+      "manual_handoff": 3,
+      "continue_mission": 2
+    },
+    "train_accuracy": 1.0,
+    "loocv": {
+      "accuracy": 0.96,
+      "n_correct": 24,
+      "n_misclassified": 1,
+      "misclassified": [
+        {
+          "index": "20",
+          "case_id": "drone_train_021",
+          "true": "climb_for_signal_recovery",
+          "predicted": "continue_mission"
+        }
+      ]
+    },
+    "stratified_kfold": {
+      "k": 2,
+      "overall_accuracy": 1.0,
+      "mean_fold_accuracy": 1.0,
+      "std_fold_accuracy": 0.0,
+      "fold_accuracies": [
+        1.0,
+        1.0
+      ]
+    },
+    "per_class_accuracy": {
+      "climb_for_signal_recovery": {
+        "support": 4,
+        "correct": 3,
+        "accuracy": 0.75,
+        "errors": {
+          "continue_mission": 1
+        }
+      },
+      "conserve_battery_mode": {
+        "support": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "continue_mission": {
+        "support": 2,
+        "correct": 2,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "descend_for_safety": {
+        "support": 4,
+        "correct": 4,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "hold_position": {
+        "support": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "manual_handoff": {
+        "support": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "return_to_home": {
+        "support": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "switch_to_low_observable_path": {
+        "support": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "errors": {}
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "climb_for_signal_recovery",
+        "conserve_battery_mode",
+        "continue_mission",
+        "descend_for_safety",
+        "hold_position",
+        "manual_handoff",
+        "return_to_home",
+        "switch_to_low_observable_path"
+      ],
+      "matrix": [
+        [
+          3,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3
+        ]
+      ]
+    }
+  },
+  "finance": {
+    "domain": "finance",
+    "n_cases": 57,
+    "n_classes": 8,
+    "label_distribution": {
+      "manual_review": 9,
+      "enhanced_due_diligence": 8,
+      "freeze_for_investigation": 8,
+      "require_additional_docs": 7,
+      "lower_limit_temporarily": 7,
+      "escalate_compliance": 7,
+      "allow_with_monitoring": 6,
+      "approve_low_risk": 5
+    },
+    "train_accuracy": 1.0,
+    "loocv": {
+      "accuracy": 0.5964912280701754,
+      "n_correct": 34,
+      "n_misclassified": 23,
+      "misclassified": [
+        {
+          "index": "4",
+          "case_id": "finance_train_005",
+          "true": "enhanced_due_diligence",
+          "predicted": "allow_with_monitoring"
+        },
+        {
+          "index": "10",
+          "case_id": "finance_train_011",
+          "true": "manual_review",
+          "predicted": "allow_with_monitoring"
+        },
+        {
+          "index": "12",
+          "case_id": "finance_train_013",
+          "true": "manual_review",
+          "predicted": "allow_with_monitoring"
+        },
+        {
+          "index": "16",
+          "case_id": "finance_train_017",
+          "true": "allow_with_monitoring",
+          "predicted": "manual_review"
+        },
+        {
+          "index": "18",
+          "case_id": "finance_train_019",
+          "true": "enhanced_due_diligence",
+          "predicted": "approve_low_risk"
+        },
+        {
+          "index": "20",
+          "case_id": "finance_train_021",
+          "true": "enhanced_due_diligence",
+          "predicted": "approve_low_risk"
+        },
+        {
+          "index": "21",
+          "case_id": "finance_train_022",
+          "true": "require_additional_docs",
+          "predicted": "approve_low_risk"
+        },
+        {
+          "index": "22",
+          "case_id": "finance_train_023",
+          "true": "require_additional_docs",
+          "predicted": "allow_with_monitoring"
+        },
+        {
+          "index": "23",
+          "case_id": "finance_train_024",
+          "true": "require_additional_docs",
+          "predicted": "enhanced_due_diligence"
+        },
+        {
+          "index": "25",
+          "case_id": "finance_train_026",
+          "true": "lower_limit_temporarily",
+          "predicted": "freeze_for_investigation"
+        },
+        {
+          "index": "27",
+          "case_id": "finance_train_028",
+          "true": "freeze_for_investigation",
+          "predicted": "lower_limit_temporarily"
+        },
+        {
+          "index": "30",
+          "case_id": "finance_train_031",
+          "true": "escalate_compliance",
+          "predicted": "approve_low_risk"
+        },
+        {
+          "index": "31",
+          "case_id": "finance_train_032",
+          "true": "escalate_compliance",
+          "predicted": "freeze_for_investigation"
+        },
+        {
+          "index": "32",
+          "case_id": "finance_train_033",
+          "true": "escalate_compliance",
+          "predicted": "allow_with_monitoring"
+        },
+        {
+          "index": "36",
+          "case_id": "finance_train_037",
+          "true": "require_additional_docs",
+          "predicted": "manual_review"
+        },
+        {
+          "index": "37",
+          "case_id": "finance_train_038",
+          "true": "escalate_compliance",
+          "predicted": "enhanced_due_diligence"
+        },
+        {
+          "index": "39",
+          "case_id": "finance_train_040",
+          "true": "enhanced_due_diligence",
+          "predicted": "manual_review"
+        },
+        {
+          "index": "42",
+          "case_id": "finance_train_043",
+          "true": "allow_with_monitoring",
+          "predicted": "manual_review"
+        },
+        {
+          "index": "44",
+          "case_id": "finance_train_045",
+          "true": "escalate_compliance",
+          "predicted": "approve_low_risk"
+        },
+        {
+          "index": "45",
+          "case_id": "finance_train_046",
+          "true": "escalate_compliance",
+          "predicted": "require_additional_docs"
+        },
+        {
+          "index": "46",
+          "case_id": "finance_train_047",
+          "true": "require_additional_docs",
+          "predicted": "approve_low_risk"
+        },
+        {
+          "index": "47",
+          "case_id": "finance_train_048",
+          "true": "require_additional_docs",
+          "predicted": "approve_low_risk"
+        },
+        {
+          "index": "53",
+          "case_id": "finance_train_054",
+          "true": "manual_review",
+          "predicted": "require_additional_docs"
+        }
+      ]
+    },
+    "stratified_kfold": {
+      "k": 5,
+      "overall_accuracy": 0.5789473684210527,
+      "mean_fold_accuracy": 0.5787878787878787,
+      "std_fold_accuracy": 0.062397758430224236,
+      "fold_accuracies": [
+        0.6666666666666666,
+        0.5,
+        0.5454545454545454,
+        0.6363636363636364,
+        0.5454545454545454
+      ]
+    },
+    "per_class_accuracy": {
+      "allow_with_monitoring": {
+        "support": 6,
+        "correct": 4,
+        "accuracy": 0.6666666666666666,
+        "errors": {
+          "manual_review": 2
+        }
+      },
+      "approve_low_risk": {
+        "support": 5,
+        "correct": 5,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "enhanced_due_diligence": {
+        "support": 8,
+        "correct": 4,
+        "accuracy": 0.5,
+        "errors": {
+          "allow_with_monitoring": 1,
+          "approve_low_risk": 2,
+          "manual_review": 1
+        }
+      },
+      "escalate_compliance": {
+        "support": 7,
+        "correct": 1,
+        "accuracy": 0.14285714285714285,
+        "errors": {
+          "approve_low_risk": 2,
+          "freeze_for_investigation": 1,
+          "allow_with_monitoring": 1,
+          "enhanced_due_diligence": 1,
+          "require_additional_docs": 1
+        }
+      },
+      "freeze_for_investigation": {
+        "support": 8,
+        "correct": 7,
+        "accuracy": 0.875,
+        "errors": {
+          "lower_limit_temporarily": 1
+        }
+      },
+      "lower_limit_temporarily": {
+        "support": 7,
+        "correct": 6,
+        "accuracy": 0.8571428571428571,
+        "errors": {
+          "freeze_for_investigation": 1
+        }
+      },
+      "manual_review": {
+        "support": 9,
+        "correct": 6,
+        "accuracy": 0.6666666666666666,
+        "errors": {
+          "allow_with_monitoring": 2,
+          "require_additional_docs": 1
+        }
+      },
+      "require_additional_docs": {
+        "support": 7,
+        "correct": 1,
+        "accuracy": 0.14285714285714285,
+        "errors": {
+          "approve_low_risk": 3,
+          "allow_with_monitoring": 1,
+          "enhanced_due_diligence": 1,
+          "manual_review": 1
+        }
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "allow_with_monitoring",
+        "approve_low_risk",
+        "enhanced_due_diligence",
+        "escalate_compliance",
+        "freeze_for_investigation",
+        "lower_limit_temporarily",
+        "manual_review",
+        "require_additional_docs"
+      ],
+      "matrix": [
+        [
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          5,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          2,
+          4,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          2,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          7,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          6,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          6,
+          1
+        ],
+        [
+          1,
+          3,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "grid": {
+    "domain": "grid",
+    "n_cases": 40,
+    "n_classes": 8,
+    "label_distribution": {
+      "continue_monitoring": 5,
+      "isolate_faulted_feeder": 5,
+      "transfer_load": 5,
+      "dispatch_field_crew": 5,
+      "shed_noncritical_load": 5,
+      "prepare_blackstart": 5,
+      "defer_switching_due_weather": 5,
+      "escalate_grid_supervisor": 5
+    },
+    "train_accuracy": 1.0,
+    "loocv": {
+      "accuracy": 0.775,
+      "n_correct": 31,
+      "n_misclassified": 9,
+      "misclassified": [
+        {
+          "index": "6",
+          "case_id": "grid_train_007",
+          "true": "dispatch_field_crew",
+          "predicted": "isolate_faulted_feeder"
+        },
+        {
+          "index": "7",
+          "case_id": "grid_train_008",
+          "true": "dispatch_field_crew",
+          "predicted": "transfer_load"
+        },
+        {
+          "index": "9",
+          "case_id": "grid_train_010",
+          "true": "shed_noncritical_load",
+          "predicted": "prepare_blackstart"
+        },
+        {
+          "index": "19",
+          "case_id": "grid_train_020",
+          "true": "isolate_faulted_feeder",
+          "predicted": "dispatch_field_crew"
+        },
+        {
+          "index": "25",
+          "case_id": "grid_train_026",
+          "true": "dispatch_field_crew",
+          "predicted": "isolate_faulted_feeder"
+        },
+        {
+          "index": "26",
+          "case_id": "grid_train_027",
+          "true": "dispatch_field_crew",
+          "predicted": "defer_switching_due_weather"
+        },
+        {
+          "index": "29",
+          "case_id": "grid_train_030",
+          "true": "shed_noncritical_load",
+          "predicted": "prepare_blackstart"
+        },
+        {
+          "index": "38",
+          "case_id": "grid_train_039",
+          "true": "escalate_grid_supervisor",
+          "predicted": "prepare_blackstart"
+        },
+        {
+          "index": "39",
+          "case_id": "grid_train_040",
+          "true": "escalate_grid_supervisor",
+          "predicted": "defer_switching_due_weather"
+        }
+      ]
+    },
+    "stratified_kfold": {
+      "k": 5,
+      "overall_accuracy": 0.85,
+      "mean_fold_accuracy": 0.85,
+      "std_fold_accuracy": 0.1224744871391589,
+      "fold_accuracies": [
+        0.75,
+        0.75,
+        1.0,
+        0.75,
+        1.0
+      ]
+    },
+    "per_class_accuracy": {
+      "continue_monitoring": {
+        "support": 5,
+        "correct": 5,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "defer_switching_due_weather": {
+        "support": 5,
+        "correct": 5,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "dispatch_field_crew": {
+        "support": 5,
+        "correct": 1,
+        "accuracy": 0.2,
+        "errors": {
+          "isolate_faulted_feeder": 2,
+          "transfer_load": 1,
+          "defer_switching_due_weather": 1
+        }
+      },
+      "escalate_grid_supervisor": {
+        "support": 5,
+        "correct": 3,
+        "accuracy": 0.6,
+        "errors": {
+          "prepare_blackstart": 1,
+          "defer_switching_due_weather": 1
+        }
+      },
+      "isolate_faulted_feeder": {
+        "support": 5,
+        "correct": 4,
+        "accuracy": 0.8,
+        "errors": {
+          "dispatch_field_crew": 1
+        }
+      },
+      "prepare_blackstart": {
+        "support": 5,
+        "correct": 5,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "shed_noncritical_load": {
+        "support": 5,
+        "correct": 3,
+        "accuracy": 0.6,
+        "errors": {
+          "prepare_blackstart": 2
+        }
+      },
+      "transfer_load": {
+        "support": 5,
+        "correct": 5,
+        "accuracy": 1.0,
+        "errors": {}
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "continue_monitoring",
+        "defer_switching_due_weather",
+        "dispatch_field_crew",
+        "escalate_grid_supervisor",
+        "isolate_faulted_feeder",
+        "prepare_blackstart",
+        "shed_noncritical_load",
+        "transfer_load"
+      ],
+      "matrix": [
+        [
+          5,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          5,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          2,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          3,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          5
+        ]
+      ]
+    }
+  },
+  "iam": {
+    "domain": "iam",
+    "n_cases": 36,
+    "n_classes": 7,
+    "label_distribution": {
+      "deny_request": 10,
+      "auto_approve_standard_access": 5,
+      "require_manager_approval": 5,
+      "grant_timeboxed_privileged_access": 5,
+      "require_security_review": 4,
+      "escalate_identity_admin": 4,
+      "grant_break_glass_access": 3
+    },
+    "train_accuracy": 1.0,
+    "loocv": {
+      "accuracy": 0.75,
+      "n_correct": 27,
+      "n_misclassified": 9,
+      "misclassified": [
+        {
+          "index": "5",
+          "case_id": "iam_train_006",
+          "true": "require_security_review",
+          "predicted": "deny_request"
+        },
+        {
+          "index": "6",
+          "case_id": "iam_train_007",
+          "true": "grant_timeboxed_privileged_access",
+          "predicted": "deny_request"
+        },
+        {
+          "index": "10",
+          "case_id": "iam_train_011",
+          "true": "deny_request",
+          "predicted": "grant_timeboxed_privileged_access"
+        },
+        {
+          "index": "11",
+          "case_id": "iam_train_012",
+          "true": "deny_request",
+          "predicted": "require_security_review"
+        },
+        {
+          "index": "27",
+          "case_id": "iam_train_028",
+          "true": "deny_request",
+          "predicted": "grant_timeboxed_privileged_access"
+        },
+        {
+          "index": "28",
+          "case_id": "iam_train_029",
+          "true": "deny_request",
+          "predicted": "auto_approve_standard_access"
+        },
+        {
+          "index": "30",
+          "case_id": "iam_train_031",
+          "true": "deny_request",
+          "predicted": "grant_timeboxed_privileged_access"
+        },
+        {
+          "index": "31",
+          "case_id": "iam_train_032",
+          "true": "deny_request",
+          "predicted": "auto_approve_standard_access"
+        },
+        {
+          "index": "34",
+          "case_id": "iam_train_035",
+          "true": "deny_request",
+          "predicted": "auto_approve_standard_access"
+        }
+      ]
+    },
+    "stratified_kfold": {
+      "k": 3,
+      "overall_accuracy": 0.7777777777777778,
+      "mean_fold_accuracy": 0.7777777777777777,
+      "std_fold_accuracy": 0.10393492741038725,
+      "fold_accuracies": [
+        0.9166666666666666,
+        0.75,
+        0.6666666666666666
+      ]
+    },
+    "per_class_accuracy": {
+      "auto_approve_standard_access": {
+        "support": 5,
+        "correct": 5,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "deny_request": {
+        "support": 10,
+        "correct": 3,
+        "accuracy": 0.3,
+        "errors": {
+          "grant_timeboxed_privileged_access": 3,
+          "require_security_review": 1,
+          "auto_approve_standard_access": 3
+        }
+      },
+      "escalate_identity_admin": {
+        "support": 4,
+        "correct": 4,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "grant_break_glass_access": {
+        "support": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "grant_timeboxed_privileged_access": {
+        "support": 5,
+        "correct": 4,
+        "accuracy": 0.8,
+        "errors": {
+          "deny_request": 1
+        }
+      },
+      "require_manager_approval": {
+        "support": 5,
+        "correct": 5,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "require_security_review": {
+        "support": 4,
+        "correct": 3,
+        "accuracy": 0.75,
+        "errors": {
+          "deny_request": 1
+        }
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "auto_approve_standard_access",
+        "deny_request",
+        "escalate_identity_admin",
+        "grant_break_glass_access",
+        "grant_timeboxed_privileged_access",
+        "require_manager_approval",
+        "require_security_review"
+      ],
+      "matrix": [
+        [
+          5,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          3,
+          0,
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          3
+        ]
+      ]
+    }
+  },
+  "medical": {
+    "domain": "medical",
+    "n_cases": 35,
+    "n_classes": 8,
+    "label_distribution": {
+      "routine_review": 5,
+      "urgent_clinician_review": 5,
+      "escalate_supervisor_review": 5,
+      "sepsis_screen_pathway": 4,
+      "stroke_alert_pathway": 4,
+      "cardiac_chest_pain_pathway": 4,
+      "respiratory_support_pathway": 4,
+      "lab_panel_priority_order": 4
+    },
+    "train_accuracy": 1.0,
+    "loocv": {
+      "accuracy": 0.7714285714285715,
+      "n_correct": 27,
+      "n_misclassified": 8,
+      "misclassified": [
+        {
+          "index": "3",
+          "case_id": "medical_train_004",
+          "true": "urgent_clinician_review",
+          "predicted": "escalate_supervisor_review"
+        },
+        {
+          "index": "15",
+          "case_id": "medical_train_016",
+          "true": "urgent_clinician_review",
+          "predicted": "routine_review"
+        },
+        {
+          "index": "16",
+          "case_id": "medical_train_017",
+          "true": "urgent_clinician_review",
+          "predicted": "escalate_supervisor_review"
+        },
+        {
+          "index": "19",
+          "case_id": "medical_train_020",
+          "true": "sepsis_screen_pathway",
+          "predicted": "lab_panel_priority_order"
+        },
+        {
+          "index": "21",
+          "case_id": "medical_train_022",
+          "true": "stroke_alert_pathway",
+          "predicted": "routine_review"
+        },
+        {
+          "index": "25",
+          "case_id": "medical_train_026",
+          "true": "cardiac_chest_pain_pathway",
+          "predicted": "urgent_clinician_review"
+        },
+        {
+          "index": "30",
+          "case_id": "medical_train_031",
+          "true": "lab_panel_priority_order",
+          "predicted": "urgent_clinician_review"
+        },
+        {
+          "index": "33",
+          "case_id": "medical_train_034",
+          "true": "escalate_supervisor_review",
+          "predicted": "cardiac_chest_pain_pathway"
+        }
+      ]
+    },
+    "stratified_kfold": {
+      "k": 4,
+      "overall_accuracy": 0.6857142857142857,
+      "mean_fold_accuracy": 0.6909722222222222,
+      "std_fold_accuracy": 0.11552642194176477,
+      "fold_accuracies": [
+        0.6666666666666666,
+        0.5555555555555556,
+        0.6666666666666666,
+        0.875
+      ]
+    },
+    "per_class_accuracy": {
+      "cardiac_chest_pain_pathway": {
+        "support": 4,
+        "correct": 3,
+        "accuracy": 0.75,
+        "errors": {
+          "urgent_clinician_review": 1
+        }
+      },
+      "escalate_supervisor_review": {
+        "support": 5,
+        "correct": 4,
+        "accuracy": 0.8,
+        "errors": {
+          "cardiac_chest_pain_pathway": 1
+        }
+      },
+      "lab_panel_priority_order": {
+        "support": 4,
+        "correct": 3,
+        "accuracy": 0.75,
+        "errors": {
+          "urgent_clinician_review": 1
+        }
+      },
+      "respiratory_support_pathway": {
+        "support": 4,
+        "correct": 4,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "routine_review": {
+        "support": 5,
+        "correct": 5,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "sepsis_screen_pathway": {
+        "support": 4,
+        "correct": 3,
+        "accuracy": 0.75,
+        "errors": {
+          "lab_panel_priority_order": 1
+        }
+      },
+      "stroke_alert_pathway": {
+        "support": 4,
+        "correct": 3,
+        "accuracy": 0.75,
+        "errors": {
+          "routine_review": 1
+        }
+      },
+      "urgent_clinician_review": {
+        "support": 5,
+        "correct": 2,
+        "accuracy": 0.4,
+        "errors": {
+          "escalate_supervisor_review": 2,
+          "routine_review": 1
+        }
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "cardiac_chest_pain_pathway",
+        "escalate_supervisor_review",
+        "lab_panel_priority_order",
+        "respiratory_support_pathway",
+        "routine_review",
+        "sepsis_screen_pathway",
+        "stroke_alert_pathway",
+        "urgent_clinician_review"
+      ],
+      "matrix": [
+        [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          2
+        ]
+      ]
+    }
+  },
+  "soc": {
+    "domain": "soc",
+    "n_cases": 14,
+    "n_classes": 7,
+    "label_distribution": {
+      "escalate_p1": 2,
+      "isolate_host": 2,
+      "rotate_credentials": 2,
+      "block_ip_temporarily": 2,
+      "collect_forensics": 2,
+      "monitor_only": 2,
+      "do_nothing_validated": 2
+    },
+    "train_accuracy": 1.0,
+    "loocv": {
+      "accuracy": 0.5,
+      "n_correct": 7,
+      "n_misclassified": 7,
+      "misclassified": [
+        {
+          "index": "2",
+          "case_id": "soc_train_003",
+          "true": "rotate_credentials",
+          "predicted": "isolate_host"
+        },
+        {
+          "index": "3",
+          "case_id": "soc_train_004",
+          "true": "block_ip_temporarily",
+          "predicted": "collect_forensics"
+        },
+        {
+          "index": "4",
+          "case_id": "soc_train_005",
+          "true": "collect_forensics",
+          "predicted": "monitor_only"
+        },
+        {
+          "index": "5",
+          "case_id": "soc_train_006",
+          "true": "monitor_only",
+          "predicted": "collect_forensics"
+        },
+        {
+          "index": "7",
+          "case_id": "soc_train_008",
+          "true": "escalate_p1",
+          "predicted": "rotate_credentials"
+        },
+        {
+          "index": "9",
+          "case_id": "soc_train_010",
+          "true": "rotate_credentials",
+          "predicted": "collect_forensics"
+        },
+        {
+          "index": "11",
+          "case_id": "soc_train_012",
+          "true": "collect_forensics",
+          "predicted": "monitor_only"
+        }
+      ]
+    },
+    "stratified_kfold": {
+      "k": 2,
+      "overall_accuracy": 0.6428571428571429,
+      "mean_fold_accuracy": 0.6428571428571428,
+      "std_fold_accuracy": 0.07142857142857145,
+      "fold_accuracies": [
+        0.5714285714285714,
+        0.7142857142857143
+      ]
+    },
+    "per_class_accuracy": {
+      "block_ip_temporarily": {
+        "support": 2,
+        "correct": 1,
+        "accuracy": 0.5,
+        "errors": {
+          "collect_forensics": 1
+        }
+      },
+      "collect_forensics": {
+        "support": 2,
+        "correct": 0,
+        "accuracy": 0.0,
+        "errors": {
+          "monitor_only": 2
+        }
+      },
+      "do_nothing_validated": {
+        "support": 2,
+        "correct": 2,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "escalate_p1": {
+        "support": 2,
+        "correct": 1,
+        "accuracy": 0.5,
+        "errors": {
+          "rotate_credentials": 1
+        }
+      },
+      "isolate_host": {
+        "support": 2,
+        "correct": 2,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "monitor_only": {
+        "support": 2,
+        "correct": 1,
+        "accuracy": 0.5,
+        "errors": {
+          "collect_forensics": 1
+        }
+      },
+      "rotate_credentials": {
+        "support": 2,
+        "correct": 0,
+        "accuracy": 0.0,
+        "errors": {
+          "isolate_host": 1,
+          "collect_forensics": 1
+        }
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "block_ip_temporarily",
+        "collect_forensics",
+        "do_nothing_validated",
+        "escalate_p1",
+        "isolate_host",
+        "monitor_only",
+        "rotate_credentials"
+      ],
+      "matrix": [
+        [
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      ]
+    }
+  },
+  "sre": {
+    "domain": "sre",
+    "n_cases": 24,
+    "n_classes": 8,
+    "label_distribution": {
+      "enable_readonly_mode": 4,
+      "page_human_operator": 4,
+      "rollback_deploy": 3,
+      "failover_region": 3,
+      "restart_service": 3,
+      "drain_node": 3,
+      "scale_out": 2,
+      "gather_more_telemetry": 2
+    },
+    "train_accuracy": 1.0,
+    "loocv": {
+      "accuracy": 1.0,
+      "n_correct": 24,
+      "n_misclassified": 0,
+      "misclassified": []
+    },
+    "stratified_kfold": {
+      "k": 2,
+      "overall_accuracy": 1.0,
+      "mean_fold_accuracy": 1.0,
+      "std_fold_accuracy": 0.0,
+      "fold_accuracies": [
+        1.0,
+        1.0
+      ]
+    },
+    "per_class_accuracy": {
+      "drain_node": {
+        "support": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "enable_readonly_mode": {
+        "support": 4,
+        "correct": 4,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "failover_region": {
+        "support": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "gather_more_telemetry": {
+        "support": 2,
+        "correct": 2,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "page_human_operator": {
+        "support": 4,
+        "correct": 4,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "restart_service": {
+        "support": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "rollback_deploy": {
+        "support": 3,
+        "correct": 3,
+        "accuracy": 1.0,
+        "errors": {}
+      },
+      "scale_out": {
+        "support": 2,
+        "correct": 2,
+        "accuracy": 1.0,
+        "errors": {}
+      }
+    },
+    "confusion_matrix": {
+      "labels": [
+        "drain_node",
+        "enable_readonly_mode",
+        "failover_region",
+        "gather_more_telemetry",
+        "page_human_operator",
+        "restart_service",
+        "rollback_deploy",
+        "scale_out"
+      ],
+      "matrix": [
+        [
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2
+        ]
+      ]
+    }
+  }
+}

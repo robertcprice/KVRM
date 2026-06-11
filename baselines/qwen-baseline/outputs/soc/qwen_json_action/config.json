@@ -1,0 +1,7 @@
+{
+  "domain": "soc",
+  "variant": "json_action",
+  "train_cases": 7,
+  "eval_cases": 16,
+  "timestamp": "2026-04-07T03:12:44.027478+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "domain": "sre",
+  "model": "qwen3:1.7b",
+  "variant": "abstain_json",
+  "runner": "ollama",
+  "registry_version": "1.5.0",
+  "train_cases": 24,
+  "eval_cases": 140,
+  "max_examples_per_action": 2,
+  "timestamp": "2026-04-10T16:29:08.272425+00:00",
+  "refresh": true
+}

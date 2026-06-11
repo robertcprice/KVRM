@@ -1,0 +1,220 @@
+{
+  "registry_name": "cicd-pipeline-router",
+  "version": "1.0.0",
+  "required_features": [
+    "branch_type",
+    "tests_passing",
+    "coverage_delta",
+    "dependency_changes",
+    "security_scan_status",
+    "change_size",
+    "deployment_target"
+  ],
+  "context_schema": {
+    "branch_type": {
+      "type": "string",
+      "enum": ["feature", "hotfix", "release", "main"]
+    },
+    "tests_passing": {
+      "type": "boolean"
+    },
+    "coverage_delta": {
+      "type": "number",
+      "minimum": -100.0,
+      "maximum": 100.0
+    },
+    "dependency_changes": {
+      "type": "boolean"
+    },
+    "security_scan_status": {
+      "type": "string",
+      "enum": ["clean", "warning", "critical"]
+    },
+    "change_size": {
+      "type": "string",
+      "enum": ["small", "medium", "large", "xlarge"]
+    },
+    "deployment_target": {
+      "type": "string",
+      "enum": ["staging", "canary", "production"]
+    }
+  },
+  "actions": [
+    {
+      "action_id": "auto_merge",
+      "name": "Auto Merge",
+      "description": "Automatically merge small, clean feature branches with passing tests and no dependency changes.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "branch_type", "op": "eq", "value": "feature" },
+          { "feature": "tests_passing", "op": "eq", "value": true },
+          { "feature": "coverage_delta", "op": "gte", "value": -2.0 },
+          { "feature": "dependency_changes", "op": "eq", "value": false },
+          { "feature": "security_scan_status", "op": "eq", "value": "clean" },
+          { "feature": "change_size", "op": "eq", "value": "small" },
+          { "feature": "deployment_target", "op": "eq", "value": "staging" }
+        ]
+      },
+      "tags": ["automation"]
+    },
+    {
+      "action_id": "require_code_review",
+      "name": "Require Code Review",
+      "description": "Require peer code review for medium or large changes, dependency updates, or coverage drops.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "tests_passing", "op": "eq", "value": true },
+          { "feature": "security_scan_status", "op": "in", "value": ["clean", "warning"] },
+          { "feature": "branch_type", "op": "in", "value": ["feature", "release"] },
+          {
+            "any": [
+              { "feature": "change_size", "op": "in", "value": ["medium", "large"] },
+              { "feature": "dependency_changes", "op": "eq", "value": true },
+              { "feature": "coverage_delta", "op": "lte", "value": -5.0 }
+            ]
+          },
+          {
+            "not": {
+              "all": [
+                { "feature": "deployment_target", "op": "eq", "value": "production" },
+                { "feature": "change_size", "op": "in", "value": ["large", "xlarge"] }
+              ]
+            }
+          }
+        ]
+      },
+      "tags": ["review"]
+    },
+    {
+      "action_id": "require_security_review",
+      "name": "Require Security Review",
+      "description": "Require security team review when scan shows warnings with dependency changes or any critical scan.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "tests_passing", "op": "eq", "value": true },
+          {
+            "any": [
+              {
+                "all": [
+                  { "feature": "security_scan_status", "op": "eq", "value": "warning" },
+                  { "feature": "dependency_changes", "op": "eq", "value": true }
+                ]
+              },
+              {
+                "all": [
+                  { "feature": "security_scan_status", "op": "eq", "value": "critical" },
+                  { "feature": "deployment_target", "op": "in", "value": ["staging", "canary"] }
+                ]
+              }
+            ]
+          },
+          { "feature": "branch_type", "op": "in", "value": ["feature", "hotfix", "release"] }
+        ]
+      },
+      "tags": ["security"]
+    },
+    {
+      "action_id": "block_merge",
+      "name": "Block Merge",
+      "description": "Block merge when tests are failing or critical security issues target production.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "any": [
+          {
+            "all": [
+              { "feature": "tests_passing", "op": "eq", "value": false },
+              { "feature": "branch_type", "op": "in", "value": ["feature", "release", "main"] }
+            ]
+          },
+          {
+            "all": [
+              { "feature": "security_scan_status", "op": "eq", "value": "critical" },
+              { "feature": "deployment_target", "op": "eq", "value": "production" },
+              { "feature": "tests_passing", "op": "eq", "value": true }
+            ]
+          }
+        ]
+      },
+      "tags": ["blocking"]
+    },
+    {
+      "action_id": "auto_rollback",
+      "name": "Auto Rollback",
+      "description": "Automatically rollback hotfixes that fail tests in production or canary deployments.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "branch_type", "op": "eq", "value": "hotfix" },
+          { "feature": "tests_passing", "op": "eq", "value": false },
+          { "feature": "deployment_target", "op": "in", "value": ["canary", "production"] }
+        ]
+      },
+      "tags": ["rollback", "automation"]
+    },
+    {
+      "action_id": "manual_promotion",
+      "name": "Manual Promotion",
+      "description": "Require manual promotion for release branches targeting production with large changes.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "branch_type", "op": "eq", "value": "release" },
+          { "feature": "tests_passing", "op": "eq", "value": true },
+          { "feature": "deployment_target", "op": "eq", "value": "production" },
+          { "feature": "change_size", "op": "in", "value": ["large", "xlarge"] },
+          { "feature": "security_scan_status", "op": "in", "value": ["clean", "warning"] }
+        ]
+      },
+      "tags": ["promotion", "manual"]
+    },
+    {
+      "action_id": "escalate_to_oncall",
+      "name": "Escalate to On-Call",
+      "description": "Escalate to on-call engineer when automated decisions cannot be safely made.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": { "type": "string" }
+        },
+        "required": ["reason"]
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "branch_type", "op": "eq", "value": "main" },
+          { "feature": "tests_passing", "op": "eq", "value": true },
+          { "feature": "deployment_target", "op": "eq", "value": "production" },
+          { "feature": "change_size", "op": "in", "value": ["large", "xlarge"] },
+          { "feature": "security_scan_status", "op": "in", "value": ["warning", "critical"] }
+        ]
+      },
+      "tags": ["escalation", "fallback"]
+    }
+  ]
+}

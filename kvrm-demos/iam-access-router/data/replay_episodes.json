@@ -1,0 +1,452 @@
+{
+  "episodes": [
+    {
+      "episode_id": "iam_authored_001",
+      "episode_type": "switch_fail_closed_recover",
+      "episode_note": "A routine standard request becomes restricted and waits on manager approval, then drifts into an unsupported emergency session before normalizing.",
+      "driver_features": [
+        "resource_sensitivity",
+        "manager_approval",
+        "session_scope"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "Standard low-risk access is auto-approvable.",
+          "case": {
+            "case_id": "iam_authored_001_step_01",
+            "expected_action_id": "auto_approve_standard_access",
+            "input_features": {
+              "requested_privilege": "standard",
+              "resource_sensitivity": "internal",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "approved",
+              "security_review": "not_required",
+              "justification": "routine",
+              "device_posture": "compliant",
+              "session_scope": "persistent",
+              "sod_risk": "none",
+              "on_call_role": "none",
+              "ticket_state": "missing"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 4,
+          "event_kind": "review_gate",
+          "event_note": "The request scope expands and now requires bounded manager review.",
+          "case": {
+            "case_id": "iam_authored_001_step_02",
+            "expected_action_id": "require_manager_approval",
+            "input_features": {
+              "requested_privilege": "standard",
+              "resource_sensitivity": "restricted",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "pending",
+              "security_review": "not_required",
+              "justification": "project",
+              "device_posture": "compliant",
+              "session_scope": "persistent",
+              "sod_risk": "none",
+              "on_call_role": "none",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 9,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "The same request drifts into an emergency session without a break-glass justification and should fail closed.",
+          "case": {
+            "case_id": "iam_authored_001_step_03",
+            "expected_action_id": null,
+            "input_features": {
+              "requested_privilege": "standard",
+              "resource_sensitivity": "restricted",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "pending",
+              "security_review": "not_required",
+              "justification": "project",
+              "device_posture": "compliant",
+              "session_scope": "emergency",
+              "sod_risk": "none",
+              "on_call_role": "none",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 15,
+          "event_kind": "recovery",
+          "event_note": "The operator removes the unsupported emergency scope and the original standard approval path returns.",
+          "case": {
+            "case_id": "iam_authored_001_step_04",
+            "expected_action_id": "auto_approve_standard_access",
+            "input_features": {
+              "requested_privilege": "standard",
+              "resource_sensitivity": "internal",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "approved",
+              "security_review": "not_required",
+              "justification": "routine",
+              "device_posture": "compliant",
+              "session_scope": "persistent",
+              "sod_risk": "none",
+              "on_call_role": "none",
+              "ticket_state": "missing"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    },
+    {
+      "episode_id": "iam_authored_002",
+      "episode_type": "switch_fail_closed_recover",
+      "episode_note": "Privileged access is routed back into security review, then leaves the audited contract through an unsupported emergency session before the approved privileged state returns.",
+      "driver_features": [
+        "security_review",
+        "session_scope",
+        "justification"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "Approved elevated access is granted in a timeboxed window.",
+          "case": {
+            "case_id": "iam_authored_002_step_01",
+            "expected_action_id": "grant_timeboxed_privileged_access",
+            "input_features": {
+              "requested_privilege": "elevated",
+              "resource_sensitivity": "restricted",
+              "requester_risk": "medium",
+              "mfa_state": "verified",
+              "manager_approval": "approved",
+              "security_review": "approved",
+              "justification": "incident_response",
+              "device_posture": "compliant",
+              "session_scope": "timeboxed",
+              "sod_risk": "none",
+              "on_call_role": "secondary",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 5,
+          "event_kind": "review_reopen",
+          "event_note": "New SoD concern reopens the security review gate.",
+          "case": {
+            "case_id": "iam_authored_002_step_02",
+            "expected_action_id": "require_security_review",
+            "input_features": {
+              "requested_privilege": "elevated",
+              "resource_sensitivity": "restricted",
+              "requester_risk": "medium",
+              "mfa_state": "verified",
+              "manager_approval": "approved",
+              "security_review": "pending",
+              "justification": "project",
+              "device_posture": "compliant",
+              "session_scope": "timeboxed",
+              "sod_risk": "potential",
+              "on_call_role": "none",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 11,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "The request is then forced into an emergency session without a break-glass envelope and must fail closed.",
+          "case": {
+            "case_id": "iam_authored_002_step_03",
+            "expected_action_id": null,
+            "input_features": {
+              "requested_privilege": "elevated",
+              "resource_sensitivity": "restricted",
+              "requester_risk": "medium",
+              "mfa_state": "verified",
+              "manager_approval": "approved",
+              "security_review": "pending",
+              "justification": "project",
+              "device_posture": "compliant",
+              "session_scope": "emergency",
+              "sod_risk": "potential",
+              "on_call_role": "none",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 18,
+          "event_kind": "recovery",
+          "event_note": "Review closes and the approved timeboxed privileged state returns.",
+          "case": {
+            "case_id": "iam_authored_002_step_04",
+            "expected_action_id": "grant_timeboxed_privileged_access",
+            "input_features": {
+              "requested_privilege": "elevated",
+              "resource_sensitivity": "restricted",
+              "requester_risk": "medium",
+              "mfa_state": "verified",
+              "manager_approval": "approved",
+              "security_review": "approved",
+              "justification": "incident_response",
+              "device_posture": "compliant",
+              "session_scope": "timeboxed",
+              "sod_risk": "none",
+              "on_call_role": "secondary",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    },
+    {
+      "episode_id": "iam_authored_003",
+      "episode_type": "fail_closed_recover_stabilize",
+      "episode_note": "A valid break-glass grant loses its ticket linkage, should fail closed, then recovers and stays stable under the audited emergency envelope.",
+      "driver_features": [
+        "ticket_state",
+        "justification",
+        "session_scope"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "Primary on-call break-glass access is granted under the emergency contract.",
+          "case": {
+            "case_id": "iam_authored_003_step_01",
+            "expected_action_id": "grant_break_glass_access",
+            "input_features": {
+              "requested_privilege": "admin",
+              "resource_sensitivity": "critical",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "approved",
+              "security_review": "pending",
+              "justification": "break_glass",
+              "device_posture": "compliant",
+              "session_scope": "emergency",
+              "sod_risk": "potential",
+              "on_call_role": "primary",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 6,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "The break-glass ticket link is lost, so the runtime must fail closed instead of granting by similarity.",
+          "case": {
+            "case_id": "iam_authored_003_step_02",
+            "expected_action_id": null,
+            "input_features": {
+              "requested_privilege": "admin",
+              "resource_sensitivity": "critical",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "approved",
+              "security_review": "pending",
+              "justification": "break_glass",
+              "device_posture": "compliant",
+              "session_scope": "emergency",
+              "sod_risk": "potential",
+              "on_call_role": "primary",
+              "ticket_state": "missing"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 12,
+          "event_kind": "recovery",
+          "event_note": "The emergency ticket is restored and the same break-glass action becomes supportable again.",
+          "case": {
+            "case_id": "iam_authored_003_step_03",
+            "expected_action_id": "grant_break_glass_access",
+            "input_features": {
+              "requested_privilege": "admin",
+              "resource_sensitivity": "critical",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "approved",
+              "security_review": "pending",
+              "justification": "break_glass",
+              "device_posture": "compliant",
+              "session_scope": "emergency",
+              "sod_risk": "potential",
+              "on_call_role": "primary",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 20,
+          "event_kind": "stabilize",
+          "event_note": "The audited emergency state remains stable at a later checkpoint.",
+          "case": {
+            "case_id": "iam_authored_003_step_04",
+            "expected_action_id": "grant_break_glass_access",
+            "input_features": {
+              "requested_privilege": "admin",
+              "resource_sensitivity": "critical",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "approved",
+              "security_review": "pending",
+              "justification": "break_glass",
+              "device_posture": "compliant",
+              "session_scope": "emergency",
+              "sod_risk": "potential",
+              "on_call_role": "primary",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    },
+    {
+      "episode_id": "iam_authored_004",
+      "episode_type": "fail_closed_recover_stabilize",
+      "episode_note": "A hard-stop denial remains valid, then drifts into an unsupported persistent-admin state before returning to the same denial lane.",
+      "driver_features": [
+        "manager_approval",
+        "session_scope",
+        "requested_privilege"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "A denied critical admin request stays in the explicit denial lane.",
+          "case": {
+            "case_id": "iam_authored_004_step_01",
+            "expected_action_id": "deny_request",
+            "input_features": {
+              "requested_privilege": "admin",
+              "resource_sensitivity": "critical",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "denied",
+              "security_review": "approved",
+              "justification": "incident_response",
+              "device_posture": "compliant",
+              "session_scope": "timeboxed",
+              "sod_risk": "none",
+              "on_call_role": "secondary",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 7,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "The request then drifts into a persistent critical-admin state that is intentionally outside the live IAM contract.",
+          "case": {
+            "case_id": "iam_authored_004_step_02",
+            "expected_action_id": null,
+            "input_features": {
+              "requested_privilege": "admin",
+              "resource_sensitivity": "critical",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "denied",
+              "security_review": "approved",
+              "justification": "incident_response",
+              "device_posture": "compliant",
+              "session_scope": "persistent",
+              "sod_risk": "none",
+              "on_call_role": "secondary",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 14,
+          "event_kind": "recovery",
+          "event_note": "The unsupported persistent grant attempt is withdrawn and the request returns to explicit denial.",
+          "case": {
+            "case_id": "iam_authored_004_step_03",
+            "expected_action_id": "deny_request",
+            "input_features": {
+              "requested_privilege": "admin",
+              "resource_sensitivity": "critical",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "denied",
+              "security_review": "approved",
+              "justification": "incident_response",
+              "device_posture": "compliant",
+              "session_scope": "timeboxed",
+              "sod_risk": "none",
+              "on_call_role": "secondary",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 23,
+          "event_kind": "stabilize",
+          "event_note": "The hard-stop denial remains stable after the unsupported drift is corrected.",
+          "case": {
+            "case_id": "iam_authored_004_step_04",
+            "expected_action_id": "deny_request",
+            "input_features": {
+              "requested_privilege": "admin",
+              "resource_sensitivity": "critical",
+              "requester_risk": "low",
+              "mfa_state": "verified",
+              "manager_approval": "denied",
+              "security_review": "approved",
+              "justification": "incident_response",
+              "device_posture": "compliant",
+              "session_scope": "timeboxed",
+              "sod_risk": "none",
+              "on_call_role": "secondary",
+              "ticket_state": "linked"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    }
+  ]
+}

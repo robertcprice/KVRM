@@ -1,0 +1,59 @@
+{
+  "total_cases": 110,
+  "supported_cases": 80,
+  "unsupported_cases": 30,
+  "structural_validity_rate": 0.8636363636363636,
+  "semantic_correctness_rate": 0.0,
+  "abstention_rate": 0.8636363636363636,
+  "fallback_rate": 0.0,
+  "invalid_output_rate": 0.13636363636363635,
+  "false_accept_rate": 0.1,
+  "latency_p50_ms": 785.465416,
+  "latency_p95_ms": 897.669875,
+  "latency_p99_ms": 908.113167,
+  "calibration_ece": 0.06818181818181818,
+  "ood_accuracy_supported_only": 0.0,
+  "unsupported_case_rejection_rate": 0.9,
+  "structural_validity_ci": {
+    "rate": 0.8636363636363636,
+    "ci_lower": 0.787141630195824,
+    "ci_upper": 0.9155891817393563,
+    "n": 110
+  },
+  "semantic_correctness_ci": {
+    "rate": 0.0,
+    "ci_lower": 0.0,
+    "ci_upper": 0.0458197362645751,
+    "n": 80
+  },
+  "false_accept_rate_ci": {
+    "rate": 0.1,
+    "ci_lower": 0.034599259959716175,
+    "ci_upper": 0.2562144131526662,
+    "n": 30
+  },
+  "unsupported_rejection_ci": {
+    "rate": 0.9,
+    "ci_lower": 0.7437855868473339,
+    "ci_upper": 0.9654007400402839,
+    "n": 30
+  },
+  "abstention_rate_ci": {
+    "rate": 0.8636363636363636,
+    "ci_lower": 0.787141630195824,
+    "ci_upper": 0.9155891817393563,
+    "n": 110
+  },
+  "fallback_rate_ci": {
+    "rate": 0.0,
+    "ci_lower": 0.0,
+    "ci_upper": 0.03374513358912735,
+    "n": 110
+  },
+  "ood_accuracy_ci": {
+    "rate": 0.0,
+    "ci_lower": 0.0,
+    "ci_upper": 0.07270029673590504,
+    "n": 49
+  }
+}

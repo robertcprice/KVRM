@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="250" viewBox="0 0 500 250">
+<text x='250' y='25' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='#1a1a2e'>Figure 3: Supported vs Unsupported Case Routing</text>
+<rect x='190' y='50' width='120' height='35' rx='4' fill='#e8f0fe' stroke='#1565c0' stroke-width='1'/>
+<text x='250' y='72' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>Decision Input</text>
+<rect x='190' y='110' width='120' height='35' rx='4' fill='#fce8e8' stroke='#e53935' stroke-width='1'/>
+<text x='250' y='132' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>Selector</text>
+<line x1='250' y1='85' x2='250' y2='110' stroke='#555' stroke-width='1.5' marker-end='url(#arrow4)'/>
+<rect x='60' y='175' width='130' height='35' rx='4' fill='#e8f5e9' stroke='#43a047' stroke-width='1'/>
+<text x='125' y='197' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>Validate → Execute</text>
+<line x1='200' y1='145' x2='125' y2='175' stroke='#43a047' stroke-width='1.5' marker-end='url(#arrow4)'/>
+<text x='60' y='168' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='700' text-anchor='start' fill='#2e7d32'>Supported</text>
+<rect x='310' y='175' width='130' height='35' rx='4' fill='#ffebee' stroke='#e53935' stroke-width='1'/>
+<text x='375' y='197' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>Abstain / Fallback</text>
+<line x1='300' y1='145' x2='375' y2='175' stroke='#e53935' stroke-width='1.5' stroke-dasharray='4,3' marker-end='url(#arrow4)'/>
+<text x='370' y='168' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='700' text-anchor='start' fill='#e53935'>Unsupported</text>
+<defs><marker id='arrow4' markerWidth='8' markerHeight='6' refX='8' refY='3' orient='auto'><polygon points='0 0, 8 3, 0 6' fill='#555'/></marker></defs>
+</svg>

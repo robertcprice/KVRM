@@ -1,0 +1,205 @@
+{
+  "registry_name": "customer-support-router",
+  "version": "1.2.0",
+  "required_features": [
+    "sentiment",
+    "issue_category",
+    "customer_tier",
+    "prior_contacts",
+    "resolution_complexity",
+    "account_age_days",
+    "has_open_ticket",
+    "escalation_history"
+  ],
+  "context_schema": {
+    "sentiment": {
+      "type": "string",
+      "enum": ["positive", "neutral", "frustrated", "angry"]
+    },
+    "issue_category": {
+      "type": "string",
+      "enum": ["billing", "technical", "account", "shipping", "product_defect", "feature_request"]
+    },
+    "customer_tier": {
+      "type": "string",
+      "enum": ["free", "standard", "premium", "enterprise"]
+    },
+    "prior_contacts": {
+      "type": "string",
+      "enum": ["none", "one", "multiple", "excessive"]
+    },
+    "resolution_complexity": {
+      "type": "string",
+      "enum": ["simple", "moderate", "complex", "requires_engineering"]
+    },
+    "account_age_days": {
+      "type": "string",
+      "enum": ["new", "established", "veteran", "legacy"]
+    },
+    "has_open_ticket": {
+      "type": "boolean"
+    },
+    "escalation_history": {
+      "type": "string",
+      "enum": ["none", "previously_escalated", "multi_escalated"]
+    }
+  },
+  "actions": [
+    {
+      "action_id": "send_knowledge_article",
+      "name": "Send Knowledge Article",
+      "description": "Automatically send a relevant knowledge-base article when the issue is simple and the customer has not contacted support before.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {"feature": "sentiment", "op": "in", "value": ["positive", "neutral"]},
+          {"feature": "resolution_complexity", "op": "eq", "value": "simple"},
+          {"feature": "prior_contacts", "op": "eq", "value": "none"},
+          {"feature": "has_open_ticket", "op": "eq", "value": false},
+          {"feature": "escalation_history", "op": "eq", "value": "none"}
+        ]
+      },
+      "tags": ["stable", "noop"]
+    },
+    {
+      "action_id": "auto_resolve_billing",
+      "name": "Auto Resolve Billing",
+      "description": "Automatically process a billing adjustment when the billing issue is straightforward and the customer is a paying tier.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {"feature": "issue_category", "op": "eq", "value": "billing"},
+          {"feature": "resolution_complexity", "op": "in", "value": ["simple", "moderate"]},
+          {"feature": "customer_tier", "op": "in", "value": ["standard", "premium", "enterprise"]},
+          {"feature": "sentiment", "op": "in", "value": ["neutral", "frustrated"]},
+          {"feature": "prior_contacts", "op": "in", "value": ["none", "one"]},
+          {"feature": "has_open_ticket", "op": "eq", "value": false},
+          {"feature": "escalation_history", "op": "eq", "value": "none"}
+        ]
+      },
+      "tags": ["stable"]
+    },
+    {
+      "action_id": "assign_specialist",
+      "name": "Assign Specialist",
+      "description": "Route the ticket to a domain specialist for technical, account, or product-defect issues of moderate or higher complexity.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {"feature": "issue_category", "op": "in", "value": ["technical", "account", "product_defect"]},
+          {"feature": "resolution_complexity", "op": "in", "value": ["moderate", "complex"]},
+          {"feature": "customer_tier", "op": "in", "value": ["standard", "premium", "enterprise"]},
+          {"feature": "prior_contacts", "op": "in", "value": ["none", "one", "multiple"]},
+          {"feature": "sentiment", "op": "in", "value": ["neutral", "frustrated"]},
+          {"feature": "has_open_ticket", "op": "eq", "value": false},
+          {"feature": "escalation_history", "op": "in", "value": ["none", "previously_escalated"]}
+        ]
+      },
+      "tags": ["stable"]
+    },
+    {
+      "action_id": "schedule_callback",
+      "name": "Schedule Callback",
+      "description": "Schedule a callback from a senior agent for frustrated or angry high-value customers who have contacted support multiple times.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {"feature": "sentiment", "op": "in", "value": ["frustrated", "angry"]},
+          {"feature": "prior_contacts", "op": "in", "value": ["multiple", "excessive"]},
+          {"feature": "customer_tier", "op": "in", "value": ["premium", "enterprise"]},
+          {"feature": "resolution_complexity", "op": "in", "value": ["moderate", "complex"]},
+          {"feature": "escalation_history", "op": "in", "value": ["none", "previously_escalated"]},
+          {"feature": "has_open_ticket", "op": "eq", "value": false}
+        ]
+      },
+      "tags": ["fallback"]
+    },
+    {
+      "action_id": "issue_refund",
+      "name": "Issue Refund",
+      "description": "Process an immediate refund for frustrated or angry premium/enterprise customers with a simple billing, shipping, or product-defect issue.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {"feature": "issue_category", "op": "in", "value": ["billing", "shipping", "product_defect"]},
+          {"feature": "customer_tier", "op": "in", "value": ["premium", "enterprise"]},
+          {"feature": "resolution_complexity", "op": "eq", "value": "simple"},
+          {"feature": "sentiment", "op": "in", "value": ["frustrated", "angry"]},
+          {"feature": "prior_contacts", "op": "in", "value": ["one", "multiple"]},
+          {"feature": "has_open_ticket", "op": "eq", "value": false},
+          {"feature": "escalation_history", "op": "eq", "value": "none"}
+        ]
+      },
+      "tags": ["stable"]
+    },
+    {
+      "action_id": "escalate_to_manager",
+      "name": "Escalate to Manager",
+      "description": "Escalate to a support manager when the situation is critical: multi-escalated history, angry excessive-contact customers, engineering-required issues, or angry enterprise customers.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": {"type": "string"}
+        },
+        "required": []
+      },
+      "support_spec": {
+        "any": [
+          {"feature": "escalation_history", "op": "eq", "value": "multi_escalated"},
+          {
+            "all": [
+              {"feature": "sentiment", "op": "eq", "value": "angry"},
+              {"feature": "prior_contacts", "op": "eq", "value": "excessive"}
+            ]
+          },
+          {"feature": "resolution_complexity", "op": "eq", "value": "requires_engineering"},
+          {
+            "all": [
+              {"feature": "customer_tier", "op": "eq", "value": "enterprise"},
+              {"feature": "sentiment", "op": "eq", "value": "angry"}
+            ]
+          }
+        ]
+      },
+      "tags": ["fallback"]
+    },
+    {
+      "action_id": "request_human_review",
+      "name": "Request Human Review",
+      "description": "Catch-all fallback: route the ticket to human triage when no automated action is appropriate.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": {"type": "string"}
+        },
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {"feature": "customer_tier", "op": "in", "value": ["free", "standard", "premium", "enterprise"]}
+        ]
+      },
+      "tags": ["fallback", "noop"]
+    }
+  ]
+}

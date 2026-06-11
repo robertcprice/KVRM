@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="280" viewBox="0 0 700 280">
+<text x='350' y='25' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='#1a1a2e'>Figure 7: Classifier Pipeline vs KVRM Systems Architecture</text>
+<text x='175' y='55' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='700' text-anchor='middle' fill='#e53935'>Classifier-Only Pipeline</text>
+<rect x='100' y='75' width='150' height='35' rx='4' fill='#ffebee' stroke='#e53935' stroke-width='1'/>
+<text x='175.0' y='96.5' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>Input Features</text>
+<rect x='100' y='125' width='150' height='35' rx='4' fill='#ffebee' stroke='#e53935' stroke-width='1'/>
+<text x='175.0' y='146.5' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>Classifier Model</text>
+<rect x='100' y='175' width='150' height='35' rx='4' fill='#ffebee' stroke='#e53935' stroke-width='1'/>
+<text x='175.0' y='196.5' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>Direct Execution</text>
+<line x1='175' y1='110' x2='175' y2='125' stroke='#e53935' stroke-width='1.5' marker-end='url(#arrow2)'/>
+<line x1='175' y1='160' x2='175' y2='175' stroke='#e53935' stroke-width='1.5' marker-end='url(#arrow2)'/>
+<text x='265' y='135' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='400' text-anchor='start' fill='#e53935'>No validation</text>
+<text x='265' y='155' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='400' text-anchor='start' fill='#e53935'>No abstention</text>
+<text x='265' y='185' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='400' text-anchor='start' fill='#e53935'>No audit trail</text>
+<text x='525' y='55' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='700' text-anchor='middle' fill='#1565c0'>KVRM Architecture</text>
+<rect x='450' y='75' width='150' height='30' rx='4' fill='#e3f2fd' stroke='#1565c0' stroke-width='1'/>
+<text x='525.0' y='94.0' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='middle' fill='#333'>Input Context</text>
+<rect x='450' y='118' width='150' height='30' rx='4' fill='#e3f2fd' stroke='#1565c0' stroke-width='1'/>
+<text x='525.0' y='137.0' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='middle' fill='#333'>Selector (Rule/Retrieval)</text>
+<rect x='450' y='161' width='30' height='30' rx='4' fill='#e3f2fd' stroke='#1565c0' stroke-width='1'/>
+<text x='465.0' y='180.0' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='middle' fill='#333'>Cal.</text>
+<rect x='487' y='161' width='113' height='30' rx='4' fill='#e3f2fd' stroke='#1565c0' stroke-width='1'/>
+<text x='543.5' y='180.0' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='middle' fill='#333'>Validator (Registry)</text>
+<rect x='450' y='204' width='150' height='30' rx='4' fill='#e3f2fd' stroke='#1565c0' stroke-width='1'/>
+<text x='525.0' y='223.0' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='middle' fill='#333'>Executor / Safe Handoff</text>
+<line x1='525' y1='105' x2='525' y2='118' stroke='#1565c0' stroke-width='1.5' marker-end='url(#arrow2)'/>
+<line x1='525' y1='148' x2='525' y2='161' stroke='#1565c0' stroke-width='1.5' marker-end='url(#arrow2)'/>
+<line x1='525' y1='191' x2='525' y2='204' stroke='#1565c0' stroke-width='1.5' marker-end='url(#arrow2)'/>
+<text x='615' y='128' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='400' text-anchor='start' fill='#2e7d32'>Validated</text>
+<text x='615' y='148' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='400' text-anchor='start' fill='#2e7d32'>Abstention-capable</text>
+<text x='615' y='171' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='400' text-anchor='start' fill='#2e7d32'>Registry-checked</text>
+<text x='615' y='214' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='400' text-anchor='start' fill='#2e7d32'>Audited</text>
+<rect x='615' y='70' width='60' height='40' rx='4' fill='#fff3e0' stroke='#ff9800' stroke-width='1'/>
+<text x='645' y='90' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='middle' fill='#e65100'>Action</text>
+<text x='645' y='102' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='middle' fill='#e65100'>Registry</text>
+<defs><marker id='arrow2' markerWidth='8' markerHeight='6' refX='8' refY='3' orient='auto'><polygon points='0 0, 8 3, 0 6' fill='#555'/></marker></defs>
+</svg>

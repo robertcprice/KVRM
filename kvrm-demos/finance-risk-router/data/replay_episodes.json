@@ -1,0 +1,399 @@
+{
+  "episodes": [
+    {
+      "episode_id": "finance_authored_001",
+      "episode_type": "switch_fail_closed_recover",
+      "episode_note": "A previously low-risk payment warms into monitored traffic, then spikes into an unsupported fraud state before returning to a clean approval path.",
+      "driver_features": [
+        "anomaly_score"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "The transaction is clean and low risk.",
+          "case": {
+            "case_id": "finance_authored_001_step_01",
+            "expected_action_id": "approve_low_risk",
+            "input_features": {
+              "transaction_amount": "low",
+              "jurisdiction_risk": "low",
+              "anomaly_score": "low",
+              "account_history": "clean",
+              "kyc_completeness": "complete",
+              "velocity_indicator": "normal",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 4,
+          "event_kind": "monitoring_gate",
+          "event_note": "The anomaly score rises into the monitored band, but the case remains supported.",
+          "case": {
+            "case_id": "finance_authored_001_step_02",
+            "expected_action_id": "allow_with_monitoring",
+            "input_features": {
+              "transaction_amount": "low",
+              "jurisdiction_risk": "low",
+              "anomaly_score": "medium",
+              "account_history": "clean",
+              "kyc_completeness": "complete",
+              "velocity_indicator": "normal",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 9,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "The anomaly score jumps again, but no audited finance action covers this exact state and the system should fail closed.",
+          "case": {
+            "case_id": "finance_authored_001_step_03",
+            "expected_action_id": null,
+            "input_features": {
+              "transaction_amount": "low",
+              "jurisdiction_risk": "low",
+              "anomaly_score": "high",
+              "account_history": "clean",
+              "kyc_completeness": "complete",
+              "velocity_indicator": "normal",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 15,
+          "event_kind": "recovery",
+          "event_note": "The signal clears and the original low-risk approval path becomes valid again.",
+          "case": {
+            "case_id": "finance_authored_001_step_04",
+            "expected_action_id": "approve_low_risk",
+            "input_features": {
+              "transaction_amount": "low",
+              "jurisdiction_risk": "low",
+              "anomaly_score": "low",
+              "account_history": "clean",
+              "kyc_completeness": "complete",
+              "velocity_indicator": "normal",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    },
+    {
+      "episode_id": "finance_authored_002",
+      "episode_type": "switch_fail_closed_recover",
+      "episode_note": "A docs-gated transaction briefly escalates into compliance review, then becomes unsupported when the transfer upsizes before documentation is repaired.",
+      "driver_features": [
+        "sanctions_hit",
+        "transaction_amount",
+        "kyc_completeness"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "Missing or mismatched documents keep the payment on the additional-docs path.",
+          "case": {
+            "case_id": "finance_authored_002_step_01",
+            "expected_action_id": "require_additional_docs",
+            "input_features": {
+              "transaction_amount": "medium",
+              "jurisdiction_risk": "medium",
+              "anomaly_score": "low",
+              "account_history": "clean",
+              "kyc_completeness": "partial",
+              "velocity_indicator": "normal",
+              "sanctions_hit": false,
+              "document_mismatch": true,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 5,
+          "event_kind": "compliance_escalation",
+          "event_note": "A sanctions signal appears and pushes the case into formal compliance escalation.",
+          "case": {
+            "case_id": "finance_authored_002_step_02",
+            "expected_action_id": "escalate_compliance",
+            "input_features": {
+              "transaction_amount": "medium",
+              "jurisdiction_risk": "medium",
+              "anomaly_score": "low",
+              "account_history": "clean",
+              "kyc_completeness": "partial",
+              "velocity_indicator": "normal",
+              "sanctions_hit": true,
+              "document_mismatch": true,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 11,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "The sanctions signal clears, but the transfer is now too large for the docs-only path and should fail closed.",
+          "case": {
+            "case_id": "finance_authored_002_step_03",
+            "expected_action_id": null,
+            "input_features": {
+              "transaction_amount": "high",
+              "jurisdiction_risk": "medium",
+              "anomaly_score": "low",
+              "account_history": "clean",
+              "kyc_completeness": "partial",
+              "velocity_indicator": "normal",
+              "sanctions_hit": false,
+              "document_mismatch": true,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 18,
+          "event_kind": "recovery",
+          "event_note": "The payment is resized back into the audited docs-collection envelope.",
+          "case": {
+            "case_id": "finance_authored_002_step_04",
+            "expected_action_id": "require_additional_docs",
+            "input_features": {
+              "transaction_amount": "medium",
+              "jurisdiction_risk": "medium",
+              "anomaly_score": "low",
+              "account_history": "clean",
+              "kyc_completeness": "partial",
+              "velocity_indicator": "normal",
+              "sanctions_hit": false,
+              "document_mismatch": true,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    },
+    {
+      "episode_id": "finance_authored_003",
+      "episode_type": "switch_fail_closed_recover",
+      "episode_note": "A throttled account escalates into an immediate freeze, then drops into an unsupported KYC-incomplete state before the throttled policy resumes.",
+      "driver_features": [
+        "anomaly_score",
+        "kyc_completeness"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "High velocity with elevated anomaly supports a temporary limit reduction.",
+          "case": {
+            "case_id": "finance_authored_003_step_01",
+            "expected_action_id": "lower_limit_temporarily",
+            "input_features": {
+              "transaction_amount": "medium",
+              "jurisdiction_risk": "low",
+              "anomaly_score": "high",
+              "account_history": "clean",
+              "kyc_completeness": "complete",
+              "velocity_indicator": "high",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 4,
+          "event_kind": "freeze_escalation",
+          "event_note": "The anomaly score spikes to severe and the account should be frozen immediately.",
+          "case": {
+            "case_id": "finance_authored_003_step_02",
+            "expected_action_id": "freeze_for_investigation",
+            "input_features": {
+              "transaction_amount": "medium",
+              "jurisdiction_risk": "low",
+              "anomaly_score": "severe",
+              "account_history": "clean",
+              "kyc_completeness": "complete",
+              "velocity_indicator": "high",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 10,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "The KYC snapshot drops out while the account remains hot, leaving no audited action and requiring fail-closed behavior.",
+          "case": {
+            "case_id": "finance_authored_003_step_03",
+            "expected_action_id": null,
+            "input_features": {
+              "transaction_amount": "medium",
+              "jurisdiction_risk": "low",
+              "anomaly_score": "high",
+              "account_history": "clean",
+              "kyc_completeness": "missing",
+              "velocity_indicator": "high",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 17,
+          "event_kind": "recovery",
+          "event_note": "KYC data returns and the temporary-limit path is again valid.",
+          "case": {
+            "case_id": "finance_authored_003_step_04",
+            "expected_action_id": "lower_limit_temporarily",
+            "input_features": {
+              "transaction_amount": "medium",
+              "jurisdiction_risk": "low",
+              "anomaly_score": "high",
+              "account_history": "clean",
+              "kyc_completeness": "complete",
+              "velocity_indicator": "high",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    },
+    {
+      "episode_id": "finance_authored_004",
+      "episode_type": "fail_closed_recover_stabilize",
+      "episode_note": "A high-jurisdiction EDD case briefly falls outside the audited envelope when the anomaly score spikes past the modeled review boundary, then returns and remains stable.",
+      "driver_features": [
+        "anomaly_score"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "High-jurisdiction very-high-value traffic enters enhanced due diligence.",
+          "case": {
+            "case_id": "finance_authored_004_step_01",
+            "expected_action_id": "enhanced_due_diligence",
+            "input_features": {
+              "transaction_amount": "very_high",
+              "jurisdiction_risk": "high",
+              "anomaly_score": "medium",
+              "account_history": "watch",
+              "kyc_completeness": "complete",
+              "velocity_indicator": "normal",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 7,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "The anomaly score spikes again, but no audited finance action covers this exact combination and the system should fail closed.",
+          "case": {
+            "case_id": "finance_authored_004_step_02",
+            "expected_action_id": null,
+            "input_features": {
+              "transaction_amount": "very_high",
+              "jurisdiction_risk": "high",
+              "anomaly_score": "high",
+              "account_history": "watch",
+              "kyc_completeness": "complete",
+              "velocity_indicator": "normal",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 14,
+          "event_kind": "recovery",
+          "event_note": "The prior-incident signal is cleared and the EDD route returns.",
+          "case": {
+            "case_id": "finance_authored_004_step_03",
+            "expected_action_id": "enhanced_due_diligence",
+            "input_features": {
+              "transaction_amount": "very_high",
+              "jurisdiction_risk": "high",
+              "anomaly_score": "medium",
+              "account_history": "watch",
+              "kyc_completeness": "complete",
+              "velocity_indicator": "normal",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 24,
+          "event_kind": "stabilize",
+          "event_note": "The recovered EDD state remains stable at a later checkpoint.",
+          "case": {
+            "case_id": "finance_authored_004_step_04",
+            "expected_action_id": "enhanced_due_diligence",
+            "input_features": {
+              "transaction_amount": "very_high",
+              "jurisdiction_risk": "high",
+              "anomaly_score": "medium",
+              "account_history": "watch",
+              "kyc_completeness": "complete",
+              "velocity_indicator": "normal",
+              "sanctions_hit": false,
+              "document_mismatch": false,
+              "device_trust": "trusted"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    }
+  ]
+}

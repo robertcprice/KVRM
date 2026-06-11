@@ -1,0 +1,634 @@
+{
+  "episodes": [
+    {
+      "episode_id": "drone_authored_001",
+      "episode_type": "switch_fail_closed_recover",
+      "episode_note": "A routine mission starts in a healthy envelope, drops into a low-battery conservation path, then loses comms entirely before the original mission envelope is restored.",
+      "driver_features": [
+        "battery",
+        "comms",
+        "estimated_energy_margin"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "Battery and communications are healthy, so the mission continues normally.",
+          "case": {
+            "case_id": "drone_authored_001_step_01",
+            "expected_action_id": "continue_mission",
+            "input_features": {
+              "airspace_deconfliction_status": "clear",
+              "altitude_headroom": "adequate",
+              "autonomous_recovery_allowed": true,
+              "battery": "high",
+              "comms": "good",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "high",
+              "obstacle_density": "medium",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "medium",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "unavailable",
+              "rules_of_engagement_state": "permissive",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "medium",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "low",
+              "threat_level": "low",
+              "wind": "medium"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 4,
+          "event_kind": "energy_degradation",
+          "event_note": "Battery margin drops and the safe move becomes battery conservation.",
+          "case": {
+            "case_id": "drone_authored_001_step_02",
+            "expected_action_id": "conserve_battery_mode",
+            "input_features": {
+              "airspace_deconfliction_status": "clear",
+              "altitude_headroom": "adequate",
+              "autonomous_recovery_allowed": true,
+              "battery": "low",
+              "comms": "good",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "high",
+              "obstacle_density": "medium",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "medium",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "unavailable",
+              "rules_of_engagement_state": "permissive",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "medium",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "low",
+              "threat_level": "low",
+              "wind": "medium"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 9,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "Communications are lost entirely and the drone leaves the audited action space, so the runtime must fail closed or execute only a safe fallback.",
+          "case": {
+            "case_id": "drone_authored_001_step_03",
+            "expected_action_id": null,
+            "input_features": {
+              "airspace_deconfliction_status": "clear",
+              "altitude_headroom": "adequate",
+              "autonomous_recovery_allowed": true,
+              "battery": "high",
+              "comms": "lost",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "high",
+              "obstacle_density": "medium",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "medium",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "unavailable",
+              "rules_of_engagement_state": "permissive",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "medium",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "low",
+              "threat_level": "low",
+              "wind": "medium"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 16,
+          "event_kind": "recovery",
+          "event_note": "Communications are restored and the original continue-mission envelope returns.",
+          "case": {
+            "case_id": "drone_authored_001_step_04",
+            "expected_action_id": "continue_mission",
+            "input_features": {
+              "airspace_deconfliction_status": "clear",
+              "altitude_headroom": "adequate",
+              "autonomous_recovery_allowed": true,
+              "battery": "high",
+              "comms": "good",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "high",
+              "obstacle_density": "medium",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "medium",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "unavailable",
+              "rules_of_engagement_state": "permissive",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "medium",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "low",
+              "threat_level": "low",
+              "wind": "medium"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    },
+    {
+      "episode_id": "drone_authored_002",
+      "episode_type": "switch_fail_closed_recover",
+      "episode_note": "A signal-recovery climb turns into a stationary hold when obstacles spike, then loses enough altitude headroom that no audited maneuver remains before the recovery climb becomes valid again.",
+      "driver_features": [
+        "obstacle_density",
+        "altitude_headroom",
+        "signal_recovery_confidence"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "A degraded comms state with ample headroom supports a signal-recovery climb.",
+          "case": {
+            "case_id": "drone_authored_002_step_01",
+            "expected_action_id": "climb_for_signal_recovery",
+            "input_features": {
+              "airspace_deconfliction_status": "clear",
+              "altitude_headroom": "ample",
+              "autonomous_recovery_allowed": true,
+              "battery": "high",
+              "comms": "degraded",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "medium",
+              "obstacle_density": "medium",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "low",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "unavailable",
+              "rules_of_engagement_state": "permissive",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "medium",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "medium",
+              "threat_level": "low",
+              "wind": "medium"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 5,
+          "event_kind": "obstacle_spike",
+          "event_note": "Obstacle density rises and the safe action becomes holding position.",
+          "case": {
+            "case_id": "drone_authored_002_step_02",
+            "expected_action_id": "hold_position",
+            "input_features": {
+              "airspace_deconfliction_status": "clear",
+              "altitude_headroom": "ample",
+              "autonomous_recovery_allowed": true,
+              "battery": "high",
+              "comms": "degraded",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "medium",
+              "obstacle_density": "high",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "low",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "unavailable",
+              "rules_of_engagement_state": "permissive",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "medium",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "medium",
+              "threat_level": "low",
+              "wind": "medium"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 11,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "Altitude headroom collapses and the drone exits the audited maneuver set, so the runtime must safely reject the step.",
+          "case": {
+            "case_id": "drone_authored_002_step_03",
+            "expected_action_id": null,
+            "input_features": {
+              "airspace_deconfliction_status": "clear",
+              "altitude_headroom": "limited",
+              "autonomous_recovery_allowed": true,
+              "battery": "high",
+              "comms": "degraded",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "medium",
+              "obstacle_density": "medium",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "low",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "unavailable",
+              "rules_of_engagement_state": "permissive",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "medium",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "medium",
+              "threat_level": "low",
+              "wind": "medium"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 18,
+          "event_kind": "recovery",
+          "event_note": "Headroom is restored and the climb-for-signal action is valid again.",
+          "case": {
+            "case_id": "drone_authored_002_step_04",
+            "expected_action_id": "climb_for_signal_recovery",
+            "input_features": {
+              "airspace_deconfliction_status": "clear",
+              "altitude_headroom": "ample",
+              "autonomous_recovery_allowed": true,
+              "battery": "high",
+              "comms": "degraded",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "medium",
+              "obstacle_density": "medium",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "low",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "unavailable",
+              "rules_of_engagement_state": "permissive",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "medium",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "medium",
+              "threat_level": "low",
+              "wind": "medium"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    },
+    {
+      "episode_id": "drone_authored_003",
+      "episode_type": "switch_fail_closed_recover",
+      "episode_note": "A contested, high-threat flight begins in supervised manual handoff, briefly de-escalates into a stationary hold, then loses every non-fallback action before supervised handoff becomes valid again.",
+      "driver_features": [
+        "threat_level",
+        "airspace_deconfliction_status",
+        "pilot_takeover_link_quality"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "Contested airspace and a feasible operator takeover justify manual handoff.",
+          "case": {
+            "case_id": "drone_authored_003_step_01",
+            "expected_action_id": "manual_handoff",
+            "expected_parameters": {
+              "reason": "high_threat_supervised_takeover"
+            },
+            "input_features": {
+              "airspace_deconfliction_status": "contested",
+              "altitude_headroom": "limited",
+              "autonomous_recovery_allowed": false,
+              "battery": "medium",
+              "comms": "poor",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "high",
+              "obstacle_density": "high",
+              "operator_control_latency_budget": "ample",
+              "payload_criticality": "high",
+              "pilot_response_eta": "moderate",
+              "pilot_takeover_link_quality": "degraded",
+              "rules_of_engagement_state": "restricted",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "low",
+              "takeover_window_remaining": "limited",
+              "terrain_occlusion_level": "medium",
+              "threat_level": "high",
+              "wind": "high"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 6,
+          "event_kind": "deescalation_switch",
+          "event_note": "Threat intensity drops, so the safe supported move becomes holding position instead of handing off.",
+          "case": {
+            "case_id": "drone_authored_003_step_02",
+            "expected_action_id": "hold_position",
+            "input_features": {
+              "airspace_deconfliction_status": "contested",
+              "altitude_headroom": "limited",
+              "autonomous_recovery_allowed": false,
+              "battery": "medium",
+              "comms": "poor",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "high",
+              "obstacle_density": "high",
+              "operator_control_latency_budget": "ample",
+              "payload_criticality": "high",
+              "pilot_response_eta": "moderate",
+              "pilot_takeover_link_quality": "degraded",
+              "rules_of_engagement_state": "restricted",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "low",
+              "takeover_window_remaining": "limited",
+              "terrain_occlusion_level": "medium",
+              "threat_level": "medium",
+              "wind": "high"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 12,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "Airspace briefly clears but no audited non-fallback control action remains, so the runtime should safely reject or execute only the generic fallback path.",
+          "case": {
+            "case_id": "drone_authored_003_step_03",
+            "expected_action_id": null,
+            "input_features": {
+              "airspace_deconfliction_status": "clear",
+              "altitude_headroom": "limited",
+              "autonomous_recovery_allowed": false,
+              "battery": "medium",
+              "comms": "poor",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "high",
+              "obstacle_density": "high",
+              "operator_control_latency_budget": "ample",
+              "payload_criticality": "high",
+              "pilot_response_eta": "moderate",
+              "pilot_takeover_link_quality": "degraded",
+              "rules_of_engagement_state": "restricted",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "low",
+              "takeover_window_remaining": "limited",
+              "terrain_occlusion_level": "medium",
+              "threat_level": "high",
+              "wind": "high"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 19,
+          "event_kind": "recovery",
+          "event_note": "Contestation returns and the supervised manual handoff envelope is valid again.",
+          "case": {
+            "case_id": "drone_authored_003_step_04",
+            "expected_action_id": "manual_handoff",
+            "expected_parameters": {
+              "reason": "high_threat_supervised_takeover"
+            },
+            "input_features": {
+              "airspace_deconfliction_status": "contested",
+              "altitude_headroom": "limited",
+              "autonomous_recovery_allowed": false,
+              "battery": "medium",
+              "comms": "poor",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "positive",
+              "gps": "good",
+              "mission_progress": "mid",
+              "mission_replan_budget": "limited",
+              "mission_urgency": "high",
+              "obstacle_density": "high",
+              "operator_control_latency_budget": "ample",
+              "payload_criticality": "high",
+              "pilot_response_eta": "moderate",
+              "pilot_takeover_link_quality": "degraded",
+              "rules_of_engagement_state": "restricted",
+              "safe_landing_zone_available": false,
+              "signal_recovery_confidence": "low",
+              "takeover_window_remaining": "limited",
+              "terrain_occlusion_level": "medium",
+              "threat_level": "high",
+              "wind": "high"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    },
+    {
+      "episode_id": "drone_authored_004",
+      "episode_type": "fail_closed_recover_stabilize",
+      "episode_note": "A denied-airspace safety descent loses the autonomy envelope entirely, then recovers and remains stable once autonomous recovery is allowed again.",
+      "driver_features": [
+        "autonomous_recovery_allowed",
+        "safe_landing_zone_available",
+        "airspace_deconfliction_status"
+      ],
+      "steps": [
+        {
+          "minute_offset": 0,
+          "event_kind": "baseline",
+          "event_note": "With denied airspace and a safe landing zone available, the correct action is to descend for safety.",
+          "case": {
+            "case_id": "drone_authored_004_step_01",
+            "expected_action_id": "descend_for_safety",
+            "input_features": {
+              "airspace_deconfliction_status": "denied",
+              "altitude_headroom": "limited",
+              "autonomous_recovery_allowed": true,
+              "battery": "medium",
+              "comms": "degraded",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "tight",
+              "gps": "poor",
+              "mission_progress": "mid",
+              "mission_replan_budget": "none",
+              "mission_urgency": "medium",
+              "obstacle_density": "high",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "high",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "poor",
+              "rules_of_engagement_state": "hold",
+              "safe_landing_zone_available": true,
+              "signal_recovery_confidence": "low",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "low",
+              "threat_level": "medium",
+              "wind": "severe"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 7,
+          "event_kind": "unsupported_checkpoint",
+          "event_note": "Autonomous recovery authority is revoked, leaving the drone outside the audited action space and forcing a safe rejection.",
+          "case": {
+            "case_id": "drone_authored_004_step_02",
+            "expected_action_id": null,
+            "input_features": {
+              "airspace_deconfliction_status": "denied",
+              "altitude_headroom": "limited",
+              "autonomous_recovery_allowed": false,
+              "battery": "medium",
+              "comms": "degraded",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "tight",
+              "gps": "poor",
+              "mission_progress": "mid",
+              "mission_replan_budget": "none",
+              "mission_urgency": "medium",
+              "obstacle_density": "high",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "high",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "poor",
+              "rules_of_engagement_state": "hold",
+              "safe_landing_zone_available": true,
+              "signal_recovery_confidence": "low",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "low",
+              "threat_level": "medium",
+              "wind": "severe"
+            },
+            "ood": true,
+            "supported": false
+          }
+        },
+        {
+          "minute_offset": 14,
+          "event_kind": "recovery",
+          "event_note": "Autonomous recovery is reauthorized, restoring the safety descent envelope.",
+          "case": {
+            "case_id": "drone_authored_004_step_03",
+            "expected_action_id": "descend_for_safety",
+            "input_features": {
+              "airspace_deconfliction_status": "denied",
+              "altitude_headroom": "limited",
+              "autonomous_recovery_allowed": true,
+              "battery": "medium",
+              "comms": "degraded",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "tight",
+              "gps": "poor",
+              "mission_progress": "mid",
+              "mission_replan_budget": "none",
+              "mission_urgency": "medium",
+              "obstacle_density": "high",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "high",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "poor",
+              "rules_of_engagement_state": "hold",
+              "safe_landing_zone_available": true,
+              "signal_recovery_confidence": "low",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "low",
+              "threat_level": "medium",
+              "wind": "severe"
+            },
+            "ood": true,
+            "supported": true
+          }
+        },
+        {
+          "minute_offset": 23,
+          "event_kind": "stabilize",
+          "event_note": "The recovered descent envelope remains stable at a later checkpoint.",
+          "case": {
+            "case_id": "drone_authored_004_step_04",
+            "expected_action_id": "descend_for_safety",
+            "input_features": {
+              "airspace_deconfliction_status": "denied",
+              "altitude_headroom": "limited",
+              "autonomous_recovery_allowed": true,
+              "battery": "medium",
+              "comms": "degraded",
+              "distance_to_home": "medium",
+              "estimated_energy_margin": "tight",
+              "gps": "poor",
+              "mission_progress": "mid",
+              "mission_replan_budget": "none",
+              "mission_urgency": "medium",
+              "obstacle_density": "high",
+              "operator_control_latency_budget": "tight",
+              "payload_criticality": "high",
+              "pilot_response_eta": "slow",
+              "pilot_takeover_link_quality": "poor",
+              "rules_of_engagement_state": "hold",
+              "safe_landing_zone_available": true,
+              "signal_recovery_confidence": "low",
+              "takeover_window_remaining": "brief",
+              "terrain_occlusion_level": "low",
+              "threat_level": "medium",
+              "wind": "severe"
+            },
+            "ood": true,
+            "supported": true
+          }
+        }
+      ]
+    }
+  ]
+}

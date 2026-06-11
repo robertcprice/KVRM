@@ -1,0 +1,12 @@
+{
+  "domain": "customer_support",
+  "model": "gemma4:e2b",
+  "variant": "abstain_json",
+  "runner": "ollama",
+  "registry_version": "1.2.0",
+  "train_cases": 34,
+  "eval_cases": 48,
+  "max_examples_per_action": 1,
+  "timestamp": "2026-04-13T13:14:57.416654+00:00",
+  "refresh": false
+}

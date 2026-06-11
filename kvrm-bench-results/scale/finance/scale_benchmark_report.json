@@ -1,0 +1,51 @@
+{
+  "domains": {
+    "finance": {
+      "case_count": 1000,
+      "correctness": {
+        "abstention_rate": 0.0,
+        "calibration_ece": 0.305057962962963,
+        "fallback_rate": 0.317,
+        "false_accept_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "latency_p50_ms": 16.394292004406452,
+        "latency_p95_ms": 23.26175000052899,
+        "latency_p99_ms": 32.93200000189245,
+        "mean_decision_cost": 0.002,
+        "ood_accuracy_supported_only": 0.9967793880837359,
+        "semantic_correctness_rate": 0.9967793880837359,
+        "structural_validity_rate": 1.0,
+        "support_gate_exhausted_rate": 0.0,
+        "support_gate_trigger_rate": 0.0,
+        "supported_cases": 621,
+        "supported_mean_decision_cost": 0.00322061191626409,
+        "supported_support_gate_rescue_rate": 0.0,
+        "total_cases": 1000,
+        "unsupported_case_rejection_rate": 1.0,
+        "unsupported_cases": 379,
+        "unsupported_mean_decision_cost": 0.0,
+        "unsupported_support_gate_short_circuit_rate": 0.0
+      },
+      "latency": {
+        "max_ms": 93.3858,
+        "mean_ms": 17.3072,
+        "p50_ms": 16.4844,
+        "p95_ms": 23.3589,
+        "p99_ms": 33.528,
+        "throughput_decisions_per_sec": 57.64,
+        "total_elapsed_ms": 17348.381
+      },
+      "multi_action_case_count": 2,
+      "supported_case_count": 621,
+      "total_feature_space_size": 15552,
+      "unsupported_case_count": 379
+    }
+  },
+  "generated_at": "2026-04-13T02:08:42.918213+00:00",
+  "summary": {
+    "all_domains_perfect": false,
+    "overall_throughput_decisions_per_sec": 57.64,
+    "total_cases": 1000,
+    "total_elapsed_ms": 17348.381
+  }
+}

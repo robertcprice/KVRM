@@ -1,0 +1,28 @@
+{
+  "compositional": {
+    "single_accuracy": 100.0,
+    "single_samples": 25,
+    "compositional_full_match": 0.0,
+    "compositional_partial_match": 43.75,
+    "compositional_samples": 16,
+    "gap_percentage_points": 100.0
+  },
+  "sota_comparison": {
+    "KVRM": {
+      "accuracy": 100.0,
+      "avg_latency_ms": 0.03967042218135822,
+      "bounded_output": true
+    },
+    "DSPy": {
+      "accuracy": 72.0,
+      "avg_latency_ms": 222.46541923401932,
+      "bounded_output": false
+    },
+    "Outlines": {
+      "accuracy": 72.0,
+      "avg_latency_ms": 107.2375054800476,
+      "bounded_output": false
+    }
+  },
+  "timestamp": "2026-01-12 10:44:36"
+}

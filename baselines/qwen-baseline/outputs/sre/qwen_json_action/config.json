@@ -1,0 +1,7 @@
+{
+  "domain": "sre",
+  "variant": "json_action",
+  "train_cases": 7,
+  "eval_cases": 16,
+  "timestamp": "2026-04-07T03:12:43.569630+00:00"
+}

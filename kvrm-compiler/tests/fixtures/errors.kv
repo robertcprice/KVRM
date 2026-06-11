@@ -1,0 +1,138 @@
+// This file contains intentional errors for testing error detection and reporting
+
+// Lexer errors
+let @invalid_identifier = 42;  // Invalid character in identifier
+let x = 0xGHI;  // Invalid hex number
+let str = "unterminated string;  // Unterminated string literal
+
+// Parser errors
+let x = ;  // Missing expression after assignment
+fn missing_return_type()  // Missing function body
+let y: i32 = 42  // Missing semicolon
+
+// Semantic errors - Type mismatches
+let num: i32 = "string";  // Type mismatch: string assigned to i32
+let result = 5 + "text";  // Cannot add number and string
+
+// Semantic errors - Undefined variables
+let sum = undefined_var + 10;  // Undefined variable
+x = y + 5;  // Using variables before declaration
+
+// Semantic errors - Function errors
+fn add(a: i32, b: i32) -> i32 {
+  return "not a number";  // Return type mismatch
+}
+
+fn no_return() -> i32 {
+  let x = 5;
+  // Missing return statement
+}
+
+let bad_call = add(1, 2, 3);  // Too many arguments
+let another_bad_call = add(1);  // Too few arguments
+let wrong_type = add("x", "y");  // Wrong argument types
+
+// Semantic errors - Struct errors
+struct Point {
+  x: i32,
+  y: i32
+}
+
+let incomplete = Point { x: 10 };  // Missing field 'y'
+let extra_field = Point { x: 10, y: 20, z: 30 };  // Extra field 'z'
+let wrong_field_type = Point { x: "string", y: 20 };  // Wrong field type
+
+let p = Point { x: 10, y: 20 };
+let invalid_access = p.z;  // Accessing non-existent field
+
+// Semantic errors - Mutability
+let immutable = 10;
+immutable = 20;  // Cannot assign to immutable variable
+
+let mut mutable = 30;
+mutable = 40;  // OK - this should not error
+
+// Semantic errors - Array errors
+let arr: [i32; 3] = [1, 2, 3, 4];  // Array size mismatch
+let mixed_types = [1, "two", 3];  // Mixed element types
+let wrong_index = arr["string"];  // Non-integer index
+
+// Semantic errors - Control flow errors
+if (42) {  // Non-boolean condition
+  let x = 5;
+}
+
+while ("string") {  // Non-boolean condition
+  let y = 10;
+}
+
+// Semantic errors - Operator errors
+let bad_op1 = true + false;  // Cannot add booleans
+let bad_op2 = "hello" * 5;  // Cannot multiply strings
+let bad_op3 = 10 && 20;  // Logical operator on non-booleans
+
+// Scope errors
+{
+  let scoped = 42;
+}
+let outside = scoped + 1;  // Variable out of scope
+
+// Redefinition errors
+let duplicate = 10;
+let duplicate = 20;  // Redefinition in same scope
+
+fn duplicate() { }  // Function name conflicts with variable
+
+// Generic errors (if supported)
+fn generic_fn<T>(x: T) -> i32 {
+  return x;  // Cannot return T as i32
+}
+
+// Circular dependency (if detected)
+struct A {
+  b: B
+}
+
+struct B {
+  a: A
+}
+
+// Division by zero (if caught at compile time)
+let zero_div = 10 / 0;
+
+// Negative array size
+let negative_arr: [i32; -5];
+
+// Parser recovery test - multiple errors in sequence
+let err1 = ;
+let err2 = ;
+let valid = 42;  // Should still parse this
+let err3 = @ invalid;
+
+// Missing closing brace
+fn unclosed() {
+  let x = 5;
+  if (true) {
+    let y = 10;
+  // Missing closing brace for function
+
+// Unmatched parentheses
+let bad_parens = (1 + 2;
+let more_parens = 1 + 2);
+
+// Invalid operators
+let bad_assign == 5;  // Using == instead of =
+let comparison = x = 10;  // Using = instead of ==
+
+// Type annotation errors
+let wrong_annotation: NonExistentType = 42;
+let arr_wrong: [i32; "five"] = [1, 2, 3, 4, 5];
+
+// Nested errors
+fn nested_errors() -> i32 {
+  if (x) {  // Undefined variable
+    return "string";  // Wrong return type
+  } else {
+    let y = ;  // Parser error
+  }
+}

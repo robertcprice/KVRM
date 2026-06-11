@@ -1,0 +1,4467 @@
+{
+  "domains": {
+    "content_moderation": {
+      "action_count": 7,
+      "domain": "content_moderation",
+      "feature_count": 8,
+      "global_feature_importances": [
+        {
+          "feature": "toxicity_level",
+          "importance": 0.203724,
+          "rank": 1
+        },
+        {
+          "feature": "user_trust_score",
+          "importance": 0.131674,
+          "rank": 2
+        },
+        {
+          "feature": "recidivism_risk",
+          "importance": 0.119489,
+          "rank": 3
+        },
+        {
+          "feature": "reporter_credibility",
+          "importance": 0.119237,
+          "rank": 4
+        },
+        {
+          "feature": "context_sensitivity",
+          "importance": 0.117626,
+          "rank": 5
+        },
+        {
+          "feature": "content_type",
+          "importance": 0.117188,
+          "rank": 6
+        },
+        {
+          "feature": "audience_reach",
+          "importance": 0.111963,
+          "rank": 7
+        },
+        {
+          "feature": "content_age_hours",
+          "importance": 0.079098,
+          "rank": 8
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "train_accuracy": 1.0,
+        "train_case_count": 31
+      },
+      "model_path": "/Users/bobbyprice/projects/KVRM/kvrm-models/content_moderation_compact_selector_v1.joblib",
+      "per_action_importances": {
+        "auto_approve": [
+          {
+            "feature": "toxicity_level",
+            "importance": 0.271682
+          },
+          {
+            "feature": "user_trust_score",
+            "importance": 0.138622
+          },
+          {
+            "feature": "audience_reach",
+            "importance": 0.114245
+          },
+          {
+            "feature": "content_type",
+            "importance": 0.107852
+          },
+          {
+            "feature": "recidivism_risk",
+            "importance": 0.104754
+          },
+          {
+            "feature": "reporter_credibility",
+            "importance": 0.101684
+          },
+          {
+            "feature": "context_sensitivity",
+            "importance": 0.098758
+          },
+          {
+            "feature": "content_age_hours",
+            "importance": 0.062404
+          }
+        ],
+        "escalate_trust_safety": [
+          {
+            "feature": "toxicity_level",
+            "importance": 0.16281
+          },
+          {
+            "feature": "content_type",
+            "importance": 0.154802
+          },
+          {
+            "feature": "user_trust_score",
+            "importance": 0.137164
+          },
+          {
+            "feature": "context_sensitivity",
+            "importance": 0.135945
+          },
+          {
+            "feature": "recidivism_risk",
+            "importance": 0.117856
+          },
+          {
+            "feature": "reporter_credibility",
+            "importance": 0.107439
+          },
+          {
+            "feature": "audience_reach",
+            "importance": 0.105201
+          },
+          {
+            "feature": "content_age_hours",
+            "importance": 0.078784
+          }
+        ],
+        "flag_for_human_review": [
+          {
+            "feature": "toxicity_level",
+            "importance": 0.179041
+          },
+          {
+            "feature": "recidivism_risk",
+            "importance": 0.140687
+          },
+          {
+            "feature": "context_sensitivity",
+            "importance": 0.137029
+          },
+          {
+            "feature": "user_trust_score",
+            "importance": 0.127632
+          },
+          {
+            "feature": "reporter_credibility",
+            "importance": 0.118374
+          },
+          {
+            "feature": "audience_reach",
+            "importance": 0.116717
+          },
+          {
+            "feature": "content_type",
+            "importance": 0.093108
+          },
+          {
+            "feature": "content_age_hours",
+            "importance": 0.087412
+          }
+        ],
+        "reduce_visibility": [
+          {
+            "feature": "toxicity_level",
+            "importance": 0.202153
+          },
+          {
+            "feature": "user_trust_score",
+            "importance": 0.146701
+          },
+          {
+            "feature": "audience_reach",
+            "importance": 0.139693
+          },
+          {
+            "feature": "reporter_credibility",
+            "importance": 0.116279
+          },
+          {
+            "feature": "recidivism_risk",
+            "importance": 0.11589
+          },
+          {
+            "feature": "context_sensitivity",
+            "importance": 0.103932
+          },
+          {
+            "feature": "content_type",
+            "importance": 0.096754
+          },
+          {
+            "feature": "content_age_hours",
+            "importance": 0.078597
+          }
+        ],
+        "remove_content": [
+          {
+            "feature": "toxicity_level",
+            "importance": 0.176017
+          },
+          {
+            "feature": "content_type",
+            "importance": 0.159345
+          },
+          {
+            "feature": "reporter_credibility",
+            "importance": 0.121997
+          },
+          {
+            "feature": "context_sensitivity",
+            "importance": 0.120371
+          },
+          {
+            "feature": "recidivism_risk",
+            "importance": 0.116595
+          },
+          {
+            "feature": "user_trust_score",
+            "importance": 0.110996
+          },
+          {
+            "feature": "audience_reach",
+            "importance": 0.106758
+          },
+          {
+            "feature": "content_age_hours",
+            "importance": 0.08792
+          }
+        ],
+        "request_human_review": [
+          {
+            "feature": "toxicity_level",
+            "importance": 0.212103
+          },
+          {
+            "feature": "user_trust_score",
+            "importance": 0.171556
+          },
+          {
+            "feature": "reporter_credibility",
+            "importance": 0.125708
+          },
+          {
+            "feature": "audience_reach",
+            "importance": 0.124293
+          },
+          {
+            "feature": "context_sensitivity",
+            "importance": 0.109842
+          },
+          {
+            "feature": "recidivism_risk",
+            "importance": 0.100059
+          },
+          {
+            "feature": "content_type",
+            "importance": 0.096881
+          },
+          {
+            "feature": "content_age_hours",
+            "importance": 0.059557
+          }
+        ],
+        "suspend_account": [
+          {
+            "feature": "toxicity_level",
+            "importance": 0.177643
+          },
+          {
+            "feature": "recidivism_risk",
+            "importance": 0.158283
+          },
+          {
+            "feature": "content_type",
+            "importance": 0.123941
+          },
+          {
+            "feature": "context_sensitivity",
+            "importance": 0.120706
+          },
+          {
+            "feature": "user_trust_score",
+            "importance": 0.119082
+          },
+          {
+            "feature": "reporter_credibility",
+            "importance": 0.111665
+          },
+          {
+            "feature": "audience_reach",
+            "importance": 0.09594
+          },
+          {
+            "feature": "content_age_hours",
+            "importance": 0.09274
+          }
+        ]
+      }
+    },
+    "customer_support": {
+      "action_count": 7,
+      "domain": "customer_support",
+      "feature_count": 8,
+      "global_feature_importances": [
+        {
+          "feature": "resolution_complexity",
+          "importance": 0.204441,
+          "rank": 1
+        },
+        {
+          "feature": "issue_category",
+          "importance": 0.187743,
+          "rank": 2
+        },
+        {
+          "feature": "sentiment",
+          "importance": 0.162156,
+          "rank": 3
+        },
+        {
+          "feature": "prior_contacts",
+          "importance": 0.136728,
+          "rank": 4
+        },
+        {
+          "feature": "customer_tier",
+          "importance": 0.128206,
+          "rank": 5
+        },
+        {
+          "feature": "account_age_days",
+          "importance": 0.090227,
+          "rank": 6
+        },
+        {
+          "feature": "escalation_history",
+          "importance": 0.067132,
+          "rank": 7
+        },
+        {
+          "feature": "has_open_ticket",
+          "importance": 0.023367,
+          "rank": 8
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "train_accuracy": 1.0,
+        "train_case_count": 25
+      },
+      "model_path": "/Users/bobbyprice/projects/KVRM/kvrm-models/customer_support_compact_selector_v1.joblib",
+      "per_action_importances": {
+        "assign_specialist": [
+          {
+            "feature": "resolution_complexity",
+            "importance": 0.221609
+          },
+          {
+            "feature": "issue_category",
+            "importance": 0.189005
+          },
+          {
+            "feature": "sentiment",
+            "importance": 0.146992
+          },
+          {
+            "feature": "customer_tier",
+            "importance": 0.118013
+          },
+          {
+            "feature": "prior_contacts",
+            "importance": 0.112857
+          },
+          {
+            "feature": "account_age_days",
+            "importance": 0.103226
+          },
+          {
+            "feature": "escalation_history",
+            "importance": 0.082262
+          },
+          {
+            "feature": "has_open_ticket",
+            "importance": 0.026036
+          }
+        ],
+        "auto_resolve_billing": [
+          {
+            "feature": "issue_category",
+            "importance": 0.202849
+          },
+          {
+            "feature": "resolution_complexity",
+            "importance": 0.182673
+          },
+          {
+            "feature": "sentiment",
+            "importance": 0.146373
+          },
+          {
+            "feature": "prior_contacts",
+            "importance": 0.144972
+          },
+          {
+            "feature": "customer_tier",
+            "importance": 0.133729
+          },
+          {
+            "feature": "account_age_days",
+            "importance": 0.092358
+          },
+          {
+            "feature": "escalation_history",
+            "importance": 0.073695
+          },
+          {
+            "feature": "has_open_ticket",
+            "importance": 0.023351
+          }
+        ],
+        "escalate_to_manager": [
+          {
+            "feature": "resolution_complexity",
+            "importance": 0.242513
+          },
+          {
+            "feature": "issue_category",
+            "importance": 0.165806
+          },
+          {
+            "feature": "sentiment",
+            "importance": 0.142751
+          },
+          {
+            "feature": "customer_tier",
+            "importance": 0.124901
+          },
+          {
+            "feature": "prior_contacts",
+            "importance": 0.108859
+          },
+          {
+            "feature": "escalation_history",
+            "importance": 0.090112
+          },
+          {
+            "feature": "account_age_days",
+            "importance": 0.086042
+          },
+          {
+            "feature": "has_open_ticket",
+            "importance": 0.039016
+          }
+        ],
+        "issue_refund": [
+          {
+            "feature": "resolution_complexity",
+            "importance": 0.25845
+          },
+          {
+            "feature": "prior_contacts",
+            "importance": 0.164835
+          },
+          {
+            "feature": "sentiment",
+            "importance": 0.158731
+          },
+          {
+            "feature": "issue_category",
+            "importance": 0.154015
+          },
+          {
+            "feature": "customer_tier",
+            "importance": 0.102769
+          },
+          {
+            "feature": "escalation_history",
+            "importance": 0.069254
+          },
+          {
+            "feature": "account_age_days",
+            "importance": 0.067692
+          },
+          {
+            "feature": "has_open_ticket",
+            "importance": 0.024254
+          }
+        ],
+        "request_human_review": [
+          {
+            "feature": "issue_category",
+            "importance": 0.228604
+          },
+          {
+            "feature": "resolution_complexity",
+            "importance": 0.183587
+          },
+          {
+            "feature": "sentiment",
+            "importance": 0.171013
+          },
+          {
+            "feature": "customer_tier",
+            "importance": 0.14192
+          },
+          {
+            "feature": "account_age_days",
+            "importance": 0.089295
+          },
+          {
+            "feature": "prior_contacts",
+            "importance": 0.08928
+          },
+          {
+            "feature": "escalation_history",
+            "importance": 0.06492
+          },
+          {
+            "feature": "has_open_ticket",
+            "importance": 0.031381
+          }
+        ],
+        "schedule_callback": [
+          {
+            "feature": "resolution_complexity",
+            "importance": 0.180812
+          },
+          {
+            "feature": "issue_category",
+            "importance": 0.171176
+          },
+          {
+            "feature": "prior_contacts",
+            "importance": 0.149916
+          },
+          {
+            "feature": "sentiment",
+            "importance": 0.135046
+          },
+          {
+            "feature": "customer_tier",
+            "importance": 0.12623
+          },
+          {
+            "feature": "escalation_history",
+            "importance": 0.109738
+          },
+          {
+            "feature": "account_age_days",
+            "importance": 0.080525
+          },
+          {
+            "feature": "has_open_ticket",
+            "importance": 0.046557
+          }
+        ],
+        "send_knowledge_article": [
+          {
+            "feature": "sentiment",
+            "importance": 0.239631
+          },
+          {
+            "feature": "resolution_complexity",
+            "importance": 0.221285
+          },
+          {
+            "feature": "prior_contacts",
+            "importance": 0.155502
+          },
+          {
+            "feature": "issue_category",
+            "importance": 0.134352
+          },
+          {
+            "feature": "customer_tier",
+            "importance": 0.119566
+          },
+          {
+            "feature": "account_age_days",
+            "importance": 0.090696
+          },
+          {
+            "feature": "escalation_history",
+            "importance": 0.031825
+          },
+          {
+            "feature": "has_open_ticket",
+            "importance": 0.007143
+          }
+        ]
+      }
+    },
+    "drone": {
+      "action_count": 8,
+      "domain": "drone",
+      "feature_count": 23,
+      "global_feature_importances": [
+        {
+          "feature": "distance_to_home",
+          "importance": 0.084412,
+          "rank": 1
+        },
+        {
+          "feature": "mission_replan_budget",
+          "importance": 0.084375,
+          "rank": 2
+        },
+        {
+          "feature": "airspace_deconfliction_status",
+          "importance": 0.063406,
+          "rank": 3
+        },
+        {
+          "feature": "estimated_energy_margin",
+          "importance": 0.057237,
+          "rank": 4
+        },
+        {
+          "feature": "signal_recovery_confidence",
+          "importance": 0.056943,
+          "rank": 5
+        },
+        {
+          "feature": "rules_of_engagement_state",
+          "importance": 0.054201,
+          "rank": 6
+        },
+        {
+          "feature": "threat_level",
+          "importance": 0.052429,
+          "rank": 7
+        },
+        {
+          "feature": "terrain_occlusion_level",
+          "importance": 0.050973,
+          "rank": 8
+        },
+        {
+          "feature": "battery",
+          "importance": 0.050367,
+          "rank": 9
+        },
+        {
+          "feature": "pilot_takeover_link_quality",
+          "importance": 0.044609,
+          "rank": 10
+        },
+        {
+          "feature": "mission_progress",
+          "importance": 0.043547,
+          "rank": 11
+        },
+        {
+          "feature": "operator_control_latency_budget",
+          "importance": 0.041482,
+          "rank": 12
+        },
+        {
+          "feature": "mission_urgency",
+          "importance": 0.041247,
+          "rank": 13
+        },
+        {
+          "feature": "altitude_headroom",
+          "importance": 0.038793,
+          "rank": 14
+        },
+        {
+          "feature": "obstacle_density",
+          "importance": 0.038269,
+          "rank": 15
+        },
+        {
+          "feature": "wind",
+          "importance": 0.037466,
+          "rank": 16
+        },
+        {
+          "feature": "comms",
+          "importance": 0.030554,
+          "rank": 17
+        },
+        {
+          "feature": "gps",
+          "importance": 0.029496,
+          "rank": 18
+        },
+        {
+          "feature": "payload_criticality",
+          "importance": 0.028944,
+          "rank": 19
+        },
+        {
+          "feature": "safe_landing_zone_available",
+          "importance": 0.021599,
+          "rank": 20
+        },
+        {
+          "feature": "takeover_window_remaining",
+          "importance": 0.021131,
+          "rank": 21
+        },
+        {
+          "feature": "pilot_response_eta",
+          "importance": 0.018049,
+          "rank": 22
+        },
+        {
+          "feature": "autonomous_recovery_allowed",
+          "importance": 0.010472,
+          "rank": 23
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "train_accuracy": 1.0,
+        "train_case_count": 25
+      },
+      "model_path": "/Users/bobbyprice/projects/KVRM/kvrm-models/drone_compact_selector_v1.joblib",
+      "per_action_importances": {
+        "climb_for_signal_recovery": [
+          {
+            "feature": "distance_to_home",
+            "importance": 0.09647
+          },
+          {
+            "feature": "mission_urgency",
+            "importance": 0.066798
+          },
+          {
+            "feature": "terrain_occlusion_level",
+            "importance": 0.066666
+          },
+          {
+            "feature": "battery",
+            "importance": 0.064331
+          },
+          {
+            "feature": "mission_replan_budget",
+            "importance": 0.063937
+          },
+          {
+            "feature": "signal_recovery_confidence",
+            "importance": 0.061871
+          },
+          {
+            "feature": "altitude_headroom",
+            "importance": 0.060663
+          },
+          {
+            "feature": "estimated_energy_margin",
+            "importance": 0.052041
+          },
+          {
+            "feature": "mission_progress",
+            "importance": 0.051014
+          },
+          {
+            "feature": "comms",
+            "importance": 0.050802
+          },
+          {
+            "feature": "airspace_deconfliction_status",
+            "importance": 0.046359
+          },
+          {
+            "feature": "threat_level",
+            "importance": 0.044672
+          },
+          {
+            "feature": "pilot_takeover_link_quality",
+            "importance": 0.042416
+          },
+          {
+            "feature": "rules_of_engagement_state",
+            "importance": 0.040103
+          },
+          {
+            "feature": "wind",
+            "importance": 0.038312
+          },
+          {
+            "feature": "operator_control_latency_budget",
+            "importance": 0.037839
+          },
+          {
+            "feature": "obstacle_density",
+            "importance": 0.031205
+          },
+          {
+            "feature": "gps",
+            "importance": 0.024008
+          },
+          {
+            "feature": "payload_criticality",
+            "importance": 0.022066
+          },
+          {
+            "feature": "safe_landing_zone_available",
+            "importance": 0.015358
+          },
+          {
+            "feature": "takeover_window_remaining",
+            "importance": 0.009675
+          },
+          {
+            "feature": "pilot_response_eta",
+            "importance": 0.007348
+          },
+          {
+            "feature": "autonomous_recovery_allowed",
+            "importance": 0.006045
+          }
+        ],
+        "conserve_battery_mode": [
+          {
+            "feature": "distance_to_home",
+            "importance": 0.147307
+          },
+          {
+            "feature": "mission_replan_budget",
+            "importance": 0.087579
+          },
+          {
+            "feature": "battery",
+            "importance": 0.083928
+          },
+          {
+            "feature": "signal_recovery_confidence",
+            "importance": 0.074527
+          },
+          {
+            "feature": "mission_progress",
+            "importance": 0.063197
+          },
+          {
+            "feature": "estimated_energy_margin",
+            "importance": 0.060871
+          },
+          {
+            "feature": "terrain_occlusion_level",
+            "importance": 0.047346
+          },
+          {
+            "feature": "threat_level",
+            "importance": 0.043825
+          },
+          {
+            "feature": "mission_urgency",
+            "importance": 0.039204
+          },
+          {
+            "feature": "payload_criticality",
+            "importance": 0.037076
+          },
+          {
+            "feature": "altitude_headroom",
+            "importance": 0.035935
+          },
+          {
+            "feature": "airspace_deconfliction_status",
+            "importance": 0.034199
+          },
+          {
+            "feature": "pilot_takeover_link_quality",
+            "importance": 0.033609
+          },
+          {
+            "feature": "rules_of_engagement_state",
+            "importance": 0.033514
+          },
+          {
+            "feature": "comms",
+            "importance": 0.033175
+          },
+          {
+            "feature": "operator_control_latency_budget",
+            "importance": 0.032438
+          },
+          {
+            "feature": "obstacle_density",
+            "importance": 0.030388
+          },
+          {
+            "feature": "wind",
+            "importance": 0.028243
+          },
+          {
+            "feature": "gps",
+            "importance": 0.018576
+          },
+          {
+            "feature": "safe_landing_zone_available",
+            "importance": 0.013751
+          },
+          {
+            "feature": "takeover_window_remaining",
+            "importance": 0.009682
+          },
+          {
+            "feature": "autonomous_recovery_allowed",
+            "importance": 0.005881
+          },
+          {
+            "feature": "pilot_response_eta",
+            "importance": 0.005749
+          }
+        ],
+        "continue_mission": [
+          {
+            "feature": "distance_to_home",
+            "importance": 0.098994
+          },
+          {
+            "feature": "mission_replan_budget",
+            "importance": 0.076816
+          },
+          {
+            "feature": "terrain_occlusion_level",
+            "importance": 0.07574
+          },
+          {
+            "feature": "threat_level",
+            "importance": 0.069305
+          },
+          {
+            "feature": "battery",
+            "importance": 0.066815
+          },
+          {
+            "feature": "mission_urgency",
+            "importance": 0.065764
+          },
+          {
+            "feature": "estimated_energy_margin",
+            "importance": 0.05966
+          },
+          {
+            "feature": "signal_recovery_confidence",
+            "importance": 0.058009
+          },
+          {
+            "feature": "comms",
+            "importance": 0.04749
+          },
+          {
+            "feature": "mission_progress",
+            "importance": 0.039972
+          },
+          {
+            "feature": "airspace_deconfliction_status",
+            "importance": 0.038741
+          },
+          {
+            "feature": "operator_control_latency_budget",
+            "importance": 0.03845
+          },
+          {
+            "feature": "altitude_headroom",
+            "importance": 0.038367
+          },
+          {
+            "feature": "payload_criticality",
+            "importance": 0.036762
+          },
+          {
+            "feature": "wind",
+            "importance": 0.034458
+          },
+          {
+            "feature": "obstacle_density",
+            "importance": 0.034284
+          },
+          {
+            "feature": "rules_of_engagement_state",
+            "importance": 0.034103
+          },
+          {
+            "feature": "pilot_takeover_link_quality",
+            "importance": 0.030959
+          },
+          {
+            "feature": "gps",
+            "importance": 0.017136
+          },
+          {
+            "feature": "safe_landing_zone_available",
+            "importance": 0.015525
+          },
+          {
+            "feature": "takeover_window_remaining",
+            "importance": 0.010034
+          },
+          {
+            "feature": "autonomous_recovery_allowed",
+            "importance": 0.006745
+          },
+          {
+            "feature": "pilot_response_eta",
+            "importance": 0.00587
+          }
+        ],
+        "descend_for_safety": [
+          {
+            "feature": "airspace_deconfliction_status",
+            "importance": 0.131756
+          },
+          {
+            "feature": "rules_of_engagement_state",
+            "importance": 0.105504
+          },
+          {
+            "feature": "wind",
+            "importance": 0.079617
+          },
+          {
+            "feature": "safe_landing_zone_available",
+            "importance": 0.069892
+          },
+          {
+            "feature": "gps",
+            "importance": 0.066258
+          },
+          {
+            "feature": "pilot_takeover_link_quality",
+            "importance": 0.054482
+          },
+          {
+            "feature": "mission_replan_budget",
+            "importance": 0.049544
+          },
+          {
+            "feature": "obstacle_density",
+            "importance": 0.045876
+          },
+          {
+            "feature": "terrain_occlusion_level",
+            "importance": 0.043802
+          },
+          {
+            "feature": "distance_to_home",
+            "importance": 0.039002
+          },
+          {
+            "feature": "estimated_energy_margin",
+            "importance": 0.038145
+          },
+          {
+            "feature": "signal_recovery_confidence",
+            "importance": 0.034768
+          },
+          {
+            "feature": "threat_level",
+            "importance": 0.031989
+          },
+          {
+            "feature": "battery",
+            "importance": 0.029333
+          },
+          {
+            "feature": "mission_progress",
+            "importance": 0.025832
+          },
+          {
+            "feature": "mission_urgency",
+            "importance": 0.025108
+          },
+          {
+            "feature": "operator_control_latency_budget",
+            "importance": 0.02445
+          },
+          {
+            "feature": "altitude_headroom",
+            "importance": 0.023767
+          },
+          {
+            "feature": "takeover_window_remaining",
+            "importance": 0.022841
+          },
+          {
+            "feature": "payload_criticality",
+            "importance": 0.017029
+          },
+          {
+            "feature": "comms",
+            "importance": 0.015498
+          },
+          {
+            "feature": "pilot_response_eta",
+            "importance": 0.014457
+          },
+          {
+            "feature": "autonomous_recovery_allowed",
+            "importance": 0.01105
+          }
+        ],
+        "hold_position": [
+          {
+            "feature": "airspace_deconfliction_status",
+            "importance": 0.117469
+          },
+          {
+            "feature": "rules_of_engagement_state",
+            "importance": 0.095377
+          },
+          {
+            "feature": "pilot_takeover_link_quality",
+            "importance": 0.073384
+          },
+          {
+            "feature": "mission_replan_budget",
+            "importance": 0.071671
+          },
+          {
+            "feature": "wind",
+            "importance": 0.068462
+          },
+          {
+            "feature": "estimated_energy_margin",
+            "importance": 0.068256
+          },
+          {
+            "feature": "gps",
+            "importance": 0.049137
+          },
+          {
+            "feature": "safe_landing_zone_available",
+            "importance": 0.044259
+          },
+          {
+            "feature": "threat_level",
+            "importance": 0.042572
+          },
+          {
+            "feature": "terrain_occlusion_level",
+            "importance": 0.035424
+          },
+          {
+            "feature": "operator_control_latency_budget",
+            "importance": 0.034787
+          },
+          {
+            "feature": "obstacle_density",
+            "importance": 0.032345
+          },
+          {
+            "feature": "signal_recovery_confidence",
+            "importance": 0.031968
+          },
+          {
+            "feature": "battery",
+            "importance": 0.03132
+          },
+          {
+            "feature": "takeover_window_remaining",
+            "importance": 0.029367
+          },
+          {
+            "feature": "distance_to_home",
+            "importance": 0.028322
+          },
+          {
+            "feature": "altitude_headroom",
+            "importance": 0.028074
+          },
+          {
+            "feature": "pilot_response_eta",
+            "importance": 0.025359
+          },
+          {
+            "feature": "comms",
+            "importance": 0.025197
+          },
+          {
+            "feature": "mission_urgency",
+            "importance": 0.024581
+          },
+          {
+            "feature": "mission_progress",
+            "importance": 0.016741
+          },
+          {
+            "feature": "payload_criticality",
+            "importance": 0.015808
+          },
+          {
+            "feature": "autonomous_recovery_allowed",
+            "importance": 0.010118
+          }
+        ],
+        "manual_handoff": [
+          {
+            "feature": "mission_replan_budget",
+            "importance": 0.106395
+          },
+          {
+            "feature": "airspace_deconfliction_status",
+            "importance": 0.09199
+          },
+          {
+            "feature": "pilot_takeover_link_quality",
+            "importance": 0.088395
+          },
+          {
+            "feature": "rules_of_engagement_state",
+            "importance": 0.071307
+          },
+          {
+            "feature": "takeover_window_remaining",
+            "importance": 0.068286
+          },
+          {
+            "feature": "estimated_energy_margin",
+            "importance": 0.064127
+          },
+          {
+            "feature": "pilot_response_eta",
+            "importance": 0.06262
+          },
+          {
+            "feature": "operator_control_latency_budget",
+            "importance": 0.058745
+          },
+          {
+            "feature": "threat_level",
+            "importance": 0.053413
+          },
+          {
+            "feature": "signal_recovery_confidence",
+            "importance": 0.04918
+          },
+          {
+            "feature": "altitude_headroom",
+            "importance": 0.044118
+          },
+          {
+            "feature": "autonomous_recovery_allowed",
+            "importance": 0.030533
+          },
+          {
+            "feature": "obstacle_density",
+            "importance": 0.029561
+          },
+          {
+            "feature": "terrain_occlusion_level",
+            "importance": 0.028818
+          },
+          {
+            "feature": "comms",
+            "importance": 0.020389
+          },
+          {
+            "feature": "mission_urgency",
+            "importance": 0.020279
+          },
+          {
+            "feature": "distance_to_home",
+            "importance": 0.019778
+          },
+          {
+            "feature": "wind",
+            "importance": 0.018909
+          },
+          {
+            "feature": "gps",
+            "importance": 0.018761
+          },
+          {
+            "feature": "battery",
+            "importance": 0.017049
+          },
+          {
+            "feature": "safe_landing_zone_available",
+            "importance": 0.015938
+          },
+          {
+            "feature": "mission_progress",
+            "importance": 0.011821
+          },
+          {
+            "feature": "payload_criticality",
+            "importance": 0.009589
+          }
+        ],
+        "return_to_home": [
+          {
+            "feature": "mission_replan_budget",
+            "importance": 0.103537
+          },
+          {
+            "feature": "distance_to_home",
+            "importance": 0.097788
+          },
+          {
+            "feature": "estimated_energy_margin",
+            "importance": 0.080528
+          },
+          {
+            "feature": "signal_recovery_confidence",
+            "importance": 0.077465
+          },
+          {
+            "feature": "mission_progress",
+            "importance": 0.07421
+          },
+          {
+            "feature": "obstacle_density",
+            "importance": 0.058279
+          },
+          {
+            "feature": "airspace_deconfliction_status",
+            "importance": 0.053329
+          },
+          {
+            "feature": "battery",
+            "importance": 0.046965
+          },
+          {
+            "feature": "terrain_occlusion_level",
+            "importance": 0.043138
+          },
+          {
+            "feature": "gps",
+            "importance": 0.042358
+          },
+          {
+            "feature": "rules_of_engagement_state",
+            "importance": 0.041346
+          },
+          {
+            "feature": "threat_level",
+            "importance": 0.041155
+          },
+          {
+            "feature": "operator_control_latency_budget",
+            "importance": 0.038448
+          },
+          {
+            "feature": "altitude_headroom",
+            "importance": 0.033925
+          },
+          {
+            "feature": "pilot_takeover_link_quality",
+            "importance": 0.03334
+          },
+          {
+            "feature": "mission_urgency",
+            "importance": 0.029058
+          },
+          {
+            "feature": "payload_criticality",
+            "importance": 0.024995
+          },
+          {
+            "feature": "wind",
+            "importance": 0.020027
+          },
+          {
+            "feature": "safe_landing_zone_available",
+            "importance": 0.01826
+          },
+          {
+            "feature": "comms",
+            "importance": 0.016005
+          },
+          {
+            "feature": "takeover_window_remaining",
+            "importance": 0.010999
+          },
+          {
+            "feature": "pilot_response_eta",
+            "importance": 0.008476
+          },
+          {
+            "feature": "autonomous_recovery_allowed",
+            "importance": 0.006371
+          }
+        ],
+        "switch_to_low_observable_path": [
+          {
+            "feature": "mission_replan_budget",
+            "importance": 0.109008
+          },
+          {
+            "feature": "distance_to_home",
+            "importance": 0.085343
+          },
+          {
+            "feature": "terrain_occlusion_level",
+            "importance": 0.072705
+          },
+          {
+            "feature": "operator_control_latency_budget",
+            "importance": 0.070971
+          },
+          {
+            "feature": "threat_level",
+            "importance": 0.065375
+          },
+          {
+            "feature": "signal_recovery_confidence",
+            "importance": 0.058027
+          },
+          {
+            "feature": "airspace_deconfliction_status",
+            "importance": 0.056412
+          },
+          {
+            "feature": "rules_of_engagement_state",
+            "importance": 0.051842
+          },
+          {
+            "feature": "obstacle_density",
+            "importance": 0.047974
+          },
+          {
+            "feature": "mission_urgency",
+            "importance": 0.04498
+          },
+          {
+            "feature": "estimated_energy_margin",
+            "importance": 0.043106
+          },
+          {
+            "feature": "mission_progress",
+            "importance": 0.037571
+          },
+          {
+            "feature": "altitude_headroom",
+            "importance": 0.035674
+          },
+          {
+            "feature": "pilot_takeover_link_quality",
+            "importance": 0.035624
+          },
+          {
+            "feature": "payload_criticality",
+            "importance": 0.028963
+          },
+          {
+            "feature": "battery",
+            "importance": 0.027266
+          },
+          {
+            "feature": "wind",
+            "importance": 0.02319
+          },
+          {
+            "feature": "takeover_window_remaining",
+            "importance": 0.022921
+          },
+          {
+            "feature": "gps",
+            "importance": 0.018949
+          },
+          {
+            "feature": "comms",
+            "importance": 0.018029
+          },
+          {
+            "feature": "safe_landing_zone_available",
+            "importance": 0.017629
+          },
+          {
+            "feature": "pilot_response_eta",
+            "importance": 0.01669
+          },
+          {
+            "feature": "autonomous_recovery_allowed",
+            "importance": 0.011747
+          }
+        ]
+      }
+    },
+    "finance": {
+      "action_count": 8,
+      "domain": "finance",
+      "feature_count": 9,
+      "global_feature_importances": [
+        {
+          "feature": "account_history",
+          "importance": 0.166529,
+          "rank": 1
+        },
+        {
+          "feature": "anomaly_score",
+          "importance": 0.165559,
+          "rank": 2
+        },
+        {
+          "feature": "velocity_indicator",
+          "importance": 0.142583,
+          "rank": 3
+        },
+        {
+          "feature": "device_trust",
+          "importance": 0.127877,
+          "rank": 4
+        },
+        {
+          "feature": "transaction_amount",
+          "importance": 0.127134,
+          "rank": 5
+        },
+        {
+          "feature": "jurisdiction_risk",
+          "importance": 0.114278,
+          "rank": 6
+        },
+        {
+          "feature": "kyc_completeness",
+          "importance": 0.081585,
+          "rank": 7
+        },
+        {
+          "feature": "document_mismatch",
+          "importance": 0.056307,
+          "rank": 8
+        },
+        {
+          "feature": "sanctions_hit",
+          "importance": 0.018147,
+          "rank": 9
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "train_accuracy": 1.0,
+        "train_case_count": 13
+      },
+      "model_path": "/Users/bobbyprice/projects/KVRM/kvrm-models/finance_compact_selector_v1.joblib",
+      "per_action_importances": {
+        "allow_with_monitoring": [
+          {
+            "feature": "transaction_amount",
+            "importance": 0.194629
+          },
+          {
+            "feature": "account_history",
+            "importance": 0.180946
+          },
+          {
+            "feature": "anomaly_score",
+            "importance": 0.138402
+          },
+          {
+            "feature": "device_trust",
+            "importance": 0.137352
+          },
+          {
+            "feature": "velocity_indicator",
+            "importance": 0.131044
+          },
+          {
+            "feature": "jurisdiction_risk",
+            "importance": 0.10503
+          },
+          {
+            "feature": "kyc_completeness",
+            "importance": 0.067932
+          },
+          {
+            "feature": "document_mismatch",
+            "importance": 0.036909
+          },
+          {
+            "feature": "sanctions_hit",
+            "importance": 0.007755
+          }
+        ],
+        "approve_low_risk": [
+          {
+            "feature": "anomaly_score",
+            "importance": 0.190688
+          },
+          {
+            "feature": "jurisdiction_risk",
+            "importance": 0.169741
+          },
+          {
+            "feature": "transaction_amount",
+            "importance": 0.160306
+          },
+          {
+            "feature": "account_history",
+            "importance": 0.139019
+          },
+          {
+            "feature": "velocity_indicator",
+            "importance": 0.123396
+          },
+          {
+            "feature": "device_trust",
+            "importance": 0.109342
+          },
+          {
+            "feature": "kyc_completeness",
+            "importance": 0.053798
+          },
+          {
+            "feature": "document_mismatch",
+            "importance": 0.046403
+          },
+          {
+            "feature": "sanctions_hit",
+            "importance": 0.007307
+          }
+        ],
+        "enhanced_due_diligence": [
+          {
+            "feature": "transaction_amount",
+            "importance": 0.17394
+          },
+          {
+            "feature": "jurisdiction_risk",
+            "importance": 0.172217
+          },
+          {
+            "feature": "account_history",
+            "importance": 0.170413
+          },
+          {
+            "feature": "anomaly_score",
+            "importance": 0.141818
+          },
+          {
+            "feature": "velocity_indicator",
+            "importance": 0.13493
+          },
+          {
+            "feature": "device_trust",
+            "importance": 0.104161
+          },
+          {
+            "feature": "kyc_completeness",
+            "importance": 0.057275
+          },
+          {
+            "feature": "document_mismatch",
+            "importance": 0.035728
+          },
+          {
+            "feature": "sanctions_hit",
+            "importance": 0.009518
+          }
+        ],
+        "escalate_compliance": [
+          {
+            "feature": "anomaly_score",
+            "importance": 0.218008
+          },
+          {
+            "feature": "kyc_completeness",
+            "importance": 0.154231
+          },
+          {
+            "feature": "velocity_indicator",
+            "importance": 0.133698
+          },
+          {
+            "feature": "account_history",
+            "importance": 0.099498
+          },
+          {
+            "feature": "document_mismatch",
+            "importance": 0.088442
+          },
+          {
+            "feature": "sanctions_hit",
+            "importance": 0.088202
+          },
+          {
+            "feature": "device_trust",
+            "importance": 0.087648
+          },
+          {
+            "feature": "jurisdiction_risk",
+            "importance": 0.081385
+          },
+          {
+            "feature": "transaction_amount",
+            "importance": 0.048889
+          }
+        ],
+        "freeze_for_investigation": [
+          {
+            "feature": "account_history",
+            "importance": 0.223957
+          },
+          {
+            "feature": "velocity_indicator",
+            "importance": 0.186916
+          },
+          {
+            "feature": "device_trust",
+            "importance": 0.171346
+          },
+          {
+            "feature": "anomaly_score",
+            "importance": 0.167459
+          },
+          {
+            "feature": "jurisdiction_risk",
+            "importance": 0.072125
+          },
+          {
+            "feature": "kyc_completeness",
+            "importance": 0.070179
+          },
+          {
+            "feature": "transaction_amount",
+            "importance": 0.065628
+          },
+          {
+            "feature": "document_mismatch",
+            "importance": 0.028898
+          },
+          {
+            "feature": "sanctions_hit",
+            "importance": 0.013494
+          }
+        ],
+        "lower_limit_temporarily": [
+          {
+            "feature": "account_history",
+            "importance": 0.218387
+          },
+          {
+            "feature": "velocity_indicator",
+            "importance": 0.203767
+          },
+          {
+            "feature": "device_trust",
+            "importance": 0.17469
+          },
+          {
+            "feature": "anomaly_score",
+            "importance": 0.156027
+          },
+          {
+            "feature": "jurisdiction_risk",
+            "importance": 0.08977
+          },
+          {
+            "feature": "transaction_amount",
+            "importance": 0.077903
+          },
+          {
+            "feature": "kyc_completeness",
+            "importance": 0.043009
+          },
+          {
+            "feature": "document_mismatch",
+            "importance": 0.02902
+          },
+          {
+            "feature": "sanctions_hit",
+            "importance": 0.007427
+          }
+        ],
+        "manual_review": [
+          {
+            "feature": "anomaly_score",
+            "importance": 0.196428
+          },
+          {
+            "feature": "account_history",
+            "importance": 0.170806
+          },
+          {
+            "feature": "device_trust",
+            "importance": 0.151514
+          },
+          {
+            "feature": "velocity_indicator",
+            "importance": 0.150072
+          },
+          {
+            "feature": "transaction_amount",
+            "importance": 0.105442
+          },
+          {
+            "feature": "jurisdiction_risk",
+            "importance": 0.100001
+          },
+          {
+            "feature": "kyc_completeness",
+            "importance": 0.06702
+          },
+          {
+            "feature": "document_mismatch",
+            "importance": 0.040045
+          },
+          {
+            "feature": "sanctions_hit",
+            "importance": 0.018672
+          }
+        ],
+        "require_additional_docs": [
+          {
+            "feature": "kyc_completeness",
+            "importance": 0.164794
+          },
+          {
+            "feature": "document_mismatch",
+            "importance": 0.129123
+          },
+          {
+            "feature": "account_history",
+            "importance": 0.123519
+          },
+          {
+            "feature": "anomaly_score",
+            "importance": 0.122963
+          },
+          {
+            "feature": "jurisdiction_risk",
+            "importance": 0.121957
+          },
+          {
+            "feature": "transaction_amount",
+            "importance": 0.119181
+          },
+          {
+            "feature": "velocity_indicator",
+            "importance": 0.117848
+          },
+          {
+            "feature": "device_trust",
+            "importance": 0.090788
+          },
+          {
+            "feature": "sanctions_hit",
+            "importance": 0.009828
+          }
+        ]
+      }
+    },
+    "grid": {
+      "action_count": 8,
+      "domain": "grid",
+      "feature_count": 12,
+      "global_feature_importances": [
+        {
+          "feature": "weather_risk",
+          "importance": 0.139137,
+          "rank": 1
+        },
+        {
+          "feature": "outage_scope",
+          "importance": 0.124209,
+          "rank": 2
+        },
+        {
+          "feature": "frequency_deviation",
+          "importance": 0.095345,
+          "rank": 3
+        },
+        {
+          "feature": "customer_impact",
+          "importance": 0.088732,
+          "rank": 4
+        },
+        {
+          "feature": "voltage_stability",
+          "importance": 0.086681,
+          "rank": 5
+        },
+        {
+          "feature": "relay_state",
+          "importance": 0.086272,
+          "rank": 6
+        },
+        {
+          "feature": "crew_availability",
+          "importance": 0.082489,
+          "rank": 7
+        },
+        {
+          "feature": "reserve_margin",
+          "importance": 0.081774,
+          "rank": 8
+        },
+        {
+          "feature": "fault_isolation_ready",
+          "importance": 0.075536,
+          "rank": 9
+        },
+        {
+          "feature": "transfer_path_available",
+          "importance": 0.059224,
+          "rank": 10
+        },
+        {
+          "feature": "switching_authorized",
+          "importance": 0.044712,
+          "rank": 11
+        },
+        {
+          "feature": "blackstart_required",
+          "importance": 0.035891,
+          "rank": 12
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "train_accuracy": 1.0,
+        "train_case_count": 16
+      },
+      "model_path": "/Users/bobbyprice/projects/KVRM/kvrm-models/grid_compact_selector_v1.joblib",
+      "per_action_importances": {
+        "continue_monitoring": [
+          {
+            "feature": "outage_scope",
+            "importance": 0.19859
+          },
+          {
+            "feature": "relay_state",
+            "importance": 0.153223
+          },
+          {
+            "feature": "customer_impact",
+            "importance": 0.106339
+          },
+          {
+            "feature": "frequency_deviation",
+            "importance": 0.089842
+          },
+          {
+            "feature": "voltage_stability",
+            "importance": 0.086494
+          },
+          {
+            "feature": "weather_risk",
+            "importance": 0.07626
+          },
+          {
+            "feature": "reserve_margin",
+            "importance": 0.069522
+          },
+          {
+            "feature": "fault_isolation_ready",
+            "importance": 0.060538
+          },
+          {
+            "feature": "crew_availability",
+            "importance": 0.058008
+          },
+          {
+            "feature": "transfer_path_available",
+            "importance": 0.055199
+          },
+          {
+            "feature": "switching_authorized",
+            "importance": 0.031037
+          },
+          {
+            "feature": "blackstart_required",
+            "importance": 0.014946
+          }
+        ],
+        "defer_switching_due_weather": [
+          {
+            "feature": "weather_risk",
+            "importance": 0.212731
+          },
+          {
+            "feature": "frequency_deviation",
+            "importance": 0.114473
+          },
+          {
+            "feature": "outage_scope",
+            "importance": 0.109241
+          },
+          {
+            "feature": "fault_isolation_ready",
+            "importance": 0.103469
+          },
+          {
+            "feature": "switching_authorized",
+            "importance": 0.075683
+          },
+          {
+            "feature": "voltage_stability",
+            "importance": 0.070341
+          },
+          {
+            "feature": "customer_impact",
+            "importance": 0.066993
+          },
+          {
+            "feature": "relay_state",
+            "importance": 0.06369
+          },
+          {
+            "feature": "reserve_margin",
+            "importance": 0.063613
+          },
+          {
+            "feature": "crew_availability",
+            "importance": 0.052106
+          },
+          {
+            "feature": "transfer_path_available",
+            "importance": 0.044105
+          },
+          {
+            "feature": "blackstart_required",
+            "importance": 0.023555
+          }
+        ],
+        "dispatch_field_crew": [
+          {
+            "feature": "weather_risk",
+            "importance": 0.135919
+          },
+          {
+            "feature": "outage_scope",
+            "importance": 0.124144
+          },
+          {
+            "feature": "customer_impact",
+            "importance": 0.102947
+          },
+          {
+            "feature": "fault_isolation_ready",
+            "importance": 0.098058
+          },
+          {
+            "feature": "frequency_deviation",
+            "importance": 0.097311
+          },
+          {
+            "feature": "voltage_stability",
+            "importance": 0.091676
+          },
+          {
+            "feature": "relay_state",
+            "importance": 0.088388
+          },
+          {
+            "feature": "reserve_margin",
+            "importance": 0.076811
+          },
+          {
+            "feature": "transfer_path_available",
+            "importance": 0.071236
+          },
+          {
+            "feature": "crew_availability",
+            "importance": 0.058266
+          },
+          {
+            "feature": "switching_authorized",
+            "importance": 0.041869
+          },
+          {
+            "feature": "blackstart_required",
+            "importance": 0.013375
+          }
+        ],
+        "escalate_grid_supervisor": [
+          {
+            "feature": "weather_risk",
+            "importance": 0.200398
+          },
+          {
+            "feature": "crew_availability",
+            "importance": 0.138984
+          },
+          {
+            "feature": "outage_scope",
+            "importance": 0.097827
+          },
+          {
+            "feature": "frequency_deviation",
+            "importance": 0.09343
+          },
+          {
+            "feature": "relay_state",
+            "importance": 0.091227
+          },
+          {
+            "feature": "voltage_stability",
+            "importance": 0.081146
+          },
+          {
+            "feature": "customer_impact",
+            "importance": 0.066412
+          },
+          {
+            "feature": "switching_authorized",
+            "importance": 0.059392
+          },
+          {
+            "feature": "blackstart_required",
+            "importance": 0.051332
+          },
+          {
+            "feature": "reserve_margin",
+            "importance": 0.048023
+          },
+          {
+            "feature": "fault_isolation_ready",
+            "importance": 0.041852
+          },
+          {
+            "feature": "transfer_path_available",
+            "importance": 0.029977
+          }
+        ],
+        "isolate_faulted_feeder": [
+          {
+            "feature": "outage_scope",
+            "importance": 0.13427
+          },
+          {
+            "feature": "weather_risk",
+            "importance": 0.127505
+          },
+          {
+            "feature": "fault_isolation_ready",
+            "importance": 0.120915
+          },
+          {
+            "feature": "frequency_deviation",
+            "importance": 0.106889
+          },
+          {
+            "feature": "reserve_margin",
+            "importance": 0.096305
+          },
+          {
+            "feature": "customer_impact",
+            "importance": 0.086037
+          },
+          {
+            "feature": "voltage_stability",
+            "importance": 0.084576
+          },
+          {
+            "feature": "relay_state",
+            "importance": 0.070274
+          },
+          {
+            "feature": "transfer_path_available",
+            "importance": 0.059922
+          },
+          {
+            "feature": "crew_availability",
+            "importance": 0.059246
+          },
+          {
+            "feature": "switching_authorized",
+            "importance": 0.043126
+          },
+          {
+            "feature": "blackstart_required",
+            "importance": 0.010935
+          }
+        ],
+        "prepare_blackstart": [
+          {
+            "feature": "weather_risk",
+            "importance": 0.160302
+          },
+          {
+            "feature": "crew_availability",
+            "importance": 0.134817
+          },
+          {
+            "feature": "outage_scope",
+            "importance": 0.124511
+          },
+          {
+            "feature": "blackstart_required",
+            "importance": 0.089297
+          },
+          {
+            "feature": "voltage_stability",
+            "importance": 0.087885
+          },
+          {
+            "feature": "relay_state",
+            "importance": 0.078725
+          },
+          {
+            "feature": "customer_impact",
+            "importance": 0.077315
+          },
+          {
+            "feature": "frequency_deviation",
+            "importance": 0.066216
+          },
+          {
+            "feature": "reserve_margin",
+            "importance": 0.058734
+          },
+          {
+            "feature": "fault_isolation_ready",
+            "importance": 0.050154
+          },
+          {
+            "feature": "switching_authorized",
+            "importance": 0.043229
+          },
+          {
+            "feature": "transfer_path_available",
+            "importance": 0.028813
+          }
+        ],
+        "shed_noncritical_load": [
+          {
+            "feature": "outage_scope",
+            "importance": 0.123703
+          },
+          {
+            "feature": "weather_risk",
+            "importance": 0.116815
+          },
+          {
+            "feature": "voltage_stability",
+            "importance": 0.109229
+          },
+          {
+            "feature": "crew_availability",
+            "importance": 0.100556
+          },
+          {
+            "feature": "frequency_deviation",
+            "importance": 0.098831
+          },
+          {
+            "feature": "reserve_margin",
+            "importance": 0.092383
+          },
+          {
+            "feature": "customer_impact",
+            "importance": 0.082051
+          },
+          {
+            "feature": "relay_state",
+            "importance": 0.081112
+          },
+          {
+            "feature": "blackstart_required",
+            "importance": 0.064897
+          },
+          {
+            "feature": "fault_isolation_ready",
+            "importance": 0.048281
+          },
+          {
+            "feature": "switching_authorized",
+            "importance": 0.043278
+          },
+          {
+            "feature": "transfer_path_available",
+            "importance": 0.038864
+          }
+        ],
+        "transfer_load": [
+          {
+            "feature": "transfer_path_available",
+            "importance": 0.157954
+          },
+          {
+            "feature": "reserve_margin",
+            "importance": 0.115738
+          },
+          {
+            "feature": "outage_scope",
+            "importance": 0.109561
+          },
+          {
+            "feature": "weather_risk",
+            "importance": 0.101652
+          },
+          {
+            "feature": "frequency_deviation",
+            "importance": 0.091963
+          },
+          {
+            "feature": "customer_impact",
+            "importance": 0.089465
+          },
+          {
+            "feature": "voltage_stability",
+            "importance": 0.087928
+          },
+          {
+            "feature": "fault_isolation_ready",
+            "importance": 0.079201
+          },
+          {
+            "feature": "relay_state",
+            "importance": 0.069788
+          },
+          {
+            "feature": "crew_availability",
+            "importance": 0.057056
+          },
+          {
+            "feature": "switching_authorized",
+            "importance": 0.025745
+          },
+          {
+            "feature": "blackstart_required",
+            "importance": 0.013948
+          }
+        ]
+      }
+    },
+    "iam": {
+      "action_count": 7,
+      "domain": "iam",
+      "feature_count": 12,
+      "global_feature_importances": [
+        {
+          "feature": "security_review",
+          "importance": 0.117578,
+          "rank": 1
+        },
+        {
+          "feature": "requester_risk",
+          "importance": 0.110694,
+          "rank": 2
+        },
+        {
+          "feature": "manager_approval",
+          "importance": 0.105541,
+          "rank": 3
+        },
+        {
+          "feature": "justification",
+          "importance": 0.098097,
+          "rank": 4
+        },
+        {
+          "feature": "session_scope",
+          "importance": 0.090616,
+          "rank": 5
+        },
+        {
+          "feature": "requested_privilege",
+          "importance": 0.088192,
+          "rank": 6
+        },
+        {
+          "feature": "device_posture",
+          "importance": 0.087679,
+          "rank": 7
+        },
+        {
+          "feature": "resource_sensitivity",
+          "importance": 0.083232,
+          "rank": 8
+        },
+        {
+          "feature": "sod_risk",
+          "importance": 0.071726,
+          "rank": 9
+        },
+        {
+          "feature": "on_call_role",
+          "importance": 0.071232,
+          "rank": 10
+        },
+        {
+          "feature": "mfa_state",
+          "importance": 0.045726,
+          "rank": 11
+        },
+        {
+          "feature": "ticket_state",
+          "importance": 0.029686,
+          "rank": 12
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "train_accuracy": 1.0,
+        "train_case_count": 15
+      },
+      "model_path": "/Users/bobbyprice/projects/KVRM/kvrm-models/iam_compact_selector_v1.joblib",
+      "per_action_importances": {
+        "auto_approve_standard_access": [
+          {
+            "feature": "manager_approval",
+            "importance": 0.222095
+          },
+          {
+            "feature": "security_review",
+            "importance": 0.120454
+          },
+          {
+            "feature": "resource_sensitivity",
+            "importance": 0.118718
+          },
+          {
+            "feature": "requested_privilege",
+            "importance": 0.105437
+          },
+          {
+            "feature": "session_scope",
+            "importance": 0.104467
+          },
+          {
+            "feature": "justification",
+            "importance": 0.096642
+          },
+          {
+            "feature": "ticket_state",
+            "importance": 0.061049
+          },
+          {
+            "feature": "device_posture",
+            "importance": 0.047956
+          },
+          {
+            "feature": "sod_risk",
+            "importance": 0.041579
+          },
+          {
+            "feature": "on_call_role",
+            "importance": 0.041476
+          },
+          {
+            "feature": "requester_risk",
+            "importance": 0.036437
+          },
+          {
+            "feature": "mfa_state",
+            "importance": 0.003689
+          }
+        ],
+        "deny_request": [
+          {
+            "feature": "requester_risk",
+            "importance": 0.170743
+          },
+          {
+            "feature": "security_review",
+            "importance": 0.110052
+          },
+          {
+            "feature": "device_posture",
+            "importance": 0.090618
+          },
+          {
+            "feature": "mfa_state",
+            "importance": 0.089688
+          },
+          {
+            "feature": "requested_privilege",
+            "importance": 0.083835
+          },
+          {
+            "feature": "justification",
+            "importance": 0.079563
+          },
+          {
+            "feature": "sod_risk",
+            "importance": 0.078496
+          },
+          {
+            "feature": "manager_approval",
+            "importance": 0.07586
+          },
+          {
+            "feature": "on_call_role",
+            "importance": 0.069471
+          },
+          {
+            "feature": "session_scope",
+            "importance": 0.067298
+          },
+          {
+            "feature": "resource_sensitivity",
+            "importance": 0.060659
+          },
+          {
+            "feature": "ticket_state",
+            "importance": 0.023718
+          }
+        ],
+        "escalate_identity_admin": [
+          {
+            "feature": "device_posture",
+            "importance": 0.190468
+          },
+          {
+            "feature": "requested_privilege",
+            "importance": 0.123294
+          },
+          {
+            "feature": "security_review",
+            "importance": 0.111206
+          },
+          {
+            "feature": "requester_risk",
+            "importance": 0.105441
+          },
+          {
+            "feature": "resource_sensitivity",
+            "importance": 0.089839
+          },
+          {
+            "feature": "manager_approval",
+            "importance": 0.089647
+          },
+          {
+            "feature": "sod_risk",
+            "importance": 0.068404
+          },
+          {
+            "feature": "on_call_role",
+            "importance": 0.068388
+          },
+          {
+            "feature": "justification",
+            "importance": 0.065785
+          },
+          {
+            "feature": "session_scope",
+            "importance": 0.053691
+          },
+          {
+            "feature": "ticket_state",
+            "importance": 0.01897
+          },
+          {
+            "feature": "mfa_state",
+            "importance": 0.014867
+          }
+        ],
+        "grant_break_glass_access": [
+          {
+            "feature": "session_scope",
+            "importance": 0.2042
+          },
+          {
+            "feature": "justification",
+            "importance": 0.183946
+          },
+          {
+            "feature": "on_call_role",
+            "importance": 0.136967
+          },
+          {
+            "feature": "security_review",
+            "importance": 0.096581
+          },
+          {
+            "feature": "sod_risk",
+            "importance": 0.073215
+          },
+          {
+            "feature": "requested_privilege",
+            "importance": 0.058973
+          },
+          {
+            "feature": "resource_sensitivity",
+            "importance": 0.056273
+          },
+          {
+            "feature": "device_posture",
+            "importance": 0.047608
+          },
+          {
+            "feature": "manager_approval",
+            "importance": 0.046677
+          },
+          {
+            "feature": "mfa_state",
+            "importance": 0.034663
+          },
+          {
+            "feature": "requester_risk",
+            "importance": 0.033386
+          },
+          {
+            "feature": "ticket_state",
+            "importance": 0.027511
+          }
+        ],
+        "grant_timeboxed_privileged_access": [
+          {
+            "feature": "requester_risk",
+            "importance": 0.206489
+          },
+          {
+            "feature": "security_review",
+            "importance": 0.120037
+          },
+          {
+            "feature": "requested_privilege",
+            "importance": 0.112077
+          },
+          {
+            "feature": "resource_sensitivity",
+            "importance": 0.089173
+          },
+          {
+            "feature": "device_posture",
+            "importance": 0.083049
+          },
+          {
+            "feature": "justification",
+            "importance": 0.081752
+          },
+          {
+            "feature": "manager_approval",
+            "importance": 0.073779
+          },
+          {
+            "feature": "on_call_role",
+            "importance": 0.072576
+          },
+          {
+            "feature": "sod_risk",
+            "importance": 0.070643
+          },
+          {
+            "feature": "session_scope",
+            "importance": 0.059209
+          },
+          {
+            "feature": "ticket_state",
+            "importance": 0.022936
+          },
+          {
+            "feature": "mfa_state",
+            "importance": 0.00828
+          }
+        ],
+        "require_manager_approval": [
+          {
+            "feature": "manager_approval",
+            "importance": 0.257507
+          },
+          {
+            "feature": "security_review",
+            "importance": 0.139495
+          },
+          {
+            "feature": "resource_sensitivity",
+            "importance": 0.111367
+          },
+          {
+            "feature": "justification",
+            "importance": 0.099521
+          },
+          {
+            "feature": "session_scope",
+            "importance": 0.080466
+          },
+          {
+            "feature": "requested_privilege",
+            "importance": 0.077724
+          },
+          {
+            "feature": "device_posture",
+            "importance": 0.058384
+          },
+          {
+            "feature": "on_call_role",
+            "importance": 0.048309
+          },
+          {
+            "feature": "ticket_state",
+            "importance": 0.043345
+          },
+          {
+            "feature": "requester_risk",
+            "importance": 0.041769
+          },
+          {
+            "feature": "sod_risk",
+            "importance": 0.03884
+          },
+          {
+            "feature": "mfa_state",
+            "importance": 0.003273
+          }
+        ],
+        "require_security_review": [
+          {
+            "feature": "mfa_state",
+            "importance": 0.147163
+          },
+          {
+            "feature": "security_review",
+            "importance": 0.131276
+          },
+          {
+            "feature": "sod_risk",
+            "importance": 0.118598
+          },
+          {
+            "feature": "session_scope",
+            "importance": 0.099555
+          },
+          {
+            "feature": "justification",
+            "importance": 0.090349
+          },
+          {
+            "feature": "requester_risk",
+            "importance": 0.080379
+          },
+          {
+            "feature": "on_call_role",
+            "importance": 0.070257
+          },
+          {
+            "feature": "device_posture",
+            "importance": 0.062643
+          },
+          {
+            "feature": "resource_sensitivity",
+            "importance": 0.061067
+          },
+          {
+            "feature": "requested_privilege",
+            "importance": 0.059797
+          },
+          {
+            "feature": "manager_approval",
+            "importance": 0.057175
+          },
+          {
+            "feature": "ticket_state",
+            "importance": 0.021741
+          }
+        ]
+      }
+    },
+    "medical": {
+      "action_count": 8,
+      "domain": "medical",
+      "feature_count": 10,
+      "global_feature_importances": [
+        {
+          "feature": "clinician_note_flag",
+          "importance": 0.189281,
+          "rank": 1
+        },
+        {
+          "feature": "symptom_onset",
+          "importance": 0.180931,
+          "rank": 2
+        },
+        {
+          "feature": "infection_risk",
+          "importance": 0.138626,
+          "rank": 3
+        },
+        {
+          "feature": "fever_bucket",
+          "importance": 0.128448,
+          "rank": 4
+        },
+        {
+          "feature": "acuity_score",
+          "importance": 0.120562,
+          "rank": 5
+        },
+        {
+          "feature": "age_bracket",
+          "importance": 0.065429,
+          "rank": 6
+        },
+        {
+          "feature": "chest_pain",
+          "importance": 0.056217,
+          "rank": 7
+        },
+        {
+          "feature": "respiratory_distress",
+          "importance": 0.056045,
+          "rank": 8
+        },
+        {
+          "feature": "focal_neuro_deficit",
+          "importance": 0.051211,
+          "rank": 9
+        },
+        {
+          "feature": "hypotension",
+          "importance": 0.01325,
+          "rank": 10
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "train_accuracy": 1.0,
+        "train_case_count": 12
+      },
+      "model_path": "/Users/bobbyprice/projects/KVRM/kvrm-models/medical_compact_selector_v1.joblib",
+      "per_action_importances": {
+        "cardiac_chest_pain_pathway": [
+          {
+            "feature": "clinician_note_flag",
+            "importance": 0.275102
+          },
+          {
+            "feature": "symptom_onset",
+            "importance": 0.176008
+          },
+          {
+            "feature": "acuity_score",
+            "importance": 0.147473
+          },
+          {
+            "feature": "fever_bucket",
+            "importance": 0.102843
+          },
+          {
+            "feature": "chest_pain",
+            "importance": 0.088294
+          },
+          {
+            "feature": "infection_risk",
+            "importance": 0.075191
+          },
+          {
+            "feature": "age_bracket",
+            "importance": 0.066481
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "importance": 0.034575
+          },
+          {
+            "feature": "respiratory_distress",
+            "importance": 0.026924
+          },
+          {
+            "feature": "hypotension",
+            "importance": 0.00711
+          }
+        ],
+        "escalate_supervisor_review": [
+          {
+            "feature": "clinician_note_flag",
+            "importance": 0.211109
+          },
+          {
+            "feature": "symptom_onset",
+            "importance": 0.16974
+          },
+          {
+            "feature": "fever_bucket",
+            "importance": 0.121529
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "importance": 0.115395
+          },
+          {
+            "feature": "infection_risk",
+            "importance": 0.107346
+          },
+          {
+            "feature": "chest_pain",
+            "importance": 0.102068
+          },
+          {
+            "feature": "age_bracket",
+            "importance": 0.067294
+          },
+          {
+            "feature": "acuity_score",
+            "importance": 0.062384
+          },
+          {
+            "feature": "respiratory_distress",
+            "importance": 0.022578
+          },
+          {
+            "feature": "hypotension",
+            "importance": 0.020557
+          }
+        ],
+        "lab_panel_priority_order": [
+          {
+            "feature": "infection_risk",
+            "importance": 0.221445
+          },
+          {
+            "feature": "acuity_score",
+            "importance": 0.154827
+          },
+          {
+            "feature": "clinician_note_flag",
+            "importance": 0.145574
+          },
+          {
+            "feature": "fever_bucket",
+            "importance": 0.139684
+          },
+          {
+            "feature": "symptom_onset",
+            "importance": 0.134346
+          },
+          {
+            "feature": "respiratory_distress",
+            "importance": 0.068312
+          },
+          {
+            "feature": "age_bracket",
+            "importance": 0.052272
+          },
+          {
+            "feature": "chest_pain",
+            "importance": 0.039067
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "importance": 0.031029
+          },
+          {
+            "feature": "hypotension",
+            "importance": 0.013443
+          }
+        ],
+        "respiratory_support_pathway": [
+          {
+            "feature": "symptom_onset",
+            "importance": 0.192402
+          },
+          {
+            "feature": "infection_risk",
+            "importance": 0.166485
+          },
+          {
+            "feature": "clinician_note_flag",
+            "importance": 0.147321
+          },
+          {
+            "feature": "fever_bucket",
+            "importance": 0.136475
+          },
+          {
+            "feature": "acuity_score",
+            "importance": 0.128173
+          },
+          {
+            "feature": "respiratory_distress",
+            "importance": 0.110955
+          },
+          {
+            "feature": "chest_pain",
+            "importance": 0.043924
+          },
+          {
+            "feature": "age_bracket",
+            "importance": 0.040579
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "importance": 0.025544
+          },
+          {
+            "feature": "hypotension",
+            "importance": 0.00814
+          }
+        ],
+        "routine_review": [
+          {
+            "feature": "symptom_onset",
+            "importance": 0.190915
+          },
+          {
+            "feature": "clinician_note_flag",
+            "importance": 0.170943
+          },
+          {
+            "feature": "infection_risk",
+            "importance": 0.161788
+          },
+          {
+            "feature": "acuity_score",
+            "importance": 0.139284
+          },
+          {
+            "feature": "fever_bucket",
+            "importance": 0.132001
+          },
+          {
+            "feature": "age_bracket",
+            "importance": 0.078869
+          },
+          {
+            "feature": "respiratory_distress",
+            "importance": 0.052468
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "importance": 0.034257
+          },
+          {
+            "feature": "chest_pain",
+            "importance": 0.031479
+          },
+          {
+            "feature": "hypotension",
+            "importance": 0.007997
+          }
+        ],
+        "sepsis_screen_pathway": [
+          {
+            "feature": "clinician_note_flag",
+            "importance": 0.251326
+          },
+          {
+            "feature": "fever_bucket",
+            "importance": 0.198719
+          },
+          {
+            "feature": "symptom_onset",
+            "importance": 0.135747
+          },
+          {
+            "feature": "infection_risk",
+            "importance": 0.132423
+          },
+          {
+            "feature": "acuity_score",
+            "importance": 0.072029
+          },
+          {
+            "feature": "respiratory_distress",
+            "importance": 0.062346
+          },
+          {
+            "feature": "age_bracket",
+            "importance": 0.052674
+          },
+          {
+            "feature": "chest_pain",
+            "importance": 0.047157
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "importance": 0.028848
+          },
+          {
+            "feature": "hypotension",
+            "importance": 0.018732
+          }
+        ],
+        "stroke_alert_pathway": [
+          {
+            "feature": "clinician_note_flag",
+            "importance": 0.22791
+          },
+          {
+            "feature": "symptom_onset",
+            "importance": 0.216633
+          },
+          {
+            "feature": "acuity_score",
+            "importance": 0.142501
+          },
+          {
+            "feature": "fever_bucket",
+            "importance": 0.096489
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "importance": 0.084308
+          },
+          {
+            "feature": "infection_risk",
+            "importance": 0.07603
+          },
+          {
+            "feature": "age_bracket",
+            "importance": 0.062888
+          },
+          {
+            "feature": "chest_pain",
+            "importance": 0.054109
+          },
+          {
+            "feature": "respiratory_distress",
+            "importance": 0.031727
+          },
+          {
+            "feature": "hypotension",
+            "importance": 0.007406
+          }
+        ],
+        "urgent_clinician_review": [
+          {
+            "feature": "symptom_onset",
+            "importance": 0.21992
+          },
+          {
+            "feature": "clinician_note_flag",
+            "importance": 0.15859
+          },
+          {
+            "feature": "infection_risk",
+            "importance": 0.116864
+          },
+          {
+            "feature": "fever_bucket",
+            "importance": 0.113663
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "importance": 0.096736
+          },
+          {
+            "feature": "acuity_score",
+            "importance": 0.088508
+          },
+          {
+            "feature": "age_bracket",
+            "importance": 0.074716
+          },
+          {
+            "feature": "chest_pain",
+            "importance": 0.058774
+          },
+          {
+            "feature": "respiratory_distress",
+            "importance": 0.058479
+          },
+          {
+            "feature": "hypotension",
+            "importance": 0.01375
+          }
+        ]
+      }
+    },
+    "soc": {
+      "action_count": 7,
+      "domain": "soc",
+      "feature_count": 8,
+      "global_feature_importances": [
+        {
+          "feature": "severity",
+          "importance": 0.306444,
+          "rank": 1
+        },
+        {
+          "feature": "blast_radius",
+          "importance": 0.149642,
+          "rank": 2
+        },
+        {
+          "feature": "endpoint_type",
+          "importance": 0.126943,
+          "rank": 3
+        },
+        {
+          "feature": "threat_confidence",
+          "importance": 0.125916,
+          "rank": 4
+        },
+        {
+          "feature": "asset_criticality",
+          "importance": 0.108752,
+          "rank": 5
+        },
+        {
+          "feature": "internet_exposed",
+          "importance": 0.065585,
+          "rank": 6
+        },
+        {
+          "feature": "credential_exposure",
+          "importance": 0.058723,
+          "rank": 7
+        },
+        {
+          "feature": "lateral_movement",
+          "importance": 0.057995,
+          "rank": 8
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "train_accuracy": 1.0,
+        "train_case_count": 14
+      },
+      "model_path": "/Users/bobbyprice/projects/KVRM/kvrm-models/soc_compact_selector_v1.joblib",
+      "per_action_importances": {
+        "block_ip_temporarily": [
+          {
+            "feature": "severity",
+            "importance": 0.223417
+          },
+          {
+            "feature": "endpoint_type",
+            "importance": 0.223225
+          },
+          {
+            "feature": "threat_confidence",
+            "importance": 0.166153
+          },
+          {
+            "feature": "blast_radius",
+            "importance": 0.128947
+          },
+          {
+            "feature": "internet_exposed",
+            "importance": 0.101807
+          },
+          {
+            "feature": "asset_criticality",
+            "importance": 0.087887
+          },
+          {
+            "feature": "credential_exposure",
+            "importance": 0.037815
+          },
+          {
+            "feature": "lateral_movement",
+            "importance": 0.03075
+          }
+        ],
+        "collect_forensics": [
+          {
+            "feature": "severity",
+            "importance": 0.333108
+          },
+          {
+            "feature": "threat_confidence",
+            "importance": 0.148144
+          },
+          {
+            "feature": "endpoint_type",
+            "importance": 0.132695
+          },
+          {
+            "feature": "blast_radius",
+            "importance": 0.111314
+          },
+          {
+            "feature": "asset_criticality",
+            "importance": 0.108901
+          },
+          {
+            "feature": "internet_exposed",
+            "importance": 0.080673
+          },
+          {
+            "feature": "credential_exposure",
+            "importance": 0.058228
+          },
+          {
+            "feature": "lateral_movement",
+            "importance": 0.026937
+          }
+        ],
+        "do_nothing_validated": [
+          {
+            "feature": "severity",
+            "importance": 0.353609
+          },
+          {
+            "feature": "blast_radius",
+            "importance": 0.248673
+          },
+          {
+            "feature": "threat_confidence",
+            "importance": 0.13997
+          },
+          {
+            "feature": "asset_criticality",
+            "importance": 0.084122
+          },
+          {
+            "feature": "endpoint_type",
+            "importance": 0.069337
+          },
+          {
+            "feature": "credential_exposure",
+            "importance": 0.043395
+          },
+          {
+            "feature": "internet_exposed",
+            "importance": 0.03644
+          },
+          {
+            "feature": "lateral_movement",
+            "importance": 0.024454
+          }
+        ],
+        "escalate_p1": [
+          {
+            "feature": "severity",
+            "importance": 0.296129
+          },
+          {
+            "feature": "lateral_movement",
+            "importance": 0.169067
+          },
+          {
+            "feature": "blast_radius",
+            "importance": 0.132532
+          },
+          {
+            "feature": "asset_criticality",
+            "importance": 0.093983
+          },
+          {
+            "feature": "threat_confidence",
+            "importance": 0.08847
+          },
+          {
+            "feature": "endpoint_type",
+            "importance": 0.083504
+          },
+          {
+            "feature": "credential_exposure",
+            "importance": 0.071807
+          },
+          {
+            "feature": "internet_exposed",
+            "importance": 0.064507
+          }
+        ],
+        "isolate_host": [
+          {
+            "feature": "severity",
+            "importance": 0.281857
+          },
+          {
+            "feature": "blast_radius",
+            "importance": 0.15431
+          },
+          {
+            "feature": "endpoint_type",
+            "importance": 0.144224
+          },
+          {
+            "feature": "threat_confidence",
+            "importance": 0.126777
+          },
+          {
+            "feature": "asset_criticality",
+            "importance": 0.096158
+          },
+          {
+            "feature": "lateral_movement",
+            "importance": 0.073822
+          },
+          {
+            "feature": "credential_exposure",
+            "importance": 0.071332
+          },
+          {
+            "feature": "internet_exposed",
+            "importance": 0.051519
+          }
+        ],
+        "monitor_only": [
+          {
+            "feature": "severity",
+            "importance": 0.412612
+          },
+          {
+            "feature": "blast_radius",
+            "importance": 0.154061
+          },
+          {
+            "feature": "endpoint_type",
+            "importance": 0.10538
+          },
+          {
+            "feature": "threat_confidence",
+            "importance": 0.103833
+          },
+          {
+            "feature": "asset_criticality",
+            "importance": 0.096471
+          },
+          {
+            "feature": "internet_exposed",
+            "importance": 0.062498
+          },
+          {
+            "feature": "credential_exposure",
+            "importance": 0.035215
+          },
+          {
+            "feature": "lateral_movement",
+            "importance": 0.02993
+          }
+        ],
+        "rotate_credentials": [
+          {
+            "feature": "severity",
+            "importance": 0.27185
+          },
+          {
+            "feature": "asset_criticality",
+            "importance": 0.140643
+          },
+          {
+            "feature": "endpoint_type",
+            "importance": 0.125581
+          },
+          {
+            "feature": "blast_radius",
+            "importance": 0.121471
+          },
+          {
+            "feature": "threat_confidence",
+            "importance": 0.118423
+          },
+          {
+            "feature": "credential_exposure",
+            "importance": 0.09717
+          },
+          {
+            "feature": "lateral_movement",
+            "importance": 0.071855
+          },
+          {
+            "feature": "internet_exposed",
+            "importance": 0.053006
+          }
+        ]
+      }
+    },
+    "sre": {
+      "action_count": 8,
+      "domain": "sre",
+      "feature_count": 27,
+      "global_feature_importances": [
+        {
+          "feature": "error_rate",
+          "importance": 0.078536,
+          "rank": 1
+        },
+        {
+          "feature": "change_failure_blast_radius",
+          "importance": 0.078011,
+          "rank": 2
+        },
+        {
+          "feature": "capacity_headroom",
+          "importance": 0.071069,
+          "rank": 3
+        },
+        {
+          "feature": "cross_region_read_staleness",
+          "importance": 0.066195,
+          "rank": 4
+        },
+        {
+          "feature": "fault_scope",
+          "importance": 0.06193,
+          "rank": 5
+        },
+        {
+          "feature": "control_plane_availability",
+          "importance": 0.060226,
+          "rank": 6
+        },
+        {
+          "feature": "replica_skew",
+          "importance": 0.059081,
+          "rank": 7
+        },
+        {
+          "feature": "quorum_health",
+          "importance": 0.053678,
+          "rank": 8
+        },
+        {
+          "feature": "node_locality_score",
+          "importance": 0.050071,
+          "rank": 9
+        },
+        {
+          "feature": "saturation",
+          "importance": 0.048284,
+          "rank": 10
+        },
+        {
+          "feature": "dependency_health",
+          "importance": 0.047454,
+          "rank": 11
+        },
+        {
+          "feature": "replication_lag",
+          "importance": 0.046703,
+          "rank": 12
+        },
+        {
+          "feature": "deployment_recency",
+          "importance": 0.038341,
+          "rank": 13
+        },
+        {
+          "feature": "region_health",
+          "importance": 0.032236,
+          "rank": 14
+        },
+        {
+          "feature": "telemetry_confidence",
+          "importance": 0.027102,
+          "rank": 15
+        },
+        {
+          "feature": "rollback_safe",
+          "importance": 0.0226,
+          "rank": 16
+        },
+        {
+          "feature": "mitigation_window_remaining",
+          "importance": 0.020921,
+          "rank": 17
+        },
+        {
+          "feature": "automation_policy_permits_failover",
+          "importance": 0.017671,
+          "rank": 18
+        },
+        {
+          "feature": "recent_restart_attempts",
+          "importance": 0.016726,
+          "rank": 19
+        },
+        {
+          "feature": "deploy_regression_suspected",
+          "importance": 0.015971,
+          "rank": 20
+        },
+        {
+          "feature": "failover_ready",
+          "importance": 0.014852,
+          "rank": 21
+        },
+        {
+          "feature": "runbook_coordination_required",
+          "importance": 0.01423,
+          "rank": 22
+        },
+        {
+          "feature": "latency",
+          "importance": 0.014067,
+          "rank": 23
+        },
+        {
+          "feature": "operator_response_eta",
+          "importance": 0.013645,
+          "rank": 24
+        },
+        {
+          "feature": "write_path_available",
+          "importance": 0.011068,
+          "rank": 25
+        },
+        {
+          "feature": "secondary_capacity_ready",
+          "importance": 0.010274,
+          "rank": 26
+        },
+        {
+          "feature": "operator_approval_required",
+          "importance": 0.009059,
+          "rank": 27
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "train_accuracy": 1.0,
+        "train_case_count": 24
+      },
+      "model_path": "/Users/bobbyprice/projects/KVRM/kvrm-models/sre_compact_selector_v1.joblib",
+      "per_action_importances": {
+        "drain_node": [
+          {
+            "feature": "fault_scope",
+            "importance": 0.108726
+          },
+          {
+            "feature": "change_failure_blast_radius",
+            "importance": 0.101178
+          },
+          {
+            "feature": "error_rate",
+            "importance": 0.072466
+          },
+          {
+            "feature": "saturation",
+            "importance": 0.068267
+          },
+          {
+            "feature": "dependency_health",
+            "importance": 0.057146
+          },
+          {
+            "feature": "capacity_headroom",
+            "importance": 0.053846
+          },
+          {
+            "feature": "node_locality_score",
+            "importance": 0.053718
+          },
+          {
+            "feature": "replica_skew",
+            "importance": 0.053109
+          },
+          {
+            "feature": "cross_region_read_staleness",
+            "importance": 0.051708
+          },
+          {
+            "feature": "quorum_health",
+            "importance": 0.051397
+          },
+          {
+            "feature": "control_plane_availability",
+            "importance": 0.042937
+          },
+          {
+            "feature": "replication_lag",
+            "importance": 0.042197
+          },
+          {
+            "feature": "deployment_recency",
+            "importance": 0.0412
+          },
+          {
+            "feature": "rollback_safe",
+            "importance": 0.029014
+          },
+          {
+            "feature": "mitigation_window_remaining",
+            "importance": 0.023027
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "importance": 0.021891
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "importance": 0.020032
+          },
+          {
+            "feature": "region_health",
+            "importance": 0.018012
+          },
+          {
+            "feature": "telemetry_confidence",
+            "importance": 0.014418
+          },
+          {
+            "feature": "latency",
+            "importance": 0.014357
+          },
+          {
+            "feature": "automation_policy_permits_failover",
+            "importance": 0.012281
+          },
+          {
+            "feature": "runbook_coordination_required",
+            "importance": 0.010914
+          },
+          {
+            "feature": "operator_response_eta",
+            "importance": 0.009272
+          },
+          {
+            "feature": "failover_ready",
+            "importance": 0.007857
+          },
+          {
+            "feature": "operator_approval_required",
+            "importance": 0.0078
+          },
+          {
+            "feature": "write_path_available",
+            "importance": 0.007515
+          },
+          {
+            "feature": "secondary_capacity_ready",
+            "importance": 0.005716
+          }
+        ],
+        "enable_readonly_mode": [
+          {
+            "feature": "control_plane_availability",
+            "importance": 0.12148
+          },
+          {
+            "feature": "change_failure_blast_radius",
+            "importance": 0.08778
+          },
+          {
+            "feature": "cross_region_read_staleness",
+            "importance": 0.075381
+          },
+          {
+            "feature": "capacity_headroom",
+            "importance": 0.068308
+          },
+          {
+            "feature": "quorum_health",
+            "importance": 0.060774
+          },
+          {
+            "feature": "error_rate",
+            "importance": 0.059512
+          },
+          {
+            "feature": "region_health",
+            "importance": 0.05008
+          },
+          {
+            "feature": "fault_scope",
+            "importance": 0.046107
+          },
+          {
+            "feature": "saturation",
+            "importance": 0.045408
+          },
+          {
+            "feature": "node_locality_score",
+            "importance": 0.043686
+          },
+          {
+            "feature": "replica_skew",
+            "importance": 0.041158
+          },
+          {
+            "feature": "replication_lag",
+            "importance": 0.039285
+          },
+          {
+            "feature": "dependency_health",
+            "importance": 0.036114
+          },
+          {
+            "feature": "deployment_recency",
+            "importance": 0.032325
+          },
+          {
+            "feature": "mitigation_window_remaining",
+            "importance": 0.02755
+          },
+          {
+            "feature": "runbook_coordination_required",
+            "importance": 0.022095
+          },
+          {
+            "feature": "write_path_available",
+            "importance": 0.020891
+          },
+          {
+            "feature": "rollback_safe",
+            "importance": 0.015542
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "importance": 0.014287
+          },
+          {
+            "feature": "failover_ready",
+            "importance": 0.013972
+          },
+          {
+            "feature": "telemetry_confidence",
+            "importance": 0.01375
+          },
+          {
+            "feature": "automation_policy_permits_failover",
+            "importance": 0.013397
+          },
+          {
+            "feature": "operator_response_eta",
+            "importance": 0.011841
+          },
+          {
+            "feature": "secondary_capacity_ready",
+            "importance": 0.011665
+          },
+          {
+            "feature": "operator_approval_required",
+            "importance": 0.010173
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "importance": 0.009913
+          },
+          {
+            "feature": "latency",
+            "importance": 0.007524
+          }
+        ],
+        "failover_region": [
+          {
+            "feature": "cross_region_read_staleness",
+            "importance": 0.07522
+          },
+          {
+            "feature": "capacity_headroom",
+            "importance": 0.075121
+          },
+          {
+            "feature": "change_failure_blast_radius",
+            "importance": 0.066807
+          },
+          {
+            "feature": "control_plane_availability",
+            "importance": 0.06479
+          },
+          {
+            "feature": "replica_skew",
+            "importance": 0.056582
+          },
+          {
+            "feature": "fault_scope",
+            "importance": 0.055959
+          },
+          {
+            "feature": "quorum_health",
+            "importance": 0.052141
+          },
+          {
+            "feature": "dependency_health",
+            "importance": 0.047521
+          },
+          {
+            "feature": "error_rate",
+            "importance": 0.04715
+          },
+          {
+            "feature": "region_health",
+            "importance": 0.044226
+          },
+          {
+            "feature": "automation_policy_permits_failover",
+            "importance": 0.044186
+          },
+          {
+            "feature": "failover_ready",
+            "importance": 0.039593
+          },
+          {
+            "feature": "node_locality_score",
+            "importance": 0.039314
+          },
+          {
+            "feature": "operator_response_eta",
+            "importance": 0.033788
+          },
+          {
+            "feature": "secondary_capacity_ready",
+            "importance": 0.032651
+          },
+          {
+            "feature": "saturation",
+            "importance": 0.03177
+          },
+          {
+            "feature": "mitigation_window_remaining",
+            "importance": 0.031317
+          },
+          {
+            "feature": "runbook_coordination_required",
+            "importance": 0.030752
+          },
+          {
+            "feature": "replication_lag",
+            "importance": 0.029295
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "importance": 0.023172
+          },
+          {
+            "feature": "operator_approval_required",
+            "importance": 0.021274
+          },
+          {
+            "feature": "deployment_recency",
+            "importance": 0.015019
+          },
+          {
+            "feature": "rollback_safe",
+            "importance": 0.013472
+          },
+          {
+            "feature": "write_path_available",
+            "importance": 0.007809
+          },
+          {
+            "feature": "telemetry_confidence",
+            "importance": 0.007308
+          },
+          {
+            "feature": "latency",
+            "importance": 0.007229
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "importance": 0.006534
+          }
+        ],
+        "gather_more_telemetry": [
+          {
+            "feature": "error_rate",
+            "importance": 0.113921
+          },
+          {
+            "feature": "capacity_headroom",
+            "importance": 0.098482
+          },
+          {
+            "feature": "change_failure_blast_radius",
+            "importance": 0.076815
+          },
+          {
+            "feature": "replica_skew",
+            "importance": 0.064947
+          },
+          {
+            "feature": "node_locality_score",
+            "importance": 0.055872
+          },
+          {
+            "feature": "cross_region_read_staleness",
+            "importance": 0.054059
+          },
+          {
+            "feature": "telemetry_confidence",
+            "importance": 0.052834
+          },
+          {
+            "feature": "deployment_recency",
+            "importance": 0.052498
+          },
+          {
+            "feature": "replication_lag",
+            "importance": 0.05063
+          },
+          {
+            "feature": "fault_scope",
+            "importance": 0.049934
+          },
+          {
+            "feature": "quorum_health",
+            "importance": 0.045461
+          },
+          {
+            "feature": "saturation",
+            "importance": 0.044581
+          },
+          {
+            "feature": "control_plane_availability",
+            "importance": 0.042141
+          },
+          {
+            "feature": "dependency_health",
+            "importance": 0.037014
+          },
+          {
+            "feature": "region_health",
+            "importance": 0.022794
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "importance": 0.021415
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "importance": 0.020057
+          },
+          {
+            "feature": "rollback_safe",
+            "importance": 0.016298
+          },
+          {
+            "feature": "mitigation_window_remaining",
+            "importance": 0.015509
+          },
+          {
+            "feature": "latency",
+            "importance": 0.014515
+          },
+          {
+            "feature": "automation_policy_permits_failover",
+            "importance": 0.010958
+          },
+          {
+            "feature": "write_path_available",
+            "importance": 0.010724
+          },
+          {
+            "feature": "failover_ready",
+            "importance": 0.009498
+          },
+          {
+            "feature": "operator_response_eta",
+            "importance": 0.007165
+          },
+          {
+            "feature": "runbook_coordination_required",
+            "importance": 0.005643
+          },
+          {
+            "feature": "operator_approval_required",
+            "importance": 0.003158
+          },
+          {
+            "feature": "secondary_capacity_ready",
+            "importance": 0.003077
+          }
+        ],
+        "page_human_operator": [
+          {
+            "feature": "control_plane_availability",
+            "importance": 0.099121
+          },
+          {
+            "feature": "cross_region_read_staleness",
+            "importance": 0.072209
+          },
+          {
+            "feature": "change_failure_blast_radius",
+            "importance": 0.069912
+          },
+          {
+            "feature": "quorum_health",
+            "importance": 0.065108
+          },
+          {
+            "feature": "mitigation_window_remaining",
+            "importance": 0.063943
+          },
+          {
+            "feature": "replica_skew",
+            "importance": 0.051162
+          },
+          {
+            "feature": "runbook_coordination_required",
+            "importance": 0.049459
+          },
+          {
+            "feature": "error_rate",
+            "importance": 0.048887
+          },
+          {
+            "feature": "operator_response_eta",
+            "importance": 0.047929
+          },
+          {
+            "feature": "fault_scope",
+            "importance": 0.047158
+          },
+          {
+            "feature": "dependency_health",
+            "importance": 0.042018
+          },
+          {
+            "feature": "node_locality_score",
+            "importance": 0.040719
+          },
+          {
+            "feature": "capacity_headroom",
+            "importance": 0.035161
+          },
+          {
+            "feature": "operator_approval_required",
+            "importance": 0.033634
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "importance": 0.031036
+          },
+          {
+            "feature": "region_health",
+            "importance": 0.030401
+          },
+          {
+            "feature": "automation_policy_permits_failover",
+            "importance": 0.028086
+          },
+          {
+            "feature": "saturation",
+            "importance": 0.026262
+          },
+          {
+            "feature": "failover_ready",
+            "importance": 0.025451
+          },
+          {
+            "feature": "deployment_recency",
+            "importance": 0.017678
+          },
+          {
+            "feature": "replication_lag",
+            "importance": 0.015347
+          },
+          {
+            "feature": "secondary_capacity_ready",
+            "importance": 0.014747
+          },
+          {
+            "feature": "rollback_safe",
+            "importance": 0.013279
+          },
+          {
+            "feature": "telemetry_confidence",
+            "importance": 0.008752
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "importance": 0.008125
+          },
+          {
+            "feature": "latency",
+            "importance": 0.007299
+          },
+          {
+            "feature": "write_path_available",
+            "importance": 0.007115
+          }
+        ],
+        "restart_service": [
+          {
+            "feature": "cross_region_read_staleness",
+            "importance": 0.094506
+          },
+          {
+            "feature": "control_plane_availability",
+            "importance": 0.083149
+          },
+          {
+            "feature": "change_failure_blast_radius",
+            "importance": 0.077845
+          },
+          {
+            "feature": "fault_scope",
+            "importance": 0.073627
+          },
+          {
+            "feature": "error_rate",
+            "importance": 0.072379
+          },
+          {
+            "feature": "capacity_headroom",
+            "importance": 0.066363
+          },
+          {
+            "feature": "quorum_health",
+            "importance": 0.063917
+          },
+          {
+            "feature": "replication_lag",
+            "importance": 0.061592
+          },
+          {
+            "feature": "dependency_health",
+            "importance": 0.055315
+          },
+          {
+            "feature": "replica_skew",
+            "importance": 0.05334
+          },
+          {
+            "feature": "region_health",
+            "importance": 0.051299
+          },
+          {
+            "feature": "node_locality_score",
+            "importance": 0.045514
+          },
+          {
+            "feature": "saturation",
+            "importance": 0.030591
+          },
+          {
+            "feature": "deployment_recency",
+            "importance": 0.02801
+          },
+          {
+            "feature": "rollback_safe",
+            "importance": 0.016325
+          },
+          {
+            "feature": "mitigation_window_remaining",
+            "importance": 0.01575
+          },
+          {
+            "feature": "automation_policy_permits_failover",
+            "importance": 0.014956
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "importance": 0.014734
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "importance": 0.013788
+          },
+          {
+            "feature": "latency",
+            "importance": 0.01206
+          },
+          {
+            "feature": "telemetry_confidence",
+            "importance": 0.010765
+          },
+          {
+            "feature": "failover_ready",
+            "importance": 0.009939
+          },
+          {
+            "feature": "operator_response_eta",
+            "importance": 0.00893
+          },
+          {
+            "feature": "write_path_available",
+            "importance": 0.008888
+          },
+          {
+            "feature": "runbook_coordination_required",
+            "importance": 0.006513
+          },
+          {
+            "feature": "secondary_capacity_ready",
+            "importance": 0.005425
+          },
+          {
+            "feature": "operator_approval_required",
+            "importance": 0.004479
+          }
+        ],
+        "rollback_deploy": [
+          {
+            "feature": "deployment_recency",
+            "importance": 0.083312
+          },
+          {
+            "feature": "change_failure_blast_radius",
+            "importance": 0.074345
+          },
+          {
+            "feature": "replica_skew",
+            "importance": 0.070923
+          },
+          {
+            "feature": "error_rate",
+            "importance": 0.068692
+          },
+          {
+            "feature": "capacity_headroom",
+            "importance": 0.062478
+          },
+          {
+            "feature": "fault_scope",
+            "importance": 0.058541
+          },
+          {
+            "feature": "dependency_health",
+            "importance": 0.057661
+          },
+          {
+            "feature": "node_locality_score",
+            "importance": 0.056885
+          },
+          {
+            "feature": "rollback_safe",
+            "importance": 0.053716
+          },
+          {
+            "feature": "cross_region_read_staleness",
+            "importance": 0.051813
+          },
+          {
+            "feature": "quorum_health",
+            "importance": 0.049239
+          },
+          {
+            "feature": "control_plane_availability",
+            "importance": 0.048681
+          },
+          {
+            "feature": "replication_lag",
+            "importance": 0.044801
+          },
+          {
+            "feature": "saturation",
+            "importance": 0.038521
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "importance": 0.035392
+          },
+          {
+            "feature": "region_health",
+            "importance": 0.024977
+          },
+          {
+            "feature": "telemetry_confidence",
+            "importance": 0.024767
+          },
+          {
+            "feature": "mitigation_window_remaining",
+            "importance": 0.016537
+          },
+          {
+            "feature": "write_path_available",
+            "importance": 0.014451
+          },
+          {
+            "feature": "operator_response_eta",
+            "importance": 0.012334
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "importance": 0.011927
+          },
+          {
+            "feature": "automation_policy_permits_failover",
+            "importance": 0.009942
+          },
+          {
+            "feature": "latency",
+            "importance": 0.008879
+          },
+          {
+            "feature": "runbook_coordination_required",
+            "importance": 0.007792
+          },
+          {
+            "feature": "failover_ready",
+            "importance": 0.005118
+          },
+          {
+            "feature": "secondary_capacity_ready",
+            "importance": 0.004278
+          },
+          {
+            "feature": "operator_approval_required",
+            "importance": 0.003999
+          }
+        ],
+        "scale_out": [
+          {
+            "feature": "error_rate",
+            "importance": 0.093644
+          },
+          {
+            "feature": "capacity_headroom",
+            "importance": 0.077443
+          },
+          {
+            "feature": "change_failure_blast_radius",
+            "importance": 0.074015
+          },
+          {
+            "feature": "saturation",
+            "importance": 0.072061
+          },
+          {
+            "feature": "fault_scope",
+            "importance": 0.063126
+          },
+          {
+            "feature": "node_locality_score",
+            "importance": 0.060567
+          },
+          {
+            "feature": "replica_skew",
+            "importance": 0.057941
+          },
+          {
+            "feature": "replication_lag",
+            "importance": 0.054897
+          },
+          {
+            "feature": "cross_region_read_staleness",
+            "importance": 0.05406
+          },
+          {
+            "feature": "quorum_health",
+            "importance": 0.051882
+          },
+          {
+            "feature": "dependency_health",
+            "importance": 0.051847
+          },
+          {
+            "feature": "control_plane_availability",
+            "importance": 0.051034
+          },
+          {
+            "feature": "deployment_recency",
+            "importance": 0.031796
+          },
+          {
+            "feature": "telemetry_confidence",
+            "importance": 0.030794
+          },
+          {
+            "feature": "region_health",
+            "importance": 0.026138
+          },
+          {
+            "feature": "latency",
+            "importance": 0.019112
+          },
+          {
+            "feature": "automation_policy_permits_failover",
+            "importance": 0.015728
+          },
+          {
+            "feature": "mitigation_window_remaining",
+            "importance": 0.015657
+          },
+          {
+            "feature": "rollback_safe",
+            "importance": 0.014553
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "importance": 0.014173
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "importance": 0.013696
+          },
+          {
+            "feature": "write_path_available",
+            "importance": 0.011866
+          },
+          {
+            "feature": "operator_response_eta",
+            "importance": 0.011822
+          },
+          {
+            "feature": "runbook_coordination_required",
+            "importance": 0.009598
+          },
+          {
+            "feature": "operator_approval_required",
+            "importance": 0.008412
+          },
+          {
+            "feature": "failover_ready",
+            "importance": 0.007337
+          },
+          {
+            "feature": "secondary_capacity_ready",
+            "importance": 0.0068
+          }
+        ]
+      }
+    }
+  },
+  "generated_at": "2026-04-13T02:07:02.861108+00:00",
+  "model_dir": "/Users/bobbyprice/projects/KVRM/kvrm-models",
+  "summary": {
+    "analyzed_domain_count": 9,
+    "skipped_domain_count": 0,
+    "total_domain_count": 9
+  }
+}

@@ -1,0 +1,179 @@
+// Struct definitions and usage
+
+// Simple struct
+struct Point {
+  x: i32,
+  y: i32
+}
+
+// Struct with different types
+struct Person {
+  name: str,
+  age: i32,
+  active: bool
+}
+
+// Struct with floating point fields
+struct Vector2D {
+  x: f32,
+  y: f32
+}
+
+// Nested struct
+struct Rectangle {
+  top_left: Point,
+  bottom_right: Point
+}
+
+// Struct with mutable fields
+struct Counter {
+  mut value: i32,
+  step: i32
+}
+
+// Implementation block for methods
+impl Point {
+  // Constructor
+  fn new(x: i32, y: i32) -> Point {
+    return Point { x: x, y: y };
+  }
+
+  // Method with self
+  fn distance_from_origin(self) -> f32 {
+    let x_squared = self.x * self.x;
+    let y_squared = self.y * self.y;
+    // Simplified distance calculation
+    return 0.0;
+  }
+
+  // Method modifying self
+  fn translate(mut self, dx: i32, dy: i32) {
+    self.x = self.x + dx;
+    self.y = self.y + dy;
+  }
+
+  // Static method
+  fn origin() -> Point {
+    return Point { x: 0, y: 0 };
+  }
+}
+
+impl Vector2D {
+  fn magnitude(self) -> f32 {
+    return self.x * self.x + self.y * self.y;
+  }
+
+  fn add(self, other: Vector2D) -> Vector2D {
+    return Vector2D {
+      x: self.x + other.x,
+      y: self.y + other.y
+    };
+  }
+
+  fn scale(self, factor: f32) -> Vector2D {
+    return Vector2D {
+      x: self.x * factor,
+      y: self.y * factor
+    };
+  }
+}
+
+impl Rectangle {
+  fn new(x1: i32, y1: i32, x2: i32, y2: i32) -> Rectangle {
+    return Rectangle {
+      top_left: Point { x: x1, y: y1 },
+      bottom_right: Point { x: x2, y: y2 }
+    };
+  }
+
+  fn width(self) -> i32 {
+    return self.bottom_right.x - self.top_left.x;
+  }
+
+  fn height(self) -> i32 {
+    return self.bottom_right.y - self.top_left.y;
+  }
+
+  fn area(self) -> i32 {
+    return self.width() * self.height();
+  }
+}
+
+// Generic struct
+struct Container<T> {
+  value: T
+}
+
+impl<T> Container<T> {
+  fn new(value: T) -> Container<T> {
+    return Container { value: value };
+  }
+
+  fn get(self) -> T {
+    return self.value;
+  }
+
+  fn set(mut self, new_value: T) {
+    self.value = new_value;
+  }
+}
+
+// Struct with array field
+struct Matrix {
+  data: [i32; 9],
+  rows: i32,
+  cols: i32
+}
+
+// Usage examples
+fn main() {
+  // Create struct instances
+  let p1 = Point { x: 10, y: 20 };
+  let p2 = Point::new(5, 15);
+  let origin = Point::origin();
+
+  // Access struct fields
+  let x_coord = p1.x;
+  let y_coord = p1.y;
+
+  // Call struct methods
+  let distance = p1.distance_from_origin();
+
+  // Create nested struct
+  let rect = Rectangle::new(0, 0, 100, 50);
+  let area = rect.area();
+
+  // Vector operations
+  let v1 = Vector2D { x: 1.0, y: 2.0 };
+  let v2 = Vector2D { x: 3.0, y: 4.0 };
+  let v3 = v1.add(v2);
+  let scaled = v1.scale(2.5);
+
+  // Generic struct
+  let int_container = Container::new(42);
+  let value = int_container.get();
+
+  // Mutable struct
+  let mut counter = Counter { value: 0, step: 1 };
+  counter.value = counter.value + counter.step;
+}
+
+// Struct as function parameter
+fn calculate_distance(p1: Point, p2: Point) -> f32 {
+  let dx = p2.x - p1.x;
+  let dy = p2.y - p1.y;
+  return 0.0;
+}
+
+// Struct as return value
+fn create_point(x: i32, y: i32) -> Point {
+  return Point { x: x, y: y };
+}
+
+// Pattern matching with structs (if supported)
+fn is_origin(p: Point) -> bool {
+  if (p.x == 0 && p.y == 0) {
+    return true;
+  }
+  return false;
+}

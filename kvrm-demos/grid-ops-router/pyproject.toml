@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grid-ops-router"
+version = "0.1.0"
+description = "Grid operations policy router demo built on KVRM core"
+requires-python = ">=3.11"
+dependencies = ["kvrm-core"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+

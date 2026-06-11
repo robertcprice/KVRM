@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="550" height="200" viewBox="0 0 550 200">
+<text x='275' y='25' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='#1a1a2e'>Figure 2: Registry Lifecycle — Version, Hash, Validate, Evolve</text>
+<rect x='30' y='60' width='80' height='50' rx='6' fill='#e8f5e9' stroke='#43a047' stroke-width='1'/>
+<text x='70' y='80' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>Define</text>
+<text x='70' y='94' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>Actions</text>
+<line x1='110' y1='85' x2='135' y2='85' stroke='#43a047' stroke-width='1.5' marker-end='url(#arrow3)'/>
+<rect x='135' y='60' width='80' height='50' rx='6' fill='#e8f5e9' stroke='#43a047' stroke-width='1'/>
+<text x='175' y='80' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>Version</text>
+<text x='175' y='94' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>(v1.0.0)</text>
+<line x1='215' y1='85' x2='240' y2='85' stroke='#43a047' stroke-width='1.5' marker-end='url(#arrow3)'/>
+<rect x='240' y='60' width='80' height='50' rx='6' fill='#e8f5e9' stroke='#43a047' stroke-width='1'/>
+<text x='280' y='80' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>Hash</text>
+<text x='280' y='94' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>(SHA256)</text>
+<line x1='320' y1='85' x2='345' y2='85' stroke='#43a047' stroke-width='1.5' marker-end='url(#arrow3)'/>
+<rect x='345' y='60' width='80' height='50' rx='6' fill='#e8f5e9' stroke='#43a047' stroke-width='1'/>
+<text x='385' y='80' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>Load &</text>
+<text x='385' y='94' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>Validate</text>
+<line x1='425' y1='85' x2='450' y2='85' stroke='#43a047' stroke-width='1.5' marker-end='url(#arrow3)'/>
+<rect x='450' y='60' width='80' height='50' rx='6' fill='#e8f5e9' stroke='#43a047' stroke-width='1'/>
+<text x='490' y='80' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>Runtime</text>
+<text x='490' y='94' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#333'>Reference</text>
+<rect x='30' y='140' width='490' height='35' rx='4' fill='#fff3e0' stroke='#ff9800' stroke-width='1'/>
+<text x='275' y='162' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#bf360c'>Evolution: append-only (safe) → reorder (safe) → incompatible rename (KVRM: 0% stale, classifier: 19-44%)</text>
+<defs><marker id='arrow3' markerWidth='8' markerHeight='6' refX='8' refY='3' orient='auto'><polygon points='0 0, 8 3, 0 6' fill='#43a047'/></marker></defs>
+</svg>

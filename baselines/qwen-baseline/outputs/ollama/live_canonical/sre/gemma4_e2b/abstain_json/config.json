@@ -1,0 +1,12 @@
+{
+  "domain": "sre",
+  "model": "gemma4:e2b",
+  "variant": "abstain_json",
+  "runner": "ollama",
+  "registry_version": "1.5.0",
+  "train_cases": 24,
+  "eval_cases": 140,
+  "max_examples_per_action": 2,
+  "timestamp": "2026-04-10T17:56:42.185159+00:00",
+  "refresh": true
+}

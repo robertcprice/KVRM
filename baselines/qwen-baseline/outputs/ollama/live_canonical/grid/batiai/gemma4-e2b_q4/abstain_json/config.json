@@ -1,0 +1,12 @@
+{
+  "domain": "grid",
+  "model": "batiai/gemma4-e2b:q4",
+  "variant": "abstain_json",
+  "runner": "ollama",
+  "registry_version": "1.1.0",
+  "train_cases": 16,
+  "eval_cases": 24,
+  "max_examples_per_action": 2,
+  "timestamp": "2026-04-10T17:47:37.969850+00:00",
+  "refresh": true
+}

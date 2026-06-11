@@ -1,0 +1,835 @@
+{
+  "registry_name": "sre-policy-router",
+  "version": "1.5.0",
+  "required_features": [
+    "latency",
+    "error_rate",
+    "deployment_recency",
+    "dependency_health",
+    "region_health",
+    "saturation",
+    "replication_lag",
+    "write_path_available",
+    "fault_scope",
+    "node_locality_score",
+    "replica_skew",
+    "recent_restart_attempts",
+    "failover_ready",
+    "secondary_capacity_ready",
+    "automation_policy_permits_failover",
+    "operator_approval_required",
+    "operator_response_eta",
+    "mitigation_window_remaining",
+    "quorum_health",
+    "cross_region_read_staleness",
+    "control_plane_availability",
+    "runbook_coordination_required",
+    "deploy_regression_suspected",
+    "rollback_safe",
+    "capacity_headroom",
+    "change_failure_blast_radius",
+    "telemetry_confidence"
+  ],
+  "context_schema": {
+    "latency": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "elevated",
+        "high",
+        "severe",
+        "extreme"
+      ]
+    },
+    "error_rate": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "elevated",
+        "high",
+        "severe"
+      ]
+    },
+    "deployment_recency": {
+      "type": "string",
+      "enum": [
+        "stale",
+        "recent",
+        "fresh"
+      ]
+    },
+    "dependency_health": {
+      "type": "string",
+      "enum": [
+        "healthy",
+        "degraded",
+        "failing"
+      ]
+    },
+    "region_health": {
+      "type": "string",
+      "enum": [
+        "healthy",
+        "degraded",
+        "failing"
+      ]
+    },
+    "saturation": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "high",
+        "critical"
+      ]
+    },
+    "replication_lag": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high"
+      ]
+    },
+    "write_path_available": {
+      "type": "boolean"
+    },
+    "fault_scope": {
+      "type": "string",
+      "enum": [
+        "service",
+        "node",
+        "region"
+      ]
+    },
+    "node_locality_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "recent_restart_attempts": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 5.0
+    },
+    "failover_ready": {
+      "type": "boolean"
+    },
+    "secondary_capacity_ready": {
+      "type": "boolean"
+    },
+    "automation_policy_permits_failover": {
+      "type": "boolean"
+    },
+    "operator_approval_required": {
+      "type": "boolean"
+    },
+    "operator_response_eta": {
+      "type": "string",
+      "enum": [
+        "fast",
+        "moderate",
+        "slow"
+      ]
+    },
+    "mitigation_window_remaining": {
+      "type": "string",
+      "enum": [
+        "brief",
+        "limited",
+        "ample"
+      ]
+    },
+    "deploy_regression_suspected": {
+      "type": "boolean"
+    },
+    "rollback_safe": {
+      "type": "boolean"
+    },
+    "capacity_headroom": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high"
+      ]
+    },
+    "change_failure_blast_radius": {
+      "type": "string",
+      "enum": [
+        "service",
+        "node",
+        "cluster",
+        "region"
+      ]
+    },
+    "telemetry_confidence": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "replica_skew": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "quorum_health": {
+      "type": "string",
+      "enum": [
+        "healthy",
+        "degraded",
+        "lost"
+      ]
+    },
+    "cross_region_read_staleness": {
+      "type": "string",
+      "enum": [
+        "low",
+        "elevated",
+        "high"
+      ]
+    },
+    "control_plane_availability": {
+      "type": "string",
+      "enum": [
+        "available",
+        "degraded",
+        "unavailable"
+      ]
+    },
+    "runbook_coordination_required": {
+      "type": "boolean"
+    }
+  },
+  "actions": [
+    {
+      "action_id": "restart_service",
+      "name": "Restart Service",
+      "description": "Restart unhealthy service when the fault looks service-local and automation remains viable.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "dependency_health",
+            "op": "eq",
+            "value": "degraded"
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "service"
+          },
+          {
+            "feature": "node_locality_score",
+            "op": "lte",
+            "value": 0.35
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "op": "lte",
+            "value": 1.0
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "elevated",
+              "high",
+              "severe",
+              "extreme"
+            ]
+          },
+          {
+            "feature": "saturation",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "replica_skew",
+            "op": "gte",
+            "value": 0.4
+          },
+          {
+            "feature": "replica_skew",
+            "op": "lte",
+            "value": 0.75
+          }
+        ]
+      },
+      "tags": [
+        "service"
+      ]
+    },
+    {
+      "action_id": "failover_region",
+      "name": "Failover Region",
+      "description": "Shift traffic to a healthy region when failover is safe and permitted.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "dependency_health",
+            "op": "eq",
+            "value": "failing"
+          },
+          {
+            "feature": "region_health",
+            "op": "eq",
+            "value": "failing"
+          },
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "error_rate",
+            "op": "eq",
+            "value": "severe"
+          },
+          {
+            "feature": "replication_lag",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "saturation",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "high",
+              "severe",
+              "extreme"
+            ]
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "region"
+          },
+          {
+            "feature": "failover_ready",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "secondary_capacity_ready",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "automation_policy_permits_failover",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "operator_approval_required",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "quorum_health",
+            "op": "eq",
+            "value": "degraded"
+          },
+          {
+            "feature": "cross_region_read_staleness",
+            "op": "in",
+            "value": [
+              "low",
+              "elevated"
+            ]
+          },
+          {
+            "feature": "control_plane_availability",
+            "op": "eq",
+            "value": "available"
+          },
+          {
+            "feature": "runbook_coordination_required",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "replica_skew",
+            "op": "lte",
+            "value": 0.35
+          }
+        ]
+      },
+      "tags": [
+        "region"
+      ]
+    },
+    {
+      "action_id": "scale_out",
+      "name": "Scale Out",
+      "description": "Add capacity when latency is demand-driven rather than deploy-driven.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "dependency_health",
+            "op": "eq",
+            "value": "healthy"
+          },
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "saturation",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "elevated",
+              "high"
+            ]
+          },
+          {
+            "feature": "capacity_headroom",
+            "op": "eq",
+            "value": "low"
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "service"
+          },
+          {
+            "feature": "replica_skew",
+            "op": "lte",
+            "value": 0.35
+          }
+        ]
+      },
+      "tags": [
+        "capacity"
+      ]
+    },
+    {
+      "action_id": "drain_node",
+      "name": "Drain Node",
+      "description": "Drain one unhealthy node when failure is concentrated to a local replica.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "dependency_health",
+            "op": "eq",
+            "value": "degraded"
+          },
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "node"
+          },
+          {
+            "feature": "node_locality_score",
+            "op": "gte",
+            "value": 0.65
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "op": "lte",
+            "value": 1.0
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "replica_skew",
+            "op": "gte",
+            "value": 0.75
+          }
+        ]
+      },
+      "tags": [
+        "node"
+      ]
+    },
+    {
+      "action_id": "rollback_deploy",
+      "name": "Rollback Deploy",
+      "description": "Rollback a suspected bad deployment when rollback is safe.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "deployment_recency",
+            "op": "in",
+            "value": [
+              "fresh",
+              "recent"
+            ]
+          },
+          {
+            "feature": "error_rate",
+            "op": "in",
+            "value": [
+              "elevated",
+              "high",
+              "severe"
+            ]
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "elevated",
+              "high",
+              "severe",
+              "extreme"
+            ]
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "rollback_safe",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "service"
+          },
+          {
+            "feature": "replica_skew",
+            "op": "lte",
+            "value": 0.6
+          }
+        ]
+      },
+      "tags": [
+        "deploy"
+      ]
+    },
+    {
+      "action_id": "enable_readonly_mode",
+      "name": "Enable Readonly Mode",
+      "description": "Preserve the service by disabling writes when consistency is at risk.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "replication_lag",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "saturation",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "error_rate",
+            "op": "in",
+            "value": [
+              "high",
+              "severe"
+            ]
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "elevated",
+              "high",
+              "severe",
+              "extreme"
+            ]
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "service"
+          },
+          {
+            "feature": "change_failure_blast_radius",
+            "op": "in",
+            "value": [
+              "cluster",
+              "region"
+            ]
+          },
+          {
+            "feature": "replica_skew",
+            "op": "lte",
+            "value": 0.35
+          },
+          {
+            "feature": "quorum_health",
+            "op": "eq",
+            "value": "degraded"
+          },
+          {
+            "feature": "cross_region_read_staleness",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "control_plane_availability",
+            "op": "eq",
+            "value": "degraded"
+          },
+          {
+            "feature": "runbook_coordination_required",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "tags": [
+        "safety"
+      ]
+    },
+    {
+      "action_id": "gather_more_telemetry",
+      "name": "Gather More Telemetry",
+      "description": "Collect more evidence before taking disruptive action.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "telemetry_confidence",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "service"
+          },
+          {
+            "feature": "error_rate",
+            "op": "in",
+            "value": [
+              "normal",
+              "elevated"
+            ]
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "normal",
+              "elevated"
+            ]
+          },
+          {
+            "feature": "replica_skew",
+            "op": "lte",
+            "value": 0.45
+          }
+        ]
+      },
+      "tags": [
+        "telemetry"
+      ]
+    },
+    {
+      "action_id": "page_human_operator",
+      "name": "Page Human Operator",
+      "description": "Escalate to a human operator when the blast radius is severe but automated failover is blocked.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason"
+        ]
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "dependency_health",
+            "op": "eq",
+            "value": "failing"
+          },
+          {
+            "feature": "error_rate",
+            "op": "eq",
+            "value": "severe"
+          },
+          {
+            "feature": "saturation",
+            "op": "eq",
+            "value": "critical"
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "severe",
+              "extreme"
+            ]
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "region"
+          },
+          {
+            "feature": "operator_response_eta",
+            "op": "in",
+            "value": [
+              "fast",
+              "moderate"
+            ]
+          },
+          {
+            "feature": "mitigation_window_remaining",
+            "op": "in",
+            "value": [
+              "limited",
+              "ample"
+            ]
+          },
+          {
+            "any": [
+              {
+                "feature": "quorum_health",
+                "op": "eq",
+                "value": "lost"
+              },
+              {
+                "feature": "cross_region_read_staleness",
+                "op": "eq",
+                "value": "high"
+              },
+              {
+                "feature": "control_plane_availability",
+                "op": "eq",
+                "value": "unavailable"
+              },
+              {
+                "feature": "runbook_coordination_required",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "any": [
+              {
+                "feature": "failover_ready",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "feature": "secondary_capacity_ready",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "feature": "automation_policy_permits_failover",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "feature": "operator_approval_required",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "fallback",
+        "safe",
+        "safety"
+      ]
+    }
+  ]
+}

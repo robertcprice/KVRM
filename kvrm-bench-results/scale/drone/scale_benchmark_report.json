@@ -1,0 +1,51 @@
+{
+  "domains": {
+    "drone": {
+      "case_count": 1000,
+      "correctness": {
+        "abstention_rate": 0.0,
+        "calibration_ece": 0.8138000000000001,
+        "fallback_rate": 0.888,
+        "false_accept_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "latency_p50_ms": 16.482124978210777,
+        "latency_p95_ms": 30.38216699496843,
+        "latency_p99_ms": 44.75495798396878,
+        "mean_decision_cost": 0.0,
+        "ood_accuracy_supported_only": 1.0,
+        "semantic_correctness_rate": 1.0,
+        "structural_validity_rate": 1.0,
+        "support_gate_exhausted_rate": 0.0,
+        "support_gate_trigger_rate": 0.0,
+        "supported_cases": 112,
+        "supported_mean_decision_cost": 0.0,
+        "supported_support_gate_rescue_rate": 0.0,
+        "total_cases": 1000,
+        "unsupported_case_rejection_rate": 1.0,
+        "unsupported_cases": 888,
+        "unsupported_mean_decision_cost": 0.0,
+        "unsupported_support_gate_short_circuit_rate": 0.0
+      },
+      "latency": {
+        "max_ms": 95.3103,
+        "mean_ms": 17.4092,
+        "p50_ms": 16.5893,
+        "p95_ms": 30.5205,
+        "p99_ms": 45.9684,
+        "throughput_decisions_per_sec": 57.29,
+        "total_elapsed_ms": 17453.534
+      },
+      "multi_action_case_count": 0,
+      "supported_case_count": 112,
+      "total_feature_space_size": 235092492288,
+      "unsupported_case_count": 888
+    }
+  },
+  "generated_at": "2026-04-13T02:08:25.386324+00:00",
+  "summary": {
+    "all_domains_perfect": true,
+    "overall_throughput_decisions_per_sec": 57.29,
+    "total_cases": 1000,
+    "total_elapsed_ms": 17453.534
+  }
+}

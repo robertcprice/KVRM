@@ -1,0 +1,267 @@
+{
+  "registry_name": "sre-policy-router",
+  "version": "1.0.0",
+  "actions": [
+    {
+      "action_id": "restart_service",
+      "name": "Restart Service",
+      "description": "Restart unhealthy service.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "dependency_health", "op": "eq", "value": "degraded" },
+          { "feature": "saturation", "op": "eq", "value": "high" },
+          { "feature": "latency", "op": "in", "value": ["elevated", "high", "severe", "extreme"] },
+          {
+            "any": [
+              {
+                "all": [
+                  { "feature": "error_rate", "op": "eq", "value": "high" },
+                  { "feature": "replication_lag", "op": "eq", "value": "moderate" }
+                ]
+              },
+              {
+                "all": [
+                  { "feature": "error_rate", "op": "eq", "value": "elevated" },
+                  { "feature": "latency", "op": "eq", "value": "high" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "service"
+      ]
+    },
+    {
+      "action_id": "failover_region",
+      "name": "Failover Region",
+      "description": "Shift traffic to healthy region.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "dependency_health", "op": "eq", "value": "failing" },
+          { "feature": "region_health", "op": "eq", "value": "failing" },
+          { "feature": "write_path_available", "op": "eq", "value": false },
+          { "feature": "deployment_recency", "op": "in", "value": ["recent", "stale"] },
+          { "feature": "error_rate", "op": "eq", "value": "severe" },
+          { "feature": "replication_lag", "op": "eq", "value": "high" },
+          { "feature": "saturation", "op": "in", "value": ["high", "critical"] },
+          { "feature": "latency", "op": "in", "value": ["high", "severe", "extreme"] }
+        ]
+      },
+      "tags": [
+        "region"
+      ]
+    },
+    {
+      "action_id": "scale_out",
+      "name": "Scale Out",
+      "description": "Increase serving capacity.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "dependency_health", "op": "eq", "value": "healthy" },
+          { "feature": "write_path_available", "op": "eq", "value": true },
+          { "feature": "saturation", "op": "in", "value": ["high", "critical"] },
+          { "feature": "latency", "op": "in", "value": ["elevated", "high"] },
+          { "feature": "error_rate", "op": "in", "value": ["normal", "elevated", "high"] }
+        ]
+      },
+      "tags": [
+        "capacity"
+      ]
+    },
+    {
+      "action_id": "drain_node",
+      "name": "Drain Node",
+      "description": "Drain one unhealthy node from service.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "dependency_health", "op": "eq", "value": "degraded" },
+          { "feature": "write_path_available", "op": "eq", "value": true },
+          {
+            "any": [
+              { "feature": "latency", "op": "eq", "value": "elevated" },
+              { "feature": "error_rate", "op": "in", "value": ["elevated", "high"] },
+              { "feature": "replication_lag", "op": "in", "value": ["moderate", "high"] },
+              { "feature": "saturation", "op": "eq", "value": "high" },
+              { "feature": "region_health", "op": "eq", "value": "degraded" }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "node"
+      ]
+    },
+    {
+      "action_id": "rollback_deploy",
+      "name": "Rollback Deploy",
+      "description": "Rollback a suspected bad deployment.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "write_path_available", "op": "eq", "value": true },
+          { "feature": "deployment_recency", "op": "in", "value": ["fresh", "recent"] },
+          { "feature": "error_rate", "op": "in", "value": ["elevated", "high", "severe"] },
+          { "feature": "latency", "op": "in", "value": ["elevated", "high", "severe", "extreme"] },
+          { "feature": "region_health", "op": "in", "value": ["healthy", "degraded"] },
+          {
+            "not": {
+              "all": [
+                { "feature": "dependency_health", "op": "eq", "value": "degraded" },
+                { "feature": "error_rate", "op": "eq", "value": "severe" }
+              ]
+            }
+          }
+        ]
+      },
+      "tags": [
+        "deploy"
+      ]
+    },
+    {
+      "action_id": "enable_readonly_mode",
+      "name": "Enable Readonly Mode",
+      "description": "Preserve service by disabling writes.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "write_path_available", "op": "eq", "value": false },
+          { "feature": "replication_lag", "op": "eq", "value": "high" },
+          { "feature": "saturation", "op": "in", "value": ["high", "critical"] },
+          { "feature": "error_rate", "op": "in", "value": ["high", "severe"] },
+          { "feature": "latency", "op": "in", "value": ["elevated", "high", "severe", "extreme"] },
+          { "feature": "dependency_health", "op": "in", "value": ["healthy", "degraded"] },
+          { "feature": "region_health", "op": "in", "value": ["healthy", "degraded"] }
+        ]
+      },
+      "tags": [
+        "safety"
+      ]
+    },
+    {
+      "action_id": "gather_more_telemetry",
+      "name": "Gather More Telemetry",
+      "description": "Collect more signal before taking disruptive action.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "write_path_available", "op": "eq", "value": true },
+          { "feature": "error_rate", "op": "eq", "value": "normal" },
+          { "feature": "deployment_recency", "op": "in", "value": ["recent", "stale"] },
+          {
+            "any": [
+              {
+                "all": [
+                  { "feature": "dependency_health", "op": "eq", "value": "degraded" },
+                  {
+                    "any": [
+                      { "feature": "latency", "op": "eq", "value": "elevated" },
+                      { "feature": "region_health", "op": "eq", "value": "degraded" }
+                    ]
+                  }
+                ]
+              },
+              {
+                "all": [
+                  { "feature": "deployment_recency", "op": "eq", "value": "recent" },
+                  {
+                    "any": [
+                      { "feature": "latency", "op": "eq", "value": "elevated" },
+                      { "feature": "region_health", "op": "eq", "value": "degraded" }
+                    ]
+                  }
+                ]
+              },
+              {
+                "all": [
+                  { "feature": "deployment_recency", "op": "eq", "value": "stale" },
+                  {
+                    "any": [
+                      { "feature": "latency", "op": "eq", "value": "elevated" },
+                      { "feature": "region_health", "op": "eq", "value": "degraded" },
+                      { "feature": "saturation", "op": "eq", "value": "high" },
+                      { "feature": "replication_lag", "op": "eq", "value": "moderate" },
+                      {
+                        "all": [
+                          { "feature": "latency", "op": "eq", "value": "normal" },
+                          { "feature": "dependency_health", "op": "eq", "value": "healthy" },
+                          { "feature": "region_health", "op": "eq", "value": "healthy" },
+                          { "feature": "replication_lag", "op": "eq", "value": "low" },
+                          { "feature": "saturation", "op": "eq", "value": "normal" }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "telemetry"
+      ]
+    },
+    {
+      "action_id": "page_human_operator",
+      "name": "Page Human Operator",
+      "description": "Escalate to a human operator.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason"
+        ]
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "dependency_health", "op": "eq", "value": "failing" },
+          { "feature": "error_rate", "op": "eq", "value": "severe" },
+          { "feature": "saturation", "op": "eq", "value": "critical" },
+          { "feature": "latency", "op": "in", "value": ["severe", "extreme"] }
+        ]
+      },
+      "tags": [
+        "fallback",
+        "safe"
+      ]
+    }
+  ]
+}

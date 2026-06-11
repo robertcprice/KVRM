@@ -1,0 +1,402 @@
+{
+  "generated_at": "2026-04-07T03:12:48.793009+00:00",
+  "kvrm_results": {
+    "demos": {
+      "drone_hybrid": {
+        "abstention_rate": 0.25,
+        "calibration_ece": 0.0,
+        "fallback_rate": 0.25,
+        "false_accept_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "latency_p50_ms": 0.044374988647177815,
+        "latency_p95_ms": 0.09812499047257006,
+        "latency_p99_ms": 0.09812499047257006,
+        "ood_accuracy_supported_only": 0.8333333333333334,
+        "semantic_correctness_rate": 0.9166666666666666,
+        "structural_validity_rate": 1.0,
+        "supported_cases": 12,
+        "total_cases": 16,
+        "unsupported_case_rejection_rate": 1.0,
+        "unsupported_cases": 4
+      },
+      "soc_hybrid": {
+        "abstention_rate": 0.25,
+        "calibration_ece": 0.0,
+        "fallback_rate": 0.25,
+        "false_accept_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "latency_p50_ms": 0.03441699664108455,
+        "latency_p95_ms": 0.05054200300946832,
+        "latency_p99_ms": 0.05054200300946832,
+        "ood_accuracy_supported_only": 0.8571428571428571,
+        "semantic_correctness_rate": 0.9166666666666666,
+        "structural_validity_rate": 1.0,
+        "supported_cases": 12,
+        "total_cases": 16,
+        "unsupported_case_rejection_rate": 1.0,
+        "unsupported_cases": 4
+      },
+      "sre_hybrid": {
+        "abstention_rate": 0.25,
+        "calibration_ece": 0.0,
+        "fallback_rate": 0.25,
+        "false_accept_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "latency_p50_ms": 0.021374988136813045,
+        "latency_p95_ms": 0.05258299643173814,
+        "latency_p99_ms": 0.05258299643173814,
+        "ood_accuracy_supported_only": 1.0,
+        "semantic_correctness_rate": 1.0,
+        "structural_validity_rate": 1.0,
+        "supported_cases": 12,
+        "total_cases": 16,
+        "unsupported_case_rejection_rate": 1.0,
+        "unsupported_cases": 4
+      }
+    },
+    "generated_at": "2026-04-06T19:49:59.182788+00:00"
+  },
+  "baseline_results": {
+    "sre": {
+      "direct_label": {
+        "total_cases": 16,
+        "supported_cases": 12,
+        "unsupported_cases": 4,
+        "structural_validity_rate": 1.0,
+        "semantic_correctness_rate": 1.0,
+        "abstention_rate": 0.0,
+        "fallback_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "false_accept_rate": 1.0,
+        "latency_p50_ms": 5.333583016181365,
+        "latency_p95_ms": 5.571708985371515,
+        "latency_p99_ms": 5.571708985371515,
+        "ood_accuracy_supported_only": 1.0,
+        "unsupported_case_rejection_rate": 0.0
+      },
+      "json_action": {
+        "total_cases": 16,
+        "supported_cases": 12,
+        "unsupported_cases": 4,
+        "structural_validity_rate": 1.0,
+        "semantic_correctness_rate": 1.0,
+        "abstention_rate": 0.0,
+        "fallback_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "false_accept_rate": 1.0,
+        "latency_p50_ms": 0.49883301835507154,
+        "latency_p95_ms": 1.0072079894598573,
+        "latency_p99_ms": 1.0072079894598573,
+        "ood_accuracy_supported_only": 1.0,
+        "unsupported_case_rejection_rate": 0.0
+      },
+      "constrained": {
+        "total_cases": 16,
+        "supported_cases": 12,
+        "unsupported_cases": 4,
+        "structural_validity_rate": 1.0,
+        "semantic_correctness_rate": 1.0,
+        "abstention_rate": 0.0,
+        "fallback_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "false_accept_rate": 1.0,
+        "latency_p50_ms": 10.531290987273678,
+        "latency_p95_ms": 11.09683298273012,
+        "latency_p99_ms": 11.09683298273012,
+        "ood_accuracy_supported_only": 1.0,
+        "unsupported_case_rejection_rate": 0.0
+      }
+    },
+    "soc": {
+      "direct_label": {
+        "total_cases": 16,
+        "supported_cases": 12,
+        "unsupported_cases": 4,
+        "structural_validity_rate": 1.0,
+        "semantic_correctness_rate": 0.75,
+        "abstention_rate": 0.0,
+        "fallback_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "false_accept_rate": 1.0,
+        "latency_p50_ms": 5.4225420171860605,
+        "latency_p95_ms": 5.866499996045604,
+        "latency_p99_ms": 5.866499996045604,
+        "ood_accuracy_supported_only": 0.7142857142857143,
+        "unsupported_case_rejection_rate": 0.0
+      },
+      "json_action": {
+        "total_cases": 16,
+        "supported_cases": 12,
+        "unsupported_cases": 4,
+        "structural_validity_rate": 1.0,
+        "semantic_correctness_rate": 0.6666666666666666,
+        "abstention_rate": 0.25,
+        "fallback_rate": 0.25,
+        "invalid_output_rate": 0.0,
+        "false_accept_rate": 0.75,
+        "latency_p50_ms": 0.4761249874718487,
+        "latency_p95_ms": 0.6481249874923378,
+        "latency_p99_ms": 0.6481249874923378,
+        "ood_accuracy_supported_only": 0.5714285714285714,
+        "unsupported_case_rejection_rate": 0.25
+      },
+      "constrained": {
+        "total_cases": 16,
+        "supported_cases": 12,
+        "unsupported_cases": 4,
+        "structural_validity_rate": 1.0,
+        "semantic_correctness_rate": 0.75,
+        "abstention_rate": 0.0,
+        "fallback_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "false_accept_rate": 1.0,
+        "latency_p50_ms": 10.748332977527753,
+        "latency_p95_ms": 11.282874998869374,
+        "latency_p99_ms": 11.282874998869374,
+        "ood_accuracy_supported_only": 0.7142857142857143,
+        "unsupported_case_rejection_rate": 0.0
+      }
+    },
+    "drone": {
+      "direct_label": {
+        "total_cases": 16,
+        "supported_cases": 12,
+        "unsupported_cases": 4,
+        "structural_validity_rate": 1.0,
+        "semantic_correctness_rate": 0.8333333333333334,
+        "abstention_rate": 0.0,
+        "fallback_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "false_accept_rate": 1.0,
+        "latency_p50_ms": 5.311125016305596,
+        "latency_p95_ms": 5.552624992560595,
+        "latency_p99_ms": 5.552624992560595,
+        "ood_accuracy_supported_only": 0.6666666666666666,
+        "unsupported_case_rejection_rate": 0.0
+      },
+      "json_action": {
+        "total_cases": 16,
+        "supported_cases": 12,
+        "unsupported_cases": 4,
+        "structural_validity_rate": 1.0,
+        "semantic_correctness_rate": 0.8333333333333334,
+        "abstention_rate": 0.25,
+        "fallback_rate": 0.25,
+        "invalid_output_rate": 0.0,
+        "false_accept_rate": 0.25,
+        "latency_p50_ms": 0.4910420102532953,
+        "latency_p95_ms": 0.6200409843586385,
+        "latency_p99_ms": 0.6200409843586385,
+        "ood_accuracy_supported_only": 0.6666666666666666,
+        "unsupported_case_rejection_rate": 0.75
+      },
+      "constrained": {
+        "total_cases": 16,
+        "supported_cases": 12,
+        "unsupported_cases": 4,
+        "structural_validity_rate": 1.0,
+        "semantic_correctness_rate": 0.8333333333333334,
+        "abstention_rate": 0.0,
+        "fallback_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "false_accept_rate": 1.0,
+        "latency_p50_ms": 10.722749982960522,
+        "latency_p95_ms": 12.652541015995666,
+        "latency_p99_ms": 12.652541015995666,
+        "ood_accuracy_supported_only": 0.6666666666666666,
+        "unsupported_case_rejection_rate": 0.0
+      }
+    }
+  },
+  "evolution_results": {
+    "sre/direct_label/append": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 1.0,
+      "false_accept_rate": 1.0
+    },
+    "sre/direct_label/reorder": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 1.0,
+      "false_accept_rate": 1.0
+    },
+    "sre/direct_label/incompatible": {
+      "stale_label_rate": 0.375,
+      "stale_label_count": 6,
+      "structural_validity": 0.625,
+      "semantic_correctness": 1.0,
+      "false_accept_rate": 1.0
+    },
+    "sre/json_action/append": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 1.0,
+      "false_accept_rate": 1.0
+    },
+    "sre/json_action/reorder": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 1.0,
+      "false_accept_rate": 1.0
+    },
+    "sre/json_action/incompatible": {
+      "stale_label_rate": 0.4375,
+      "stale_label_count": 7,
+      "structural_validity": 0.5625,
+      "semantic_correctness": 1.0,
+      "false_accept_rate": 1.0
+    },
+    "sre/constrained/append": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 1.0,
+      "false_accept_rate": 1.0
+    },
+    "sre/constrained/reorder": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 1.0,
+      "false_accept_rate": 1.0
+    },
+    "sre/constrained/incompatible": {
+      "stale_label_rate": 0.375,
+      "stale_label_count": 6,
+      "structural_validity": 0.625,
+      "semantic_correctness": 1.0,
+      "false_accept_rate": 1.0
+    },
+    "soc/direct_label/append": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.75,
+      "false_accept_rate": 1.0
+    },
+    "soc/direct_label/reorder": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.75,
+      "false_accept_rate": 1.0
+    },
+    "soc/direct_label/incompatible": {
+      "stale_label_rate": 0.3125,
+      "stale_label_count": 5,
+      "structural_validity": 0.6875,
+      "semantic_correctness": 0.75,
+      "false_accept_rate": 1.0
+    },
+    "soc/json_action/append": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.6666666666666666,
+      "false_accept_rate": 0.75
+    },
+    "soc/json_action/reorder": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.6666666666666666,
+      "false_accept_rate": 0.75
+    },
+    "soc/json_action/incompatible": {
+      "stale_label_rate": 0.3125,
+      "stale_label_count": 5,
+      "structural_validity": 0.6875,
+      "semantic_correctness": 0.6666666666666666,
+      "false_accept_rate": 0.75
+    },
+    "soc/constrained/append": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.75,
+      "false_accept_rate": 1.0
+    },
+    "soc/constrained/reorder": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.75,
+      "false_accept_rate": 1.0
+    },
+    "soc/constrained/incompatible": {
+      "stale_label_rate": 0.3125,
+      "stale_label_count": 5,
+      "structural_validity": 0.6875,
+      "semantic_correctness": 0.75,
+      "false_accept_rate": 1.0
+    },
+    "drone/direct_label/append": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.8333333333333334,
+      "false_accept_rate": 1.0
+    },
+    "drone/direct_label/reorder": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.8333333333333334,
+      "false_accept_rate": 1.0
+    },
+    "drone/direct_label/incompatible": {
+      "stale_label_rate": 0.1875,
+      "stale_label_count": 3,
+      "structural_validity": 0.8125,
+      "semantic_correctness": 0.8333333333333334,
+      "false_accept_rate": 1.0
+    },
+    "drone/json_action/append": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.8333333333333334,
+      "false_accept_rate": 0.25
+    },
+    "drone/json_action/reorder": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.8333333333333334,
+      "false_accept_rate": 0.25
+    },
+    "drone/json_action/incompatible": {
+      "stale_label_rate": 0.1875,
+      "stale_label_count": 3,
+      "structural_validity": 0.8125,
+      "semantic_correctness": 0.8333333333333334,
+      "false_accept_rate": 0.25
+    },
+    "drone/constrained/append": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.8333333333333334,
+      "false_accept_rate": 1.0
+    },
+    "drone/constrained/reorder": {
+      "stale_label_rate": 0.0,
+      "stale_label_count": 0,
+      "structural_validity": 1.0,
+      "semantic_correctness": 0.8333333333333334,
+      "false_accept_rate": 1.0
+    },
+    "drone/constrained/incompatible": {
+      "stale_label_rate": 0.1875,
+      "stale_label_count": 3,
+      "structural_validity": 0.8125,
+      "semantic_correctness": 0.8333333333333334,
+      "false_accept_rate": 1.0
+    }
+  }
+}

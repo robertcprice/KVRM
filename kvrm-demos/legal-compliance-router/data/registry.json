@@ -1,0 +1,212 @@
+{
+  "registry_name": "legal-compliance-router",
+  "version": "1.0.0",
+  "required_features": [
+    "contract_value",
+    "jurisdiction",
+    "document_type",
+    "risk_tier",
+    "prior_counsel_approval",
+    "legal_hold_active",
+    "counterparty_reputation"
+  ],
+  "context_schema": {
+    "contract_value": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 100000000.0
+    },
+    "jurisdiction": {
+      "type": "string",
+      "enum": ["domestic", "international", "restricted"]
+    },
+    "document_type": {
+      "type": "string",
+      "enum": ["nda", "msa", "sow", "amendment", "license"]
+    },
+    "risk_tier": {
+      "type": "string",
+      "enum": ["low", "medium", "high", "critical"]
+    },
+    "prior_counsel_approval": {
+      "type": "boolean"
+    },
+    "legal_hold_active": {
+      "type": "boolean"
+    },
+    "counterparty_reputation": {
+      "type": "string",
+      "enum": ["trusted", "neutral", "unknown", "flagged"]
+    }
+  },
+  "actions": [
+    {
+      "action_id": "approve_contract",
+      "name": "Approve Contract",
+      "description": "Auto-approve low-risk contracts from trusted counterparties in domestic jurisdiction.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "risk_tier", "op": "eq", "value": "low" },
+          { "feature": "jurisdiction", "op": "eq", "value": "domestic" },
+          { "feature": "counterparty_reputation", "op": "eq", "value": "trusted" },
+          { "feature": "legal_hold_active", "op": "eq", "value": false },
+          { "feature": "contract_value", "op": "lte", "value": 100000.0 },
+          { "feature": "document_type", "op": "in", "value": ["nda", "sow", "amendment"] }
+        ]
+      },
+      "tags": ["approval"]
+    },
+    {
+      "action_id": "request_legal_review",
+      "name": "Request Legal Review",
+      "description": "Route to in-house legal for review when risk is moderate or contract terms need scrutiny.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "risk_tier", "op": "in", "value": ["medium", "high"] },
+          { "feature": "legal_hold_active", "op": "eq", "value": false },
+          { "feature": "counterparty_reputation", "op": "in", "value": ["neutral", "unknown"] },
+          { "feature": "jurisdiction", "op": "in", "value": ["domestic", "international"] },
+          { "feature": "contract_value", "op": "lte", "value": 5000000.0 },
+          { "feature": "prior_counsel_approval", "op": "eq", "value": false }
+        ]
+      },
+      "tags": ["review"]
+    },
+    {
+      "action_id": "flag_compliance_audit",
+      "name": "Flag Compliance Audit",
+      "description": "Flag for compliance audit when a legal hold is active or jurisdiction is restricted.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "any": [
+          {
+            "all": [
+              { "feature": "legal_hold_active", "op": "eq", "value": true },
+              { "feature": "risk_tier", "op": "in", "value": ["low", "medium"] },
+              { "feature": "counterparty_reputation", "op": "in", "value": ["trusted", "neutral"] }
+            ]
+          },
+          {
+            "all": [
+              { "feature": "jurisdiction", "op": "eq", "value": "restricted" },
+              { "feature": "risk_tier", "op": "in", "value": ["low", "medium"] },
+              { "feature": "legal_hold_active", "op": "eq", "value": false },
+              { "feature": "contract_value", "op": "lte", "value": 1000000.0 }
+            ]
+          }
+        ]
+      },
+      "tags": ["compliance", "audit"]
+    },
+    {
+      "action_id": "require_redline",
+      "name": "Require Redline",
+      "description": "Require redline markup when contract is an MSA or license with medium risk from non-trusted counterparties.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "document_type", "op": "in", "value": ["msa", "license"] },
+          { "feature": "risk_tier", "op": "eq", "value": "medium" },
+          { "feature": "counterparty_reputation", "op": "in", "value": ["neutral", "unknown"] },
+          { "feature": "legal_hold_active", "op": "eq", "value": false },
+          { "feature": "jurisdiction", "op": "eq", "value": "domestic" },
+          { "feature": "prior_counsel_approval", "op": "eq", "value": false },
+          { "feature": "contract_value", "op": "gt", "value": 100000.0 },
+          { "feature": "contract_value", "op": "lte", "value": 2000000.0 }
+        ]
+      },
+      "tags": ["negotiation"]
+    },
+    {
+      "action_id": "escalate_to_counsel",
+      "name": "Escalate to Counsel",
+      "description": "Escalate to senior counsel for high-risk or high-value matters requiring expert legal judgment.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": { "type": "string" }
+        },
+        "required": ["reason"]
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "risk_tier", "op": "in", "value": ["high", "critical"] },
+          {
+            "any": [
+              { "feature": "contract_value", "op": "gt", "value": 5000000.0 },
+              { "feature": "counterparty_reputation", "op": "eq", "value": "flagged" },
+              { "feature": "jurisdiction", "op": "eq", "value": "restricted" }
+            ]
+          },
+          {
+            "not": {
+              "feature": "prior_counsel_approval", "op": "eq", "value": true
+            }
+          }
+        ]
+      },
+      "tags": ["escalation", "fallback"]
+    },
+    {
+      "action_id": "escalate_to_general_counsel",
+      "name": "Escalate to General Counsel",
+      "description": "Escalate to GC for critical-risk matters with very high value and flagged counterparties.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": { "type": "string" }
+        },
+        "required": ["reason"]
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "risk_tier", "op": "eq", "value": "critical" },
+          { "feature": "contract_value", "op": "gt", "value": 10000000.0 },
+          { "feature": "counterparty_reputation", "op": "eq", "value": "flagged" },
+          { "feature": "legal_hold_active", "op": "eq", "value": true },
+          { "feature": "prior_counsel_approval", "op": "eq", "value": false }
+        ]
+      },
+      "tags": ["escalation", "critical"]
+    },
+    {
+      "action_id": "request_external_opinion",
+      "name": "Request External Opinion",
+      "description": "Engage outside counsel when the matter involves international or restricted jurisdiction with prior counsel sign-off but high complexity.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "jurisdiction", "op": "in", "value": ["international", "restricted"] },
+          { "feature": "prior_counsel_approval", "op": "eq", "value": true },
+          { "feature": "risk_tier", "op": "in", "value": ["high", "critical"] },
+          { "feature": "contract_value", "op": "gt", "value": 2000000.0 },
+          { "feature": "counterparty_reputation", "op": "in", "value": ["unknown", "flagged"] },
+          { "feature": "legal_hold_active", "op": "eq", "value": false }
+        ]
+      },
+      "tags": ["external", "advisory"]
+    }
+  ]
+}

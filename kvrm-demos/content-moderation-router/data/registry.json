@@ -1,0 +1,219 @@
+{
+  "registry_name": "content-moderation-router",
+  "version": "1.1.0",
+  "required_features": [
+    "toxicity_level",
+    "content_type",
+    "reporter_credibility",
+    "user_trust_score",
+    "context_sensitivity",
+    "audience_reach",
+    "recidivism_risk",
+    "content_age_hours"
+  ],
+  "context_schema": {
+    "toxicity_level": {
+      "type": "string",
+      "enum": ["none", "mild", "moderate", "severe", "extreme"]
+    },
+    "content_type": {
+      "type": "string",
+      "enum": ["text", "image", "video", "link", "mixed"]
+    },
+    "reporter_credibility": {
+      "type": "string",
+      "enum": ["new_reporter", "established", "trusted", "internal_tool"]
+    },
+    "user_trust_score": {
+      "type": "string",
+      "enum": ["new_user", "low", "medium", "high", "verified"]
+    },
+    "context_sensitivity": {
+      "type": "string",
+      "enum": ["general", "minor_present", "workplace", "public_figure", "crisis"]
+    },
+    "audience_reach": {
+      "type": "string",
+      "enum": ["private", "small_group", "community", "viral"]
+    },
+    "recidivism_risk": {
+      "type": "string",
+      "enum": ["first_offense", "repeat_minor", "repeat_major", "serial"]
+    },
+    "content_age_hours": {
+      "type": "string",
+      "enum": ["fresh", "recent", "aged", "archived"]
+    }
+  },
+  "actions": [
+    {
+      "action_id": "auto_approve",
+      "name": "Auto Approve",
+      "description": "Content passes automated review and is cleared for distribution.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {"feature": "toxicity_level", "op": "eq", "value": "none"},
+          {"feature": "user_trust_score", "op": "in", "value": ["medium", "high", "verified"]},
+          {"feature": "reporter_credibility", "op": "in", "value": ["new_reporter", "established"]},
+          {"feature": "context_sensitivity", "op": "eq", "value": "general"},
+          {"feature": "audience_reach", "op": "in", "value": ["private", "small_group"]},
+          {"feature": "recidivism_risk", "op": "eq", "value": "first_offense"}
+        ]
+      },
+      "tags": ["stable", "noop"]
+    },
+    {
+      "action_id": "reduce_visibility",
+      "name": "Reduce Visibility",
+      "description": "Limit content distribution while keeping it live for the author.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {"feature": "toxicity_level", "op": "in", "value": ["mild", "moderate"]},
+          {"feature": "content_type", "op": "in", "value": ["text", "image", "link"]},
+          {"feature": "audience_reach", "op": "in", "value": ["community", "viral"]},
+          {"feature": "user_trust_score", "op": "in", "value": ["low", "medium"]},
+          {"feature": "context_sensitivity", "op": "in", "value": ["general", "workplace"]},
+          {"feature": "recidivism_risk", "op": "in", "value": ["first_offense", "repeat_minor"]}
+        ]
+      },
+      "tags": ["stable"]
+    },
+    {
+      "action_id": "flag_for_human_review",
+      "name": "Flag for Human Review",
+      "description": "Queue content for human moderator review before further action.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {"feature": "toxicity_level", "op": "in", "value": ["moderate", "severe"]},
+          {"feature": "reporter_credibility", "op": "in", "value": ["established", "trusted", "internal_tool"]},
+          {"feature": "content_type", "op": "in", "value": ["text", "image", "video", "mixed"]},
+          {"feature": "context_sensitivity", "op": "in", "value": ["general", "workplace", "public_figure"]},
+          {"feature": "recidivism_risk", "op": "in", "value": ["first_offense", "repeat_minor", "repeat_major"]}
+        ]
+      },
+      "tags": ["fallback"]
+    },
+    {
+      "action_id": "remove_content",
+      "name": "Remove Content",
+      "description": "Immediately remove content from the platform.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "any": [
+          {"feature": "toxicity_level", "op": "eq", "value": "extreme"},
+          {
+            "all": [
+              {"feature": "toxicity_level", "op": "eq", "value": "severe"},
+              {"feature": "recidivism_risk", "op": "in", "value": ["repeat_major", "serial"]}
+            ]
+          },
+          {
+            "all": [
+              {"feature": "context_sensitivity", "op": "eq", "value": "crisis"},
+              {"feature": "toxicity_level", "op": "in", "value": ["severe", "extreme"]}
+            ]
+          },
+          {
+            "all": [
+              {"feature": "context_sensitivity", "op": "eq", "value": "minor_present"},
+              {"feature": "toxicity_level", "op": "in", "value": ["moderate", "severe", "extreme"]}
+            ]
+          }
+        ]
+      },
+      "tags": ["stable"]
+    },
+    {
+      "action_id": "suspend_account",
+      "name": "Suspend Account",
+      "description": "Temporarily suspend the content author's account.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {"feature": "toxicity_level", "op": "in", "value": ["severe", "extreme"]},
+          {"feature": "recidivism_risk", "op": "in", "value": ["repeat_major", "serial"]},
+          {"feature": "user_trust_score", "op": "in", "value": ["new_user", "low"]},
+          {"feature": "audience_reach", "op": "in", "value": ["community", "viral"]}
+        ]
+      },
+      "tags": ["stable"]
+    },
+    {
+      "action_id": "escalate_trust_safety",
+      "name": "Escalate Trust & Safety",
+      "description": "Escalate to the Trust & Safety team for high-priority or complex cases.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": {"type": "string"}
+        },
+        "required": []
+      },
+      "support_spec": {
+        "any": [
+          {"feature": "context_sensitivity", "op": "eq", "value": "crisis"},
+          {
+            "all": [
+              {"feature": "context_sensitivity", "op": "eq", "value": "public_figure"},
+              {"feature": "toxicity_level", "op": "in", "value": ["severe", "extreme"]}
+            ]
+          },
+          {
+            "all": [
+              {"feature": "reporter_credibility", "op": "eq", "value": "internal_tool"},
+              {"feature": "toxicity_level", "op": "in", "value": ["severe", "extreme"]}
+            ]
+          },
+          {
+            "all": [
+              {"feature": "recidivism_risk", "op": "eq", "value": "serial"},
+              {"feature": "audience_reach", "op": "eq", "value": "viral"}
+            ]
+          }
+        ]
+      },
+      "tags": ["fallback"]
+    },
+    {
+      "action_id": "request_human_review",
+      "name": "Request Human Review",
+      "description": "Catch-all fallback that routes unclassifiable content to a human reviewer.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": {"type": "string"}
+        },
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {"feature": "content_type", "op": "in", "value": ["text", "image", "video", "link", "mixed"]}
+        ]
+      },
+      "tags": ["fallback", "noop"]
+    }
+  ]
+}

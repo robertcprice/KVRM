@@ -1,0 +1,12 @@
+{
+  "domain": "medical",
+  "model": "gemma4:e2b",
+  "variant": "abstain_json",
+  "runner": "ollama",
+  "registry_version": "1.2.0",
+  "train_cases": 12,
+  "eval_cases": 24,
+  "max_examples_per_action": 2,
+  "timestamp": "2026-04-10T18:01:36.248793+00:00",
+  "refresh": true
+}

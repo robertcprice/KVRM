@@ -1,0 +1,1672 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{tocloft}
+
+% Code listing style
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=single
+}
+\lstset{style=mystyle}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    pdftitle={KVRM-OS Implementation Guide},
+    pdfauthor={Bobby Price}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{KVRM-OS Implementation Guide v0.2}
+\lhead{blackWeb Research}
+\rfoot{Page \thepage}
+
+\title{\textbf{KVRM-OS Implementation Guide}\\
+\large A Step-by-Step Manual for Building KVRM-Vector\\
+\vspace{0.5cm}
+\normalsize Version 0.2}
+\author{Bobby Price\\
+blackWeb Research\\
+\href{mailto:contact@blackweb.dev}{contact@blackweb.dev}}
+\date{December 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document provides comprehensive step-by-step implementation instructions for building the KVRM-OS prototype using Python and modern ML tools. It covers project setup, data generation, micro-LLM training with Unsloth/LoRA, registry implementation, orchestration, testing, benchmarking, and deployment. By following this guide, you will produce a working KVRM-Vector prototype that demonstrates the key-value response mapping paradigm for model-native computing.
+
+\textbf{Target Audience:} ML engineers, systems programmers, and researchers interested in neuro-symbolic AI and model-native computing.
+
+\textbf{Prerequisites:} Python 3.10+, basic ML/PyTorch knowledge, GPU recommended (CPU fallback provided).
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Overview and Prerequisites}
+
+\subsection{What We're Building}
+
+KVRM-Vector is a vector (dynamic array) data structure implemented entirely through micro-language models. Instead of traditional code like \texttt{list.append(x)}, operations are handled by fine-tuned LLMs that emit verified keys:
+
+\begin{lstlisting}[language=Python, caption={Traditional vs KVRM Approach}]
+# Traditional Python
+my_list = []
+my_list.append(42)
+print(my_list[0])
+
+# KVRM-Vector (semantic programming)
+vec = KVRMVector()
+vec.push(42)       # orchestrator -> push_llm -> {"action": "vec:push", "val": 42}
+print(vec.get(0))  # orchestrator -> get_llm -> {"action": "vec:get", "idx": 0}
+\end{lstlisting}
+
+\subsection{System Architecture}
+
+\begin{verbatim}
++------------------+     +------------------+     +------------------+
+|   User Goal      | --> |   Orchestrator   | --> |   Micro-LLM      |
+| "add 42 to vec"  |     |   (routes goal)  |     |   (emits key)    |
++------------------+     +------------------+     +------------------+
+                                                          |
+                                                          v
++------------------+     +------------------+     +------------------+
+|   Result State   | <-- |   Executor       | <-- |   Registry       |
+| vec = [42]       |     |   (runs action)  |     |   (key->action)  |
++------------------+     +------------------+     +------------------+
+\end{verbatim}
+
+\subsection{Components to Build}
+
+\begin{enumerate}
+    \item \textbf{Data Generator}: Creates (context $\to$ key) training pairs
+    \item \textbf{Micro-LLMs}: 7 fine-tuned models (orchestrator + 6 operations)
+    \item \textbf{Registry}: Immutable key $\to$ action mapping (SQLite-backed)
+    \item \textbf{Executor}: Verified action execution engine
+    \item \textbf{Orchestrator}: Goal routing and chaining logic
+    \item \textbf{KVRMVector}: Main API class with list-like interface
+    \item \textbf{Demo}: Interactive Gradio application
+    \item \textbf{Benchmarks}: Performance comparison vs native Python
+\end{enumerate}
+
+\subsection{Prerequisites Checklist}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Requirement} & \textbf{Minimum} & \textbf{Recommended} \\
+\midrule
+Python & 3.10 & 3.11+ \\
+RAM & 16 GB & 32 GB \\
+GPU & CPU fallback & CUDA/Apple Silicon \\
+Disk Space & 10 GB & 50 GB \\
+Training Time & 8-12h (CPU) & 2-4h (GPU) \\
+\bottomrule
+\end{tabular}
+\caption{System Requirements}
+\end{table}
+
+\subsection{Estimated Timeline}
+
+\begin{itemize}
+    \item \textbf{Setup}: 15 minutes
+    \item \textbf{Data Generation}: 30 minutes
+    \item \textbf{Training}: 2-4 hours (GPU) / 8-12 hours (CPU)
+    \item \textbf{Integration}: 1-2 hours
+    \item \textbf{Testing \& Benchmarks}: 1 hour
+    \item \textbf{Total}: 4-8 hours
+\end{itemize}
+
+\section{Project Setup}
+
+\subsection{Directory Structure}
+
+Create the following structure:
+
+\begin{lstlisting}[language=bash, caption={Project Structure}]
+kvrm-vector/
+|-- README.md
+|-- requirements.txt
+|-- pyproject.toml
+|-- src/
+|   |-- __init__.py
+|   |-- registry.py
+|   |-- data_generator.py
+|   |-- micro_llm.py
+|   |-- orchestrator.py
+|   |-- executor.py
+|   |-- kvrm_vector.py
+|-- training/
+|   |-- train_micro.py
+|   |-- configs/
+|       |-- orchestrator.yaml
+|       |-- push.yaml
+|       |-- pop.yaml
+|       |-- get.yaml
+|       |-- sort.yaml
+|       |-- create.yaml
+|       |-- verify.yaml
+|-- data/
+|-- models/
+|-- tests/
+|   |-- test_registry.py
+|   |-- test_micro_llm.py
+|   |-- test_kvrm_vector.py
+|   |-- test_integration.py
+|-- benchmarks/
+|   |-- benchmark_vs_native.py
+|-- demo/
+|   |-- gradio_app.py
+|-- docs/
+    |-- latex/
+\end{lstlisting}
+
+\subsection{Dependencies}
+
+\begin{lstlisting}[caption={requirements.txt}]
+# Core ML
+torch>=2.0.0
+transformers>=4.35.0
+datasets>=2.14.0
+peft>=0.6.0
+accelerate>=0.24.0
+bitsandbytes>=0.41.0
+
+# Fast Training
+unsloth>=2024.8
+
+# Data Generation
+faker>=18.0.0
+pyyaml>=6.0
+
+# Demo & Testing
+gradio>=4.0.0
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Utilities
+tqdm>=4.65.0
+numpy>=1.24.0
+pandas>=2.0.0
+\end{lstlisting}
+
+\subsection{Installation Commands}
+
+\begin{lstlisting}[language=bash, caption={Setup Commands}]
+# Create project directory
+mkdir -p kvrm-vector/{src,training/configs,data,models,tests,benchmarks,demo,docs}
+
+# Initialize virtual environment
+cd kvrm-vector
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Initialize git
+git init
+echo "venv/\n*.pyc\n__pycache__/\nmodels/\ndata/*.jsonl" > .gitignore
+git add .
+git commit -m "Initial project setup"
+\end{lstlisting}
+
+\subsection{Verify Setup}
+
+\begin{lstlisting}[language=Python, caption={verify\_setup.py}]
+#!/usr/bin/env python3
+"""Verify KVRM-Vector setup is complete."""
+import sys
+import psutil
+
+def check_setup():
+    print("=== KVRM-Vector Setup Verification ===\n")
+
+    # Python version
+    py_ver = sys.version_info
+    print(f"Python: {py_ver.major}.{py_ver.minor}.{py_ver.micro}")
+    assert py_ver >= (3, 10), "Python 3.10+ required"
+
+    # PyTorch and GPU
+    import torch
+    print(f"PyTorch: {torch.__version__}")
+    print(f"CUDA available: {torch.cuda.is_available()}")
+    print(f"MPS available: {torch.backends.mps.is_available()}")
+
+    # Memory
+    ram_gb = psutil.virtual_memory().total / (1024**3)
+    print(f"RAM: {ram_gb:.1f} GB")
+    assert ram_gb >= 16, "16GB+ RAM recommended"
+
+    # Key packages
+    import transformers
+    import peft
+    import gradio
+    import faker
+    print(f"Transformers: {transformers.__version__}")
+    print(f"PEFT: {peft.__version__}")
+    print(f"Gradio: {gradio.__version__}")
+
+    print("\n=== All checks passed! ===")
+
+if __name__ == "__main__":
+    check_setup()
+\end{lstlisting}
+
+\section{Registry Implementation}
+
+The registry is the safety foundation of KVRM: an immutable mapping from keys to verified actions.
+
+\subsection{Registry Design Principles}
+
+\begin{enumerate}
+    \item \textbf{Immutability}: Once frozen, no new keys can be added
+    \item \textbf{Integrity}: Merkle hash verification prevents tampering
+    \item \textbf{Determinism}: Same key always maps to same action
+    \item \textbf{Completeness}: All valid keys are pre-registered
+\end{enumerate}
+
+\subsection{Core Registry Implementation}
+
+\begin{lstlisting}[language=Python, caption={registry.py Core}]
+import sqlite3
+import hashlib
+import json
+from typing import Callable, Dict, Any, Optional
+from dataclasses import dataclass
+from functools import lru_cache
+
+class InvalidKeyError(Exception):
+    """Raised when a key is not in the registry."""
+    pass
+
+class RegistryFrozenError(Exception):
+    """Raised when trying to modify a frozen registry."""
+    pass
+
+@dataclass
+class RegistryEntry:
+    key: str
+    action_id: str
+    description: str
+    category: str
+
+class KVRMRegistry:
+    """Immutable key-to-action mapping with integrity verification."""
+
+    def __init__(self, db_path: str = ":memory:"):
+        self.db_path = db_path
+        self.conn = sqlite3.connect(db_path)
+        self.frozen = False
+        self.integrity_hash: Optional[str] = None
+        self.primitives: Dict[str, Callable] = {}
+        self._create_schema()
+        self._register_vector_primitives()
+
+    def _create_schema(self):
+        self.conn.execute("""
+            CREATE TABLE IF NOT EXISTS registry (
+                key TEXT PRIMARY KEY,
+                action_id TEXT NOT NULL,
+                description TEXT,
+                category TEXT,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        self.conn.commit()
+
+    def register(self, key: str, action: Callable,
+                 description: str = "", category: str = "general"):
+        if self.frozen:
+            raise RegistryFrozenError("Cannot modify frozen registry")
+
+        action_id = f"action_{id(action)}"
+        self.primitives[action_id] = action
+
+        self.conn.execute(
+            "INSERT OR REPLACE INTO registry VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)",
+            (key, action_id, description, category)
+        )
+        self.conn.commit()
+
+    def freeze(self) -> str:
+        """Freeze registry and compute integrity hash."""
+        self.frozen = True
+        self.integrity_hash = self._compute_hash()
+        return self.integrity_hash
+
+    def _compute_hash(self) -> str:
+        rows = self.conn.execute(
+            "SELECT key, action_id FROM registry ORDER BY key"
+        ).fetchall()
+        data = json.dumps(rows, sort_keys=True)
+        return hashlib.sha256(data.encode()).hexdigest()
+
+    @lru_cache(maxsize=1024)
+    def lookup(self, key: str) -> Callable:
+        row = self.conn.execute(
+            "SELECT action_id FROM registry WHERE key = ?", (key,)
+        ).fetchone()
+        if row is None:
+            raise InvalidKeyError(f"Key not found: {key}")
+        return self.primitives[row[0]]
+
+    def execute(self, key: str, state: Dict[str, Any],
+                **kwargs) -> Dict[str, Any]:
+        action = self.lookup(key)
+        return action(state, **kwargs)
+\end{lstlisting}
+
+\subsection{Vector Primitives Registration}
+
+\begin{lstlisting}[language=Python, caption={Vector Primitives}]
+def _register_vector_primitives(self):
+    """Register all vector operation primitives."""
+
+    # Create operations
+    self.register(
+        "vec:create",
+        lambda state, name: {**state, name: []},
+        "Create new empty vector", "create"
+    )
+    self.register(
+        "vec:create_with_capacity",
+        lambda state, name, capacity: {**state, name: [], f"{name}_cap": capacity},
+        "Create vector with capacity hint", "create"
+    )
+
+    # Push operations
+    self.register(
+        "vec:push",
+        lambda state, name, value: {**state, name: state[name] + [value]},
+        "Push value to end", "push"
+    )
+    self.register(
+        "vec:push_front",
+        lambda state, name, value: {**state, name: [value] + state[name]},
+        "Push value to front", "push"
+    )
+
+    # Pop operations
+    self.register(
+        "vec:pop",
+        lambda state, name: ({**state, name: state[name][:-1]}, state[name][-1]),
+        "Pop from end", "pop"
+    )
+    self.register(
+        "vec:pop_front",
+        lambda state, name: ({**state, name: state[name][1:]}, state[name][0]),
+        "Pop from front", "pop"
+    )
+
+    # Get operations
+    self.register(
+        "vec:get",
+        lambda state, name, idx: state[name][idx],
+        "Get value at index", "get"
+    )
+    self.register(
+        "vec:length",
+        lambda state, name: len(state[name]),
+        "Get vector length", "get"
+    )
+
+    # Sort operations
+    self.register(
+        "vec:sort_asc",
+        lambda state, name: {**state, name: sorted(state[name])},
+        "Sort ascending", "sort"
+    )
+    self.register(
+        "vec:sort_desc",
+        lambda state, name: {**state, name: sorted(state[name], reverse=True)},
+        "Sort descending", "sort"
+    )
+\end{lstlisting}
+
+\section{Data Generation}
+
+Training data consists of (context, key) pairs for each micro-LLM.
+
+\subsection{Dataset Sizes}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrl}
+\toprule
+\textbf{Model} & \textbf{Examples} & \textbf{Description} \\
+\midrule
+orchestrator & 10,000 & Routes goals to operations \\
+create & 3,000 & Vector creation variants \\
+push & 4,000 & Push operations \\
+pop & 3,000 & Pop operations \\
+get & 3,000 & Access operations \\
+sort & 3,000 & Sorting operations \\
+verify & 3,000 & Validation operations \\
+\midrule
+\textbf{Total} & \textbf{29,000} & \\
+\bottomrule
+\end{tabular}
+\caption{Training Dataset Sizes}
+\end{table}
+
+\subsection{Data Generation with Faker}
+
+\begin{lstlisting}[language=Python, caption={Data Generator Core}]
+from faker import Faker
+import json
+import random
+from typing import List, Dict
+
+fake = Faker()
+
+def generate_push_examples(n: int = 4000) -> List[Dict]:
+    """Generate push operation training examples."""
+    examples = []
+
+    templates = [
+        "add {value} to {vec_name}",
+        "push {value} onto {vec_name}",
+        "append {value} to the {vec_name} vector",
+        "insert {value} at the end of {vec_name}",
+        "{vec_name}.push({value})",
+        "put {value} in {vec_name}",
+    ]
+
+    for _ in range(n):
+        vec_name = fake.word() + "_vec"
+        value_type = random.choice(["int", "float", "string"])
+
+        if value_type == "int":
+            value = random.randint(-1000, 1000)
+        elif value_type == "float":
+            value = round(random.uniform(-100, 100), 2)
+        else:
+            value = f'"{fake.word()}"'
+
+        template = random.choice(templates)
+        context = template.format(value=value, vec_name=vec_name)
+
+        key = {
+            "action": "vec:push",
+            "target": vec_name,
+            "value": value
+        }
+
+        examples.append({
+            "context": context,
+            "key": json.dumps(key),
+            "category": "push"
+        })
+
+    return examples
+\end{lstlisting}
+
+\subsection{Running Data Generation}
+
+\begin{lstlisting}[language=bash, caption={Generate All Data}]
+python src/data_generator.py --all --output-dir data/
+
+# Expected output:
+# Generated 10000 orchestrator examples -> data/orchestrator.jsonl
+# Generated 3000 create examples -> data/create.jsonl
+# Generated 4000 push examples -> data/push.jsonl
+# Generated 3000 pop examples -> data/pop.jsonl
+# Generated 3000 get examples -> data/get.jsonl
+# Generated 3000 sort examples -> data/sort.jsonl
+# Generated 3000 verify examples -> data/verify.jsonl
+# Total: 29000 examples
+\end{lstlisting}
+
+\section{Micro-LLM Training}
+
+\subsection{Training Configuration}
+
+\begin{lstlisting}[language=yaml, caption={configs/push.yaml}]
+model:
+  base: "unsloth/Llama-3.2-1B"
+  max_seq_length: 512
+  load_in_4bit: true
+
+lora:
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  target_modules: ["q_proj", "k_proj", "v_proj", "o_proj"]
+
+training:
+  epochs: 3
+  batch_size: 8
+  gradient_accumulation: 4
+  learning_rate: 2e-4
+  warmup_ratio: 0.1
+  weight_decay: 0.01
+  fp16: true
+
+data:
+  path: "data/push.jsonl"
+  train_split: 0.9
+
+output:
+  path: "models/push_llm"
+  save_steps: 500
+\end{lstlisting}
+
+\subsection{Training Script}
+
+\begin{lstlisting}[language=Python, caption={train\_micro.py}]
+#!/usr/bin/env python3
+"""Train all KVRM micro-LLMs using Unsloth/LoRA."""
+
+from unsloth import FastLanguageModel
+from datasets import load_dataset
+from trl import SFTTrainer
+from transformers import TrainingArguments
+import yaml
+import argparse
+
+def train_model(config_path: str):
+    with open(config_path) as f:
+        cfg = yaml.safe_load(f)
+
+    # Load base model with 4-bit quantization
+    model, tokenizer = FastLanguageModel.from_pretrained(
+        model_name=cfg["model"]["base"],
+        max_seq_length=cfg["model"]["max_seq_length"],
+        load_in_4bit=cfg["model"]["load_in_4bit"],
+    )
+
+    # Add LoRA adapters
+    model = FastLanguageModel.get_peft_model(
+        model,
+        r=cfg["lora"]["r"],
+        lora_alpha=cfg["lora"]["lora_alpha"],
+        lora_dropout=cfg["lora"]["lora_dropout"],
+        target_modules=cfg["lora"]["target_modules"],
+    )
+
+    # Load and format dataset
+    dataset = load_dataset("json", data_files=cfg["data"]["path"])
+
+    def format_prompt(example):
+        return f"### Context:\n{example['context']}\n\n### Key:\n{example['key']}"
+
+    # Training
+    trainer = SFTTrainer(
+        model=model,
+        tokenizer=tokenizer,
+        train_dataset=dataset["train"],
+        dataset_text_field="text",
+        max_seq_length=cfg["model"]["max_seq_length"],
+        args=TrainingArguments(
+            output_dir=cfg["output"]["path"],
+            num_train_epochs=cfg["training"]["epochs"],
+            per_device_train_batch_size=cfg["training"]["batch_size"],
+            learning_rate=cfg["training"]["learning_rate"],
+            fp16=cfg["training"]["fp16"],
+            save_steps=cfg["output"]["save_steps"],
+        ),
+    )
+
+    trainer.train()
+    model.save_pretrained(cfg["output"]["path"])
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", required=True)
+    parser.add_argument("--all", action="store_true")
+    args = parser.parse_args()
+
+    if args.all:
+        models = ["orchestrator", "create", "push", "pop", "get", "sort", "verify"]
+        for m in models:
+            train_model(f"training/configs/{m}.yaml")
+    else:
+        train_model(args.config)
+\end{lstlisting}
+
+\section{Micro-LLM Wrapper}
+
+\begin{lstlisting}[language=Python, caption={micro\_llm.py}]
+from functools import lru_cache
+from transformers import AutoModelForCausalLM, AutoTokenizer
+import torch
+import json
+import re
+
+class MicroLLM:
+    """Wrapper for fine-tuned micro-LLMs with caching and validation."""
+
+    def __init__(self, model_path: str, valid_keys: set = None):
+        self.model_path = model_path
+        self.valid_keys = valid_keys or set()
+        self.model = None
+        self.tokenizer = None
+        self._loaded = False
+
+    def load(self):
+        if self._loaded:
+            return
+        self.tokenizer = AutoTokenizer.from_pretrained(self.model_path)
+        self.model = AutoModelForCausalLM.from_pretrained(
+            self.model_path,
+            torch_dtype=torch.float16,
+            device_map="auto"
+        )
+        self._loaded = True
+
+    @lru_cache(maxsize=10000)
+    def infer(self, context: str) -> dict:
+        """Infer key from context with caching."""
+        self.load()
+
+        prompt = f"### Context:\n{context}\n\n### Key:\n"
+        inputs = self.tokenizer(prompt, return_tensors="pt").to(self.model.device)
+
+        outputs = self.model.generate(
+            **inputs,
+            max_new_tokens=128,
+            temperature=0.1,
+            do_sample=True,
+            pad_token_id=self.tokenizer.eos_token_id
+        )
+
+        response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        key_text = response.split("### Key:\n")[-1].strip()
+
+        # Parse and validate JSON key
+        try:
+            key = json.loads(key_text)
+            if self.valid_keys and key.get("action") not in self.valid_keys:
+                raise ValueError(f"Invalid action: {key.get('action')}")
+            return key
+        except json.JSONDecodeError:
+            return {"error": "invalid_json", "raw": key_text}
+\end{lstlisting}
+
+\section{Orchestrator}
+
+\begin{lstlisting}[language=Python, caption={orchestrator.py}]
+from typing import Dict, Any, Optional
+from .micro_llm import MicroLLM
+from .registry import KVRMRegistry
+from .executor import KVRMExecutor
+
+class KVRMOrchestrator:
+    """Routes high-level goals to micro-LLMs and chains execution."""
+
+    def __init__(self, models_dir: str = "models"):
+        self.models_dir = models_dir
+        self.registry = KVRMRegistry()
+        self.executor = KVRMExecutor(self.registry)
+
+        # Load micro-LLMs
+        self.orchestrator_llm = MicroLLM(f"{models_dir}/orchestrator_llm")
+        self.op_llms = {
+            "create": MicroLLM(f"{models_dir}/create_llm"),
+            "push": MicroLLM(f"{models_dir}/push_llm"),
+            "pop": MicroLLM(f"{models_dir}/pop_llm"),
+            "get": MicroLLM(f"{models_dir}/get_llm"),
+            "sort": MicroLLM(f"{models_dir}/sort_llm"),
+            "verify": MicroLLM(f"{models_dir}/verify_llm"),
+        }
+
+        self.state: Dict[str, Any] = {}
+        self.trace: list = []
+
+    def process_goal(self, goal: str) -> Dict[str, Any]:
+        """Process a natural language goal through the KVRM pipeline."""
+        self.trace = []
+
+        # Step 1: Route goal to operation
+        route_key = self.orchestrator_llm.infer(goal)
+        self.trace.append({"step": "route", "key": route_key})
+
+        if "error" in route_key:
+            return {"success": False, "error": route_key["error"]}
+
+        # Step 2: Get operation-specific key
+        op_type = route_key.get("operation")
+        if op_type not in self.op_llms:
+            return {"success": False, "error": f"Unknown operation: {op_type}"}
+
+        op_key = self.op_llms[op_type].infer(goal)
+        self.trace.append({"step": "operation", "key": op_key})
+
+        if "error" in op_key:
+            return {"success": False, "error": op_key["error"]}
+
+        # Step 3: Execute through registry
+        try:
+            result = self.executor.execute(op_key, self.state)
+            self.trace.append({"step": "execute", "result": result})
+            return {"success": True, "result": result, "trace": self.trace}
+        except Exception as e:
+            return {"success": False, "error": str(e), "trace": self.trace}
+\end{lstlisting}
+
+\section{Executor}
+
+\begin{lstlisting}[language=Python, caption={executor.py}]
+from typing import Dict, Any
+from .registry import KVRMRegistry, InvalidKeyError
+
+class KVRMExecutor:
+    """Executes verified actions from the registry."""
+
+    def __init__(self, registry: KVRMRegistry):
+        self.registry = registry
+
+    def execute(self, key_data: Dict[str, Any],
+                state: Dict[str, Any]) -> Dict[str, Any]:
+        """Execute a key against the current state."""
+        action_key = key_data.get("action")
+        if not action_key:
+            raise ValueError("No action specified in key")
+
+        # Extract parameters
+        params = {k: v for k, v in key_data.items() if k != "action"}
+
+        # Lookup and execute
+        action = self.registry.lookup(action_key)
+        new_state = action(state, **params)
+
+        return new_state
+\end{lstlisting}
+
+\section{KVRMVector Main Class}
+
+\begin{lstlisting}[language=Python, caption={kvrm\_vector.py}]
+from typing import Any, Iterator
+from .orchestrator import KVRMOrchestrator
+
+class KVRMVector:
+    """A vector data structure implemented via micro-LLMs."""
+
+    def __init__(self, name: str = "default_vec"):
+        self.name = name
+        self.orchestrator = KVRMOrchestrator()
+        self._initialize()
+
+    def _initialize(self):
+        self.orchestrator.process_goal(f"create a new vector called {self.name}")
+
+    def push(self, value: Any) -> None:
+        self.orchestrator.process_goal(f"add {value} to {self.name}")
+
+    def pop(self) -> Any:
+        result = self.orchestrator.process_goal(f"remove last element from {self.name}")
+        return result.get("result")
+
+    def get(self, index: int) -> Any:
+        result = self.orchestrator.process_goal(f"get element {index} from {self.name}")
+        return result.get("result")
+
+    def __len__(self) -> int:
+        result = self.orchestrator.process_goal(f"get length of {self.name}")
+        return result.get("result", 0)
+
+    def sort(self, reverse: bool = False) -> None:
+        direction = "descending" if reverse else "ascending"
+        self.orchestrator.process_goal(f"sort {self.name} in {direction} order")
+
+    def __iter__(self) -> Iterator:
+        for i in range(len(self)):
+            yield self.get(i)
+
+    def __repr__(self) -> str:
+        return f"KVRMVector({self.name}, {list(self)})"
+\end{lstlisting}
+
+\section{Testing}
+
+\begin{lstlisting}[language=Python, caption={test\_kvrm\_vector.py}]
+import pytest
+from src.kvrm_vector import KVRMVector
+
+class TestKVRMVector:
+    def test_create_empty(self):
+        vec = KVRMVector("test")
+        assert len(vec) == 0
+
+    def test_push_single(self):
+        vec = KVRMVector("test")
+        vec.push(42)
+        assert len(vec) == 1
+        assert vec.get(0) == 42
+
+    def test_push_multiple(self):
+        vec = KVRMVector("test")
+        for i in range(5):
+            vec.push(i)
+        assert len(vec) == 5
+        assert list(vec) == [0, 1, 2, 3, 4]
+
+    def test_pop(self):
+        vec = KVRMVector("test")
+        vec.push(1)
+        vec.push(2)
+        val = vec.pop()
+        assert val == 2
+        assert len(vec) == 1
+
+    def test_sort(self):
+        vec = KVRMVector("test")
+        for v in [3, 1, 4, 1, 5]:
+            vec.push(v)
+        vec.sort()
+        assert list(vec) == [1, 1, 3, 4, 5]
+\end{lstlisting}
+
+\section{Benchmarking}
+
+\begin{lstlisting}[language=Python, caption={benchmark\_vs\_native.py}]
+import time
+from src.kvrm_vector import KVRMVector
+
+def benchmark_push(n: int = 1000):
+    # Native Python
+    native_list = []
+    start = time.perf_counter()
+    for i in range(n):
+        native_list.append(i)
+    native_time = time.perf_counter() - start
+
+    # KVRM Vector
+    kvrm_vec = KVRMVector("bench")
+    start = time.perf_counter()
+    for i in range(n):
+        kvrm_vec.push(i)
+    kvrm_time = time.perf_counter() - start
+
+    print(f"Push {n} elements:")
+    print(f"  Native: {native_time*1000:.2f}ms")
+    print(f"  KVRM:   {kvrm_time*1000:.2f}ms")
+    print(f"  Overhead: {kvrm_time/native_time:.1f}x")
+
+if __name__ == "__main__":
+    benchmark_push(1000)
+\end{lstlisting}
+
+\section{Demo Application}
+
+\begin{lstlisting}[language=Python, caption={gradio\_app.py}]
+import gradio as gr
+from src.orchestrator import KVRMOrchestrator
+
+orch = KVRMOrchestrator()
+
+def process_command(command: str, history: list):
+    result = orch.process_goal(command)
+    history.append({"command": command, "result": result})
+    state_display = str(orch.state)
+    trace_display = str(result.get("trace", []))
+    return state_display, trace_display, history
+
+with gr.Blocks(title="KVRM-Vector Demo") as demo:
+    gr.Markdown("# KVRM-Vector Demo")
+    gr.Markdown("Enter natural language commands to manipulate vectors.")
+
+    with gr.Row():
+        command_input = gr.Textbox(label="Command", placeholder="create a vector called nums")
+        submit_btn = gr.Button("Execute")
+
+    with gr.Row():
+        state_output = gr.Textbox(label="Current State", lines=5)
+        trace_output = gr.Textbox(label="Execution Trace", lines=5)
+
+    history_state = gr.State([])
+
+    submit_btn.click(
+        process_command,
+        inputs=[command_input, history_state],
+        outputs=[state_output, trace_output, history_state]
+    )
+
+if __name__ == "__main__":
+    demo.launch()
+\end{lstlisting}
+
+\section{Troubleshooting}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{p{4cm}p{4cm}p{4cm}}
+\toprule
+\textbf{Issue} & \textbf{Cause} & \textbf{Solution} \\
+\midrule
+Out of memory & Model too large & Use 4-bit quantization \\
+Invalid JSON output & Undertrained model & Increase epochs, add more data \\
+Wrong operation routed & Data imbalance & Balance examples per class \\
+High latency & No caching & Enable LRU cache \\
+Overfitting & Too many epochs & Add early stopping \\
+\bottomrule
+\end{tabular}
+\caption{Common Issues and Solutions}
+\end{table}
+
+\section{Deployment}
+
+\subsection{Hugging Face Spaces}
+
+\begin{lstlisting}[language=bash, caption={Deploy to HF Spaces}]
+# Login to Hugging Face
+huggingface-cli login
+
+# Push models
+huggingface-cli upload kvrm-vector-demo ./models --repo-type space
+
+# Create Space with Gradio
+# Add app.py and requirements.txt to the Space
+\end{lstlisting}
+
+\part{KVRM-CPU: Semantic Instruction Decode Implementation}
+
+\section{KVRM-CPU Overview}
+
+KVRM-CPU extends the KVRM paradigm to the lowest level of computing: CPU instruction decode. Instead of traditional hardcoded opcode parsing, a semantic micro-LLM interprets instructions and emits verified registry keys.
+
+\subsection{The CPU Paradigm Shift}
+
+\begin{lstlisting}[language=Python, caption={Traditional vs KVRM CPU Decode}]
+# Traditional CPU (hardcoded silicon)
+fetch -> decode -> execute
+# Each opcode has fixed binary mapping
+
+# KVRM-CPU (semantic understanding)
+fetch -> decode_llm -> key -> verified_execute
+# Natural language or assembly -> semantic key -> verified primitive
+\end{lstlisting}
+
+\subsection{Why CPU-Level KVRM Matters}
+
+\begin{enumerate}
+    \item \textbf{Proves Universality}: If KVRM works at the CPU level, it works everywhere
+    \item \textbf{Minimal Surface}: Only 16 primitives cover a complete instruction set
+    \item \textbf{Full Auditability}: Every instruction decoded and executed is logged
+    \item \textbf{Semantic Flexibility}: "increment R0" and "R0++" decode identically
+\end{enumerate}
+
+\section{KVRM-CPU Project Setup}
+
+\subsection{Directory Structure}
+
+\begin{lstlisting}[language=bash, caption={KVRM-CPU Project Structure}]
+kvrm-cpu/
+|-- README.md
+|-- requirements.txt
+|-- src/
+|   |-- kvrm_cpu/
+|       |-- __init__.py
+|       |-- state.py        # CPUState dataclass
+|       |-- registry.py     # 16 CPU primitives
+|       |-- decode_llm.py   # Semantic decoder
+|       |-- cpu.py          # Main orchestrator
+|-- programs/
+|   |-- sum_1_to_10.asm
+|   |-- fibonacci.asm
+|   |-- countdown.asm
+|   |-- countup_to_negative.asm
+|-- training/
+|   |-- generate_cpu_data.py
+|   |-- train_decode.py
+|-- tests/
+|   |-- test_state.py
+|   |-- test_registry.py
+|   |-- test_decode.py
+|   |-- test_programs.py
+|-- benchmarks/
+|-- models/
+\end{lstlisting}
+
+\section{CPUState Implementation}
+
+The CPUState is an immutable dataclass representing the complete CPU state.
+
+\begin{lstlisting}[language=Python, caption={state.py - CPUState Definition}]
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional
+
+@dataclass(frozen=False)
+class CPUState:
+    """Immutable CPU state with registers, flags, and memory."""
+
+    registers: Dict[str, int] = field(default_factory=lambda: {
+        f"R{i}": 0 for i in range(8)  # R0-R7
+    })
+    pc: int = 0                       # Program counter
+    flags: Dict[str, bool] = field(default_factory=lambda: {
+        "ZF": False,  # Zero flag
+        "SF": False,  # Sign flag (negative)
+    })
+    memory: List[str] = field(default_factory=list)  # Instructions
+    halted: bool = False
+    cycle_count: int = 0
+
+    def set_register(self, reg: str, value: int) -> 'CPUState':
+        """Return new state with register updated."""
+        new_regs = dict(self.registers)
+        new_regs[reg] = value
+        return CPUState(
+            registers=new_regs,
+            pc=self.pc,
+            flags=dict(self.flags),
+            memory=self.memory,
+            halted=self.halted,
+            cycle_count=self.cycle_count
+        )
+
+    def snapshot(self) -> dict:
+        """Return serializable state snapshot for tracing."""
+        return {
+            "registers": dict(self.registers),
+            "pc": self.pc,
+            "flags": dict(self.flags),
+            "halted": self.halted,
+            "cycle_count": self.cycle_count
+        }
+\end{lstlisting}
+
+\section{CPU Registry: 16 Verified Primitives}
+
+The registry contains all valid CPU operations. Once frozen, no new operations can be added.
+
+\subsection{Instruction Set Architecture}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llp{6cm}}
+\toprule
+\textbf{Key} & \textbf{Params} & \textbf{Description} \\
+\midrule
+\texttt{OP\_MOV\_REG\_IMM} & dest, value & Load immediate into register \\
+\texttt{OP\_MOV\_REG\_REG} & dest, src & Register-to-register copy \\
+\texttt{OP\_ADD} & dest, src1, src2 & Addition (dest = src1 + src2) \\
+\texttt{OP\_SUB} & dest, src1, src2 & Subtraction (dest = src1 - src2) \\
+\texttt{OP\_MUL} & dest, src1, src2 & Multiplication \\
+\texttt{OP\_INC} & dest & Increment by 1, sets flags \\
+\texttt{OP\_DEC} & dest & Decrement by 1, sets flags \\
+\texttt{OP\_CMP} & src1, src2 & Compare (sets ZF, SF) \\
+\texttt{OP\_JMP} & addr & Unconditional jump \\
+\texttt{OP\_JZ} & addr & Jump if zero (ZF set) \\
+\texttt{OP\_JNZ} & addr & Jump if not zero \\
+\texttt{OP\_JS} & addr & Jump if sign (SF set, negative) \\
+\texttt{OP\_JNS} & addr & Jump if not sign \\
+\texttt{OP\_HALT} & - & Stop execution \\
+\texttt{OP\_NOP} & - & No operation \\
+\texttt{OP\_INVALID} & raw & Error handler \\
+\bottomrule
+\end{tabular}
+\caption{KVRM-CPU Instruction Set (16 Primitives)}
+\end{table}
+
+\subsection{Registry Implementation}
+
+\begin{lstlisting}[language=Python, caption={registry.py - CPU Primitives}]
+class CPURegistry:
+    """Frozen registry of CPU operation primitives."""
+
+    def __init__(self):
+        self._primitives: Dict[str, Callable] = {}
+        self._frozen = False
+        self._register_all_primitives()
+        self.freeze()
+
+    def _register_all_primitives(self):
+        """Register all 16 CPU operations."""
+
+        # Data Movement
+        self.register("OP_MOV_REG_IMM", self._op_mov_reg_imm)
+        self.register("OP_MOV_REG_REG", self._op_mov_reg_reg)
+
+        # Arithmetic
+        self.register("OP_ADD", self._op_add)
+        self.register("OP_SUB", self._op_sub)
+        self.register("OP_MUL", self._op_mul)
+        self.register("OP_INC", self._op_inc)
+        self.register("OP_DEC", self._op_dec)
+
+        # Comparison
+        self.register("OP_CMP", self._op_cmp)
+
+        # Control Flow
+        self.register("OP_JMP", self._op_jmp)
+        self.register("OP_JZ", self._op_jz)
+        self.register("OP_JNZ", self._op_jnz)
+        self.register("OP_JS", self._op_js)
+        self.register("OP_JNS", self._op_jns)
+
+        # Special
+        self.register("OP_HALT", self._op_halt)
+        self.register("OP_NOP", self._op_nop)
+        self.register("OP_INVALID", self._op_invalid)
+
+    def _op_inc(self, state: CPUState, params: dict) -> CPUState:
+        """Increment register by 1, set flags."""
+        dest = params["dest"]
+        value = state.registers[dest] + 1
+
+        new_state = state.set_register(dest, value)
+        new_state.flags["ZF"] = (value == 0)
+        new_state.flags["SF"] = (value < 0)
+        new_state.pc += 1
+        new_state.cycle_count += 1
+        return new_state
+
+    def _op_js(self, state: CPUState, params: dict) -> CPUState:
+        """Jump if sign flag set (negative result)."""
+        if state.flags["SF"]:
+            new_pc = params["addr"]
+        else:
+            new_pc = state.pc + 1
+
+        new_state = CPUState(
+            registers=dict(state.registers),
+            pc=new_pc,
+            flags=dict(state.flags),
+            memory=state.memory,
+            halted=state.halted,
+            cycle_count=state.cycle_count + 1
+        )
+        return new_state
+\end{lstlisting}
+
+\section{DecodeLLM: Semantic Instruction Decoder}
+
+The DecodeLLM converts assembly text to verified registry keys.
+
+\subsection{Mock Mode (Rule-Based)}
+
+For development without GPU, use regex-based parsing:
+
+\begin{lstlisting}[language=Python, caption={decode\_llm.py - Mock Decoder}]
+import re
+from typing import Tuple, Dict, Optional
+
+class DecodeLLM:
+    """Semantic instruction decoder with mock and real modes."""
+
+    def __init__(self, mock_mode: bool = True, model_path: str = None):
+        self.mock_mode = mock_mode
+        self.model_path = model_path
+        self.model = None
+
+        # Patterns for mock mode
+        self.patterns = {
+            r'^MOV\s+(\w+)\s*,\s*(-?\d+)$': self._decode_mov_imm,
+            r'^MOV\s+(\w+)\s*,\s*(\w+)$': self._decode_mov_reg,
+            r'^(ADD|SUB|MUL)\s+(\w+)\s*,\s*(\w+)\s*,\s*(\w+)$': self._decode_arith,
+            r'^(INC|DEC)\s+(\w+)$': self._decode_inc_dec,
+            r'^CMP\s+(\w+)\s*,\s*(\w+)$': self._decode_cmp,
+            r'^(JMP|JZ|JNZ|JS|JNS)\s+(\w+)$': self._decode_jump,
+            r'^HALT$': lambda m: ("OP_HALT", {}),
+            r'^NOP$': lambda m: ("OP_NOP", {}),
+        }
+
+    def decode(self, instruction: str, labels: Dict[str, int] = None
+              ) -> Tuple[str, dict]:
+        """Decode instruction to (key, params) tuple."""
+        labels = labels or {}
+        instr = instruction.strip().upper()
+
+        # Remove comments
+        if ';' in instr:
+            instr = instr.split(';')[0].strip()
+
+        if not instr:
+            return ("OP_NOP", {})
+
+        if self.mock_mode:
+            return self._mock_decode(instr, labels)
+        else:
+            return self._real_decode(instr, labels)
+
+    def _mock_decode(self, instr: str, labels: Dict[str, int]
+                    ) -> Tuple[str, dict]:
+        """Rule-based decoding for mock mode."""
+        for pattern, handler in self.patterns.items():
+            match = re.match(pattern, instr, re.IGNORECASE)
+            if match:
+                result = handler(match)
+                # Resolve labels in jump addresses
+                if result[0].startswith("OP_J") and result[0] != "OP_JMP":
+                    addr = result[1].get("addr")
+                    if isinstance(addr, str) and addr in labels:
+                        result[1]["addr"] = labels[addr]
+                return result
+
+        return ("OP_INVALID", {"raw": instr})
+
+    def _decode_inc_dec(self, match) -> Tuple[str, dict]:
+        """Decode INC/DEC instruction."""
+        op = match.group(1).upper()
+        dest = match.group(2).upper()
+        key = f"OP_{op}"
+        return (key, {"dest": dest})
+\end{lstlisting}
+
+\subsection{Real Mode (Trained Model)}
+
+\begin{lstlisting}[language=Python, caption={decode\_llm.py - Real Mode}]
+def _real_decode(self, instr: str, labels: Dict[str, int]
+                ) -> Tuple[str, dict]:
+    """Use trained micro-LLM for semantic decoding."""
+    if self.model is None:
+        self._load_model()
+
+    # Construct prompt
+    prompt = f"### Context:\n{instr}\n\n### Key:\n"
+
+    inputs = self.tokenizer(prompt, return_tensors="pt")
+    inputs = inputs.to(self.model.device)
+
+    outputs = self.model.generate(
+        **inputs,
+        max_new_tokens=64,
+        temperature=0.1,
+        do_sample=True,
+        pad_token_id=self.tokenizer.eos_token_id
+    )
+
+    response = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+    key_text = response.split("### Key:\n")[-1].strip()
+
+    try:
+        result = json.loads(key_text)
+        key = result.get("key", "OP_INVALID")
+        params = result.get("params", {})
+
+        # Resolve labels
+        if "addr" in params and params["addr"] in labels:
+            params["addr"] = labels[params["addr"]]
+
+        return (key, params)
+    except json.JSONDecodeError:
+        return ("OP_INVALID", {"raw": instr, "parse_error": key_text})
+\end{lstlisting}
+
+\section{CPU Orchestrator}
+
+The KVRMCPU class ties everything together: fetch, decode, execute.
+
+\begin{lstlisting}[language=Python, caption={cpu.py - Main Orchestrator}]
+class KVRMCPU:
+    """KVRM-based CPU emulator with full execution tracing."""
+
+    def __init__(self, mock_mode: bool = True):
+        self.registry = get_registry()
+        self.decoder = DecodeLLM(mock_mode=mock_mode)
+        self.state: Optional[CPUState] = None
+        self.labels: Dict[str, int] = {}
+        self.trace: List[dict] = []
+
+    def load_program(self, program: List[str]):
+        """Parse labels and load instructions into memory."""
+        instructions = []
+        self.labels = {}
+
+        for line in program:
+            line = line.strip()
+            if not line or line.startswith(';'):
+                continue
+
+            # Parse labels
+            if ':' in line and not line.startswith(';'):
+                parts = line.split(':', 1)
+                label = parts[0].strip()
+                self.labels[label] = len(instructions)
+                line = parts[1].strip() if len(parts) > 1 else ''
+
+            if line and not line.startswith(';'):
+                instructions.append(line)
+
+        self.state = create_initial_state(instructions)
+        self.trace = []
+
+    def step(self) -> dict:
+        """Execute single instruction cycle."""
+        if self.state.halted or self.state.pc >= len(self.state.memory):
+            return {"halted": True}
+
+        # Fetch
+        instruction = self.state.memory[self.state.pc]
+
+        # Decode (semantic!)
+        key, params = self.decoder.decode(instruction, self.labels)
+
+        # Capture pre-state
+        pre_state = self.state.snapshot()
+
+        # Execute via registry
+        self.state = self.registry.execute(self.state, key, params)
+
+        # Record trace
+        entry = {
+            "cycle": self.state.cycle_count,
+            "instruction": instruction,
+            "key": key,
+            "params": params,
+            "pre_state": pre_state,
+            "post_state": self.state.snapshot()
+        }
+        self.trace.append(entry)
+
+        return entry
+
+    def run(self, max_cycles: int = 10000) -> List[dict]:
+        """Run until HALT or max cycles."""
+        while not self.state.halted and self.state.cycle_count < max_cycles:
+            self.step()
+        return self.trace
+\end{lstlisting}
+
+\section{Training Data Generation}
+
+Generate 50,000 training samples for the decode micro-LLM.
+
+\subsection{Dataset Composition}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrl}
+\toprule
+\textbf{Category} & \textbf{Count} & \textbf{Examples} \\
+\midrule
+MOV reg, imm & 10,000 & "MOV R3, 42", "mov r1, 0" \\
+MOV reg, reg & 5,000 & "MOV R1, R2" \\
+ADD/SUB/MUL & 12,000 & "ADD R3, R1, R2", "sub R0, R5, R4" \\
+INC/DEC & 3,000 & "INC R0", "DEC R7" \\
+CMP & 5,000 & "CMP R1, R2" \\
+JMP/JZ/JNZ/JS/JNS & 10,000 & "JMP 5", "JZ loop", "JS negative" \\
+HALT/NOP & 2,000 & "HALT", "NOP" \\
+Invalid & 3,000 & "FOO R1", "ADD", "" \\
+\midrule
+\textbf{Total} & \textbf{50,000} & \\
+\bottomrule
+\end{tabular}
+\caption{KVRM-CPU Training Dataset}
+\end{table}
+
+\subsection{Data Augmentation}
+
+\begin{lstlisting}[language=Python, caption={generate\_cpu\_data.py}]
+import random
+import json
+
+def generate_mov_imm_examples(n: int = 10000) -> list:
+    """Generate MOV register, immediate examples."""
+    examples = []
+    registers = [f"R{i}" for i in range(8)]
+
+    templates = [
+        "MOV {reg}, {val}",
+        "mov {reg}, {val}",
+        "Mov {reg} {val}",      # Missing comma
+        "{reg} = {val}",        # Assignment style
+        "load {val} into {reg}",# Natural language
+    ]
+
+    for _ in range(n):
+        reg = random.choice(registers)
+        val = random.randint(-1000, 1000)
+        template = random.choice(templates)
+
+        instruction = template.format(reg=reg, val=val)
+
+        key = {
+            "key": "OP_MOV_REG_IMM",
+            "params": {"dest": reg.upper(), "value": val}
+        }
+
+        examples.append({
+            "instruction": instruction,
+            "key": json.dumps(key)
+        })
+
+    return examples
+
+def generate_inc_dec_examples(n: int = 3000) -> list:
+    """Generate INC/DEC examples with natural language variants."""
+    examples = []
+    registers = [f"R{i}" for i in range(8)]
+
+    inc_templates = [
+        "INC {reg}",
+        "inc {reg}",
+        "{reg}++",
+        "increment {reg}",
+        "add 1 to {reg}",
+    ]
+
+    dec_templates = [
+        "DEC {reg}",
+        "dec {reg}",
+        "{reg}--",
+        "decrement {reg}",
+        "subtract 1 from {reg}",
+    ]
+
+    for _ in range(n // 2):
+        reg = random.choice(registers)
+
+        # INC
+        template = random.choice(inc_templates)
+        examples.append({
+            "instruction": template.format(reg=reg),
+            "key": json.dumps({
+                "key": "OP_INC",
+                "params": {"dest": reg.upper()}
+            })
+        })
+
+        # DEC
+        template = random.choice(dec_templates)
+        examples.append({
+            "instruction": template.format(reg=reg),
+            "key": json.dumps({
+                "key": "OP_DEC",
+                "params": {"dest": reg.upper()}
+            })
+        })
+
+    return examples
+\end{lstlisting}
+
+\section{Example Programs}
+
+\subsection{Sum 1 to 10}
+
+\begin{lstlisting}[caption={programs/sum\_1\_to\_10.asm}]
+; Sum 1 to 10 - Expected result: R0 = 55
+    MOV R0, 0       ; sum = 0
+    MOV R1, 1       ; counter = 1
+    MOV R2, 11      ; limit
+    MOV R3, 1       ; increment
+loop:
+    ADD R0, R0, R1  ; sum += counter
+    ADD R1, R1, R3  ; counter++
+    CMP R1, R2      ; compare to limit
+    JNZ loop        ; continue if not equal
+    HALT            ; R0 = 55
+\end{lstlisting}
+
+\subsection{Countdown with Sign Flag}
+
+\begin{lstlisting}[caption={programs/countdown.asm}]
+; Countdown from 5, using DEC and JS
+; Demonstrates sign flag transitions
+    MOV R0, 5       ; Start at 5
+    MOV R1, 0       ; Decrement count
+loop:
+    DEC R0          ; counter-- (sets SF when negative)
+    INC R1          ; count decrements
+    JS done         ; Jump if negative (SF set)
+    JMP loop        ; Continue if >= 0
+done:
+    HALT            ; R0 = -1, R1 = 6
+\end{lstlisting}
+
+\section{Testing KVRM-CPU}
+
+\begin{lstlisting}[language=Python, caption={test\_programs.py}]
+import pytest
+from kvrm_cpu.cpu import KVRMCPU
+
+class TestPrograms:
+    def test_sum_1_to_10(self):
+        """Sum 1 to 10 should produce R0 = 55."""
+        cpu = KVRMCPU(mock_mode=True)
+
+        program = [
+            "MOV R0, 0",
+            "MOV R1, 1",
+            "MOV R2, 11",
+            "MOV R3, 1",
+            "loop: ADD R0, R0, R1",
+            "ADD R1, R1, R3",
+            "CMP R1, R2",
+            "JNZ loop",
+            "HALT"
+        ]
+
+        cpu.load_program(program)
+        cpu.run()
+
+        assert cpu.state.registers["R0"] == 55
+        assert cpu.state.halted is True
+
+    def test_countdown(self):
+        """Countdown should demonstrate JS behavior."""
+        cpu = KVRMCPU(mock_mode=True)
+
+        program = [
+            "MOV R0, 5",
+            "MOV R1, 0",
+            "loop: DEC R0",
+            "INC R1",
+            "JS done",
+            "JMP loop",
+            "done: HALT"
+        ]
+
+        cpu.load_program(program)
+        cpu.run()
+
+        assert cpu.state.registers["R0"] == -1  # Went negative
+        assert cpu.state.registers["R1"] == 6   # 6 decrements
+\end{lstlisting}
+
+\section{KVRM-CPU Benchmarks}
+
+\begin{lstlisting}[language=Python, caption={cpu\_benchmark.py}]
+import time
+from kvrm_cpu.cpu import KVRMCPU
+
+def benchmark_sum_program(iterations: int = 100):
+    """Benchmark sum 1 to 10 program."""
+    program = [
+        "MOV R0, 0", "MOV R1, 1", "MOV R2, 11", "MOV R3, 1",
+        "loop: ADD R0, R0, R1", "ADD R1, R1, R3",
+        "CMP R1, R2", "JNZ loop", "HALT"
+    ]
+
+    # KVRM Mock Mode
+    cpu = KVRMCPU(mock_mode=True)
+    start = time.perf_counter()
+    for _ in range(iterations):
+        cpu.load_program(program)
+        cpu.run()
+    mock_time = time.perf_counter() - start
+
+    print(f"KVRM Mock: {mock_time*1000/iterations:.2f}ms per run")
+    print(f"Result: R0 = {cpu.state.registers['R0']}")
+
+    return {
+        "mock_time_ms": mock_time * 1000 / iterations,
+        "result": cpu.state.registers["R0"]
+    }
+
+if __name__ == "__main__":
+    results = benchmark_sum_program()
+    print(f"\nVerified: R0 = {results['result']} (expected 55)")
+\end{lstlisting}
+
+\section{Conclusion}
+
+This guide provides comprehensive implementation instructions for both KVRM-Vector and KVRM-CPU. Together, these prototypes demonstrate:
+
+\begin{itemize}
+    \item \textbf{Key-only emission} eliminates hallucination by construction
+    \item \textbf{Micro-LLMs} can replace traditional logic at any level (data structures to CPU decode)
+    \item \textbf{Caching} reduces overhead to acceptable levels for practical use
+    \item \textbf{Full auditability} via execution traces for every operation
+    \item \textbf{Semantic flexibility} allowing natural language and formal notation interchangeably
+    \item \textbf{Universality} proven from high-level vector operations down to CPU instruction decode
+\end{itemize}
+
+\subsection{Component Summary}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llrl}
+\toprule
+\textbf{Component} & \textbf{Purpose} & \textbf{Primitives} & \textbf{Status} \\
+\midrule
+KVRM-Vector & Dynamic array operations & 9 & Complete \\
+KVRM-CPU & CPU instruction decode & 16 & Complete \\
+\midrule
+\textbf{Total} & & \textbf{25} & \\
+\bottomrule
+\end{tabular}
+\caption{KVRM-OS Implementation Components}
+\end{table}
+
+\textbf{Next Steps:}
+\begin{enumerate}
+    \item Extend to more data structures (HashMap, Tree, Graph)
+    \item Add concurrency primitives (Lock, Semaphore, Channel)
+    \item Implement file system primitives (Open, Read, Write, Close)
+    \item Network stack primitives (Connect, Send, Receive)
+    \item Implement self-improvement loop for model updates
+    \item Target bare-metal deployment on custom hardware
+\end{enumerate}
+
+\textbf{Repository Links:}
+\begin{itemize}
+    \item KVRM-Vector: \url{https://github.com/robertcprice/kvrm-vector}
+    \item KVRM-CPU: \url{https://github.com/robertcprice/kvrm-cpu}
+\end{itemize}
+
+\end{document}

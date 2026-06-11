@@ -1,0 +1,1801 @@
+{
+  "generated_at": "2026-04-13T03:04:12.374519+00:00",
+  "domains": {
+    "soc": {
+      "domain": "soc",
+      "registry_name": "soc-playbook-router",
+      "action_count": 8,
+      "supported_case_count": 88,
+      "overlap_case_count": 0,
+      "overlap_case_fraction": 0.0,
+      "non_overlap_case_count": 88,
+      "overlap_zone_action_pairs": [],
+      "pair_disambiguation": [],
+      "overlap_disambiguation": {
+        "accuracy": 0.0,
+        "mean_confidence": 0.0,
+        "mean_margin": null,
+        "correct": 0,
+        "total": 0
+      },
+      "non_overlap_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9249,
+        "correct": 88,
+        "total": 88
+      },
+      "all_supported_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9249,
+        "correct": 88,
+        "total": 88
+      },
+      "synthetic_overlap_eval": null,
+      "overlap_detail": []
+    },
+    "sre": {
+      "domain": "sre",
+      "registry_name": "sre-policy-router",
+      "action_count": 8,
+      "supported_case_count": 94,
+      "overlap_case_count": 0,
+      "overlap_case_fraction": 0.0,
+      "non_overlap_case_count": 94,
+      "overlap_zone_action_pairs": [],
+      "pair_disambiguation": [],
+      "overlap_disambiguation": {
+        "accuracy": 0.0,
+        "mean_confidence": 0.0,
+        "mean_margin": null,
+        "correct": 0,
+        "total": 0
+      },
+      "non_overlap_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9434,
+        "correct": 94,
+        "total": 94
+      },
+      "all_supported_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9434,
+        "correct": 94,
+        "total": 94
+      },
+      "synthetic_overlap_eval": null,
+      "overlap_detail": []
+    },
+    "drone": {
+      "domain": "drone",
+      "registry_name": "drone-mission-router",
+      "action_count": 8,
+      "supported_case_count": 98,
+      "overlap_case_count": 0,
+      "overlap_case_fraction": 0.0,
+      "non_overlap_case_count": 98,
+      "overlap_zone_action_pairs": [],
+      "pair_disambiguation": [],
+      "overlap_disambiguation": {
+        "accuracy": 0.0,
+        "mean_confidence": 0.0,
+        "mean_margin": null,
+        "correct": 0,
+        "total": 0
+      },
+      "non_overlap_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.982,
+        "correct": 98,
+        "total": 98
+      },
+      "all_supported_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.982,
+        "correct": 98,
+        "total": 98
+      },
+      "synthetic_overlap_eval": null,
+      "overlap_detail": []
+    },
+    "grid": {
+      "domain": "grid",
+      "registry_name": "grid-ops-router",
+      "action_count": 8,
+      "supported_case_count": 18,
+      "overlap_case_count": 0,
+      "overlap_case_fraction": 0.0,
+      "non_overlap_case_count": 18,
+      "overlap_zone_action_pairs": [],
+      "pair_disambiguation": [],
+      "overlap_disambiguation": {
+        "accuracy": 0.0,
+        "mean_confidence": 0.0,
+        "mean_margin": null,
+        "correct": 0,
+        "total": 0
+      },
+      "non_overlap_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.8173,
+        "correct": 18,
+        "total": 18
+      },
+      "all_supported_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.8173,
+        "correct": 18,
+        "total": 18
+      },
+      "synthetic_overlap_eval": null,
+      "overlap_detail": []
+    },
+    "finance": {
+      "domain": "finance",
+      "registry_name": "finance-risk-router",
+      "action_count": 8,
+      "supported_case_count": 18,
+      "overlap_case_count": 0,
+      "overlap_case_fraction": 0.0,
+      "non_overlap_case_count": 18,
+      "overlap_zone_action_pairs": [],
+      "pair_disambiguation": [],
+      "overlap_disambiguation": {
+        "accuracy": 0.0,
+        "mean_confidence": 0.0,
+        "mean_margin": null,
+        "correct": 0,
+        "total": 0
+      },
+      "non_overlap_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9717,
+        "correct": 18,
+        "total": 18
+      },
+      "all_supported_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9717,
+        "correct": 18,
+        "total": 18
+      },
+      "synthetic_overlap_eval": null,
+      "overlap_detail": []
+    },
+    "medical": {
+      "domain": "medical",
+      "registry_name": "medical-workflow-router",
+      "action_count": 8,
+      "supported_case_count": 18,
+      "overlap_case_count": 0,
+      "overlap_case_fraction": 0.0,
+      "non_overlap_case_count": 18,
+      "overlap_zone_action_pairs": [],
+      "pair_disambiguation": [],
+      "overlap_disambiguation": {
+        "accuracy": 0.0,
+        "mean_confidence": 0.0,
+        "mean_margin": null,
+        "correct": 0,
+        "total": 0
+      },
+      "non_overlap_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9667,
+        "correct": 18,
+        "total": 18
+      },
+      "all_supported_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9667,
+        "correct": 18,
+        "total": 18
+      },
+      "synthetic_overlap_eval": null,
+      "overlap_detail": []
+    },
+    "iam": {
+      "domain": "iam",
+      "registry_name": "iam-access-router",
+      "action_count": 7,
+      "supported_case_count": 18,
+      "overlap_case_count": 0,
+      "overlap_case_fraction": 0.0,
+      "non_overlap_case_count": 18,
+      "overlap_zone_action_pairs": [],
+      "pair_disambiguation": [],
+      "overlap_disambiguation": {
+        "accuracy": 0.0,
+        "mean_confidence": 0.0,
+        "mean_margin": null,
+        "correct": 0,
+        "total": 0
+      },
+      "non_overlap_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9905,
+        "correct": 18,
+        "total": 18
+      },
+      "all_supported_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9905,
+        "correct": 18,
+        "total": 18
+      },
+      "synthetic_overlap_eval": null,
+      "overlap_detail": []
+    },
+    "customer_support": {
+      "domain": "customer_support",
+      "registry_name": "customer-support-router",
+      "action_count": 7,
+      "supported_case_count": 36,
+      "overlap_case_count": 31,
+      "overlap_case_fraction": 0.8611,
+      "non_overlap_case_count": 5,
+      "overlap_zone_action_pairs": [
+        {
+          "pair": [
+            "escalate_to_manager",
+            "request_human_review"
+          ],
+          "count": 8
+        },
+        {
+          "pair": [
+            "assign_specialist",
+            "request_human_review"
+          ],
+          "count": 7
+        },
+        {
+          "pair": [
+            "request_human_review",
+            "send_knowledge_article"
+          ],
+          "count": 6
+        },
+        {
+          "pair": [
+            "auto_resolve_billing",
+            "request_human_review"
+          ],
+          "count": 6
+        },
+        {
+          "pair": [
+            "request_human_review",
+            "schedule_callback"
+          ],
+          "count": 6
+        },
+        {
+          "pair": [
+            "issue_refund",
+            "request_human_review"
+          ],
+          "count": 5
+        },
+        {
+          "pair": [
+            "assign_specialist",
+            "schedule_callback"
+          ],
+          "count": 2
+        },
+        {
+          "pair": [
+            "escalate_to_manager",
+            "issue_refund"
+          ],
+          "count": 2
+        },
+        {
+          "pair": [
+            "auto_resolve_billing",
+            "send_knowledge_article"
+          ],
+          "count": 1
+        },
+        {
+          "pair": [
+            "escalate_to_manager",
+            "schedule_callback"
+          ],
+          "count": 1
+        },
+        {
+          "pair": [
+            "auto_resolve_billing",
+            "issue_refund"
+          ],
+          "count": 1
+        }
+      ],
+      "pair_disambiguation": [
+        {
+          "pair": [
+            "escalate_to_manager",
+            "request_human_review"
+          ],
+          "case_count": 8,
+          "accuracy": 1.0,
+          "mean_confidence": 0.8894,
+          "mean_margin": 0.0263
+        },
+        {
+          "pair": [
+            "assign_specialist",
+            "request_human_review"
+          ],
+          "case_count": 7,
+          "accuracy": 1.0,
+          "mean_confidence": 0.8921,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "request_human_review",
+            "send_knowledge_article"
+          ],
+          "case_count": 6,
+          "accuracy": 1.0,
+          "mean_confidence": 0.8953,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "auto_resolve_billing",
+            "request_human_review"
+          ],
+          "case_count": 6,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9457,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "request_human_review",
+            "schedule_callback"
+          ],
+          "case_count": 6,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9496,
+          "mean_margin": 0.0677
+        },
+        {
+          "pair": [
+            "issue_refund",
+            "request_human_review"
+          ],
+          "case_count": 5,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9396,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "assign_specialist",
+            "schedule_callback"
+          ],
+          "case_count": 2,
+          "accuracy": 1.0,
+          "mean_confidence": 1.0,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "escalate_to_manager",
+            "issue_refund"
+          ],
+          "case_count": 2,
+          "accuracy": 1.0,
+          "mean_confidence": 0.926,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "auto_resolve_billing",
+            "send_knowledge_article"
+          ],
+          "case_count": 1,
+          "accuracy": 1.0,
+          "mean_confidence": 1.0,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "escalate_to_manager",
+            "schedule_callback"
+          ],
+          "case_count": 1,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9289,
+          "mean_margin": 0.0089
+        },
+        {
+          "pair": [
+            "auto_resolve_billing",
+            "issue_refund"
+          ],
+          "case_count": 1,
+          "accuracy": 1.0,
+          "mean_confidence": 1.0,
+          "mean_margin": 0.04
+        }
+      ],
+      "overlap_disambiguation": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9039,
+        "mean_margin": 0.0497,
+        "correct": 31,
+        "total": 31
+      },
+      "non_overlap_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.8459,
+        "correct": 5,
+        "total": 5
+      },
+      "all_supported_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.8958,
+        "correct": 36,
+        "total": 36
+      },
+      "synthetic_overlap_eval": null,
+      "overlap_detail": [
+        {
+          "case_id": "cs_case_001",
+          "expected": "send_knowledge_article",
+          "predicted": "send_knowledge_article",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "send_knowledge_article",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cs_case_002",
+          "expected": "send_knowledge_article",
+          "predicted": "send_knowledge_article",
+          "confidence": 0.8696,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_003",
+          "expected": "send_knowledge_article",
+          "predicted": "send_knowledge_article",
+          "confidence": 0.8696,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_004",
+          "expected": "send_knowledge_article",
+          "predicted": "send_knowledge_article",
+          "confidence": 0.7748,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_005",
+          "expected": "send_knowledge_article",
+          "predicted": "send_knowledge_article",
+          "confidence": 0.8578,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_006",
+          "expected": "auto_resolve_billing",
+          "predicted": "auto_resolve_billing",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "auto_resolve_billing",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cs_case_007",
+          "expected": "auto_resolve_billing",
+          "predicted": "auto_resolve_billing",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "auto_resolve_billing",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cs_case_008",
+          "expected": "auto_resolve_billing",
+          "predicted": "auto_resolve_billing",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "auto_resolve_billing",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cs_case_009",
+          "expected": "auto_resolve_billing",
+          "predicted": "auto_resolve_billing",
+          "confidence": 0.8222,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_010",
+          "expected": "auto_resolve_billing",
+          "predicted": "auto_resolve_billing",
+          "confidence": 0.8519,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_011",
+          "expected": "assign_specialist",
+          "predicted": "assign_specialist",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "assign_specialist",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cs_case_012",
+          "expected": "assign_specialist",
+          "predicted": "assign_specialist",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "assign_specialist",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cs_case_013",
+          "expected": "assign_specialist",
+          "predicted": "assign_specialist",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "assign_specialist",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cs_case_014",
+          "expected": "assign_specialist",
+          "predicted": "assign_specialist",
+          "confidence": 0.7037,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_015",
+          "expected": "assign_specialist",
+          "predicted": "assign_specialist",
+          "confidence": 0.7778,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_016",
+          "expected": "assign_specialist",
+          "predicted": "assign_specialist",
+          "confidence": 0.763,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_017",
+          "expected": "schedule_callback",
+          "predicted": "schedule_callback",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "schedule_callback",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 4
+        },
+        {
+          "case_id": "cs_case_018",
+          "expected": "schedule_callback",
+          "predicted": "schedule_callback",
+          "confidence": 0.9289,
+          "correct": true,
+          "margin": 0.0089,
+          "runner_up": "schedule_callback",
+          "runner_up_confidence": 0.92,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cs_case_019",
+          "expected": "schedule_callback",
+          "predicted": "schedule_callback",
+          "confidence": 0.9289,
+          "correct": true,
+          "margin": 0.0089,
+          "runner_up": "schedule_callback",
+          "runner_up_confidence": 0.92,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cs_case_020",
+          "expected": "schedule_callback",
+          "predicted": "schedule_callback",
+          "confidence": 0.92,
+          "correct": true,
+          "margin": 0.1096,
+          "runner_up": "schedule_callback",
+          "runner_up_confidence": 0.8104,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cs_case_021",
+          "expected": "schedule_callback",
+          "predicted": "schedule_callback",
+          "confidence": 0.92,
+          "correct": true,
+          "margin": 0.1985,
+          "runner_up": "schedule_callback",
+          "runner_up_confidence": 0.7215,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cs_case_022",
+          "expected": "issue_refund",
+          "predicted": "issue_refund",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "issue_refund",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cs_case_023",
+          "expected": "issue_refund",
+          "predicted": "issue_refund",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "issue_refund",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cs_case_024",
+          "expected": "issue_refund",
+          "predicted": "issue_refund",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "issue_refund",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cs_case_025",
+          "expected": "issue_refund",
+          "predicted": "issue_refund",
+          "confidence": 0.8519,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_026",
+          "expected": "issue_refund",
+          "predicted": "issue_refund",
+          "confidence": 0.8459,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_027",
+          "expected": "escalate_to_manager",
+          "predicted": "escalate_to_manager",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.03,
+          "runner_up": "escalate_to_manager",
+          "runner_up_confidence": 0.97,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cs_case_028",
+          "expected": "escalate_to_manager",
+          "predicted": "escalate_to_manager",
+          "confidence": 0.7867,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_029",
+          "expected": "escalate_to_manager",
+          "predicted": "escalate_to_manager",
+          "confidence": 0.9407,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_030",
+          "expected": "escalate_to_manager",
+          "predicted": "escalate_to_manager",
+          "confidence": 0.6667,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cs_case_031",
+          "expected": "escalate_to_manager",
+          "predicted": "escalate_to_manager",
+          "confidence": 0.9407,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        }
+      ]
+    },
+    "content_moderation": {
+      "domain": "content_moderation",
+      "registry_name": "content-moderation-router",
+      "action_count": 7,
+      "supported_case_count": 40,
+      "overlap_case_count": 33,
+      "overlap_case_fraction": 0.825,
+      "non_overlap_case_count": 7,
+      "overlap_zone_action_pairs": [
+        {
+          "pair": [
+            "remove_content",
+            "request_human_review"
+          ],
+          "count": 13
+        },
+        {
+          "pair": [
+            "remove_content",
+            "suspend_account"
+          ],
+          "count": 9
+        },
+        {
+          "pair": [
+            "request_human_review",
+            "suspend_account"
+          ],
+          "count": 9
+        },
+        {
+          "pair": [
+            "flag_for_human_review",
+            "request_human_review"
+          ],
+          "count": 8
+        },
+        {
+          "pair": [
+            "reduce_visibility",
+            "request_human_review"
+          ],
+          "count": 7
+        },
+        {
+          "pair": [
+            "escalate_trust_safety",
+            "request_human_review"
+          ],
+          "count": 7
+        },
+        {
+          "pair": [
+            "auto_approve",
+            "request_human_review"
+          ],
+          "count": 5
+        },
+        {
+          "pair": [
+            "escalate_trust_safety",
+            "remove_content"
+          ],
+          "count": 4
+        },
+        {
+          "pair": [
+            "escalate_trust_safety",
+            "suspend_account"
+          ],
+          "count": 3
+        },
+        {
+          "pair": [
+            "flag_for_human_review",
+            "reduce_visibility"
+          ],
+          "count": 1
+        },
+        {
+          "pair": [
+            "flag_for_human_review",
+            "remove_content"
+          ],
+          "count": 1
+        },
+        {
+          "pair": [
+            "flag_for_human_review",
+            "suspend_account"
+          ],
+          "count": 1
+        },
+        {
+          "pair": [
+            "escalate_trust_safety",
+            "flag_for_human_review"
+          ],
+          "count": 1
+        }
+      ],
+      "pair_disambiguation": [
+        {
+          "pair": [
+            "remove_content",
+            "request_human_review"
+          ],
+          "case_count": 13,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9354,
+          "mean_margin": 0.0386
+        },
+        {
+          "pair": [
+            "remove_content",
+            "suspend_account"
+          ],
+          "case_count": 9,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9788,
+          "mean_margin": 0.0386
+        },
+        {
+          "pair": [
+            "request_human_review",
+            "suspend_account"
+          ],
+          "case_count": 9,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9788,
+          "mean_margin": 0.0386
+        },
+        {
+          "pair": [
+            "flag_for_human_review",
+            "request_human_review"
+          ],
+          "case_count": 8,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9705,
+          "mean_margin": 0.0519
+        },
+        {
+          "pair": [
+            "reduce_visibility",
+            "request_human_review"
+          ],
+          "case_count": 7,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9221,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "escalate_trust_safety",
+            "request_human_review"
+          ],
+          "case_count": 7,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9481,
+          "mean_margin": 0.0459
+        },
+        {
+          "pair": [
+            "auto_approve",
+            "request_human_review"
+          ],
+          "case_count": 5,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9539,
+          "mean_margin": 0.0333
+        },
+        {
+          "pair": [
+            "escalate_trust_safety",
+            "remove_content"
+          ],
+          "case_count": 4,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9546,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "escalate_trust_safety",
+            "suspend_account"
+          ],
+          "case_count": 3,
+          "accuracy": 1.0,
+          "mean_confidence": 1.0,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "flag_for_human_review",
+            "reduce_visibility"
+          ],
+          "case_count": 1,
+          "accuracy": 1.0,
+          "mean_confidence": 1.0,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "flag_for_human_review",
+            "remove_content"
+          ],
+          "case_count": 1,
+          "accuracy": 1.0,
+          "mean_confidence": 1.0,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "flag_for_human_review",
+            "suspend_account"
+          ],
+          "case_count": 1,
+          "accuracy": 1.0,
+          "mean_confidence": 1.0,
+          "mean_margin": 0.04
+        },
+        {
+          "pair": [
+            "escalate_trust_safety",
+            "flag_for_human_review"
+          ],
+          "case_count": 1,
+          "accuracy": 1.0,
+          "mean_confidence": 0.9636,
+          "mean_margin": 0.0636
+        }
+      ],
+      "overlap_disambiguation": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9395,
+        "mean_margin": 0.0434,
+        "correct": 33,
+        "total": 33
+      },
+      "non_overlap_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.8632,
+        "correct": 7,
+        "total": 7
+      },
+      "all_supported_accuracy": {
+        "accuracy": 1.0,
+        "mean_confidence": 0.9261,
+        "correct": 40,
+        "total": 40
+      },
+      "synthetic_overlap_eval": {
+        "accuracy": 0.56,
+        "mean_confidence": 0.9038,
+        "mean_margin": 0.0515,
+        "correct": 14,
+        "total": 25,
+        "results": [
+          {
+            "case_id": "cm_synth_overlap_001",
+            "expected": "reduce_visibility",
+            "predicted": "reduce_visibility",
+            "confidence": 0.9152,
+            "correct": true,
+            "margin": 0.0152,
+            "runner_up": "flag_for_human_review",
+            "runner_up_confidence": 0.9,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_002",
+            "expected": "flag_for_human_review",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": true,
+            "margin": 0.0333,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8667,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_003",
+            "expected": "reduce_visibility",
+            "predicted": "reduce_visibility",
+            "confidence": 0.9545,
+            "correct": true,
+            "margin": 0.0545,
+            "runner_up": "flag_for_human_review",
+            "runner_up_confidence": 0.9,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_004",
+            "expected": "flag_for_human_review",
+            "predicted": "reduce_visibility",
+            "confidence": 0.9152,
+            "correct": false,
+            "margin": 0.0152,
+            "runner_up": "flag_for_human_review",
+            "runner_up_confidence": 0.9,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_005",
+            "expected": "reduce_visibility",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": false,
+            "margin": 0.0333,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8667,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_006",
+            "expected": "flag_for_human_review",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": true,
+            "margin": 0.0818,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8182,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_007",
+            "expected": "reduce_visibility",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": false,
+            "margin": 0.0061,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8939,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_008",
+            "expected": "flag_for_human_review",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": true,
+            "margin": 0.0333,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8667,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_009",
+            "expected": "reduce_visibility",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": false,
+            "margin": 0.0333,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8667,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_010",
+            "expected": "flag_for_human_review",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": true,
+            "margin": 0.0818,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8182,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_011",
+            "expected": "reduce_visibility",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": false,
+            "margin": 0.0061,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8939,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_012",
+            "expected": "flag_for_human_review",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": true,
+            "margin": 0.0333,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8667,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_013",
+            "expected": "reduce_visibility",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": false,
+            "margin": 0.0818,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8182,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_014",
+            "expected": "flag_for_human_review",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": true,
+            "margin": 0.1303,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.7697,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_015",
+            "expected": "reduce_visibility",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": false,
+            "margin": 0.0667,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8333,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_016",
+            "expected": "flag_for_human_review",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": true,
+            "margin": 0.0818,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8182,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_017",
+            "expected": "reduce_visibility",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": false,
+            "margin": 0.0212,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8788,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_018",
+            "expected": "flag_for_human_review",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": true,
+            "margin": 0.0697,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8303,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_019",
+            "expected": "reduce_visibility",
+            "predicted": "reduce_visibility",
+            "confidence": 0.9091,
+            "correct": true,
+            "margin": 0.0091,
+            "runner_up": "flag_for_human_review",
+            "runner_up_confidence": 0.9,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_020",
+            "expected": "flag_for_human_review",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": true,
+            "margin": 0.0212,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8788,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_021",
+            "expected": "reduce_visibility",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": false,
+            "margin": 0.0697,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8303,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_022",
+            "expected": "flag_for_human_review",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": true,
+            "margin": 0.1182,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.7818,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_023",
+            "expected": "reduce_visibility",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": false,
+            "margin": 0.0515,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8485,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_024",
+            "expected": "flag_for_human_review",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": true,
+            "margin": 0.0697,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8303,
+            "num_candidates": 2
+          },
+          {
+            "case_id": "cm_synth_overlap_025",
+            "expected": "reduce_visibility",
+            "predicted": "flag_for_human_review",
+            "confidence": 0.9,
+            "correct": false,
+            "margin": 0.0697,
+            "runner_up": "reduce_visibility",
+            "runner_up_confidence": 0.8303,
+            "num_candidates": 2
+          }
+        ]
+      },
+      "overlap_detail": [
+        {
+          "case_id": "cm_case_001",
+          "expected": "auto_approve",
+          "predicted": "auto_approve",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.02,
+          "runner_up": "auto_approve",
+          "runner_up_confidence": 0.98,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cm_case_002",
+          "expected": "auto_approve",
+          "predicted": "auto_approve",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "auto_approve",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cm_case_003",
+          "expected": "auto_approve",
+          "predicted": "auto_approve",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "auto_approve",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cm_case_004",
+          "expected": "auto_approve",
+          "predicted": "auto_approve",
+          "confidence": 0.903,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_005",
+          "expected": "auto_approve",
+          "predicted": "auto_approve",
+          "confidence": 0.8667,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_006",
+          "expected": "reduce_visibility",
+          "predicted": "reduce_visibility",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "reduce_visibility",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cm_case_007",
+          "expected": "reduce_visibility",
+          "predicted": "reduce_visibility",
+          "confidence": 0.8667,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_008",
+          "expected": "reduce_visibility",
+          "predicted": "reduce_visibility",
+          "confidence": 0.8061,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_009",
+          "expected": "reduce_visibility",
+          "predicted": "reduce_visibility",
+          "confidence": 0.9152,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_010",
+          "expected": "reduce_visibility",
+          "predicted": "reduce_visibility",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "reduce_visibility",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cm_case_011",
+          "expected": "reduce_visibility",
+          "predicted": "reduce_visibility",
+          "confidence": 0.8667,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_012",
+          "expected": "flag_for_human_review",
+          "predicted": "flag_for_human_review",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "flag_for_human_review",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 4
+        },
+        {
+          "case_id": "cm_case_013",
+          "expected": "flag_for_human_review",
+          "predicted": "flag_for_human_review",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "flag_for_human_review",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cm_case_014",
+          "expected": "flag_for_human_review",
+          "predicted": "flag_for_human_review",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "flag_for_human_review",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cm_case_015",
+          "expected": "flag_for_human_review",
+          "predicted": "flag_for_human_review",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "flag_for_human_review",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cm_case_016",
+          "expected": "flag_for_human_review",
+          "predicted": "flag_for_human_review",
+          "confidence": 0.9,
+          "correct": true,
+          "margin": 0.0818,
+          "runner_up": "request_human_review",
+          "runner_up_confidence": 0.8182,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cm_case_017",
+          "expected": "flag_for_human_review",
+          "predicted": "flag_for_human_review",
+          "confidence": 0.9,
+          "correct": true,
+          "margin": 0.0697,
+          "runner_up": "flag_for_human_review",
+          "runner_up_confidence": 0.8303,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cm_case_018",
+          "expected": "remove_content",
+          "predicted": "remove_content",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.03,
+          "runner_up": "remove_content",
+          "runner_up_confidence": 0.97,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cm_case_019",
+          "expected": "remove_content",
+          "predicted": "remove_content",
+          "confidence": 0.9091,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_020",
+          "expected": "remove_content",
+          "predicted": "remove_content",
+          "confidence": 0.9152,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_021",
+          "expected": "remove_content",
+          "predicted": "remove_content",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "remove_content",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cm_case_022",
+          "expected": "remove_content",
+          "predicted": "remove_content",
+          "confidence": 0.8667,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_023",
+          "expected": "remove_content",
+          "predicted": "remove_content",
+          "confidence": 0.7576,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_024",
+          "expected": "suspend_account",
+          "predicted": "suspend_account",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "suspend_account",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cm_case_025",
+          "expected": "suspend_account",
+          "predicted": "suspend_account",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "suspend_account",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cm_case_026",
+          "expected": "suspend_account",
+          "predicted": "suspend_account",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "suspend_account",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cm_case_027",
+          "expected": "suspend_account",
+          "predicted": "suspend_account",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "suspend_account",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 3
+        },
+        {
+          "case_id": "cm_case_028",
+          "expected": "suspend_account",
+          "predicted": "suspend_account",
+          "confidence": 0.8939,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_029",
+          "expected": "escalate_trust_safety",
+          "predicted": "escalate_trust_safety",
+          "confidence": 0.8182,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_030",
+          "expected": "escalate_trust_safety",
+          "predicted": "escalate_trust_safety",
+          "confidence": 1.0,
+          "correct": true,
+          "margin": 0.04,
+          "runner_up": "escalate_trust_safety",
+          "runner_up_confidence": 0.96,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cm_case_031",
+          "expected": "escalate_trust_safety",
+          "predicted": "escalate_trust_safety",
+          "confidence": 0.9636,
+          "correct": true,
+          "margin": 0.0636,
+          "runner_up": "flag_for_human_review",
+          "runner_up_confidence": 0.9,
+          "num_candidates": 2
+        },
+        {
+          "case_id": "cm_case_032",
+          "expected": "escalate_trust_safety",
+          "predicted": "escalate_trust_safety",
+          "confidence": 0.9152,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        },
+        {
+          "case_id": "cm_case_033",
+          "expected": "escalate_trust_safety",
+          "predicted": "escalate_trust_safety",
+          "confidence": 0.9394,
+          "correct": true,
+          "margin": null,
+          "runner_up": null,
+          "runner_up_confidence": null,
+          "num_candidates": 1
+        }
+      ]
+    }
+  },
+  "summary": [
+    {
+      "domain": "soc",
+      "supported_cases": 88,
+      "overlap_cases": 0,
+      "overlap_fraction": 0.0,
+      "overlap_accuracy": 0.0,
+      "non_overlap_accuracy": 1.0,
+      "all_accuracy": 1.0,
+      "accuracy_gap_pp": null,
+      "top_pair": null
+    },
+    {
+      "domain": "sre",
+      "supported_cases": 94,
+      "overlap_cases": 0,
+      "overlap_fraction": 0.0,
+      "overlap_accuracy": 0.0,
+      "non_overlap_accuracy": 1.0,
+      "all_accuracy": 1.0,
+      "accuracy_gap_pp": null,
+      "top_pair": null
+    },
+    {
+      "domain": "drone",
+      "supported_cases": 98,
+      "overlap_cases": 0,
+      "overlap_fraction": 0.0,
+      "overlap_accuracy": 0.0,
+      "non_overlap_accuracy": 1.0,
+      "all_accuracy": 1.0,
+      "accuracy_gap_pp": null,
+      "top_pair": null
+    },
+    {
+      "domain": "grid",
+      "supported_cases": 18,
+      "overlap_cases": 0,
+      "overlap_fraction": 0.0,
+      "overlap_accuracy": 0.0,
+      "non_overlap_accuracy": 1.0,
+      "all_accuracy": 1.0,
+      "accuracy_gap_pp": null,
+      "top_pair": null
+    },
+    {
+      "domain": "finance",
+      "supported_cases": 18,
+      "overlap_cases": 0,
+      "overlap_fraction": 0.0,
+      "overlap_accuracy": 0.0,
+      "non_overlap_accuracy": 1.0,
+      "all_accuracy": 1.0,
+      "accuracy_gap_pp": null,
+      "top_pair": null
+    },
+    {
+      "domain": "medical",
+      "supported_cases": 18,
+      "overlap_cases": 0,
+      "overlap_fraction": 0.0,
+      "overlap_accuracy": 0.0,
+      "non_overlap_accuracy": 1.0,
+      "all_accuracy": 1.0,
+      "accuracy_gap_pp": null,
+      "top_pair": null
+    },
+    {
+      "domain": "iam",
+      "supported_cases": 18,
+      "overlap_cases": 0,
+      "overlap_fraction": 0.0,
+      "overlap_accuracy": 0.0,
+      "non_overlap_accuracy": 1.0,
+      "all_accuracy": 1.0,
+      "accuracy_gap_pp": null,
+      "top_pair": null
+    },
+    {
+      "domain": "customer_support",
+      "supported_cases": 36,
+      "overlap_cases": 31,
+      "overlap_fraction": 0.8611,
+      "overlap_accuracy": 1.0,
+      "non_overlap_accuracy": 1.0,
+      "all_accuracy": 1.0,
+      "accuracy_gap_pp": 0.0,
+      "top_pair": [
+        "escalate_to_manager",
+        "request_human_review"
+      ]
+    },
+    {
+      "domain": "content_moderation",
+      "supported_cases": 40,
+      "overlap_cases": 33,
+      "overlap_fraction": 0.825,
+      "overlap_accuracy": 1.0,
+      "non_overlap_accuracy": 1.0,
+      "all_accuracy": 1.0,
+      "accuracy_gap_pp": 0.0,
+      "top_pair": [
+        "remove_content",
+        "request_human_review"
+      ]
+    }
+  ]
+}

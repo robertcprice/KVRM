@@ -1,0 +1,12 @@
+{
+  "domain": "finance",
+  "model": "batiai/gemma4-e2b:q4",
+  "variant": "abstain_json",
+  "runner": "ollama",
+  "registry_version": "1.2.0",
+  "train_cases": 13,
+  "eval_cases": 24,
+  "max_examples_per_action": 2,
+  "timestamp": "2026-04-10T17:47:56.380137+00:00",
+  "refresh": true
+}

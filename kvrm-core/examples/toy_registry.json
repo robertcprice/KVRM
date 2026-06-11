@@ -1,0 +1,66 @@
+{
+  "registry_name": "toy-risk-router",
+  "version": "1.0.0",
+  "actions": [
+    {
+      "action_id": "allow_low_risk",
+      "name": "Allow Low Risk",
+      "description": "Allow low risk request.",
+      "parameters_schema": {"type": "object", "properties": {}, "required": []},
+      "support_spec": {
+        "all": [
+          {"feature": "risk", "op": "eq", "value": "low"},
+          {"feature": "anomaly", "op": "lte", "value": 0.2}
+        ]
+      },
+      "tags": ["safe"]
+    },
+    {
+      "action_id": "throttle_temporarily",
+      "name": "Throttle Temporarily",
+      "description": "Throttle the request temporarily.",
+      "parameters_schema": {"type": "object", "properties": {"seconds": {"type": "integer"}}, "required": []},
+      "support_spec": {
+        "all": [
+          {"feature": "risk", "op": "eq", "value": "medium"},
+          {"feature": "anomaly", "op": "gte", "value": 0.2},
+          {"feature": "anomaly", "op": "lt", "value": 0.8}
+        ]
+      },
+      "tags": ["control"]
+    },
+    {
+      "action_id": "block_request",
+      "name": "Block Request",
+      "description": "Block the request.",
+      "parameters_schema": {"type": "object", "properties": {}, "required": []},
+      "support_spec": {
+        "any": [
+          {"feature": "risk", "op": "eq", "value": "high"},
+          {"feature": "anomaly", "op": "gte", "value": 0.8}
+        ]
+      },
+      "tags": ["strict"]
+    },
+    {
+      "action_id": "collect_more_context",
+      "name": "Collect More Context",
+      "description": "Request more context before acting.",
+      "parameters_schema": {"type": "object", "properties": {}, "required": []},
+      "support_spec": {
+        "any": [
+          {"feature": "risk", "op": "eq", "value": "medium"},
+          {"feature": "risk", "op": "eq", "value": "unknown"}
+        ]
+      },
+      "tags": ["safe"]
+    },
+    {
+      "action_id": "request_human_review",
+      "name": "Request Human Review",
+      "description": "Escalate to a human operator.",
+      "parameters_schema": {"type": "object", "properties": {"reason": {"type": "string"}}, "required": ["reason"]},
+      "tags": ["fallback", "safe"]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+from .types import (
+    ActionSpec,
+    RegistrySpec,
+    DecisionInput,
+    DecisionCandidate,
+    DecisionResult,
+    ValidationResult,
+    ExecutionResult,
+    AuditRecord,
+    CaseRecord,
+)
+from .registry import load_registry, compute_registry_digest, validate_registry
+from .runtime import KVRMRuntime
+from .selectors import EvidenceFusionHybridSelector, RegistrySemanticSelector, SupportAwarePrototypeSelector
+from .context_schema import (
+    build_registry_unsupported_predicate,
+    evaluate_registry_context,
+    load_registry_and_unsupported_predicate,
+    validate_context_features,
+    validate_context_schema,
+)
+from .learned import (
+    CompactLearnedSelector,
+    encode_batch,
+    encode_features,
+    infer_feature_schema,
+    load_compact_model_artifact,
+    save_compact_model_artifact,
+    train_compact_model,
+)
+from .support import evaluate_support_spec, support_spec_leaf_count, validate_support_spec
+from .explainer import DecisionExplainer, DecisionExplanation, render_explanation_json, render_explanation_text
+from .calibration import (
+    TemperatureScaler,
+    PlattScaler,
+    IsotonicScaler,
+    ThresholdCalibrator,
+    EvidenceFusionCalibrator,
+    DistanceRejector,
+    apply_abstention_policy,
+)
+from .domain_factory import DomainConfig, DomainSelectors, build_domain_selectors, build_domain_executor
+
+__all__ = [
+    "ActionSpec",
+    "RegistrySpec",
+    "DecisionInput",
+    "DecisionCandidate",
+    "DecisionResult",
+    "ValidationResult",
+    "ExecutionResult",
+    "AuditRecord",
+    "CaseRecord",
+    "load_registry",
+    "compute_registry_digest",
+    "validate_registry",
+    "build_registry_unsupported_predicate",
+    "evaluate_registry_context",
+    "load_registry_and_unsupported_predicate",
+    "validate_context_features",
+    "validate_context_schema",
+    "EvidenceFusionHybridSelector",
+    "RegistrySemanticSelector",
+    "SupportAwarePrototypeSelector",
+    "CompactLearnedSelector",
+    "encode_batch",
+    "encode_features",
+    "infer_feature_schema",
+    "load_compact_model_artifact",
+    "save_compact_model_artifact",
+    "train_compact_model",
+    "evaluate_support_spec",
+    "support_spec_leaf_count",
+    "validate_support_spec",
+    "KVRMRuntime",
+    "DecisionExplainer",
+    "DecisionExplanation",
+    "render_explanation_json",
+    "render_explanation_text",
+    "TemperatureScaler",
+    "PlattScaler",
+    "IsotonicScaler",
+    "ThresholdCalibrator",
+    "EvidenceFusionCalibrator",
+    "DistanceRejector",
+    "apply_abstention_policy",
+    "DomainConfig",
+    "DomainSelectors",
+    "build_domain_selectors",
+    "build_domain_executor",
+]

@@ -1,0 +1,638 @@
+{
+  "registry_name": "grid-ops-router",
+  "version": "1.1.0",
+  "required_features": [
+    "outage_scope",
+    "relay_state",
+    "customer_impact",
+    "reserve_margin",
+    "frequency_deviation",
+    "voltage_stability",
+    "crew_availability",
+    "weather_risk",
+    "fault_isolation_ready",
+    "switching_authorized",
+    "transfer_path_available",
+    "blackstart_required"
+  ],
+  "context_schema": {
+    "outage_scope": {
+      "type": "string",
+      "enum": [
+        "none",
+        "feeder",
+        "substation",
+        "regional"
+      ]
+    },
+    "relay_state": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "tripped",
+        "reclose_lockout"
+      ]
+    },
+    "customer_impact": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
+    },
+    "reserve_margin": {
+      "type": "string",
+      "enum": [
+        "low",
+        "adequate",
+        "high"
+      ]
+    },
+    "frequency_deviation": {
+      "type": "string",
+      "enum": [
+        "normal",
+        "mild",
+        "severe"
+      ]
+    },
+    "voltage_stability": {
+      "type": "string",
+      "enum": [
+        "stable",
+        "degraded",
+        "unstable"
+      ]
+    },
+    "crew_availability": {
+      "type": "string",
+      "enum": [
+        "limited",
+        "available",
+        "surge"
+      ]
+    },
+    "weather_risk": {
+      "type": "string",
+      "enum": [
+        "low",
+        "elevated",
+        "severe"
+      ]
+    },
+    "fault_isolation_ready": {
+      "type": "boolean"
+    },
+    "switching_authorized": {
+      "type": "boolean"
+    },
+    "blackstart_required": {
+      "type": "boolean"
+    },
+    "transfer_path_available": {
+      "type": "boolean"
+    }
+  },
+  "actions": [
+    {
+      "action_id": "continue_monitoring",
+      "name": "Continue Monitoring",
+      "description": "Keep the circuit under observation when conditions remain stable and no active switching workflow is warranted.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "outage_scope",
+            "op": "eq",
+            "value": "none"
+          },
+          {
+            "feature": "relay_state",
+            "op": "eq",
+            "value": "normal"
+          },
+          {
+            "feature": "customer_impact",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "reserve_margin",
+            "op": "in",
+            "value": [
+              "adequate",
+              "high"
+            ]
+          },
+          {
+            "feature": "frequency_deviation",
+            "op": "in",
+            "value": [
+              "normal",
+              "mild"
+            ]
+          },
+          {
+            "feature": "voltage_stability",
+            "op": "eq",
+            "value": "stable"
+          },
+          {
+            "feature": "blackstart_required",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "transfer_path_available",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "tags": [
+        "stable"
+      ]
+    },
+    {
+      "action_id": "isolate_faulted_feeder",
+      "name": "Isolate Faulted Feeder",
+      "description": "Perform feeder isolation when switching is authorized and the fault boundary is already understood.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "outage_scope",
+            "op": "eq",
+            "value": "feeder"
+          },
+          {
+            "feature": "relay_state",
+            "op": "in",
+            "value": [
+              "tripped",
+              "reclose_lockout"
+            ]
+          },
+          {
+            "feature": "customer_impact",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "fault_isolation_ready",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "switching_authorized",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "weather_risk",
+            "op": "in",
+            "value": [
+              "low",
+              "elevated"
+            ]
+          },
+          {
+            "feature": "voltage_stability",
+            "op": "in",
+            "value": [
+              "stable",
+              "degraded"
+            ]
+          },
+          {
+            "feature": "transfer_path_available",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "tags": [
+        "switching"
+      ]
+    },
+    {
+      "action_id": "transfer_load",
+      "name": "Transfer Load",
+      "description": "Shift load to alternate topology when capacity exists and voltage remains degraded rather than collapsed.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "outage_scope",
+            "op": "in",
+            "value": [
+              "feeder",
+              "substation"
+            ]
+          },
+          {
+            "feature": "relay_state",
+            "op": "in",
+            "value": [
+              "tripped",
+              "reclose_lockout"
+            ]
+          },
+          {
+            "feature": "customer_impact",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "reserve_margin",
+            "op": "in",
+            "value": [
+              "adequate",
+              "high"
+            ]
+          },
+          {
+            "feature": "frequency_deviation",
+            "op": "eq",
+            "value": "mild"
+          },
+          {
+            "feature": "voltage_stability",
+            "op": "eq",
+            "value": "degraded"
+          },
+          {
+            "feature": "switching_authorized",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "blackstart_required",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "transfer_path_available",
+            "op": "eq",
+            "value": true
+          }
+        ]
+      },
+      "tags": [
+        "restoration"
+      ]
+    },
+    {
+      "action_id": "dispatch_field_crew",
+      "name": "Dispatch Field Crew",
+      "description": "Send field personnel when the fault is not yet isolated but conditions remain operable for crew response.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "outage_scope",
+            "op": "in",
+            "value": [
+              "feeder",
+              "substation"
+            ]
+          },
+          {
+            "feature": "relay_state",
+            "op": "in",
+            "value": [
+              "tripped",
+              "reclose_lockout"
+            ]
+          },
+          {
+            "feature": "fault_isolation_ready",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "crew_availability",
+            "op": "in",
+            "value": [
+              "available",
+              "surge"
+            ]
+          },
+          {
+            "feature": "weather_risk",
+            "op": "in",
+            "value": [
+              "low",
+              "elevated"
+            ]
+          },
+          {
+            "feature": "customer_impact",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "transfer_path_available",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "tags": [
+        "field_response"
+      ]
+    },
+    {
+      "action_id": "shed_noncritical_load",
+      "name": "Shed Noncritical Load",
+      "description": "Stabilize the system by shedding noncritical demand when reserves and frequency are both stressed.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "outage_scope",
+            "op": "in",
+            "value": [
+              "substation",
+              "regional"
+            ]
+          },
+          {
+            "feature": "customer_impact",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "reserve_margin",
+            "op": "eq",
+            "value": "low"
+          },
+          {
+            "feature": "frequency_deviation",
+            "op": "eq",
+            "value": "severe"
+          },
+          {
+            "feature": "voltage_stability",
+            "op": "in",
+            "value": [
+              "degraded",
+              "unstable"
+            ]
+          },
+          {
+            "feature": "switching_authorized",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "blackstart_required",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "transfer_path_available",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "tags": [
+        "stability"
+      ]
+    },
+    {
+      "action_id": "prepare_blackstart",
+      "name": "Prepare Blackstart",
+      "description": "Start blackstart preparation when regional instability indicates restoration must be staged under severe grid stress.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "outage_scope",
+            "op": "eq",
+            "value": "regional"
+          },
+          {
+            "feature": "customer_impact",
+            "op": "eq",
+            "value": "critical"
+          },
+          {
+            "feature": "reserve_margin",
+            "op": "eq",
+            "value": "low"
+          },
+          {
+            "feature": "frequency_deviation",
+            "op": "eq",
+            "value": "severe"
+          },
+          {
+            "feature": "voltage_stability",
+            "op": "eq",
+            "value": "unstable"
+          },
+          {
+            "feature": "blackstart_required",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "crew_availability",
+            "op": "in",
+            "value": [
+              "available",
+              "surge"
+            ]
+          },
+          {
+            "feature": "transfer_path_available",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "tags": [
+        "restoration"
+      ]
+    },
+    {
+      "action_id": "defer_switching_due_weather",
+      "name": "Defer Switching Due Weather",
+      "description": "Hold switching activity when storm conditions make planned operations unsafe even though the outage is bounded.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "outage_scope",
+            "op": "in",
+            "value": [
+              "feeder",
+              "substation"
+            ]
+          },
+          {
+            "feature": "weather_risk",
+            "op": "eq",
+            "value": "severe"
+          },
+          {
+            "feature": "switching_authorized",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "customer_impact",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "frequency_deviation",
+            "op": "in",
+            "value": [
+              "normal",
+              "mild"
+            ]
+          },
+          {
+            "feature": "voltage_stability",
+            "op": "in",
+            "value": [
+              "stable",
+              "degraded"
+            ]
+          },
+          {
+            "feature": "transfer_path_available",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "tags": [
+        "weather"
+      ]
+    },
+    {
+      "action_id": "escalate_grid_supervisor",
+      "name": "Escalate Grid Supervisor",
+      "description": "Escalate to supervisory control when compound risk pushes the scenario beyond the audited single-action operating envelope.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason"
+        ]
+      },
+      "support_spec": {
+        "any": [
+          {
+            "all": [
+              {
+                "feature": "outage_scope",
+                "op": "eq",
+                "value": "regional"
+              },
+              {
+                "feature": "weather_risk",
+                "op": "eq",
+                "value": "severe"
+              },
+              {
+                "feature": "switching_authorized",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "feature": "customer_impact",
+                "op": "eq",
+                "value": "critical"
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "feature": "outage_scope",
+                "op": "eq",
+                "value": "regional"
+              },
+              {
+                "feature": "blackstart_required",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "feature": "crew_availability",
+                "op": "eq",
+                "value": "limited"
+              },
+              {
+                "feature": "switching_authorized",
+                "op": "eq",
+                "value": false
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "fallback",
+        "supervisory"
+      ]
+    }
+  ]
+}

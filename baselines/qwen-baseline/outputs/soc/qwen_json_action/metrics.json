@@ -1,0 +1,16 @@
+{
+  "total_cases": 16,
+  "supported_cases": 12,
+  "unsupported_cases": 4,
+  "structural_validity_rate": 1.0,
+  "semantic_correctness_rate": 0.6666666666666666,
+  "abstention_rate": 0.25,
+  "fallback_rate": 0.25,
+  "invalid_output_rate": 0.0,
+  "false_accept_rate": 0.75,
+  "latency_p50_ms": 0.4761249874718487,
+  "latency_p95_ms": 0.6481249874923378,
+  "latency_p99_ms": 0.6481249874923378,
+  "ood_accuracy_supported_only": 0.5714285714285714,
+  "unsupported_case_rejection_rate": 0.25
+}

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="340" viewBox="0 0 920 340">
+<text x='460.0' y='28' font-family='Inter, Helvetica, Arial, sans-serif' font-size='16' font-weight='700' text-anchor='middle' fill='#1a1a2e'>Figure 7: Robustness Family Summary</text>
+<text x='460.0' y='50' font-family='Inter, Helvetica, Arial, sans-serif' font-size='11' font-weight='400' text-anchor='middle' fill='#666'>Hybrid KVRM has zero losses to the best non-hybrid baseline across all three live robustness families.</text>
+<rect x='40' y='82' width='255' height='210' rx='10' fill='#e8f0fe' stroke='#1565c0' stroke-width='1.5'/>
+<text x='167.5' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='#1565c0'>Counterfactual</text>
+<text x='62' y='147' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='400' text-anchor='start' fill='#1a1a2e'>Wins:   2</text>
+<text x='62' y='172' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='400' text-anchor='start' fill='#1a1a2e'>Ties:   5</text>
+<text x='62' y='197' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='400' text-anchor='start' fill='#1a1a2e'>Losses: 0</text>
+<line x1='58' y1='214' x2='277' y2='214' stroke='#c9d4dd' stroke-width='1'/>
+<text x='62' y='242' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='start' fill='#333'>strict wins: finance, drone</text>
+<text x='62' y='267' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='start' fill='#333'>drone gain: +0.1583 semantic, +0.0025 regret</text>
+<rect x='327' y='82' width='255' height='210' rx='10' fill='#e8f5e9' stroke='#2e7d32' stroke-width='1.5'/>
+<text x='454.5' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='#2e7d32'>Temporal</text>
+<text x='349' y='147' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='400' text-anchor='start' fill='#1a1a2e'>Wins:   3</text>
+<text x='349' y='172' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='400' text-anchor='start' fill='#1a1a2e'>Ties:   4</text>
+<text x='349' y='197' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='400' text-anchor='start' fill='#1a1a2e'>Losses: 0</text>
+<line x1='345' y1='214' x2='564' y2='214' stroke='#c9d4dd' stroke-width='1'/>
+<text x='349' y='242' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='start' fill='#333'>strict wins: finance, SRE, drone</text>
+<text x='349' y='267' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='start' fill='#333'>drone gain: +0.0254 success, +0.0051 seq regret</text>
+<rect x='614' y='82' width='255' height='210' rx='10' fill='#fff3e0' stroke='#ef6c00' stroke-width='1.5'/>
+<text x='741.5' y='110' font-family='Inter, Helvetica, Arial, sans-serif' font-size='14' font-weight='700' text-anchor='middle' fill='#ef6c00'>Coordination</text>
+<text x='636' y='147' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='400' text-anchor='start' fill='#1a1a2e'>Wins:   3</text>
+<text x='636' y='172' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='400' text-anchor='start' fill='#1a1a2e'>Ties:   4</text>
+<text x='636' y='197' font-family='Inter, Helvetica, Arial, sans-serif' font-size='12' font-weight='400' text-anchor='start' fill='#1a1a2e'>Losses: 0</text>
+<line x1='632' y1='214' x2='851' y2='214' stroke='#c9d4dd' stroke-width='1'/>
+<text x='636' y='242' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='start' fill='#333'>strict wins: finance, SRE, drone</text>
+<text x='636' y='267' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='start' fill='#333'>drone gain: +0.2828 success, +0.0566 chain regret</text>
+<text x='460.0' y='322' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#777'>Sources: counterfactual_boundary_report.json, temporal_transition_report.json, coordination_chain_report.json</text>
+</svg>

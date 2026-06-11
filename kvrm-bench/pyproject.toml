@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kvrm-bench"
+version = "0.1.0"
+description = "Benchmark harness for KVRM finite-action decision systems"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "kvrm-core",
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "shap>=0.44",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]

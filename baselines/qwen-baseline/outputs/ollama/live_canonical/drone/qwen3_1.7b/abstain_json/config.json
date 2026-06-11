@@ -1,0 +1,12 @@
+{
+  "domain": "drone",
+  "model": "qwen3:1.7b",
+  "variant": "abstain_json",
+  "runner": "ollama",
+  "registry_version": "1.4.0",
+  "train_cases": 25,
+  "eval_cases": 146,
+  "max_examples_per_action": 2,
+  "timestamp": "2026-04-10T16:29:56.836390+00:00",
+  "refresh": true
+}

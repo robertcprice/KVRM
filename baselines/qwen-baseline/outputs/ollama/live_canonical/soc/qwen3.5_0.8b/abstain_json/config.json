@@ -1,0 +1,12 @@
+{
+  "domain": "soc",
+  "model": "qwen3.5:0.8b",
+  "variant": "abstain_json",
+  "runner": "ollama",
+  "registry_version": "1.1.0",
+  "train_cases": 14,
+  "eval_cases": 126,
+  "max_examples_per_action": 2,
+  "timestamp": "2026-04-10T17:32:49.793411+00:00",
+  "refresh": true
+}

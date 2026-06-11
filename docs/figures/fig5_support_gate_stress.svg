@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="360" viewBox="0 0 920 360">
+<text x='460.0' y='28' font-family='Inter, Helvetica, Arial, sans-serif' font-size='16' font-weight='700' text-anchor='middle' fill='#1a1a2e'>Figure 5: Support-Gate Stress</text>
+<text x='460.0' y='50' font-family='Inter, Helvetica, Arial, sans-serif' font-size='11' font-weight='400' text-anchor='middle' fill='#666'>Injected support-incompatible 0.999 candidates into rule and retrieval stages.</text>
+<line x1='70' y1='260' x2='880' y2='260' stroke='#e4e8ec' stroke-width='1'/>
+<text x='62' y='264' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='end' fill='#888'>0.00</text>
+<line x1='70' y1='215' x2='880' y2='215' stroke='#e4e8ec' stroke-width='1'/>
+<text x='62' y='219' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='end' fill='#888'>0.25</text>
+<line x1='70' y1='170' x2='880' y2='170' stroke='#e4e8ec' stroke-width='1'/>
+<text x='62' y='174' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='end' fill='#888'>0.50</text>
+<line x1='70' y1='125' x2='880' y2='125' stroke='#e4e8ec' stroke-width='1'/>
+<text x='62' y='129' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='end' fill='#888'>0.75</text>
+<line x1='70' y1='80' x2='880' y2='80' stroke='#e4e8ec' stroke-width='1'/>
+<text x='62' y='84' font-family='Inter, Helvetica, Arial, sans-serif' font-size='9' font-weight='400' text-anchor='end' fill='#888'>1.00</text>
+<line x1='70' y1='80' x2='70' y2='260' stroke='#9aa7b3' stroke-width='1'/>
+<rect x='250' y='326' width='12' height='12' rx='4' fill='#1565c0' stroke='none' stroke-width='0'/>
+<text x='268' y='336' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='start' fill='#333'>Gated</text>
+<rect x='390' y='326' width='12' height='12' rx='4' fill='#e53935' stroke='none' stroke-width='0'/>
+<text x='408' y='336' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='start' fill='#333'>Ungated</text>
+<rect x='90' y='80' width='24' height='180' rx='3' fill='#1565c0' stroke='none' stroke-width='0'/>
+<text x='102.0' y='75' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>1.000</text>
+<rect x='122' y='240' width='24' height='20' rx='3' fill='#e53935' stroke='none' stroke-width='0'/>
+<text x='134.0' y='235' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>0.114</text>
+<text x='118.0' y='278' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='700' text-anchor='middle' fill='#1a1a2e'>SOC</text>
+<text x='118.0' y='292' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#666'>dCost=0.217</text>
+<rect x='182' y='80' width='24' height='180' rx='3' fill='#1565c0' stroke='none' stroke-width='0'/>
+<text x='194.0' y='75' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>1.000</text>
+<rect x='214' y='239' width='24' height='21' rx='3' fill='#e53935' stroke='none' stroke-width='0'/>
+<text x='226.0' y='234' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>0.117</text>
+<text x='210.0' y='278' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='700' text-anchor='middle' fill='#1a1a2e'>SRE</text>
+<text x='210.0' y='292' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#666'>dCost=0.207</text>
+<rect x='274' y='80' width='24' height='180' rx='3' fill='#1565c0' stroke='none' stroke-width='0'/>
+<text x='286.0' y='75' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>1.000</text>
+<rect x='306' y='240' width='24' height='20' rx='3' fill='#e53935' stroke='none' stroke-width='0'/>
+<text x='318.0' y='235' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>0.112</text>
+<text x='302.0' y='278' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='700' text-anchor='middle' fill='#1a1a2e'>DRONE</text>
+<text x='302.0' y='292' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#666'>dCost=0.209</text>
+<rect x='366' y='80' width='24' height='180' rx='3' fill='#1565c0' stroke='none' stroke-width='0'/>
+<text x='378.0' y='75' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>1.000</text>
+<rect x='398' y='240' width='24' height='20' rx='3' fill='#e53935' stroke='none' stroke-width='0'/>
+<text x='410.0' y='235' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>0.111</text>
+<text x='394.0' y='278' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='700' text-anchor='middle' fill='#1a1a2e'>GRID</text>
+<text x='394.0' y='292' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#666'>dCost=0.233</text>
+<rect x='458' y='80' width='24' height='180' rx='3' fill='#1565c0' stroke='none' stroke-width='0'/>
+<text x='470.0' y='75' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>1.000</text>
+<rect x='490' y='230' width='24' height='30' rx='3' fill='#e53935' stroke='none' stroke-width='0'/>
+<text x='502.0' y='225' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>0.167</text>
+<text x='486.0' y='278' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='700' text-anchor='middle' fill='#1a1a2e'>FINANCE</text>
+<text x='486.0' y='292' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#666'>dCost=0.219</text>
+<rect x='550' y='80' width='24' height='180' rx='3' fill='#1565c0' stroke='none' stroke-width='0'/>
+<text x='562.0' y='75' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>1.000</text>
+<rect x='582' y='240' width='24' height='20' rx='3' fill='#e53935' stroke='none' stroke-width='0'/>
+<text x='594.0' y='235' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#333'>0.111</text>
+<text x='578.0' y='278' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='700' text-anchor='middle' fill='#1a1a2e'>MEDICAL</text>
+<text x='578.0' y='292' font-family='Inter, Helvetica, Arial, sans-serif' font-size='8' font-weight='400' text-anchor='middle' fill='#666'>dCost=0.233</text>
+<text x='460.0' y='330' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#777'>Source: kvrm-bench/results/support_gate_stress_report.json</text>
+</svg>

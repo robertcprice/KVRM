@@ -1,0 +1,83 @@
+{
+  "actions": [
+    {
+      "action_id": "allow_low_risk",
+      "description": "Allow low risk request.",
+      "name": "Allow Low Risk",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "tags": [
+        "safe"
+      ]
+    },
+    {
+      "action_id": "throttle_temporarily",
+      "description": "Throttle the request temporarily.",
+      "name": "Throttle Temporarily",
+      "parameters_schema": {
+        "properties": {
+          "seconds": {
+            "type": "integer"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "tags": [
+        "control"
+      ]
+    },
+    {
+      "action_id": "block_request",
+      "description": "Block the request.",
+      "name": "Block Request",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "tags": [
+        "strict"
+      ]
+    },
+    {
+      "action_id": "collect_more_context",
+      "description": "Request more context before acting.",
+      "name": "Collect More Context",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "tags": [
+        "safe"
+      ]
+    },
+    {
+      "action_id": "request_human_review",
+      "description": "Escalate to a human operator.",
+      "name": "Request Human Review",
+      "parameters_schema": {
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "type": "object"
+      },
+      "tags": [
+        "fallback",
+        "safe"
+      ]
+    }
+  ],
+  "digest": "fb41327ad56cabfd70aea5dc47e4a3096540a3a9f2c65887299f7e28c8342e75",
+  "registry_name": "toy-risk-router",
+  "version": "1.0.0"
+}

@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "finance-risk-router"
+version = "0.1.0"
+description = "Finance risk workflow router demo built on KVRM core"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["kvrm-core"]
+
+[tool.setuptools.packages.find]
+where = ["."]

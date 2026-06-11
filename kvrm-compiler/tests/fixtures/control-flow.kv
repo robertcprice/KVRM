@@ -1,0 +1,157 @@
+// Control flow structures: if, else, while, for
+
+// If statements
+fn test_if(x: i32) -> i32 {
+  if (x > 0) {
+    return x;
+  }
+  return 0;
+}
+
+// If-else statements
+fn test_if_else(x: i32) -> i32 {
+  if (x > 0) {
+    return x;
+  } else {
+    return -x;
+  }
+}
+
+// If-else-if chains
+fn classify(x: i32) -> i32 {
+  if (x > 100) {
+    return 3;
+  } else if (x > 50) {
+    return 2;
+  } else if (x > 0) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+// Nested if statements
+fn nested_if(x: i32, y: i32) -> i32 {
+  if (x > 0) {
+    if (y > 0) {
+      return x + y;
+    } else {
+      return x - y;
+    }
+  } else {
+    return 0;
+  }
+}
+
+// While loops
+fn count_down(mut n: i32) -> i32 {
+  while (n > 0) {
+    n = n - 1;
+  }
+  return n;
+}
+
+// While with complex condition
+fn find_divisible(mut n: i32) -> i32 {
+  while (n % 3 != 0 && n < 100) {
+    n = n + 1;
+  }
+  return n;
+}
+
+// For loops with range
+fn sum_range(start: i32, end: i32) -> i32 {
+  let mut total = 0;
+  for (i in start..end) {
+    total = total + i;
+  }
+  return total;
+}
+
+// Inclusive range
+fn sum_inclusive(start: i32, end: i32) -> i32 {
+  let mut total = 0;
+  for (i in start..=end) {
+    total = total + i;
+  }
+  return total;
+}
+
+// Nested loops
+fn nested_loops() -> i32 {
+  let mut sum = 0;
+  for (i in 0..10) {
+    for (j in 0..10) {
+      sum = sum + i * j;
+    }
+  }
+  return sum;
+}
+
+// Complex control flow
+fn complex_control_flow(x: i32) -> i32 {
+  let mut result = 0;
+
+  if (x > 0) {
+    let mut i = 0;
+    while (i < x) {
+      result = result + i;
+      i = i + 1;
+    }
+  } else {
+    for (j in 0..10) {
+      result = result + j;
+    }
+  }
+
+  return result;
+}
+
+// Early return in loop
+fn find_first_even(start: i32, end: i32) -> i32 {
+  for (i in start..end) {
+    if (i % 2 == 0) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+// Multiple conditions
+fn test_conditions(x: i32, y: i32) -> bool {
+  if (x > 0 && y > 0) {
+    return true;
+  }
+  if (x < 0 || y < 0) {
+    return false;
+  }
+  return x == y;
+}
+
+// Loop with mutable state
+fn accumulate(limit: i32) -> i32 {
+  let mut acc = 0;
+  let mut i = 0;
+
+  while (i < limit) {
+    if (i % 2 == 0) {
+      acc = acc + i;
+    } else {
+      acc = acc - i;
+    }
+    i = i + 1;
+  }
+
+  return acc;
+}
+
+// Guard clauses
+fn validate_input(x: i32) -> i32 {
+  if (x < 0) {
+    return 0;
+  }
+  if (x > 100) {
+    return 100;
+  }
+  return x;
+}

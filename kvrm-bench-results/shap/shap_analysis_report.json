@@ -1,0 +1,6285 @@
+{
+  "domains": {
+    "content_moderation": {
+      "action_count": 7,
+      "domain": "content_moderation",
+      "feature_count": 8,
+      "global_shap_importances": [
+        {
+          "feature": "toxicity_level",
+          "rank": 1,
+          "shap_importance": 0.227704
+        },
+        {
+          "feature": "user_trust_score",
+          "rank": 2,
+          "shap_importance": 0.133386
+        },
+        {
+          "feature": "recidivism_risk",
+          "rank": 3,
+          "shap_importance": 0.126969
+        },
+        {
+          "feature": "context_sensitivity",
+          "rank": 4,
+          "shap_importance": 0.124376
+        },
+        {
+          "feature": "audience_reach",
+          "rank": 5,
+          "shap_importance": 0.12339
+        },
+        {
+          "feature": "reporter_credibility",
+          "rank": 6,
+          "shap_importance": 0.117166
+        },
+        {
+          "feature": "content_type",
+          "rank": 7,
+          "shap_importance": 0.087497
+        },
+        {
+          "feature": "content_age_hours",
+          "rank": 8,
+          "shap_importance": 0.059512
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "shap_method": "TreeExplainer",
+        "train_accuracy": 1.0,
+        "train_case_count": 31
+      },
+      "model_path": "kvrm-models/content_moderation_compact_selector_v1.joblib",
+      "per_action_directions": {
+        "auto_approve": [
+          {
+            "direction": "pushes_away",
+            "feature": "toxicity_level",
+            "mean_abs_shap": 0.102138,
+            "mean_shap": -0.023309
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "audience_reach",
+            "mean_abs_shap": 0.042651,
+            "mean_shap": -0.00677
+          },
+          {
+            "direction": "neutral",
+            "feature": "recidivism_risk",
+            "mean_abs_shap": 0.030811,
+            "mean_shap": 0.000624
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "reporter_credibility",
+            "mean_abs_shap": 0.030739,
+            "mean_shap": -0.005571
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "user_trust_score",
+            "mean_abs_shap": 0.029336,
+            "mean_shap": -0.006648
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "context_sensitivity",
+            "mean_abs_shap": 0.020289,
+            "mean_shap": 0.002014
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "content_type",
+            "mean_abs_shap": 0.018926,
+            "mean_shap": -0.003906
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "content_age_hours",
+            "mean_abs_shap": 0.005598,
+            "mean_shap": -0.002211
+          }
+        ],
+        "escalate_trust_safety": [
+          {
+            "direction": "neutral",
+            "feature": "context_sensitivity",
+            "mean_abs_shap": 0.063192,
+            "mean_shap": 0.000844
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "user_trust_score",
+            "mean_abs_shap": 0.061016,
+            "mean_shap": 0.007029
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "toxicity_level",
+            "mean_abs_shap": 0.042302,
+            "mean_shap": 0.01268
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "reporter_credibility",
+            "mean_abs_shap": 0.037567,
+            "mean_shap": 0.010147
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "recidivism_risk",
+            "mean_abs_shap": 0.035399,
+            "mean_shap": 0.002508
+          },
+          {
+            "direction": "neutral",
+            "feature": "content_type",
+            "mean_abs_shap": 0.033026,
+            "mean_shap": 0.000291
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "audience_reach",
+            "mean_abs_shap": 0.031209,
+            "mean_shap": 0.005161
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "content_age_hours",
+            "mean_abs_shap": 0.024696,
+            "mean_shap": 0.004776
+          }
+        ],
+        "flag_for_human_review": [
+          {
+            "direction": "neutral",
+            "feature": "toxicity_level",
+            "mean_abs_shap": 0.069934,
+            "mean_shap": 0.000645
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "context_sensitivity",
+            "mean_abs_shap": 0.050801,
+            "mean_shap": -0.004662
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "recidivism_risk",
+            "mean_abs_shap": 0.044731,
+            "mean_shap": -0.003097
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "reporter_credibility",
+            "mean_abs_shap": 0.033938,
+            "mean_shap": -0.001329
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "audience_reach",
+            "mean_abs_shap": 0.030447,
+            "mean_shap": 0.002751
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "user_trust_score",
+            "mean_abs_shap": 0.02591,
+            "mean_shap": -0.001206
+          },
+          {
+            "direction": "neutral",
+            "feature": "content_type",
+            "mean_abs_shap": 0.025031,
+            "mean_shap": -0.00073
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "content_age_hours",
+            "mean_abs_shap": 0.015851,
+            "mean_shap": -0.003265
+          }
+        ],
+        "reduce_visibility": [
+          {
+            "direction": "pushes_away",
+            "feature": "toxicity_level",
+            "mean_abs_shap": 0.074797,
+            "mean_shap": -0.012717
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "audience_reach",
+            "mean_abs_shap": 0.046312,
+            "mean_shap": -0.006124
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "user_trust_score",
+            "mean_abs_shap": 0.042039,
+            "mean_shap": -0.001742
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "recidivism_risk",
+            "mean_abs_shap": 0.037712,
+            "mean_shap": -0.004212
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "reporter_credibility",
+            "mean_abs_shap": 0.026124,
+            "mean_shap": -0.008703
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "content_type",
+            "mean_abs_shap": 0.023351,
+            "mean_shap": -0.006715
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "context_sensitivity",
+            "mean_abs_shap": 0.02268,
+            "mean_shap": -0.002716
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "content_age_hours",
+            "mean_abs_shap": 0.013188,
+            "mean_shap": -0.002028
+          }
+        ],
+        "remove_content": [
+          {
+            "direction": "pushes_toward",
+            "feature": "toxicity_level",
+            "mean_abs_shap": 0.067851,
+            "mean_shap": 0.014423
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "context_sensitivity",
+            "mean_abs_shap": 0.052016,
+            "mean_shap": 0.001139
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "content_type",
+            "mean_abs_shap": 0.048026,
+            "mean_shap": 0.007986
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "reporter_credibility",
+            "mean_abs_shap": 0.042858,
+            "mean_shap": 0.010771
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "recidivism_risk",
+            "mean_abs_shap": 0.034742,
+            "mean_shap": 0.00592
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "audience_reach",
+            "mean_abs_shap": 0.030055,
+            "mean_shap": 0.008614
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "user_trust_score",
+            "mean_abs_shap": 0.0269,
+            "mean_shap": 0.002706
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "content_age_hours",
+            "mean_abs_shap": 0.024894,
+            "mean_shap": 0.005108
+          }
+        ],
+        "request_human_review": [
+          {
+            "direction": "pushes_away",
+            "feature": "toxicity_level",
+            "mean_abs_shap": 0.07275,
+            "mean_shap": -0.001344
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "user_trust_score",
+            "mean_abs_shap": 0.057954,
+            "mean_shap": -0.004449
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "reporter_credibility",
+            "mean_abs_shap": 0.056923,
+            "mean_shap": -0.006387
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "audience_reach",
+            "mean_abs_shap": 0.053206,
+            "mean_shap": -0.003061
+          },
+          {
+            "direction": "neutral",
+            "feature": "content_age_hours",
+            "mean_abs_shap": 0.025043,
+            "mean_shap": -0.000858
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "context_sensitivity",
+            "mean_abs_shap": 0.022741,
+            "mean_shap": -0.001979
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "content_type",
+            "mean_abs_shap": 0.018738,
+            "mean_shap": 0.002033
+          },
+          {
+            "direction": "neutral",
+            "feature": "recidivism_risk",
+            "mean_abs_shap": 0.012903,
+            "mean_shap": -0.000918
+          }
+        ],
+        "suspend_account": [
+          {
+            "direction": "neutral",
+            "feature": "recidivism_risk",
+            "mean_abs_shap": 0.082183,
+            "mean_shap": -0.000824
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "toxicity_level",
+            "mean_abs_shap": 0.069648,
+            "mean_shap": 0.009622
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "user_trust_score",
+            "mean_abs_shap": 0.0494,
+            "mean_shap": 0.00431
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "context_sensitivity",
+            "mean_abs_shap": 0.041075,
+            "mean_shap": 0.00536
+          },
+          {
+            "direction": "neutral",
+            "feature": "audience_reach",
+            "mean_abs_shap": 0.03675,
+            "mean_shap": -0.00057
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "reporter_credibility",
+            "mean_abs_shap": 0.028829,
+            "mean_shap": 0.001072
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "content_type",
+            "mean_abs_shap": 0.024808,
+            "mean_shap": 0.00104
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "content_age_hours",
+            "mean_abs_shap": 0.021259,
+            "mean_shap": -0.001522
+          }
+        ]
+      },
+      "sample_count": 31
+    },
+    "customer_support": {
+      "action_count": 7,
+      "domain": "customer_support",
+      "feature_count": 8,
+      "global_shap_importances": [
+        {
+          "feature": "resolution_complexity",
+          "rank": 1,
+          "shap_importance": 0.232778
+        },
+        {
+          "feature": "sentiment",
+          "rank": 2,
+          "shap_importance": 0.180967
+        },
+        {
+          "feature": "issue_category",
+          "rank": 3,
+          "shap_importance": 0.180664
+        },
+        {
+          "feature": "prior_contacts",
+          "rank": 4,
+          "shap_importance": 0.13795
+        },
+        {
+          "feature": "customer_tier",
+          "rank": 5,
+          "shap_importance": 0.109058
+        },
+        {
+          "feature": "escalation_history",
+          "rank": 6,
+          "shap_importance": 0.068509
+        },
+        {
+          "feature": "account_age_days",
+          "rank": 7,
+          "shap_importance": 0.064176
+        },
+        {
+          "feature": "has_open_ticket",
+          "rank": 8,
+          "shap_importance": 0.025897
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "shap_method": "TreeExplainer",
+        "train_accuracy": 1.0,
+        "train_case_count": 25
+      },
+      "model_path": "kvrm-models/customer_support_compact_selector_v1.joblib",
+      "per_action_directions": {
+        "assign_specialist": [
+          {
+            "direction": "neutral",
+            "feature": "resolution_complexity",
+            "mean_abs_shap": 0.079101,
+            "mean_shap": -0.000272
+          },
+          {
+            "direction": "neutral",
+            "feature": "issue_category",
+            "mean_abs_shap": 0.073059,
+            "mean_shap": 7e-05
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "sentiment",
+            "mean_abs_shap": 0.072004,
+            "mean_shap": -0.004979
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "customer_tier",
+            "mean_abs_shap": 0.026772,
+            "mean_shap": 0.002906
+          },
+          {
+            "direction": "neutral",
+            "feature": "prior_contacts",
+            "mean_abs_shap": 0.024464,
+            "mean_shap": -0.000668
+          },
+          {
+            "direction": "neutral",
+            "feature": "account_age_days",
+            "mean_abs_shap": 0.019743,
+            "mean_shap": -0.000613
+          },
+          {
+            "direction": "neutral",
+            "feature": "escalation_history",
+            "mean_abs_shap": 0.019354,
+            "mean_shap": 5.1e-05
+          },
+          {
+            "direction": "neutral",
+            "feature": "has_open_ticket",
+            "mean_abs_shap": 0.008003,
+            "mean_shap": 0.000503
+          }
+        ],
+        "auto_resolve_billing": [
+          {
+            "direction": "neutral",
+            "feature": "issue_category",
+            "mean_abs_shap": 0.099301,
+            "mean_shap": -0.000581
+          },
+          {
+            "direction": "neutral",
+            "feature": "sentiment",
+            "mean_abs_shap": 0.052028,
+            "mean_shap": 0.000894
+          },
+          {
+            "direction": "neutral",
+            "feature": "prior_contacts",
+            "mean_abs_shap": 0.049894,
+            "mean_shap": 0.000777
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "resolution_complexity",
+            "mean_abs_shap": 0.043851,
+            "mean_shap": -0.003582
+          },
+          {
+            "direction": "neutral",
+            "feature": "escalation_history",
+            "mean_abs_shap": 0.025136,
+            "mean_shap": -0.000953
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "customer_tier",
+            "mean_abs_shap": 0.024388,
+            "mean_shap": -0.003203
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "account_age_days",
+            "mean_abs_shap": 0.016938,
+            "mean_shap": -0.001263
+          },
+          {
+            "direction": "neutral",
+            "feature": "has_open_ticket",
+            "mean_abs_shap": 0.00508,
+            "mean_shap": 0.000613
+          }
+        ],
+        "escalate_to_manager": [
+          {
+            "direction": "pushes_toward",
+            "feature": "resolution_complexity",
+            "mean_abs_shap": 0.110648,
+            "mean_shap": 0.024035
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sentiment",
+            "mean_abs_shap": 0.077698,
+            "mean_shap": 0.019569
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "issue_category",
+            "mean_abs_shap": 0.05271,
+            "mean_shap": 0.0248
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "escalation_history",
+            "mean_abs_shap": 0.051896,
+            "mean_shap": 0.005983
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "customer_tier",
+            "mean_abs_shap": 0.044925,
+            "mean_shap": 0.015779
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "prior_contacts",
+            "mean_abs_shap": 0.041958,
+            "mean_shap": 0.011548
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "account_age_days",
+            "mean_abs_shap": 0.027079,
+            "mean_shap": 0.010963
+          },
+          {
+            "direction": "neutral",
+            "feature": "has_open_ticket",
+            "mean_abs_shap": 0.021691,
+            "mean_shap": -0.000105
+          }
+        ],
+        "issue_refund": [
+          {
+            "direction": "pushes_away",
+            "feature": "resolution_complexity",
+            "mean_abs_shap": 0.122854,
+            "mean_shap": -0.017486
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "prior_contacts",
+            "mean_abs_shap": 0.063569,
+            "mean_shap": -0.005731
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sentiment",
+            "mean_abs_shap": 0.056771,
+            "mean_shap": 0.005447
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "issue_category",
+            "mean_abs_shap": 0.041477,
+            "mean_shap": -0.00667
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "customer_tier",
+            "mean_abs_shap": 0.028977,
+            "mean_shap": 0.001041
+          },
+          {
+            "direction": "neutral",
+            "feature": "escalation_history",
+            "mean_abs_shap": 0.022728,
+            "mean_shap": -0.000417
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "account_age_days",
+            "mean_abs_shap": 0.019744,
+            "mean_shap": -0.001866
+          },
+          {
+            "direction": "neutral",
+            "feature": "has_open_ticket",
+            "mean_abs_shap": 0.004699,
+            "mean_shap": 0.000519
+          }
+        ],
+        "request_human_review": [
+          {
+            "direction": "pushes_away",
+            "feature": "issue_category",
+            "mean_abs_shap": 0.085219,
+            "mean_shap": -0.016575
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "customer_tier",
+            "mean_abs_shap": 0.061084,
+            "mean_shap": -0.008223
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "resolution_complexity",
+            "mean_abs_shap": 0.044862,
+            "mean_shap": 0.003621
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "sentiment",
+            "mean_abs_shap": 0.034997,
+            "mean_shap": -0.006906
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "account_age_days",
+            "mean_abs_shap": 0.022143,
+            "mean_shap": -0.003989
+          },
+          {
+            "direction": "neutral",
+            "feature": "prior_contacts",
+            "mean_abs_shap": 0.016913,
+            "mean_shap": -0.000367
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "has_open_ticket",
+            "mean_abs_shap": 0.008917,
+            "mean_shap": -0.001836
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "escalation_history",
+            "mean_abs_shap": 0.008418,
+            "mean_shap": -0.00141
+          }
+        ],
+        "schedule_callback": [
+          {
+            "direction": "pushes_away",
+            "feature": "prior_contacts",
+            "mean_abs_shap": 0.06748,
+            "mean_shap": -0.002732
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "resolution_complexity",
+            "mean_abs_shap": 0.057372,
+            "mean_shap": 0.001211
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sentiment",
+            "mean_abs_shap": 0.057333,
+            "mean_shap": 0.00104
+          },
+          {
+            "direction": "neutral",
+            "feature": "issue_category",
+            "mean_abs_shap": 0.047065,
+            "mean_shap": -0.000932
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "customer_tier",
+            "mean_abs_shap": 0.042447,
+            "mean_shap": -0.005894
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "escalation_history",
+            "mean_abs_shap": 0.024338,
+            "mean_shap": -0.004761
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "account_age_days",
+            "mean_abs_shap": 0.023286,
+            "mean_shap": -0.002334
+          },
+          {
+            "direction": "neutral",
+            "feature": "has_open_ticket",
+            "mean_abs_shap": 0.011504,
+            "mean_shap": -5.8e-05
+          }
+        ],
+        "send_knowledge_article": [
+          {
+            "direction": "pushes_away",
+            "feature": "resolution_complexity",
+            "mean_abs_shap": 0.091555,
+            "mean_shap": -0.007526
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "sentiment",
+            "mean_abs_shap": 0.076942,
+            "mean_shap": -0.015066
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "prior_contacts",
+            "mean_abs_shap": 0.061811,
+            "mean_shap": -0.002826
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "customer_tier",
+            "mean_abs_shap": 0.0292,
+            "mean_shap": -0.002405
+          },
+          {
+            "direction": "neutral",
+            "feature": "issue_category",
+            "mean_abs_shap": 0.028222,
+            "mean_shap": -0.000111
+          },
+          {
+            "direction": "neutral",
+            "feature": "account_age_days",
+            "mean_abs_shap": 0.022766,
+            "mean_shap": -0.000897
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "escalation_history",
+            "mean_abs_shap": 0.010074,
+            "mean_shap": 0.001508
+          },
+          {
+            "direction": "neutral",
+            "feature": "has_open_ticket",
+            "mean_abs_shap": 0.001322,
+            "mean_shap": 0.000364
+          }
+        ]
+      },
+      "sample_count": 25
+    },
+    "drone": {
+      "action_count": 8,
+      "domain": "drone",
+      "feature_count": 23,
+      "global_shap_importances": [
+        {
+          "feature": "mission_replan_budget",
+          "rank": 1,
+          "shap_importance": 0.092396
+        },
+        {
+          "feature": "distance_to_home",
+          "rank": 2,
+          "shap_importance": 0.086715
+        },
+        {
+          "feature": "airspace_deconfliction_status",
+          "rank": 3,
+          "shap_importance": 0.071904
+        },
+        {
+          "feature": "signal_recovery_confidence",
+          "rank": 4,
+          "shap_importance": 0.07051
+        },
+        {
+          "feature": "rules_of_engagement_state",
+          "rank": 5,
+          "shap_importance": 0.062711
+        },
+        {
+          "feature": "pilot_takeover_link_quality",
+          "rank": 6,
+          "shap_importance": 0.056479
+        },
+        {
+          "feature": "terrain_occlusion_level",
+          "rank": 7,
+          "shap_importance": 0.048431
+        },
+        {
+          "feature": "threat_level",
+          "rank": 8,
+          "shap_importance": 0.0481
+        },
+        {
+          "feature": "estimated_energy_margin",
+          "rank": 9,
+          "shap_importance": 0.046736
+        },
+        {
+          "feature": "operator_control_latency_budget",
+          "rank": 10,
+          "shap_importance": 0.046569
+        },
+        {
+          "feature": "obstacle_density",
+          "rank": 11,
+          "shap_importance": 0.045807
+        },
+        {
+          "feature": "battery",
+          "rank": 12,
+          "shap_importance": 0.04404
+        },
+        {
+          "feature": "altitude_headroom",
+          "rank": 13,
+          "shap_importance": 0.043601
+        },
+        {
+          "feature": "mission_progress",
+          "rank": 14,
+          "shap_importance": 0.038632
+        },
+        {
+          "feature": "mission_urgency",
+          "rank": 15,
+          "shap_importance": 0.032742
+        },
+        {
+          "feature": "wind",
+          "rank": 16,
+          "shap_importance": 0.029457
+        },
+        {
+          "feature": "gps",
+          "rank": 17,
+          "shap_importance": 0.026297
+        },
+        {
+          "feature": "payload_criticality",
+          "rank": 18,
+          "shap_importance": 0.023799
+        },
+        {
+          "feature": "comms",
+          "rank": 19,
+          "shap_importance": 0.023582
+        },
+        {
+          "feature": "safe_landing_zone_available",
+          "rank": 20,
+          "shap_importance": 0.019743
+        },
+        {
+          "feature": "takeover_window_remaining",
+          "rank": 21,
+          "shap_importance": 0.01755
+        },
+        {
+          "feature": "pilot_response_eta",
+          "rank": 22,
+          "shap_importance": 0.014508
+        },
+        {
+          "feature": "autonomous_recovery_allowed",
+          "rank": 23,
+          "shap_importance": 0.009691
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "shap_method": "TreeExplainer",
+        "train_accuracy": 1.0,
+        "train_case_count": 25
+      },
+      "model_path": "kvrm-models/drone_compact_selector_v1.joblib",
+      "per_action_directions": {
+        "climb_for_signal_recovery": [
+          {
+            "direction": "pushes_away",
+            "feature": "signal_recovery_confidence",
+            "mean_abs_shap": 0.039134,
+            "mean_shap": -0.004394
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "distance_to_home",
+            "mean_abs_shap": 0.035054,
+            "mean_shap": 0.006122
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "altitude_headroom",
+            "mean_abs_shap": 0.032848,
+            "mean_shap": -0.003701
+          },
+          {
+            "direction": "neutral",
+            "feature": "mission_replan_budget",
+            "mean_abs_shap": 0.029652,
+            "mean_shap": 0.000223
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "terrain_occlusion_level",
+            "mean_abs_shap": 0.028432,
+            "mean_shap": 0.001097
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "mission_urgency",
+            "mean_abs_shap": 0.027462,
+            "mean_shap": 0.007028
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "battery",
+            "mean_abs_shap": 0.021285,
+            "mean_shap": 0.004819
+          },
+          {
+            "direction": "neutral",
+            "feature": "comms",
+            "mean_abs_shap": 0.020714,
+            "mean_shap": 0.000671
+          },
+          {
+            "direction": "neutral",
+            "feature": "pilot_takeover_link_quality",
+            "mean_abs_shap": 0.019772,
+            "mean_shap": 0.00034
+          },
+          {
+            "direction": "neutral",
+            "feature": "airspace_deconfliction_status",
+            "mean_abs_shap": 0.019257,
+            "mean_shap": -0.000744
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "estimated_energy_margin",
+            "mean_abs_shap": 0.01919,
+            "mean_shap": 0.002013
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "rules_of_engagement_state",
+            "mean_abs_shap": 0.016692,
+            "mean_shap": -0.001116
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "threat_level",
+            "mean_abs_shap": 0.016368,
+            "mean_shap": 0.00114
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "mission_progress",
+            "mean_abs_shap": 0.015773,
+            "mean_shap": 0.004776
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "obstacle_density",
+            "mean_abs_shap": 0.013643,
+            "mean_shap": -0.001203
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "operator_control_latency_budget",
+            "mean_abs_shap": 0.012278,
+            "mean_shap": 0.002591
+          },
+          {
+            "direction": "neutral",
+            "feature": "wind",
+            "mean_abs_shap": 0.009068,
+            "mean_shap": 0.000463
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "gps",
+            "mean_abs_shap": 0.008643,
+            "mean_shap": 0.001045
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "payload_criticality",
+            "mean_abs_shap": 0.007784,
+            "mean_shap": -0.001143
+          },
+          {
+            "direction": "neutral",
+            "feature": "safe_landing_zone_available",
+            "mean_abs_shap": 0.003087,
+            "mean_shap": 0.000724
+          },
+          {
+            "direction": "neutral",
+            "feature": "pilot_response_eta",
+            "mean_abs_shap": 0.002583,
+            "mean_shap": 0.000744
+          },
+          {
+            "direction": "neutral",
+            "feature": "takeover_window_remaining",
+            "mean_abs_shap": 0.002082,
+            "mean_shap": 0.000474
+          },
+          {
+            "direction": "neutral",
+            "feature": "autonomous_recovery_allowed",
+            "mean_abs_shap": 0.001691,
+            "mean_shap": 0.000212
+          }
+        ],
+        "conserve_battery_mode": [
+          {
+            "direction": "pushes_away",
+            "feature": "distance_to_home",
+            "mean_abs_shap": 0.064104,
+            "mean_shap": -0.008506
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "battery",
+            "mean_abs_shap": 0.034848,
+            "mean_shap": -0.00252
+          },
+          {
+            "direction": "neutral",
+            "feature": "mission_replan_budget",
+            "mean_abs_shap": 0.02872,
+            "mean_shap": -0.00029
+          },
+          {
+            "direction": "neutral",
+            "feature": "signal_recovery_confidence",
+            "mean_abs_shap": 0.027061,
+            "mean_shap": -0.000145
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "mission_progress",
+            "mean_abs_shap": 0.024296,
+            "mean_shap": -0.006308
+          },
+          {
+            "direction": "neutral",
+            "feature": "payload_criticality",
+            "mean_abs_shap": 0.015803,
+            "mean_shap": -0.000612
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "estimated_energy_margin",
+            "mean_abs_shap": 0.015463,
+            "mean_shap": -0.001668
+          },
+          {
+            "direction": "neutral",
+            "feature": "terrain_occlusion_level",
+            "mean_abs_shap": 0.013441,
+            "mean_shap": -9.2e-05
+          },
+          {
+            "direction": "neutral",
+            "feature": "altitude_headroom",
+            "mean_abs_shap": 0.011797,
+            "mean_shap": -0.000574
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "threat_level",
+            "mean_abs_shap": 0.011376,
+            "mean_shap": 0.002149
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "rules_of_engagement_state",
+            "mean_abs_shap": 0.009627,
+            "mean_shap": 0.002184
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "pilot_takeover_link_quality",
+            "mean_abs_shap": 0.009312,
+            "mean_shap": 0.00225
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "airspace_deconfliction_status",
+            "mean_abs_shap": 0.009268,
+            "mean_shap": 0.001725
+          },
+          {
+            "direction": "neutral",
+            "feature": "obstacle_density",
+            "mean_abs_shap": 0.008982,
+            "mean_shap": -6.6e-05
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "operator_control_latency_budget",
+            "mean_abs_shap": 0.008776,
+            "mean_shap": 0.001175
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "mission_urgency",
+            "mean_abs_shap": 0.008422,
+            "mean_shap": -0.002756
+          },
+          {
+            "direction": "neutral",
+            "feature": "wind",
+            "mean_abs_shap": 0.005524,
+            "mean_shap": 0.000661
+          },
+          {
+            "direction": "neutral",
+            "feature": "comms",
+            "mean_abs_shap": 0.004826,
+            "mean_shap": 0.000378
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "gps",
+            "mean_abs_shap": 0.004469,
+            "mean_shap": -0.001054
+          },
+          {
+            "direction": "neutral",
+            "feature": "safe_landing_zone_available",
+            "mean_abs_shap": 0.001951,
+            "mean_shap": 0.000604
+          },
+          {
+            "direction": "neutral",
+            "feature": "takeover_window_remaining",
+            "mean_abs_shap": 0.001721,
+            "mean_shap": 0.000637
+          },
+          {
+            "direction": "neutral",
+            "feature": "pilot_response_eta",
+            "mean_abs_shap": 0.001264,
+            "mean_shap": 0.000532
+          },
+          {
+            "direction": "neutral",
+            "feature": "autonomous_recovery_allowed",
+            "mean_abs_shap": 0.000909,
+            "mean_shap": 0.000442
+          }
+        ],
+        "continue_mission": [
+          {
+            "direction": "pushes_away",
+            "feature": "distance_to_home",
+            "mean_abs_shap": 0.040114,
+            "mean_shap": -0.001914
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "mission_replan_budget",
+            "mean_abs_shap": 0.032073,
+            "mean_shap": -0.00122
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "battery",
+            "mean_abs_shap": 0.027039,
+            "mean_shap": -0.00381
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "terrain_occlusion_level",
+            "mean_abs_shap": 0.026824,
+            "mean_shap": -0.003484
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "signal_recovery_confidence",
+            "mean_abs_shap": 0.026052,
+            "mean_shap": -0.002721
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "threat_level",
+            "mean_abs_shap": 0.025022,
+            "mean_shap": -0.001671
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "mission_urgency",
+            "mean_abs_shap": 0.021597,
+            "mean_shap": -0.00227
+          },
+          {
+            "direction": "neutral",
+            "feature": "estimated_energy_margin",
+            "mean_abs_shap": 0.020786,
+            "mean_shap": 0.000636
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "payload_criticality",
+            "mean_abs_shap": 0.016411,
+            "mean_shap": 0.001189
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "comms",
+            "mean_abs_shap": 0.016008,
+            "mean_shap": -0.001269
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "altitude_headroom",
+            "mean_abs_shap": 0.015564,
+            "mean_shap": -0.001901
+          },
+          {
+            "direction": "neutral",
+            "feature": "airspace_deconfliction_status",
+            "mean_abs_shap": 0.015056,
+            "mean_shap": 0.000661
+          },
+          {
+            "direction": "neutral",
+            "feature": "rules_of_engagement_state",
+            "mean_abs_shap": 0.013277,
+            "mean_shap": -0.000835
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_control_latency_budget",
+            "mean_abs_shap": 0.013038,
+            "mean_shap": -0.000351
+          },
+          {
+            "direction": "neutral",
+            "feature": "pilot_takeover_link_quality",
+            "mean_abs_shap": 0.012686,
+            "mean_shap": -7.5e-05
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "obstacle_density",
+            "mean_abs_shap": 0.012462,
+            "mean_shap": -0.004522
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "mission_progress",
+            "mean_abs_shap": 0.010739,
+            "mean_shap": 0.002273
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "wind",
+            "mean_abs_shap": 0.007779,
+            "mean_shap": -0.002596
+          },
+          {
+            "direction": "neutral",
+            "feature": "gps",
+            "mean_abs_shap": 0.004816,
+            "mean_shap": 0.000278
+          },
+          {
+            "direction": "neutral",
+            "feature": "safe_landing_zone_available",
+            "mean_abs_shap": 0.004114,
+            "mean_shap": 0.000135
+          },
+          {
+            "direction": "neutral",
+            "feature": "autonomous_recovery_allowed",
+            "mean_abs_shap": 0.002104,
+            "mean_shap": 0.000105
+          },
+          {
+            "direction": "neutral",
+            "feature": "takeover_window_remaining",
+            "mean_abs_shap": 0.001903,
+            "mean_shap": 0.000684
+          },
+          {
+            "direction": "neutral",
+            "feature": "pilot_response_eta",
+            "mean_abs_shap": 0.001867,
+            "mean_shap": 0.00016
+          }
+        ],
+        "descend_for_safety": [
+          {
+            "direction": "pushes_toward",
+            "feature": "airspace_deconfliction_status",
+            "mean_abs_shap": 0.050075,
+            "mean_shap": 0.001574
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "rules_of_engagement_state",
+            "mean_abs_shap": 0.038625,
+            "mean_shap": -0.001358
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "pilot_takeover_link_quality",
+            "mean_abs_shap": 0.027861,
+            "mean_shap": 0.002384
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "safe_landing_zone_available",
+            "mean_abs_shap": 0.027109,
+            "mean_shap": -0.001962
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "wind",
+            "mean_abs_shap": 0.026926,
+            "mean_shap": 0.00334
+          },
+          {
+            "direction": "neutral",
+            "feature": "gps",
+            "mean_abs_shap": 0.025437,
+            "mean_shap": 0.000297
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "obstacle_density",
+            "mean_abs_shap": 0.020668,
+            "mean_shap": 0.003526
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "mission_replan_budget",
+            "mean_abs_shap": 0.020252,
+            "mean_shap": 0.004526
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "signal_recovery_confidence",
+            "mean_abs_shap": 0.017596,
+            "mean_shap": 0.005232
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "terrain_occlusion_level",
+            "mean_abs_shap": 0.012199,
+            "mean_shap": 0.002428
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "altitude_headroom",
+            "mean_abs_shap": 0.011672,
+            "mean_shap": 0.002088
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "distance_to_home",
+            "mean_abs_shap": 0.010911,
+            "mean_shap": 0.003575
+          },
+          {
+            "direction": "neutral",
+            "feature": "battery",
+            "mean_abs_shap": 0.007485,
+            "mean_shap": -0.000349
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "operator_control_latency_budget",
+            "mean_abs_shap": 0.007332,
+            "mean_shap": 0.001458
+          },
+          {
+            "direction": "neutral",
+            "feature": "estimated_energy_margin",
+            "mean_abs_shap": 0.007289,
+            "mean_shap": 0.000504
+          },
+          {
+            "direction": "neutral",
+            "feature": "mission_urgency",
+            "mean_abs_shap": 0.00689,
+            "mean_shap": -0.000195
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "threat_level",
+            "mean_abs_shap": 0.006348,
+            "mean_shap": 0.001226
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "mission_progress",
+            "mean_abs_shap": 0.005796,
+            "mean_shap": 0.001575
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "takeover_window_remaining",
+            "mean_abs_shap": 0.004254,
+            "mean_shap": 0.001539
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "payload_criticality",
+            "mean_abs_shap": 0.003977,
+            "mean_shap": 0.001117
+          },
+          {
+            "direction": "neutral",
+            "feature": "comms",
+            "mean_abs_shap": 0.003873,
+            "mean_shap": 0.000457
+          },
+          {
+            "direction": "neutral",
+            "feature": "pilot_response_eta",
+            "mean_abs_shap": 0.002726,
+            "mean_shap": 0.000766
+          },
+          {
+            "direction": "neutral",
+            "feature": "autonomous_recovery_allowed",
+            "mean_abs_shap": 0.002184,
+            "mean_shap": 0.000912
+          }
+        ],
+        "hold_position": [
+          {
+            "direction": "pushes_away",
+            "feature": "airspace_deconfliction_status",
+            "mean_abs_shap": 0.047707,
+            "mean_shap": -0.004212
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "rules_of_engagement_state",
+            "mean_abs_shap": 0.042654,
+            "mean_shap": -0.001659
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "pilot_takeover_link_quality",
+            "mean_abs_shap": 0.034175,
+            "mean_shap": -0.003737
+          },
+          {
+            "direction": "neutral",
+            "feature": "mission_replan_budget",
+            "mean_abs_shap": 0.030849,
+            "mean_shap": 0.000335
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "obstacle_density",
+            "mean_abs_shap": 0.021329,
+            "mean_shap": 0.001743
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "wind",
+            "mean_abs_shap": 0.019861,
+            "mean_shap": -0.002592
+          },
+          {
+            "direction": "neutral",
+            "feature": "estimated_energy_margin",
+            "mean_abs_shap": 0.016475,
+            "mean_shap": 0.000192
+          },
+          {
+            "direction": "neutral",
+            "feature": "altitude_headroom",
+            "mean_abs_shap": 0.015604,
+            "mean_shap": 0.000995
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "signal_recovery_confidence",
+            "mean_abs_shap": 0.015078,
+            "mean_shap": 0.00287
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "gps",
+            "mean_abs_shap": 0.012852,
+            "mean_shap": -0.002717
+          },
+          {
+            "direction": "neutral",
+            "feature": "threat_level",
+            "mean_abs_shap": 0.012645,
+            "mean_shap": -0.000575
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_control_latency_budget",
+            "mean_abs_shap": 0.012021,
+            "mean_shap": -0.000473
+          },
+          {
+            "direction": "neutral",
+            "feature": "safe_landing_zone_available",
+            "mean_abs_shap": 0.011147,
+            "mean_shap": -0.000603
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "distance_to_home",
+            "mean_abs_shap": 0.010753,
+            "mean_shap": 0.001865
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "terrain_occlusion_level",
+            "mean_abs_shap": 0.010156,
+            "mean_shap": -0.001722
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "battery",
+            "mean_abs_shap": 0.008225,
+            "mean_shap": 0.002022
+          },
+          {
+            "direction": "neutral",
+            "feature": "takeover_window_remaining",
+            "mean_abs_shap": 0.007697,
+            "mean_shap": 0.000824
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "comms",
+            "mean_abs_shap": 0.007022,
+            "mean_shap": -0.001428
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "pilot_response_eta",
+            "mean_abs_shap": 0.006665,
+            "mean_shap": 0.001236
+          },
+          {
+            "direction": "neutral",
+            "feature": "mission_urgency",
+            "mean_abs_shap": 0.005268,
+            "mean_shap": 0.000489
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "mission_progress",
+            "mean_abs_shap": 0.003521,
+            "mean_shap": 0.001379
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "payload_criticality",
+            "mean_abs_shap": 0.002974,
+            "mean_shap": -0.001099
+          },
+          {
+            "direction": "neutral",
+            "feature": "autonomous_recovery_allowed",
+            "mean_abs_shap": 0.002874,
+            "mean_shap": -7.2e-05
+          }
+        ],
+        "manual_handoff": [
+          {
+            "direction": "pushes_away",
+            "feature": "pilot_takeover_link_quality",
+            "mean_abs_shap": 0.031656,
+            "mean_shap": -0.002536
+          },
+          {
+            "direction": "neutral",
+            "feature": "airspace_deconfliction_status",
+            "mean_abs_shap": 0.027209,
+            "mean_shap": 0.000331
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_control_latency_budget",
+            "mean_abs_shap": 0.025153,
+            "mean_shap": -0.000188
+          },
+          {
+            "direction": "neutral",
+            "feature": "mission_replan_budget",
+            "mean_abs_shap": 0.024794,
+            "mean_shap": -5.5e-05
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "rules_of_engagement_state",
+            "mean_abs_shap": 0.024477,
+            "mean_shap": 0.001193
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "takeover_window_remaining",
+            "mean_abs_shap": 0.024098,
+            "mean_shap": -0.00593
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "pilot_response_eta",
+            "mean_abs_shap": 0.019921,
+            "mean_shap": -0.00511
+          },
+          {
+            "direction": "neutral",
+            "feature": "threat_level",
+            "mean_abs_shap": 0.018509,
+            "mean_shap": 0.000991
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "signal_recovery_confidence",
+            "mean_abs_shap": 0.015444,
+            "mean_shap": 0.001262
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "autonomous_recovery_allowed",
+            "mean_abs_shap": 0.013307,
+            "mean_shap": -0.002097
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "altitude_headroom",
+            "mean_abs_shap": 0.012821,
+            "mean_shap": 0.001401
+          },
+          {
+            "direction": "neutral",
+            "feature": "obstacle_density",
+            "mean_abs_shap": 0.011586,
+            "mean_shap": 0.000135
+          },
+          {
+            "direction": "neutral",
+            "feature": "estimated_energy_margin",
+            "mean_abs_shap": 0.00846,
+            "mean_shap": 0.000629
+          },
+          {
+            "direction": "neutral",
+            "feature": "terrain_occlusion_level",
+            "mean_abs_shap": 0.006358,
+            "mean_shap": 0.000847
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "distance_to_home",
+            "mean_abs_shap": 0.00431,
+            "mean_shap": 0.001026
+          },
+          {
+            "direction": "neutral",
+            "feature": "comms",
+            "mean_abs_shap": 0.003858,
+            "mean_shap": -0.000129
+          },
+          {
+            "direction": "neutral",
+            "feature": "mission_urgency",
+            "mean_abs_shap": 0.003671,
+            "mean_shap": -0.0001
+          },
+          {
+            "direction": "neutral",
+            "feature": "gps",
+            "mean_abs_shap": 0.00343,
+            "mean_shap": -0.000901
+          },
+          {
+            "direction": "neutral",
+            "feature": "wind",
+            "mean_abs_shap": 0.002903,
+            "mean_shap": 6.9e-05
+          },
+          {
+            "direction": "neutral",
+            "feature": "battery",
+            "mean_abs_shap": 0.002591,
+            "mean_shap": 0.000739
+          },
+          {
+            "direction": "neutral",
+            "feature": "payload_criticality",
+            "mean_abs_shap": 0.001947,
+            "mean_shap": 0.000782
+          },
+          {
+            "direction": "neutral",
+            "feature": "safe_landing_zone_available",
+            "mean_abs_shap": 0.001584,
+            "mean_shap": 0.000398
+          },
+          {
+            "direction": "neutral",
+            "feature": "mission_progress",
+            "mean_abs_shap": 0.001416,
+            "mean_shap": 0.000682
+          }
+        ],
+        "return_to_home": [
+          {
+            "direction": "pushes_away",
+            "feature": "distance_to_home",
+            "mean_abs_shap": 0.040902,
+            "mean_shap": -0.001422
+          },
+          {
+            "direction": "neutral",
+            "feature": "mission_replan_budget",
+            "mean_abs_shap": 0.0377,
+            "mean_shap": 0.000423
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "mission_progress",
+            "mean_abs_shap": 0.036986,
+            "mean_shap": -0.005683
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "signal_recovery_confidence",
+            "mean_abs_shap": 0.031693,
+            "mean_shap": -0.001211
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "estimated_energy_margin",
+            "mean_abs_shap": 0.03146,
+            "mean_shap": -0.002788
+          },
+          {
+            "direction": "neutral",
+            "feature": "obstacle_density",
+            "mean_abs_shap": 0.020271,
+            "mean_shap": 4.8e-05
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "battery",
+            "mean_abs_shap": 0.013375,
+            "mean_shap": -0.002235
+          },
+          {
+            "direction": "neutral",
+            "feature": "airspace_deconfliction_status",
+            "mean_abs_shap": 0.013291,
+            "mean_shap": 0.000436
+          },
+          {
+            "direction": "neutral",
+            "feature": "rules_of_engagement_state",
+            "mean_abs_shap": 0.01185,
+            "mean_shap": 0.000907
+          },
+          {
+            "direction": "neutral",
+            "feature": "terrain_occlusion_level",
+            "mean_abs_shap": 0.011845,
+            "mean_shap": 0.000582
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_control_latency_budget",
+            "mean_abs_shap": 0.0105,
+            "mean_shap": 1.8e-05
+          },
+          {
+            "direction": "neutral",
+            "feature": "pilot_takeover_link_quality",
+            "mean_abs_shap": 0.010478,
+            "mean_shap": 0.000216
+          },
+          {
+            "direction": "neutral",
+            "feature": "altitude_headroom",
+            "mean_abs_shap": 0.010421,
+            "mean_shap": 0.000989
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "gps",
+            "mean_abs_shap": 0.009082,
+            "mean_shap": 0.002462
+          },
+          {
+            "direction": "neutral",
+            "feature": "threat_level",
+            "mean_abs_shap": 0.009015,
+            "mean_shap": 0.000651
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "mission_urgency",
+            "mean_abs_shap": 0.008209,
+            "mean_shap": -0.002337
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "payload_criticality",
+            "mean_abs_shap": 0.007788,
+            "mean_shap": -0.001799
+          },
+          {
+            "direction": "neutral",
+            "feature": "wind",
+            "mean_abs_shap": 0.004689,
+            "mean_shap": 0.000554
+          },
+          {
+            "direction": "neutral",
+            "feature": "comms",
+            "mean_abs_shap": 0.004326,
+            "mean_shap": 0.000758
+          },
+          {
+            "direction": "neutral",
+            "feature": "safe_landing_zone_available",
+            "mean_abs_shap": 0.002366,
+            "mean_shap": 0.000236
+          },
+          {
+            "direction": "neutral",
+            "feature": "pilot_response_eta",
+            "mean_abs_shap": 0.001753,
+            "mean_shap": 0.00058
+          },
+          {
+            "direction": "neutral",
+            "feature": "takeover_window_remaining",
+            "mean_abs_shap": 0.001269,
+            "mean_shap": 0.000618
+          },
+          {
+            "direction": "neutral",
+            "feature": "autonomous_recovery_allowed",
+            "mean_abs_shap": 0.000953,
+            "mean_shap": 0.000424
+          }
+        ],
+        "switch_to_low_observable_path": [
+          {
+            "direction": "pushes_away",
+            "feature": "mission_replan_budget",
+            "mean_abs_shap": 0.049701,
+            "mean_shap": -0.003943
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "operator_control_latency_budget",
+            "mean_abs_shap": 0.038792,
+            "mean_shap": -0.00423
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "threat_level",
+            "mean_abs_shap": 0.032811,
+            "mean_shap": -0.003911
+          },
+          {
+            "direction": "neutral",
+            "feature": "distance_to_home",
+            "mean_abs_shap": 0.031992,
+            "mean_shap": -0.000745
+          },
+          {
+            "direction": "neutral",
+            "feature": "terrain_occlusion_level",
+            "mean_abs_shap": 0.023748,
+            "mean_shap": 0.000345
+          },
+          {
+            "direction": "neutral",
+            "feature": "signal_recovery_confidence",
+            "mean_abs_shap": 0.021579,
+            "mean_shap": -0.000894
+          },
+          {
+            "direction": "neutral",
+            "feature": "obstacle_density",
+            "mean_abs_shap": 0.016855,
+            "mean_shap": 0.000339
+          },
+          {
+            "direction": "neutral",
+            "feature": "airspace_deconfliction_status",
+            "mean_abs_shap": 0.015601,
+            "mean_shap": 0.00023
+          },
+          {
+            "direction": "neutral",
+            "feature": "rules_of_engagement_state",
+            "mean_abs_shap": 0.015017,
+            "mean_shap": 0.000684
+          },
+          {
+            "direction": "neutral",
+            "feature": "estimated_energy_margin",
+            "mean_abs_shap": 0.009225,
+            "mean_shap": 0.000482
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "pilot_takeover_link_quality",
+            "mean_abs_shap": 0.009164,
+            "mean_shap": 0.001159
+          },
+          {
+            "direction": "neutral",
+            "feature": "altitude_headroom",
+            "mean_abs_shap": 0.009011,
+            "mean_shap": 0.000703
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "payload_criticality",
+            "mean_abs_shap": 0.008673,
+            "mean_shap": 0.001566
+          },
+          {
+            "direction": "neutral",
+            "feature": "mission_urgency",
+            "mean_abs_shap": 0.008399,
+            "mean_shap": 0.00014
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "mission_progress",
+            "mean_abs_shap": 0.007565,
+            "mean_shap": 0.001305
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "battery",
+            "mean_abs_shap": 0.006095,
+            "mean_shap": 0.001334
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "takeover_window_remaining",
+            "mean_abs_shap": 0.005171,
+            "mean_shap": 0.001153
+          },
+          {
+            "direction": "neutral",
+            "feature": "wind",
+            "mean_abs_shap": 0.004145,
+            "mean_shap": 0.000101
+          },
+          {
+            "direction": "neutral",
+            "feature": "comms",
+            "mean_abs_shap": 0.004134,
+            "mean_shap": 0.000562
+          },
+          {
+            "direction": "neutral",
+            "feature": "gps",
+            "mean_abs_shap": 0.00349,
+            "mean_shap": 0.000589
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "pilot_response_eta",
+            "mean_abs_shap": 0.003063,
+            "mean_shap": 0.001092
+          },
+          {
+            "direction": "neutral",
+            "feature": "safe_landing_zone_available",
+            "mean_abs_shap": 0.002861,
+            "mean_shap": 0.000469
+          },
+          {
+            "direction": "neutral",
+            "feature": "autonomous_recovery_allowed",
+            "mean_abs_shap": 0.002592,
+            "mean_shap": 7.4e-05
+          }
+        ]
+      },
+      "sample_count": 25
+    },
+    "finance": {
+      "action_count": 8,
+      "domain": "finance",
+      "feature_count": 9,
+      "global_shap_importances": [
+        {
+          "feature": "account_history",
+          "rank": 1,
+          "shap_importance": 0.179855
+        },
+        {
+          "feature": "anomaly_score",
+          "rank": 2,
+          "shap_importance": 0.175315
+        },
+        {
+          "feature": "velocity_indicator",
+          "rank": 3,
+          "shap_importance": 0.17159
+        },
+        {
+          "feature": "transaction_amount",
+          "rank": 4,
+          "shap_importance": 0.116833
+        },
+        {
+          "feature": "jurisdiction_risk",
+          "rank": 5,
+          "shap_importance": 0.108708
+        },
+        {
+          "feature": "device_trust",
+          "rank": 6,
+          "shap_importance": 0.10735
+        },
+        {
+          "feature": "kyc_completeness",
+          "rank": 7,
+          "shap_importance": 0.070508
+        },
+        {
+          "feature": "document_mismatch",
+          "rank": 8,
+          "shap_importance": 0.054716
+        },
+        {
+          "feature": "sanctions_hit",
+          "rank": 9,
+          "shap_importance": 0.015124
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "shap_method": "TreeExplainer",
+        "train_accuracy": 1.0,
+        "train_case_count": 13
+      },
+      "model_path": "kvrm-models/finance_compact_selector_v1.joblib",
+      "per_action_directions": {
+        "allow_with_monitoring": [
+          {
+            "direction": "pushes_away",
+            "feature": "account_history",
+            "mean_abs_shap": 0.06116,
+            "mean_shap": -0.008794
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "transaction_amount",
+            "mean_abs_shap": 0.054199,
+            "mean_shap": -0.004486
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "anomaly_score",
+            "mean_abs_shap": 0.044945,
+            "mean_shap": 0.001572
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "device_trust",
+            "mean_abs_shap": 0.037307,
+            "mean_shap": -0.004657
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "velocity_indicator",
+            "mean_abs_shap": 0.035738,
+            "mean_shap": -0.002305
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "jurisdiction_risk",
+            "mean_abs_shap": 0.031431,
+            "mean_shap": -0.002219
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "kyc_completeness",
+            "mean_abs_shap": 0.014044,
+            "mean_shap": 0.003654
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "document_mismatch",
+            "mean_abs_shap": 0.007482,
+            "mean_shap": 0.002647
+          },
+          {
+            "direction": "neutral",
+            "feature": "sanctions_hit",
+            "mean_abs_shap": 0.001125,
+            "mean_shap": 0.000636
+          }
+        ],
+        "approve_low_risk": [
+          {
+            "direction": "pushes_toward",
+            "feature": "anomaly_score",
+            "mean_abs_shap": 0.083501,
+            "mean_shap": 0.00411
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "jurisdiction_risk",
+            "mean_abs_shap": 0.067719,
+            "mean_shap": 0.0017
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "account_history",
+            "mean_abs_shap": 0.051274,
+            "mean_shap": 0.004179
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "velocity_indicator",
+            "mean_abs_shap": 0.048988,
+            "mean_shap": 0.007145
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "transaction_amount",
+            "mean_abs_shap": 0.045574,
+            "mean_shap": -0.007772
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "kyc_completeness",
+            "mean_abs_shap": 0.016687,
+            "mean_shap": 0.007418
+          },
+          {
+            "direction": "neutral",
+            "feature": "device_trust",
+            "mean_abs_shap": 0.015203,
+            "mean_shap": -0.00054
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "document_mismatch",
+            "mean_abs_shap": 0.01488,
+            "mean_shap": 0.005686
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sanctions_hit",
+            "mean_abs_shap": 0.002184,
+            "mean_shap": 0.001381
+          }
+        ],
+        "enhanced_due_diligence": [
+          {
+            "direction": "neutral",
+            "feature": "account_history",
+            "mean_abs_shap": 0.074886,
+            "mean_shap": -0.000211
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "transaction_amount",
+            "mean_abs_shap": 0.073319,
+            "mean_shap": 0.001984
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "jurisdiction_risk",
+            "mean_abs_shap": 0.058116,
+            "mean_shap": -0.004568
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "velocity_indicator",
+            "mean_abs_shap": 0.053835,
+            "mean_shap": 0.005114
+          },
+          {
+            "direction": "neutral",
+            "feature": "anomaly_score",
+            "mean_abs_shap": 0.029517,
+            "mean_shap": -0.000272
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "kyc_completeness",
+            "mean_abs_shap": 0.021103,
+            "mean_shap": 0.007291
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "device_trust",
+            "mean_abs_shap": 0.018386,
+            "mean_shap": -0.001381
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "document_mismatch",
+            "mean_abs_shap": 0.014087,
+            "mean_shap": 0.004678
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sanctions_hit",
+            "mean_abs_shap": 0.002727,
+            "mean_shap": 0.001637
+          }
+        ],
+        "escalate_compliance": [
+          {
+            "direction": "pushes_away",
+            "feature": "kyc_completeness",
+            "mean_abs_shap": 0.037145,
+            "mean_shap": -0.013827
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "anomaly_score",
+            "mean_abs_shap": 0.032359,
+            "mean_shap": -0.002663
+          },
+          {
+            "direction": "neutral",
+            "feature": "velocity_indicator",
+            "mean_abs_shap": 0.023585,
+            "mean_shap": 4e-05
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "document_mismatch",
+            "mean_abs_shap": 0.023218,
+            "mean_shap": -0.007531
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "sanctions_hit",
+            "mean_abs_shap": 0.018097,
+            "mean_shap": -0.009502
+          },
+          {
+            "direction": "neutral",
+            "feature": "jurisdiction_risk",
+            "mean_abs_shap": 0.017931,
+            "mean_shap": 0.000368
+          },
+          {
+            "direction": "neutral",
+            "feature": "account_history",
+            "mean_abs_shap": 0.016858,
+            "mean_shap": 0.000757
+          },
+          {
+            "direction": "neutral",
+            "feature": "device_trust",
+            "mean_abs_shap": 0.014031,
+            "mean_shap": 0.000345
+          },
+          {
+            "direction": "neutral",
+            "feature": "transaction_amount",
+            "mean_abs_shap": 0.007371,
+            "mean_shap": 0.000482
+          }
+        ],
+        "freeze_for_investigation": [
+          {
+            "direction": "pushes_away",
+            "feature": "velocity_indicator",
+            "mean_abs_shap": 0.085459,
+            "mean_shap": -0.00181
+          },
+          {
+            "direction": "neutral",
+            "feature": "account_history",
+            "mean_abs_shap": 0.08263,
+            "mean_shap": 0.000968
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "device_trust",
+            "mean_abs_shap": 0.056483,
+            "mean_shap": 0.002703
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "anomaly_score",
+            "mean_abs_shap": 0.05533,
+            "mean_shap": -0.006875
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "kyc_completeness",
+            "mean_abs_shap": 0.015223,
+            "mean_shap": 0.004351
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "jurisdiction_risk",
+            "mean_abs_shap": 0.0135,
+            "mean_shap": -0.001923
+          },
+          {
+            "direction": "neutral",
+            "feature": "transaction_amount",
+            "mean_abs_shap": 0.009301,
+            "mean_shap": 0.000972
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "document_mismatch",
+            "mean_abs_shap": 0.007483,
+            "mean_shap": 0.002411
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sanctions_hit",
+            "mean_abs_shap": 0.002878,
+            "mean_shap": 0.00147
+          }
+        ],
+        "lower_limit_temporarily": [
+          {
+            "direction": "pushes_away",
+            "feature": "velocity_indicator",
+            "mean_abs_shap": 0.077239,
+            "mean_shap": -0.018944
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "anomaly_score",
+            "mean_abs_shap": 0.047699,
+            "mean_shap": -0.007298
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "account_history",
+            "mean_abs_shap": 0.04745,
+            "mean_shap": -0.002213
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "device_trust",
+            "mean_abs_shap": 0.038864,
+            "mean_shap": -0.003567
+          },
+          {
+            "direction": "neutral",
+            "feature": "jurisdiction_risk",
+            "mean_abs_shap": 0.02434,
+            "mean_shap": 0.000482
+          },
+          {
+            "direction": "neutral",
+            "feature": "transaction_amount",
+            "mean_abs_shap": 0.021214,
+            "mean_shap": -0.000691
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "kyc_completeness",
+            "mean_abs_shap": 0.007367,
+            "mean_shap": 0.002171
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "document_mismatch",
+            "mean_abs_shap": 0.005676,
+            "mean_shap": 0.001545
+          },
+          {
+            "direction": "neutral",
+            "feature": "sanctions_hit",
+            "mean_abs_shap": 0.001192,
+            "mean_shap": 0.000698
+          }
+        ],
+        "manual_review": [
+          {
+            "direction": "pushes_toward",
+            "feature": "anomaly_score",
+            "mean_abs_shap": 0.099976,
+            "mean_shap": 0.013017
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "account_history",
+            "mean_abs_shap": 0.074081,
+            "mean_shap": 0.006053
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "velocity_indicator",
+            "mean_abs_shap": 0.064998,
+            "mean_shap": 0.007869
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "device_trust",
+            "mean_abs_shap": 0.057669,
+            "mean_shap": 0.006687
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "transaction_amount",
+            "mean_abs_shap": 0.045621,
+            "mean_shap": 0.010756
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "jurisdiction_risk",
+            "mean_abs_shap": 0.023428,
+            "mean_shap": 0.006594
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "document_mismatch",
+            "mean_abs_shap": 0.015861,
+            "mean_shap": 0.006119
+          },
+          {
+            "direction": "neutral",
+            "feature": "kyc_completeness",
+            "mean_abs_shap": 0.014715,
+            "mean_shap": 0.00065
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sanctions_hit",
+            "mean_abs_shap": 0.006838,
+            "mean_shap": 0.002962
+          }
+        ],
+        "require_additional_docs": [
+          {
+            "direction": "pushes_away",
+            "feature": "kyc_completeness",
+            "mean_abs_shap": 0.042446,
+            "mean_shap": -0.011707
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "document_mismatch",
+            "mean_abs_shap": 0.042252,
+            "mean_shap": -0.015555
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "anomaly_score",
+            "mean_abs_shap": 0.026212,
+            "mean_shap": -0.00159
+          },
+          {
+            "direction": "neutral",
+            "feature": "jurisdiction_risk",
+            "mean_abs_shap": 0.023681,
+            "mean_shap": -0.000433
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "transaction_amount",
+            "mean_abs_shap": 0.022991,
+            "mean_shap": -0.001245
+          },
+          {
+            "direction": "neutral",
+            "feature": "account_history",
+            "mean_abs_shap": 0.022064,
+            "mean_shap": -0.000739
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "velocity_indicator",
+            "mean_abs_shap": 0.020782,
+            "mean_shap": 0.002891
+          },
+          {
+            "direction": "neutral",
+            "feature": "device_trust",
+            "mean_abs_shap": 0.018952,
+            "mean_shap": 0.000411
+          },
+          {
+            "direction": "neutral",
+            "feature": "sanctions_hit",
+            "mean_abs_shap": 0.001154,
+            "mean_shap": 0.000717
+          }
+        ]
+      },
+      "sample_count": 13
+    },
+    "grid": {
+      "action_count": 8,
+      "domain": "grid",
+      "feature_count": 12,
+      "global_shap_importances": [
+        {
+          "feature": "weather_risk",
+          "rank": 1,
+          "shap_importance": 0.128973
+        },
+        {
+          "feature": "outage_scope",
+          "rank": 2,
+          "shap_importance": 0.124723
+        },
+        {
+          "feature": "frequency_deviation",
+          "rank": 3,
+          "shap_importance": 0.119484
+        },
+        {
+          "feature": "reserve_margin",
+          "rank": 4,
+          "shap_importance": 0.097624
+        },
+        {
+          "feature": "fault_isolation_ready",
+          "rank": 5,
+          "shap_importance": 0.089127
+        },
+        {
+          "feature": "customer_impact",
+          "rank": 6,
+          "shap_importance": 0.082022
+        },
+        {
+          "feature": "voltage_stability",
+          "rank": 7,
+          "shap_importance": 0.077274
+        },
+        {
+          "feature": "crew_availability",
+          "rank": 8,
+          "shap_importance": 0.071013
+        },
+        {
+          "feature": "relay_state",
+          "rank": 9,
+          "shap_importance": 0.067974
+        },
+        {
+          "feature": "transfer_path_available",
+          "rank": 10,
+          "shap_importance": 0.057408
+        },
+        {
+          "feature": "switching_authorized",
+          "rank": 11,
+          "shap_importance": 0.050712
+        },
+        {
+          "feature": "blackstart_required",
+          "rank": 12,
+          "shap_importance": 0.033665
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "shap_method": "TreeExplainer",
+        "train_accuracy": 1.0,
+        "train_case_count": 16
+      },
+      "model_path": "kvrm-models/grid_compact_selector_v1.joblib",
+      "per_action_directions": {
+        "continue_monitoring": [
+          {
+            "direction": "pushes_away",
+            "feature": "outage_scope",
+            "mean_abs_shap": 0.074286,
+            "mean_shap": -0.006511
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "relay_state",
+            "mean_abs_shap": 0.043671,
+            "mean_shap": -0.002328
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "customer_impact",
+            "mean_abs_shap": 0.032879,
+            "mean_shap": -0.006533
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "voltage_stability",
+            "mean_abs_shap": 0.025179,
+            "mean_shap": 0.001617
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "frequency_deviation",
+            "mean_abs_shap": 0.023088,
+            "mean_shap": -0.003288
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "reserve_margin",
+            "mean_abs_shap": 0.020983,
+            "mean_shap": 0.001574
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "crew_availability",
+            "mean_abs_shap": 0.015622,
+            "mean_shap": -0.001418
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "fault_isolation_ready",
+            "mean_abs_shap": 0.014907,
+            "mean_shap": 0.00398
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "weather_risk",
+            "mean_abs_shap": 0.010816,
+            "mean_shap": 0.001074
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "transfer_path_available",
+            "mean_abs_shap": 0.007809,
+            "mean_shap": 0.002422
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "switching_authorized",
+            "mean_abs_shap": 0.006175,
+            "mean_shap": 0.001153
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "blackstart_required",
+            "mean_abs_shap": 0.003418,
+            "mean_shap": 0.001288
+          }
+        ],
+        "defer_switching_due_weather": [
+          {
+            "direction": "pushes_away",
+            "feature": "weather_risk",
+            "mean_abs_shap": 0.087584,
+            "mean_shap": -0.003408
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "fault_isolation_ready",
+            "mean_abs_shap": 0.040744,
+            "mean_shap": -0.004912
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "switching_authorized",
+            "mean_abs_shap": 0.033175,
+            "mean_shap": -0.004301
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "frequency_deviation",
+            "mean_abs_shap": 0.030154,
+            "mean_shap": -0.0031
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "outage_scope",
+            "mean_abs_shap": 0.023089,
+            "mean_shap": 0.00262
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "reserve_margin",
+            "mean_abs_shap": 0.022131,
+            "mean_shap": -0.001642
+          },
+          {
+            "direction": "neutral",
+            "feature": "customer_impact",
+            "mean_abs_shap": 0.014492,
+            "mean_shap": 0.000858
+          },
+          {
+            "direction": "neutral",
+            "feature": "voltage_stability",
+            "mean_abs_shap": 0.012674,
+            "mean_shap": -0.000183
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "crew_availability",
+            "mean_abs_shap": 0.012328,
+            "mean_shap": 0.00101
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "relay_state",
+            "mean_abs_shap": 0.011763,
+            "mean_shap": 0.001489
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "transfer_path_available",
+            "mean_abs_shap": 0.007327,
+            "mean_shap": 0.002564
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "blackstart_required",
+            "mean_abs_shap": 0.006897,
+            "mean_shap": 0.002771
+          }
+        ],
+        "dispatch_field_crew": [
+          {
+            "direction": "pushes_toward",
+            "feature": "fault_isolation_ready",
+            "mean_abs_shap": 0.046716,
+            "mean_shap": 0.00428
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "outage_scope",
+            "mean_abs_shap": 0.03955,
+            "mean_shap": 0.001146
+          },
+          {
+            "direction": "neutral",
+            "feature": "frequency_deviation",
+            "mean_abs_shap": 0.037689,
+            "mean_shap": -0.000243
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "weather_risk",
+            "mean_abs_shap": 0.036511,
+            "mean_shap": 0.003478
+          },
+          {
+            "direction": "neutral",
+            "feature": "customer_impact",
+            "mean_abs_shap": 0.033562,
+            "mean_shap": -0.000105
+          },
+          {
+            "direction": "neutral",
+            "feature": "reserve_margin",
+            "mean_abs_shap": 0.030361,
+            "mean_shap": -0.000399
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "relay_state",
+            "mean_abs_shap": 0.02446,
+            "mean_shap": 0.002207
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "transfer_path_available",
+            "mean_abs_shap": 0.022925,
+            "mean_shap": 0.004072
+          },
+          {
+            "direction": "neutral",
+            "feature": "voltage_stability",
+            "mean_abs_shap": 0.020305,
+            "mean_shap": -0.00015
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "crew_availability",
+            "mean_abs_shap": 0.0191,
+            "mean_shap": 0.001071
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "switching_authorized",
+            "mean_abs_shap": 0.017997,
+            "mean_shap": 0.003078
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "blackstart_required",
+            "mean_abs_shap": 0.005142,
+            "mean_shap": 0.001116
+          }
+        ],
+        "escalate_grid_supervisor": [
+          {
+            "direction": "neutral",
+            "feature": "weather_risk",
+            "mean_abs_shap": 0.064055,
+            "mean_shap": 0.000645
+          },
+          {
+            "direction": "neutral",
+            "feature": "crew_availability",
+            "mean_abs_shap": 0.039513,
+            "mean_shap": 0.000767
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "frequency_deviation",
+            "mean_abs_shap": 0.03306,
+            "mean_shap": 0.001864
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "outage_scope",
+            "mean_abs_shap": 0.025099,
+            "mean_shap": 0.003455
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "voltage_stability",
+            "mean_abs_shap": 0.024198,
+            "mean_shap": 0.002148
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "reserve_margin",
+            "mean_abs_shap": 0.021992,
+            "mean_shap": 0.002895
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "customer_impact",
+            "mean_abs_shap": 0.021953,
+            "mean_shap": 0.003444
+          },
+          {
+            "direction": "neutral",
+            "feature": "switching_authorized",
+            "mean_abs_shap": 0.020729,
+            "mean_shap": -0.000924
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "relay_state",
+            "mean_abs_shap": 0.019241,
+            "mean_shap": -0.001961
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "fault_isolation_ready",
+            "mean_abs_shap": 0.011028,
+            "mean_shap": 0.002303
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "blackstart_required",
+            "mean_abs_shap": 0.004815,
+            "mean_shap": -0.003562
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "transfer_path_available",
+            "mean_abs_shap": 0.004266,
+            "mean_shap": 0.001533
+          }
+        ],
+        "isolate_faulted_feeder": [
+          {
+            "direction": "pushes_away",
+            "feature": "fault_isolation_ready",
+            "mean_abs_shap": 0.056439,
+            "mean_shap": -0.009505
+          },
+          {
+            "direction": "neutral",
+            "feature": "outage_scope",
+            "mean_abs_shap": 0.046612,
+            "mean_shap": 0.000495
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "frequency_deviation",
+            "mean_abs_shap": 0.045742,
+            "mean_shap": 0.004378
+          },
+          {
+            "direction": "neutral",
+            "feature": "weather_risk",
+            "mean_abs_shap": 0.031674,
+            "mean_shap": -0.000355
+          },
+          {
+            "direction": "neutral",
+            "feature": "reserve_margin",
+            "mean_abs_shap": 0.029705,
+            "mean_shap": -0.000722
+          },
+          {
+            "direction": "neutral",
+            "feature": "customer_impact",
+            "mean_abs_shap": 0.022263,
+            "mean_shap": 1.1e-05
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "voltage_stability",
+            "mean_abs_shap": 0.018337,
+            "mean_shap": -0.004157
+          },
+          {
+            "direction": "neutral",
+            "feature": "relay_state",
+            "mean_abs_shap": 0.017127,
+            "mean_shap": 0.000777
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "transfer_path_available",
+            "mean_abs_shap": 0.014216,
+            "mean_shap": 0.002897
+          },
+          {
+            "direction": "neutral",
+            "feature": "crew_availability",
+            "mean_abs_shap": 0.013162,
+            "mean_shap": 0.000582
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "switching_authorized",
+            "mean_abs_shap": 0.012431,
+            "mean_shap": 0.001937
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "blackstart_required",
+            "mean_abs_shap": 0.002498,
+            "mean_shap": 0.001011
+          }
+        ],
+        "prepare_blackstart": [
+          {
+            "direction": "pushes_toward",
+            "feature": "outage_scope",
+            "mean_abs_shap": 0.042492,
+            "mean_shap": 0.003124
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "weather_risk",
+            "mean_abs_shap": 0.036255,
+            "mean_shap": -0.001775
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "blackstart_required",
+            "mean_abs_shap": 0.035793,
+            "mean_shap": -0.008006
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "crew_availability",
+            "mean_abs_shap": 0.033553,
+            "mean_shap": -0.004108
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "frequency_deviation",
+            "mean_abs_shap": 0.033228,
+            "mean_shap": 0.003157
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "voltage_stability",
+            "mean_abs_shap": 0.033028,
+            "mean_shap": 0.001209
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "reserve_margin",
+            "mean_abs_shap": 0.031597,
+            "mean_shap": 0.004462
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "customer_impact",
+            "mean_abs_shap": 0.030274,
+            "mean_shap": 0.003116
+          },
+          {
+            "direction": "neutral",
+            "feature": "relay_state",
+            "mean_abs_shap": 0.018539,
+            "mean_shap": 0.000469
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "fault_isolation_ready",
+            "mean_abs_shap": 0.01493,
+            "mean_shap": 0.00332
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "switching_authorized",
+            "mean_abs_shap": 0.007484,
+            "mean_shap": -0.003385
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "transfer_path_available",
+            "mean_abs_shap": 0.004825,
+            "mean_shap": 0.001686
+          }
+        ],
+        "shed_noncritical_load": [
+          {
+            "direction": "pushes_away",
+            "feature": "reserve_margin",
+            "mean_abs_shap": 0.055454,
+            "mean_shap": -0.005563
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "frequency_deviation",
+            "mean_abs_shap": 0.052428,
+            "mean_shap": -0.00423
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "outage_scope",
+            "mean_abs_shap": 0.030785,
+            "mean_shap": -0.003338
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "weather_risk",
+            "mean_abs_shap": 0.026632,
+            "mean_shap": -0.001034
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "voltage_stability",
+            "mean_abs_shap": 0.023231,
+            "mean_shap": -0.002692
+          },
+          {
+            "direction": "neutral",
+            "feature": "customer_impact",
+            "mean_abs_shap": 0.020234,
+            "mean_shap": 0.000831
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "crew_availability",
+            "mean_abs_shap": 0.019406,
+            "mean_shap": -0.001133
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "blackstart_required",
+            "mean_abs_shap": 0.018789,
+            "mean_shap": 0.004262
+          },
+          {
+            "direction": "neutral",
+            "feature": "relay_state",
+            "mean_abs_shap": 0.017919,
+            "mean_shap": 0.000523
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "switching_authorized",
+            "mean_abs_shap": 0.01688,
+            "mean_shap": 0.001434
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "fault_isolation_ready",
+            "mean_abs_shap": 0.009966,
+            "mean_shap": -0.002315
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "transfer_path_available",
+            "mean_abs_shap": 0.007636,
+            "mean_shap": 0.00255
+          }
+        ],
+        "transfer_load": [
+          {
+            "direction": "pushes_away",
+            "feature": "transfer_path_available",
+            "mean_abs_shap": 0.069003,
+            "mean_shap": -0.017724
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "frequency_deviation",
+            "mean_abs_shap": 0.031847,
+            "mean_shap": 0.001462
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "voltage_stability",
+            "mean_abs_shap": 0.02881,
+            "mean_shap": 0.002208
+          },
+          {
+            "direction": "neutral",
+            "feature": "reserve_margin",
+            "mean_abs_shap": 0.02246,
+            "mean_shap": -0.000604
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "customer_impact",
+            "mean_abs_shap": 0.021521,
+            "mean_shap": -0.001621
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "fault_isolation_ready",
+            "mean_abs_shap": 0.019527,
+            "mean_shap": 0.002848
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "crew_availability",
+            "mean_abs_shap": 0.018027,
+            "mean_shap": 0.003228
+          },
+          {
+            "direction": "neutral",
+            "feature": "outage_scope",
+            "mean_abs_shap": 0.017915,
+            "mean_shap": -0.000991
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "weather_risk",
+            "mean_abs_shap": 0.016517,
+            "mean_shap": 0.001375
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "relay_state",
+            "mean_abs_shap": 0.010685,
+            "mean_shap": -0.001176
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "switching_authorized",
+            "mean_abs_shap": 0.007038,
+            "mean_shap": 0.001008
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "blackstart_required",
+            "mean_abs_shap": 0.003577,
+            "mean_shap": 0.00112
+          }
+        ]
+      },
+      "sample_count": 16
+    },
+    "iam": {
+      "action_count": 7,
+      "domain": "iam",
+      "feature_count": 12,
+      "global_shap_importances": [
+        {
+          "feature": "security_review",
+          "rank": 1,
+          "shap_importance": 0.152867
+        },
+        {
+          "feature": "session_scope",
+          "rank": 2,
+          "shap_importance": 0.101242
+        },
+        {
+          "feature": "requested_privilege",
+          "rank": 3,
+          "shap_importance": 0.099997
+        },
+        {
+          "feature": "device_posture",
+          "rank": 4,
+          "shap_importance": 0.094288
+        },
+        {
+          "feature": "manager_approval",
+          "rank": 5,
+          "shap_importance": 0.092049
+        },
+        {
+          "feature": "sod_risk",
+          "rank": 6,
+          "shap_importance": 0.08811
+        },
+        {
+          "feature": "requester_risk",
+          "rank": 7,
+          "shap_importance": 0.080833
+        },
+        {
+          "feature": "resource_sensitivity",
+          "rank": 8,
+          "shap_importance": 0.080076
+        },
+        {
+          "feature": "justification",
+          "rank": 9,
+          "shap_importance": 0.079011
+        },
+        {
+          "feature": "on_call_role",
+          "rank": 10,
+          "shap_importance": 0.064591
+        },
+        {
+          "feature": "ticket_state",
+          "rank": 11,
+          "shap_importance": 0.033765
+        },
+        {
+          "feature": "mfa_state",
+          "rank": 12,
+          "shap_importance": 0.03317
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "shap_method": "TreeExplainer",
+        "train_accuracy": 1.0,
+        "train_case_count": 15
+      },
+      "model_path": "kvrm-models/iam_compact_selector_v1.joblib",
+      "per_action_directions": {
+        "auto_approve_standard_access": [
+          {
+            "direction": "pushes_away",
+            "feature": "security_review",
+            "mean_abs_shap": 0.05299,
+            "mean_shap": -0.003403
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "session_scope",
+            "mean_abs_shap": 0.047782,
+            "mean_shap": -0.002189
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "requested_privilege",
+            "mean_abs_shap": 0.047766,
+            "mean_shap": -0.0018
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "manager_approval",
+            "mean_abs_shap": 0.038809,
+            "mean_shap": 0.007556
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "ticket_state",
+            "mean_abs_shap": 0.035814,
+            "mean_shap": -0.003622
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "resource_sensitivity",
+            "mean_abs_shap": 0.030297,
+            "mean_shap": -0.008685
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "on_call_role",
+            "mean_abs_shap": 0.013698,
+            "mean_shap": 0.001246
+          },
+          {
+            "direction": "neutral",
+            "feature": "justification",
+            "mean_abs_shap": 0.011687,
+            "mean_shap": 0.000874
+          },
+          {
+            "direction": "neutral",
+            "feature": "sod_risk",
+            "mean_abs_shap": 0.011604,
+            "mean_shap": 0.000177
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "requester_risk",
+            "mean_abs_shap": 0.01016,
+            "mean_shap": 0.0018
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "device_posture",
+            "mean_abs_shap": 0.008838,
+            "mean_shap": 0.003059
+          },
+          {
+            "direction": "neutral",
+            "feature": "mfa_state",
+            "mean_abs_shap": 0.000629,
+            "mean_shap": 0.000336
+          }
+        ],
+        "deny_request": [
+          {
+            "direction": "neutral",
+            "feature": "requester_risk",
+            "mean_abs_shap": 0.067663,
+            "mean_shap": 0.000237
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "security_review",
+            "mean_abs_shap": 0.042855,
+            "mean_shap": 0.006079
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "device_posture",
+            "mean_abs_shap": 0.042799,
+            "mean_shap": 0.010276
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "mfa_state",
+            "mean_abs_shap": 0.038918,
+            "mean_shap": -0.015819
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "requested_privilege",
+            "mean_abs_shap": 0.030197,
+            "mean_shap": 0.008219
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "session_scope",
+            "mean_abs_shap": 0.028713,
+            "mean_shap": 0.004665
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "manager_approval",
+            "mean_abs_shap": 0.02858,
+            "mean_shap": -0.00215
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "justification",
+            "mean_abs_shap": 0.025684,
+            "mean_shap": 0.008971
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "resource_sensitivity",
+            "mean_abs_shap": 0.020885,
+            "mean_shap": 0.008668
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sod_risk",
+            "mean_abs_shap": 0.020387,
+            "mean_shap": 0.004623
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "on_call_role",
+            "mean_abs_shap": 0.018838,
+            "mean_shap": 0.005599
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "ticket_state",
+            "mean_abs_shap": 0.01111,
+            "mean_shap": 0.00214
+          }
+        ],
+        "escalate_identity_admin": [
+          {
+            "direction": "pushes_away",
+            "feature": "device_posture",
+            "mean_abs_shap": 0.093727,
+            "mean_shap": -0.019311
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "requested_privilege",
+            "mean_abs_shap": 0.043654,
+            "mean_shap": 0.001369
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "requester_risk",
+            "mean_abs_shap": 0.042769,
+            "mean_shap": -0.004416
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "security_review",
+            "mean_abs_shap": 0.040719,
+            "mean_shap": 0.002577
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "resource_sensitivity",
+            "mean_abs_shap": 0.034762,
+            "mean_shap": 0.002731
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sod_risk",
+            "mean_abs_shap": 0.026492,
+            "mean_shap": 0.0021
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "on_call_role",
+            "mean_abs_shap": 0.021481,
+            "mean_shap": 0.002761
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "justification",
+            "mean_abs_shap": 0.021211,
+            "mean_shap": 0.005123
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "manager_approval",
+            "mean_abs_shap": 0.018542,
+            "mean_shap": 0.003287
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "session_scope",
+            "mean_abs_shap": 0.014309,
+            "mean_shap": 0.003282
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "ticket_state",
+            "mean_abs_shap": 0.004551,
+            "mean_shap": 0.001204
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "mfa_state",
+            "mean_abs_shap": 0.00235,
+            "mean_shap": 0.001411
+          }
+        ],
+        "grant_break_glass_access": [
+          {
+            "direction": "pushes_away",
+            "feature": "session_scope",
+            "mean_abs_shap": 0.072525,
+            "mean_shap": -0.011855
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "justification",
+            "mean_abs_shap": 0.065282,
+            "mean_shap": -0.00764
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "on_call_role",
+            "mean_abs_shap": 0.050415,
+            "mean_shap": -0.004751
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sod_risk",
+            "mean_abs_shap": 0.026379,
+            "mean_shap": 0.002369
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "security_review",
+            "mean_abs_shap": 0.025835,
+            "mean_shap": 0.002967
+          },
+          {
+            "direction": "neutral",
+            "feature": "requested_privilege",
+            "mean_abs_shap": 0.016153,
+            "mean_shap": -0.000291
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "resource_sensitivity",
+            "mean_abs_shap": 0.015512,
+            "mean_shap": 0.001312
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "requester_risk",
+            "mean_abs_shap": 0.00709,
+            "mean_shap": 0.00149
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "device_posture",
+            "mean_abs_shap": 0.006441,
+            "mean_shap": 0.002802
+          },
+          {
+            "direction": "neutral",
+            "feature": "ticket_state",
+            "mean_abs_shap": 0.00589,
+            "mean_shap": 0.000783
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "manager_approval",
+            "mean_abs_shap": 0.005736,
+            "mean_shap": 0.0019
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "mfa_state",
+            "mean_abs_shap": 0.003143,
+            "mean_shap": 0.00112
+          }
+        ],
+        "grant_timeboxed_privileged_access": [
+          {
+            "direction": "pushes_away",
+            "feature": "requested_privilege",
+            "mean_abs_shap": 0.069139,
+            "mean_shap": -0.006153
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "security_review",
+            "mean_abs_shap": 0.063279,
+            "mean_shap": -0.002324
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "resource_sensitivity",
+            "mean_abs_shap": 0.051515,
+            "mean_shap": -0.006271
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "requester_risk",
+            "mean_abs_shap": 0.041331,
+            "mean_shap": 0.001874
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sod_risk",
+            "mean_abs_shap": 0.035798,
+            "mean_shap": 0.003548
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "device_posture",
+            "mean_abs_shap": 0.031952,
+            "mean_shap": 0.004454
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "session_scope",
+            "mean_abs_shap": 0.024716,
+            "mean_shap": 0.001536
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "manager_approval",
+            "mean_abs_shap": 0.021305,
+            "mean_shap": 0.004204
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "justification",
+            "mean_abs_shap": 0.01969,
+            "mean_shap": -0.006199
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "on_call_role",
+            "mean_abs_shap": 0.015032,
+            "mean_shap": -0.002755
+          },
+          {
+            "direction": "neutral",
+            "feature": "ticket_state",
+            "mean_abs_shap": 0.010293,
+            "mean_shap": -0.000445
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "mfa_state",
+            "mean_abs_shap": 0.0019,
+            "mean_shap": 0.001016
+          }
+        ],
+        "require_manager_approval": [
+          {
+            "direction": "pushes_away",
+            "feature": "manager_approval",
+            "mean_abs_shap": 0.088519,
+            "mean_shap": -0.018585
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "security_review",
+            "mean_abs_shap": 0.059283,
+            "mean_shap": -0.001839
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "resource_sensitivity",
+            "mean_abs_shap": 0.025512,
+            "mean_shap": 0.001647
+          },
+          {
+            "direction": "neutral",
+            "feature": "justification",
+            "mean_abs_shap": 0.01961,
+            "mean_shap": -0.000108
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "device_posture",
+            "mean_abs_shap": 0.016901,
+            "mean_shap": -0.006098
+          },
+          {
+            "direction": "neutral",
+            "feature": "requested_privilege",
+            "mean_abs_shap": 0.015621,
+            "mean_shap": -0.00055
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "on_call_role",
+            "mean_abs_shap": 0.012444,
+            "mean_shap": 0.001528
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "session_scope",
+            "mean_abs_shap": 0.009735,
+            "mean_shap": 0.003325
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "sod_risk",
+            "mean_abs_shap": 0.009227,
+            "mean_shap": 0.001595
+          },
+          {
+            "direction": "neutral",
+            "feature": "requester_risk",
+            "mean_abs_shap": 0.007214,
+            "mean_shap": 0.000363
+          },
+          {
+            "direction": "neutral",
+            "feature": "ticket_state",
+            "mean_abs_shap": 0.004373,
+            "mean_shap": -0.000937
+          },
+          {
+            "direction": "neutral",
+            "feature": "mfa_state",
+            "mean_abs_shap": 0.000551,
+            "mean_shap": 0.000231
+          }
+        ],
+        "require_security_review": [
+          {
+            "direction": "pushes_away",
+            "feature": "sod_risk",
+            "mean_abs_shap": 0.07687,
+            "mean_shap": -0.014412
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "security_review",
+            "mean_abs_shap": 0.073755,
+            "mean_shap": -0.004056
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "session_scope",
+            "mean_abs_shap": 0.039793,
+            "mean_shap": 0.001236
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "mfa_state",
+            "mean_abs_shap": 0.030344,
+            "mean_shap": 0.011704
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "justification",
+            "mean_abs_shap": 0.022242,
+            "mean_shap": -0.001022
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "device_posture",
+            "mean_abs_shap": 0.020598,
+            "mean_shap": 0.004818
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "on_call_role",
+            "mean_abs_shap": 0.019662,
+            "mean_shap": -0.003628
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "manager_approval",
+            "mean_abs_shap": 0.01451,
+            "mean_shap": 0.003788
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "requester_risk",
+            "mean_abs_shap": 0.013455,
+            "mean_shap": -0.001349
+          },
+          {
+            "direction": "neutral",
+            "feature": "requested_privilege",
+            "mean_abs_shap": 0.012122,
+            "mean_shap": -0.000795
+          },
+          {
+            "direction": "neutral",
+            "feature": "resource_sensitivity",
+            "mean_abs_shap": 0.009424,
+            "mean_shap": 0.000598
+          },
+          {
+            "direction": "neutral",
+            "feature": "ticket_state",
+            "mean_abs_shap": 0.007201,
+            "mean_shap": 0.000877
+          }
+        ]
+      },
+      "sample_count": 15
+    },
+    "medical": {
+      "action_count": 8,
+      "domain": "medical",
+      "feature_count": 10,
+      "global_shap_importances": [
+        {
+          "feature": "symptom_onset",
+          "rank": 1,
+          "shap_importance": 0.204557
+        },
+        {
+          "feature": "clinician_note_flag",
+          "rank": 2,
+          "shap_importance": 0.18661
+        },
+        {
+          "feature": "fever_bucket",
+          "rank": 3,
+          "shap_importance": 0.141005
+        },
+        {
+          "feature": "infection_risk",
+          "rank": 4,
+          "shap_importance": 0.136241
+        },
+        {
+          "feature": "acuity_score",
+          "rank": 5,
+          "shap_importance": 0.097043
+        },
+        {
+          "feature": "chest_pain",
+          "rank": 6,
+          "shap_importance": 0.059534
+        },
+        {
+          "feature": "respiratory_distress",
+          "rank": 7,
+          "shap_importance": 0.058604
+        },
+        {
+          "feature": "age_bracket",
+          "rank": 8,
+          "shap_importance": 0.052837
+        },
+        {
+          "feature": "focal_neuro_deficit",
+          "rank": 9,
+          "shap_importance": 0.05271
+        },
+        {
+          "feature": "hypotension",
+          "rank": 10,
+          "shap_importance": 0.010859
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "shap_method": "TreeExplainer",
+        "train_accuracy": 1.0,
+        "train_case_count": 12
+      },
+      "model_path": "kvrm-models/medical_compact_selector_v1.joblib",
+      "per_action_directions": {
+        "cardiac_chest_pain_pathway": [
+          {
+            "direction": "pushes_away",
+            "feature": "clinician_note_flag",
+            "mean_abs_shap": 0.069554,
+            "mean_shap": -0.015148
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "symptom_onset",
+            "mean_abs_shap": 0.047086,
+            "mean_shap": -0.007751
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "acuity_score",
+            "mean_abs_shap": 0.02811,
+            "mean_shap": -0.001069
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "chest_pain",
+            "mean_abs_shap": 0.026813,
+            "mean_shap": -0.005681
+          },
+          {
+            "direction": "neutral",
+            "feature": "fever_bucket",
+            "mean_abs_shap": 0.025365,
+            "mean_shap": -0.000434
+          },
+          {
+            "direction": "neutral",
+            "feature": "infection_risk",
+            "mean_abs_shap": 0.018739,
+            "mean_shap": 0.000119
+          },
+          {
+            "direction": "neutral",
+            "feature": "age_bracket",
+            "mean_abs_shap": 0.016925,
+            "mean_shap": 0.000289
+          },
+          {
+            "direction": "neutral",
+            "feature": "focal_neuro_deficit",
+            "mean_abs_shap": 0.006932,
+            "mean_shap": -9.7e-05
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "respiratory_distress",
+            "mean_abs_shap": 0.004782,
+            "mean_shap": 0.001081
+          },
+          {
+            "direction": "neutral",
+            "feature": "hypotension",
+            "mean_abs_shap": 0.001299,
+            "mean_shap": 0.000692
+          }
+        ],
+        "escalate_supervisor_review": [
+          {
+            "direction": "pushes_toward",
+            "feature": "clinician_note_flag",
+            "mean_abs_shap": 0.070148,
+            "mean_shap": 0.011263
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "symptom_onset",
+            "mean_abs_shap": 0.06503,
+            "mean_shap": 0.007906
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "chest_pain",
+            "mean_abs_shap": 0.045115,
+            "mean_shap": -0.004659
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "fever_bucket",
+            "mean_abs_shap": 0.041275,
+            "mean_shap": 0.005797
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "focal_neuro_deficit",
+            "mean_abs_shap": 0.038898,
+            "mean_shap": -0.002826
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "infection_risk",
+            "mean_abs_shap": 0.030145,
+            "mean_shap": -0.001397
+          },
+          {
+            "direction": "neutral",
+            "feature": "age_bracket",
+            "mean_abs_shap": 0.019862,
+            "mean_shap": -0.000132
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "acuity_score",
+            "mean_abs_shap": 0.012569,
+            "mean_shap": 0.002725
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "respiratory_distress",
+            "mean_abs_shap": 0.005845,
+            "mean_shap": -0.001468
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "hypotension",
+            "mean_abs_shap": 0.004426,
+            "mean_shap": -0.001227
+          }
+        ],
+        "lab_panel_priority_order": [
+          {
+            "direction": "pushes_away",
+            "feature": "infection_risk",
+            "mean_abs_shap": 0.071091,
+            "mean_shap": -0.007182
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "fever_bucket",
+            "mean_abs_shap": 0.048628,
+            "mean_shap": -0.006403
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "acuity_score",
+            "mean_abs_shap": 0.046507,
+            "mean_shap": -0.007589
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "symptom_onset",
+            "mean_abs_shap": 0.037292,
+            "mean_shap": 0.002249
+          },
+          {
+            "direction": "neutral",
+            "feature": "clinician_note_flag",
+            "mean_abs_shap": 0.033526,
+            "mean_shap": -0.000462
+          },
+          {
+            "direction": "neutral",
+            "feature": "respiratory_distress",
+            "mean_abs_shap": 0.019349,
+            "mean_shap": -0.00058
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "age_bracket",
+            "mean_abs_shap": 0.015738,
+            "mean_shap": 0.003506
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "chest_pain",
+            "mean_abs_shap": 0.008229,
+            "mean_shap": 0.001062
+          },
+          {
+            "direction": "neutral",
+            "feature": "focal_neuro_deficit",
+            "mean_abs_shap": 0.006253,
+            "mean_shap": 0.000255
+          },
+          {
+            "direction": "neutral",
+            "feature": "hypotension",
+            "mean_abs_shap": 0.003048,
+            "mean_shap": 0.000286
+          }
+        ],
+        "respiratory_support_pathway": [
+          {
+            "direction": "pushes_away",
+            "feature": "infection_risk",
+            "mean_abs_shap": 0.054258,
+            "mean_shap": -0.005742
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "symptom_onset",
+            "mean_abs_shap": 0.053508,
+            "mean_shap": -0.002608
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "fever_bucket",
+            "mean_abs_shap": 0.041693,
+            "mean_shap": -0.002473
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "respiratory_distress",
+            "mean_abs_shap": 0.039724,
+            "mean_shap": -0.009139
+          },
+          {
+            "direction": "neutral",
+            "feature": "clinician_note_flag",
+            "mean_abs_shap": 0.037992,
+            "mean_shap": -0.000283
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "acuity_score",
+            "mean_abs_shap": 0.034995,
+            "mean_shap": 0.003082
+          },
+          {
+            "direction": "neutral",
+            "feature": "age_bracket",
+            "mean_abs_shap": 0.011016,
+            "mean_shap": 0.00092
+          },
+          {
+            "direction": "neutral",
+            "feature": "chest_pain",
+            "mean_abs_shap": 0.008876,
+            "mean_shap": 0.000916
+          },
+          {
+            "direction": "neutral",
+            "feature": "focal_neuro_deficit",
+            "mean_abs_shap": 0.004628,
+            "mean_shap": 0.000437
+          },
+          {
+            "direction": "neutral",
+            "feature": "hypotension",
+            "mean_abs_shap": 0.001286,
+            "mean_shap": 0.000524
+          }
+        ],
+        "routine_review": [
+          {
+            "direction": "pushes_toward",
+            "feature": "symptom_onset",
+            "mean_abs_shap": 0.074212,
+            "mean_shap": 0.00669
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "fever_bucket",
+            "mean_abs_shap": 0.066438,
+            "mean_shap": 0.003598
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "infection_risk",
+            "mean_abs_shap": 0.065303,
+            "mean_shap": 0.008301
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "clinician_note_flag",
+            "mean_abs_shap": 0.056725,
+            "mean_shap": 0.004242
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "acuity_score",
+            "mean_abs_shap": 0.049014,
+            "mean_shap": -0.005627
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "respiratory_distress",
+            "mean_abs_shap": 0.016799,
+            "mean_shap": 0.00278
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "age_bracket",
+            "mean_abs_shap": 0.016673,
+            "mean_shap": -0.002605
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "chest_pain",
+            "mean_abs_shap": 0.010193,
+            "mean_shap": 0.003389
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "focal_neuro_deficit",
+            "mean_abs_shap": 0.010066,
+            "mean_shap": 0.003433
+          },
+          {
+            "direction": "neutral",
+            "feature": "hypotension",
+            "mean_abs_shap": 0.002588,
+            "mean_shap": 0.000905
+          }
+        ],
+        "sepsis_screen_pathway": [
+          {
+            "direction": "pushes_toward",
+            "feature": "clinician_note_flag",
+            "mean_abs_shap": 0.092803,
+            "mean_shap": 0.004421
+          },
+          {
+            "direction": "neutral",
+            "feature": "fever_bucket",
+            "mean_abs_shap": 0.078293,
+            "mean_shap": -0.000693
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "symptom_onset",
+            "mean_abs_shap": 0.041148,
+            "mean_shap": 0.003379
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "infection_risk",
+            "mean_abs_shap": 0.040209,
+            "mean_shap": 0.002429
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "respiratory_distress",
+            "mean_abs_shap": 0.025235,
+            "mean_shap": 0.001781
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "acuity_score",
+            "mean_abs_shap": 0.011993,
+            "mean_shap": 0.00247
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "age_bracket",
+            "mean_abs_shap": 0.011618,
+            "mean_shap": -0.001187
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "chest_pain",
+            "mean_abs_shap": 0.00986,
+            "mean_shap": 0.001392
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "hypotension",
+            "mean_abs_shap": 0.008694,
+            "mean_shap": -0.00285
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "focal_neuro_deficit",
+            "mean_abs_shap": 0.007188,
+            "mean_shap": 0.002133
+          }
+        ],
+        "stroke_alert_pathway": [
+          {
+            "direction": "pushes_away",
+            "feature": "symptom_onset",
+            "mean_abs_shap": 0.058606,
+            "mean_shap": -0.009389
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "clinician_note_flag",
+            "mean_abs_shap": 0.053027,
+            "mean_shap": -0.008024
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "acuity_score",
+            "mean_abs_shap": 0.030732,
+            "mean_shap": 0.001952
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "focal_neuro_deficit",
+            "mean_abs_shap": 0.024785,
+            "mean_shap": -0.006034
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "fever_bucket",
+            "mean_abs_shap": 0.021465,
+            "mean_shap": 0.001265
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "infection_risk",
+            "mean_abs_shap": 0.017693,
+            "mean_shap": 0.001815
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "age_bracket",
+            "mean_abs_shap": 0.012978,
+            "mean_shap": -0.002292
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "chest_pain",
+            "mean_abs_shap": 0.010376,
+            "mean_shap": 0.002119
+          },
+          {
+            "direction": "neutral",
+            "feature": "respiratory_distress",
+            "mean_abs_shap": 0.004926,
+            "mean_shap": 0.000457
+          },
+          {
+            "direction": "neutral",
+            "feature": "hypotension",
+            "mean_abs_shap": 0.001101,
+            "mean_shap": 0.000392
+          }
+        ],
+        "urgent_clinician_review": [
+          {
+            "direction": "neutral",
+            "feature": "symptom_onset",
+            "mean_abs_shap": 0.117402,
+            "mean_shap": -0.000476
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "clinician_note_flag",
+            "mean_abs_shap": 0.03714,
+            "mean_shap": 0.00399
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "infection_risk",
+            "mean_abs_shap": 0.031768,
+            "mean_shap": 0.001657
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "focal_neuro_deficit",
+            "mean_abs_shap": 0.028617,
+            "mean_shap": 0.002699
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "respiratory_distress",
+            "mean_abs_shap": 0.024948,
+            "mean_shap": 0.005088
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "chest_pain",
+            "mean_abs_shap": 0.024394,
+            "mean_shap": 0.001462
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "age_bracket",
+            "mean_abs_shap": 0.022864,
+            "mean_shap": 0.001501
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "acuity_score",
+            "mean_abs_shap": 0.02057,
+            "mean_shap": 0.004055
+          },
+          {
+            "direction": "neutral",
+            "feature": "fever_bucket",
+            "mean_abs_shap": 0.017563,
+            "mean_shap": -0.000658
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "hypotension",
+            "mean_abs_shap": 0.003798,
+            "mean_shap": 0.001279
+          }
+        ]
+      },
+      "sample_count": 12
+    },
+    "soc": {
+      "action_count": 7,
+      "domain": "soc",
+      "feature_count": 8,
+      "global_shap_importances": [
+        {
+          "feature": "severity",
+          "rank": 1,
+          "shap_importance": 0.307379
+        },
+        {
+          "feature": "blast_radius",
+          "rank": 2,
+          "shap_importance": 0.149087
+        },
+        {
+          "feature": "threat_confidence",
+          "rank": 3,
+          "shap_importance": 0.144639
+        },
+        {
+          "feature": "asset_criticality",
+          "rank": 4,
+          "shap_importance": 0.102726
+        },
+        {
+          "feature": "endpoint_type",
+          "rank": 5,
+          "shap_importance": 0.098671
+        },
+        {
+          "feature": "credential_exposure",
+          "rank": 6,
+          "shap_importance": 0.073176
+        },
+        {
+          "feature": "internet_exposed",
+          "rank": 7,
+          "shap_importance": 0.070827
+        },
+        {
+          "feature": "lateral_movement",
+          "rank": 8,
+          "shap_importance": 0.053495
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "shap_method": "TreeExplainer",
+        "train_accuracy": 1.0,
+        "train_case_count": 14
+      },
+      "model_path": "kvrm-models/soc_compact_selector_v1.joblib",
+      "per_action_directions": {
+        "block_ip_temporarily": [
+          {
+            "direction": "pushes_away",
+            "feature": "endpoint_type",
+            "mean_abs_shap": 0.083232,
+            "mean_shap": -0.012863
+          },
+          {
+            "direction": "neutral",
+            "feature": "threat_confidence",
+            "mean_abs_shap": 0.064989,
+            "mean_shap": -0.000302
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "severity",
+            "mean_abs_shap": 0.050954,
+            "mean_shap": -0.002012
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "internet_exposed",
+            "mean_abs_shap": 0.040468,
+            "mean_shap": -0.001747
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "blast_radius",
+            "mean_abs_shap": 0.038554,
+            "mean_shap": 0.00423
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "asset_criticality",
+            "mean_abs_shap": 0.031132,
+            "mean_shap": 0.003227
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "credential_exposure",
+            "mean_abs_shap": 0.010099,
+            "mean_shap": 0.001249
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "lateral_movement",
+            "mean_abs_shap": 0.005161,
+            "mean_shap": 0.001763
+          }
+        ],
+        "collect_forensics": [
+          {
+            "direction": "pushes_toward",
+            "feature": "severity",
+            "mean_abs_shap": 0.130921,
+            "mean_shap": 0.013338
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "threat_confidence",
+            "mean_abs_shap": 0.046233,
+            "mean_shap": -0.007231
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "blast_radius",
+            "mean_abs_shap": 0.045358,
+            "mean_shap": 0.005207
+          },
+          {
+            "direction": "neutral",
+            "feature": "internet_exposed",
+            "mean_abs_shap": 0.038777,
+            "mean_shap": 0.000716
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "asset_criticality",
+            "mean_abs_shap": 0.038725,
+            "mean_shap": -0.006676
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "endpoint_type",
+            "mean_abs_shap": 0.035959,
+            "mean_shap": 0.005541
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "credential_exposure",
+            "mean_abs_shap": 0.023237,
+            "mean_shap": 0.003113
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "lateral_movement",
+            "mean_abs_shap": 0.00646,
+            "mean_shap": 0.002546
+          }
+        ],
+        "do_nothing_validated": [
+          {
+            "direction": "pushes_away",
+            "feature": "severity",
+            "mean_abs_shap": 0.109846,
+            "mean_shap": -0.001284
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "blast_radius",
+            "mean_abs_shap": 0.098243,
+            "mean_shap": -0.012729
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "threat_confidence",
+            "mean_abs_shap": 0.057286,
+            "mean_shap": 0.002102
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "asset_criticality",
+            "mean_abs_shap": 0.030249,
+            "mean_shap": 0.002431
+          },
+          {
+            "direction": "neutral",
+            "feature": "internet_exposed",
+            "mean_abs_shap": 0.013345,
+            "mean_shap": 0.000714
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "credential_exposure",
+            "mean_abs_shap": 0.011373,
+            "mean_shap": 0.002379
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "endpoint_type",
+            "mean_abs_shap": 0.01059,
+            "mean_shap": 0.002502
+          },
+          {
+            "direction": "neutral",
+            "feature": "lateral_movement",
+            "mean_abs_shap": 0.004541,
+            "mean_shap": 0.000815
+          }
+        ],
+        "escalate_p1": [
+          {
+            "direction": "pushes_away",
+            "feature": "severity",
+            "mean_abs_shap": 0.085189,
+            "mean_shap": -0.004124
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "lateral_movement",
+            "mean_abs_shap": 0.062925,
+            "mean_shap": -0.013326
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "blast_radius",
+            "mean_abs_shap": 0.032713,
+            "mean_shap": -0.004978
+          },
+          {
+            "direction": "neutral",
+            "feature": "credential_exposure",
+            "mean_abs_shap": 0.028068,
+            "mean_shap": 0.000252
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "asset_criticality",
+            "mean_abs_shap": 0.027804,
+            "mean_shap": 0.004276
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "threat_confidence",
+            "mean_abs_shap": 0.024382,
+            "mean_shap": 0.005029
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "internet_exposed",
+            "mean_abs_shap": 0.018534,
+            "mean_shap": 0.001629
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "endpoint_type",
+            "mean_abs_shap": 0.011995,
+            "mean_shap": -0.001165
+          }
+        ],
+        "isolate_host": [
+          {
+            "direction": "pushes_toward",
+            "feature": "severity",
+            "mean_abs_shap": 0.099732,
+            "mean_shap": 0.00258
+          },
+          {
+            "direction": "neutral",
+            "feature": "blast_radius",
+            "mean_abs_shap": 0.061788,
+            "mean_shap": 0.000938
+          },
+          {
+            "direction": "neutral",
+            "feature": "threat_confidence",
+            "mean_abs_shap": 0.058439,
+            "mean_shap": -0.000149
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "asset_criticality",
+            "mean_abs_shap": 0.036672,
+            "mean_shap": -0.004534
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "endpoint_type",
+            "mean_abs_shap": 0.035866,
+            "mean_shap": 0.002274
+          },
+          {
+            "direction": "neutral",
+            "feature": "credential_exposure",
+            "mean_abs_shap": 0.02989,
+            "mean_shap": -0.00011
+          },
+          {
+            "direction": "neutral",
+            "feature": "internet_exposed",
+            "mean_abs_shap": 0.024311,
+            "mean_shap": -0.000783
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "lateral_movement",
+            "mean_abs_shap": 0.018941,
+            "mean_shap": 0.003404
+          }
+        ],
+        "monitor_only": [
+          {
+            "direction": "pushes_away",
+            "feature": "severity",
+            "mean_abs_shap": 0.160902,
+            "mean_shap": -0.013254
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "blast_radius",
+            "mean_abs_shap": 0.050662,
+            "mean_shap": 0.005249
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "asset_criticality",
+            "mean_abs_shap": 0.040722,
+            "mean_shap": 0.005575
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "threat_confidence",
+            "mean_abs_shap": 0.030441,
+            "mean_shap": -0.002008
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "internet_exposed",
+            "mean_abs_shap": 0.024507,
+            "mean_shap": 0.001136
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "endpoint_type",
+            "mean_abs_shap": 0.021894,
+            "mean_shap": 0.003202
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "credential_exposure",
+            "mean_abs_shap": 0.011477,
+            "mean_shap": 0.002299
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "lateral_movement",
+            "mean_abs_shap": 0.007049,
+            "mean_shap": 0.002219
+          }
+        ],
+        "rotate_credentials": [
+          {
+            "direction": "pushes_toward",
+            "feature": "severity",
+            "mean_abs_shap": 0.085592,
+            "mean_shap": 0.004755
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "threat_confidence",
+            "mean_abs_shap": 0.058506,
+            "mean_shap": 0.002559
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "credential_exposure",
+            "mean_abs_shap": 0.058008,
+            "mean_shap": -0.009181
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "asset_criticality",
+            "mean_abs_shap": 0.036367,
+            "mean_shap": -0.004299
+          },
+          {
+            "direction": "neutral",
+            "feature": "endpoint_type",
+            "mean_abs_shap": 0.032597,
+            "mean_shap": 0.000509
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "blast_radius",
+            "mean_abs_shap": 0.023421,
+            "mean_shap": 0.002082
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "lateral_movement",
+            "mean_abs_shap": 0.020774,
+            "mean_shap": 0.002579
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "internet_exposed",
+            "mean_abs_shap": 0.006684,
+            "mean_shap": -0.001664
+          }
+        ]
+      },
+      "sample_count": 14
+    },
+    "sre": {
+      "action_count": 8,
+      "domain": "sre",
+      "feature_count": 27,
+      "global_shap_importances": [
+        {
+          "feature": "cross_region_read_staleness",
+          "rank": 1,
+          "shap_importance": 0.083419
+        },
+        {
+          "feature": "error_rate",
+          "rank": 2,
+          "shap_importance": 0.075691
+        },
+        {
+          "feature": "change_failure_blast_radius",
+          "rank": 3,
+          "shap_importance": 0.075234
+        },
+        {
+          "feature": "capacity_headroom",
+          "rank": 4,
+          "shap_importance": 0.070384
+        },
+        {
+          "feature": "quorum_health",
+          "rank": 5,
+          "shap_importance": 0.067941
+        },
+        {
+          "feature": "control_plane_availability",
+          "rank": 6,
+          "shap_importance": 0.067803
+        },
+        {
+          "feature": "fault_scope",
+          "rank": 7,
+          "shap_importance": 0.066745
+        },
+        {
+          "feature": "dependency_health",
+          "rank": 8,
+          "shap_importance": 0.058907
+        },
+        {
+          "feature": "saturation",
+          "rank": 9,
+          "shap_importance": 0.048701
+        },
+        {
+          "feature": "replication_lag",
+          "rank": 10,
+          "shap_importance": 0.047293
+        },
+        {
+          "feature": "replica_skew",
+          "rank": 11,
+          "shap_importance": 0.043523
+        },
+        {
+          "feature": "region_health",
+          "rank": 12,
+          "shap_importance": 0.035732
+        },
+        {
+          "feature": "node_locality_score",
+          "rank": 13,
+          "shap_importance": 0.035379
+        },
+        {
+          "feature": "deployment_recency",
+          "rank": 14,
+          "shap_importance": 0.033635
+        },
+        {
+          "feature": "mitigation_window_remaining",
+          "rank": 15,
+          "shap_importance": 0.020971
+        },
+        {
+          "feature": "telemetry_confidence",
+          "rank": 16,
+          "shap_importance": 0.020804
+        },
+        {
+          "feature": "rollback_safe",
+          "rank": 17,
+          "shap_importance": 0.019597
+        },
+        {
+          "feature": "recent_restart_attempts",
+          "rank": 18,
+          "shap_importance": 0.01789
+        },
+        {
+          "feature": "automation_policy_permits_failover",
+          "rank": 19,
+          "shap_importance": 0.017041
+        },
+        {
+          "feature": "runbook_coordination_required",
+          "rank": 20,
+          "shap_importance": 0.014197
+        },
+        {
+          "feature": "deploy_regression_suspected",
+          "rank": 21,
+          "shap_importance": 0.014057
+        },
+        {
+          "feature": "failover_ready",
+          "rank": 22,
+          "shap_importance": 0.013534
+        },
+        {
+          "feature": "operator_response_eta",
+          "rank": 23,
+          "shap_importance": 0.013338
+        },
+        {
+          "feature": "write_path_available",
+          "rank": 24,
+          "shap_importance": 0.011814
+        },
+        {
+          "feature": "latency",
+          "rank": 25,
+          "shap_importance": 0.009075
+        },
+        {
+          "feature": "secondary_capacity_ready",
+          "rank": 26,
+          "shap_importance": 0.008973
+        },
+        {
+          "feature": "operator_approval_required",
+          "rank": 27,
+          "shap_importance": 0.008321
+        }
+      ],
+      "metadata": {
+        "n_estimators": 256,
+        "shap_method": "TreeExplainer",
+        "train_accuracy": 1.0,
+        "train_case_count": 24
+      },
+      "model_path": "kvrm-models/sre_compact_selector_v1.joblib",
+      "per_action_directions": {
+        "drain_node": [
+          {
+            "direction": "pushes_away",
+            "feature": "fault_scope",
+            "mean_abs_shap": 0.051753,
+            "mean_shap": -0.003748
+          },
+          {
+            "direction": "neutral",
+            "feature": "change_failure_blast_radius",
+            "mean_abs_shap": 0.040692,
+            "mean_shap": -0.000632
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "error_rate",
+            "mean_abs_shap": 0.029056,
+            "mean_shap": -0.001183
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "dependency_health",
+            "mean_abs_shap": 0.023901,
+            "mean_shap": 0.001185
+          },
+          {
+            "direction": "neutral",
+            "feature": "saturation",
+            "mean_abs_shap": 0.022305,
+            "mean_shap": -0.000272
+          },
+          {
+            "direction": "neutral",
+            "feature": "cross_region_read_staleness",
+            "mean_abs_shap": 0.02045,
+            "mean_shap": -0.000889
+          },
+          {
+            "direction": "neutral",
+            "feature": "quorum_health",
+            "mean_abs_shap": 0.019581,
+            "mean_shap": -0.000783
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "capacity_headroom",
+            "mean_abs_shap": 0.019061,
+            "mean_shap": 0.001978
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "replica_skew",
+            "mean_abs_shap": 0.015705,
+            "mean_shap": -0.001769
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "node_locality_score",
+            "mean_abs_shap": 0.012937,
+            "mean_shap": -0.005053
+          },
+          {
+            "direction": "neutral",
+            "feature": "replication_lag",
+            "mean_abs_shap": 0.011198,
+            "mean_shap": 0.000904
+          },
+          {
+            "direction": "neutral",
+            "feature": "control_plane_availability",
+            "mean_abs_shap": 0.009969,
+            "mean_shap": 0.000332
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "deployment_recency",
+            "mean_abs_shap": 0.008427,
+            "mean_shap": 0.00163
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "rollback_safe",
+            "mean_abs_shap": 0.006849,
+            "mean_shap": 0.001914
+          },
+          {
+            "direction": "neutral",
+            "feature": "region_health",
+            "mean_abs_shap": 0.004925,
+            "mean_shap": 0.000198
+          },
+          {
+            "direction": "neutral",
+            "feature": "latency",
+            "mean_abs_shap": 0.004599,
+            "mean_shap": -0.000549
+          },
+          {
+            "direction": "neutral",
+            "feature": "mitigation_window_remaining",
+            "mean_abs_shap": 0.004113,
+            "mean_shap": 0.000917
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "deploy_regression_suspected",
+            "mean_abs_shap": 0.003823,
+            "mean_shap": 0.001076
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "telemetry_confidence",
+            "mean_abs_shap": 0.003774,
+            "mean_shap": 0.001952
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "recent_restart_attempts",
+            "mean_abs_shap": 0.003394,
+            "mean_shap": -0.001024
+          },
+          {
+            "direction": "neutral",
+            "feature": "runbook_coordination_required",
+            "mean_abs_shap": 0.002567,
+            "mean_shap": -0.000153
+          },
+          {
+            "direction": "neutral",
+            "feature": "automation_policy_permits_failover",
+            "mean_abs_shap": 0.002343,
+            "mean_shap": 0.000628
+          },
+          {
+            "direction": "neutral",
+            "feature": "write_path_available",
+            "mean_abs_shap": 0.002063,
+            "mean_shap": 8.2e-05
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_response_eta",
+            "mean_abs_shap": 0.001811,
+            "mean_shap": 0.000328
+          },
+          {
+            "direction": "neutral",
+            "feature": "failover_ready",
+            "mean_abs_shap": 0.001658,
+            "mean_shap": 0.000652
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_approval_required",
+            "mean_abs_shap": 0.001462,
+            "mean_shap": 0.000186
+          },
+          {
+            "direction": "neutral",
+            "feature": "secondary_capacity_ready",
+            "mean_abs_shap": 0.001404,
+            "mean_shap": 0.000141
+          }
+        ],
+        "enable_readonly_mode": [
+          {
+            "direction": "neutral",
+            "feature": "control_plane_availability",
+            "mean_abs_shap": 0.061898,
+            "mean_shap": 0.000624
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "cross_region_read_staleness",
+            "mean_abs_shap": 0.038433,
+            "mean_shap": 0.004935
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "change_failure_blast_radius",
+            "mean_abs_shap": 0.030828,
+            "mean_shap": 0.001655
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "quorum_health",
+            "mean_abs_shap": 0.027746,
+            "mean_shap": 0.005451
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "capacity_headroom",
+            "mean_abs_shap": 0.02504,
+            "mean_shap": 0.002811
+          },
+          {
+            "direction": "neutral",
+            "feature": "region_health",
+            "mean_abs_shap": 0.021504,
+            "mean_shap": -0.000333
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "saturation",
+            "mean_abs_shap": 0.019544,
+            "mean_shap": 0.002159
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "error_rate",
+            "mean_abs_shap": 0.01938,
+            "mean_shap": 0.003256
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "replication_lag",
+            "mean_abs_shap": 0.018598,
+            "mean_shap": 0.003721
+          },
+          {
+            "direction": "neutral",
+            "feature": "fault_scope",
+            "mean_abs_shap": 0.016047,
+            "mean_shap": -0.000154
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "dependency_health",
+            "mean_abs_shap": 0.014798,
+            "mean_shap": -0.002453
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "write_path_available",
+            "mean_abs_shap": 0.011998,
+            "mean_shap": 0.00294
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "replica_skew",
+            "mean_abs_shap": 0.011728,
+            "mean_shap": 0.00275
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "node_locality_score",
+            "mean_abs_shap": 0.010823,
+            "mean_shap": 0.001194
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "deployment_recency",
+            "mean_abs_shap": 0.007624,
+            "mean_shap": 0.002123
+          },
+          {
+            "direction": "neutral",
+            "feature": "mitigation_window_remaining",
+            "mean_abs_shap": 0.00715,
+            "mean_shap": 0.000422
+          },
+          {
+            "direction": "neutral",
+            "feature": "recent_restart_attempts",
+            "mean_abs_shap": 0.006687,
+            "mean_shap": 0.000174
+          },
+          {
+            "direction": "neutral",
+            "feature": "runbook_coordination_required",
+            "mean_abs_shap": 0.004392,
+            "mean_shap": 0.000757
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "failover_ready",
+            "mean_abs_shap": 0.003643,
+            "mean_shap": 0.001097
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "rollback_safe",
+            "mean_abs_shap": 0.003472,
+            "mean_shap": 0.001133
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "telemetry_confidence",
+            "mean_abs_shap": 0.003423,
+            "mean_shap": 0.002205
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_response_eta",
+            "mean_abs_shap": 0.003327,
+            "mean_shap": -0.000356
+          },
+          {
+            "direction": "neutral",
+            "feature": "automation_policy_permits_failover",
+            "mean_abs_shap": 0.003261,
+            "mean_shap": 0.000755
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "secondary_capacity_ready",
+            "mean_abs_shap": 0.002992,
+            "mean_shap": 0.001453
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_approval_required",
+            "mean_abs_shap": 0.0027,
+            "mean_shap": -0.00025
+          },
+          {
+            "direction": "neutral",
+            "feature": "latency",
+            "mean_abs_shap": 0.00246,
+            "mean_shap": 0.000179
+          },
+          {
+            "direction": "neutral",
+            "feature": "deploy_regression_suspected",
+            "mean_abs_shap": 0.002366,
+            "mean_shap": 0.00072
+          }
+        ],
+        "failover_region": [
+          {
+            "direction": "neutral",
+            "feature": "cross_region_read_staleness",
+            "mean_abs_shap": 0.024599,
+            "mean_shap": -0.00034
+          },
+          {
+            "direction": "neutral",
+            "feature": "dependency_health",
+            "mean_abs_shap": 0.022611,
+            "mean_shap": 0.000228
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "automation_policy_permits_failover",
+            "mean_abs_shap": 0.022469,
+            "mean_shap": -0.003103
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "fault_scope",
+            "mean_abs_shap": 0.022321,
+            "mean_shap": 0.001514
+          },
+          {
+            "direction": "neutral",
+            "feature": "capacity_headroom",
+            "mean_abs_shap": 0.020231,
+            "mean_shap": -0.000895
+          },
+          {
+            "direction": "neutral",
+            "feature": "quorum_health",
+            "mean_abs_shap": 0.018199,
+            "mean_shap": 0.0
+          },
+          {
+            "direction": "neutral",
+            "feature": "region_health",
+            "mean_abs_shap": 0.018013,
+            "mean_shap": -0.000186
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "failover_ready",
+            "mean_abs_shap": 0.017845,
+            "mean_shap": -0.003344
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "change_failure_blast_radius",
+            "mean_abs_shap": 0.017773,
+            "mean_shap": 0.001497
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "control_plane_availability",
+            "mean_abs_shap": 0.01549,
+            "mean_shap": -0.001897
+          },
+          {
+            "direction": "neutral",
+            "feature": "replica_skew",
+            "mean_abs_shap": 0.014836,
+            "mean_shap": 0.0002
+          },
+          {
+            "direction": "neutral",
+            "feature": "node_locality_score",
+            "mean_abs_shap": 0.014583,
+            "mean_shap": 0.000149
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "error_rate",
+            "mean_abs_shap": 0.014329,
+            "mean_shap": 0.002088
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "secondary_capacity_ready",
+            "mean_abs_shap": 0.011831,
+            "mean_shap": -0.002776
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "replication_lag",
+            "mean_abs_shap": 0.011013,
+            "mean_shap": 0.00233
+          },
+          {
+            "direction": "neutral",
+            "feature": "saturation",
+            "mean_abs_shap": 0.009604,
+            "mean_shap": 0.000923
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "recent_restart_attempts",
+            "mean_abs_shap": 0.008817,
+            "mean_shap": 0.00167
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "runbook_coordination_required",
+            "mean_abs_shap": 0.006908,
+            "mean_shap": -0.001211
+          },
+          {
+            "direction": "neutral",
+            "feature": "mitigation_window_remaining",
+            "mean_abs_shap": 0.00593,
+            "mean_shap": -0.000564
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_response_eta",
+            "mean_abs_shap": 0.005836,
+            "mean_shap": 0.000424
+          },
+          {
+            "direction": "neutral",
+            "feature": "write_path_available",
+            "mean_abs_shap": 0.003436,
+            "mean_shap": -0.000275
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_approval_required",
+            "mean_abs_shap": 0.00331,
+            "mean_shap": 0.000335
+          },
+          {
+            "direction": "neutral",
+            "feature": "rollback_safe",
+            "mean_abs_shap": 0.002077,
+            "mean_shap": 0.000805
+          },
+          {
+            "direction": "neutral",
+            "feature": "deployment_recency",
+            "mean_abs_shap": 0.00197,
+            "mean_shap": 0.00061
+          },
+          {
+            "direction": "neutral",
+            "feature": "latency",
+            "mean_abs_shap": 0.001501,
+            "mean_shap": -0.00036
+          },
+          {
+            "direction": "neutral",
+            "feature": "telemetry_confidence",
+            "mean_abs_shap": 0.0012,
+            "mean_shap": 0.000729
+          },
+          {
+            "direction": "neutral",
+            "feature": "deploy_regression_suspected",
+            "mean_abs_shap": 0.000641,
+            "mean_shap": 0.000286
+          }
+        ],
+        "gather_more_telemetry": [
+          {
+            "direction": "pushes_away",
+            "feature": "error_rate",
+            "mean_abs_shap": 0.04248,
+            "mean_shap": -0.008267
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "capacity_headroom",
+            "mean_abs_shap": 0.036057,
+            "mean_shap": -0.003027
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "telemetry_confidence",
+            "mean_abs_shap": 0.02743,
+            "mean_shap": -0.013284
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "change_failure_blast_radius",
+            "mean_abs_shap": 0.020997,
+            "mean_shap": -0.002567
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "cross_region_read_staleness",
+            "mean_abs_shap": 0.018142,
+            "mean_shap": -0.001742
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "replication_lag",
+            "mean_abs_shap": 0.017345,
+            "mean_shap": -0.001739
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "quorum_health",
+            "mean_abs_shap": 0.015763,
+            "mean_shap": -0.002144
+          },
+          {
+            "direction": "neutral",
+            "feature": "fault_scope",
+            "mean_abs_shap": 0.010768,
+            "mean_shap": -0.000163
+          },
+          {
+            "direction": "neutral",
+            "feature": "dependency_health",
+            "mean_abs_shap": 0.010744,
+            "mean_shap": -0.000333
+          },
+          {
+            "direction": "neutral",
+            "feature": "deployment_recency",
+            "mean_abs_shap": 0.010493,
+            "mean_shap": 0.000764
+          },
+          {
+            "direction": "neutral",
+            "feature": "node_locality_score",
+            "mean_abs_shap": 0.010453,
+            "mean_shap": -0.000644
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "saturation",
+            "mean_abs_shap": 0.010142,
+            "mean_shap": -0.001523
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "replica_skew",
+            "mean_abs_shap": 0.009378,
+            "mean_shap": -0.00175
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "control_plane_availability",
+            "mean_abs_shap": 0.008656,
+            "mean_shap": -0.001009
+          },
+          {
+            "direction": "neutral",
+            "feature": "recent_restart_attempts",
+            "mean_abs_shap": 0.005568,
+            "mean_shap": 5.9e-05
+          },
+          {
+            "direction": "neutral",
+            "feature": "region_health",
+            "mean_abs_shap": 0.005509,
+            "mean_shap": -0.000294
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "write_path_available",
+            "mean_abs_shap": 0.003667,
+            "mean_shap": -0.0012
+          },
+          {
+            "direction": "neutral",
+            "feature": "latency",
+            "mean_abs_shap": 0.00353,
+            "mean_shap": -0.000508
+          },
+          {
+            "direction": "neutral",
+            "feature": "deploy_regression_suspected",
+            "mean_abs_shap": 0.003324,
+            "mean_shap": 0.00052
+          },
+          {
+            "direction": "neutral",
+            "feature": "rollback_safe",
+            "mean_abs_shap": 0.00307,
+            "mean_shap": 0.000113
+          },
+          {
+            "direction": "neutral",
+            "feature": "mitigation_window_remaining",
+            "mean_abs_shap": 0.002082,
+            "mean_shap": 3e-05
+          },
+          {
+            "direction": "neutral",
+            "feature": "failover_ready",
+            "mean_abs_shap": 0.001658,
+            "mean_shap": 0.000533
+          },
+          {
+            "direction": "neutral",
+            "feature": "automation_policy_permits_failover",
+            "mean_abs_shap": 0.001432,
+            "mean_shap": 0.000435
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_response_eta",
+            "mean_abs_shap": 0.000763,
+            "mean_shap": 0.000145
+          },
+          {
+            "direction": "neutral",
+            "feature": "secondary_capacity_ready",
+            "mean_abs_shap": 0.000737,
+            "mean_shap": -1.1e-05
+          },
+          {
+            "direction": "neutral",
+            "feature": "runbook_coordination_required",
+            "mean_abs_shap": 0.000678,
+            "mean_shap": 0.000168
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_approval_required",
+            "mean_abs_shap": 0.000446,
+            "mean_shap": 2.4e-05
+          }
+        ],
+        "page_human_operator": [
+          {
+            "direction": "pushes_toward",
+            "feature": "control_plane_availability",
+            "mean_abs_shap": 0.036589,
+            "mean_shap": 0.003086
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "mitigation_window_remaining",
+            "mean_abs_shap": 0.02765,
+            "mean_shap": -0.001506
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "cross_region_read_staleness",
+            "mean_abs_shap": 0.024712,
+            "mean_shap": 0.005168
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "quorum_health",
+            "mean_abs_shap": 0.0241,
+            "mean_shap": 0.001478
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "fault_scope",
+            "mean_abs_shap": 0.020544,
+            "mean_shap": 0.002622
+          },
+          {
+            "direction": "neutral",
+            "feature": "runbook_coordination_required",
+            "mean_abs_shap": 0.018719,
+            "mean_shap": -0.000592
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "dependency_health",
+            "mean_abs_shap": 0.018117,
+            "mean_shap": 0.003434
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "operator_response_eta",
+            "mean_abs_shap": 0.017587,
+            "mean_shap": -0.001095
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "change_failure_blast_radius",
+            "mean_abs_shap": 0.015372,
+            "mean_shap": 0.003672
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "node_locality_score",
+            "mean_abs_shap": 0.014508,
+            "mean_shap": 0.001574
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "error_rate",
+            "mean_abs_shap": 0.01333,
+            "mean_shap": 0.004077
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "region_health",
+            "mean_abs_shap": 0.012503,
+            "mean_shap": 0.001296
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_approval_required",
+            "mean_abs_shap": 0.010971,
+            "mean_shap": -0.000474
+          },
+          {
+            "direction": "neutral",
+            "feature": "replica_skew",
+            "mean_abs_shap": 0.010947,
+            "mean_shap": 0.000589
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "capacity_headroom",
+            "mean_abs_shap": 0.010669,
+            "mean_shap": 0.002193
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "recent_restart_attempts",
+            "mean_abs_shap": 0.009985,
+            "mean_shap": 0.001645
+          },
+          {
+            "direction": "neutral",
+            "feature": "saturation",
+            "mean_abs_shap": 0.009642,
+            "mean_shap": -0.000275
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "replication_lag",
+            "mean_abs_shap": 0.006807,
+            "mean_shap": 0.002203
+          },
+          {
+            "direction": "neutral",
+            "feature": "automation_policy_permits_failover",
+            "mean_abs_shap": 0.00577,
+            "mean_shap": 0.000267
+          },
+          {
+            "direction": "neutral",
+            "feature": "failover_ready",
+            "mean_abs_shap": 0.005099,
+            "mean_shap": 0.000451
+          },
+          {
+            "direction": "neutral",
+            "feature": "deployment_recency",
+            "mean_abs_shap": 0.002885,
+            "mean_shap": 0.00086
+          },
+          {
+            "direction": "neutral",
+            "feature": "rollback_safe",
+            "mean_abs_shap": 0.002264,
+            "mean_shap": 0.000791
+          },
+          {
+            "direction": "neutral",
+            "feature": "secondary_capacity_ready",
+            "mean_abs_shap": 0.002075,
+            "mean_shap": 0.000808
+          },
+          {
+            "direction": "neutral",
+            "feature": "latency",
+            "mean_abs_shap": 0.001995,
+            "mean_shap": 0.000233
+          },
+          {
+            "direction": "neutral",
+            "feature": "telemetry_confidence",
+            "mean_abs_shap": 0.001544,
+            "mean_shap": 0.000924
+          },
+          {
+            "direction": "neutral",
+            "feature": "write_path_available",
+            "mean_abs_shap": 0.001183,
+            "mean_shap": 0.000152
+          },
+          {
+            "direction": "neutral",
+            "feature": "deploy_regression_suspected",
+            "mean_abs_shap": 0.001054,
+            "mean_shap": 0.000484
+          }
+        ],
+        "restart_service": [
+          {
+            "direction": "pushes_away",
+            "feature": "cross_region_read_staleness",
+            "mean_abs_shap": 0.052645,
+            "mean_shap": -0.002303
+          },
+          {
+            "direction": "neutral",
+            "feature": "quorum_health",
+            "mean_abs_shap": 0.03653,
+            "mean_shap": -0.000724
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "change_failure_blast_radius",
+            "mean_abs_shap": 0.03085,
+            "mean_shap": -0.002442
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "error_rate",
+            "mean_abs_shap": 0.027864,
+            "mean_shap": 0.004274
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "replication_lag",
+            "mean_abs_shap": 0.027708,
+            "mean_shap": -0.001517
+          },
+          {
+            "direction": "neutral",
+            "feature": "dependency_health",
+            "mean_abs_shap": 0.026947,
+            "mean_shap": -0.000247
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "capacity_headroom",
+            "mean_abs_shap": 0.025203,
+            "mean_shap": -0.00124
+          },
+          {
+            "direction": "neutral",
+            "feature": "control_plane_availability",
+            "mean_abs_shap": 0.022501,
+            "mean_shap": 0.000512
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "fault_scope",
+            "mean_abs_shap": 0.021663,
+            "mean_shap": 0.001688
+          },
+          {
+            "direction": "neutral",
+            "feature": "region_health",
+            "mean_abs_shap": 0.017943,
+            "mean_shap": 0.00028
+          },
+          {
+            "direction": "neutral",
+            "feature": "saturation",
+            "mean_abs_shap": 0.016284,
+            "mean_shap": 0.00094
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "replica_skew",
+            "mean_abs_shap": 0.015101,
+            "mean_shap": 0.001491
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "node_locality_score",
+            "mean_abs_shap": 0.009585,
+            "mean_shap": 0.001888
+          },
+          {
+            "direction": "neutral",
+            "feature": "deployment_recency",
+            "mean_abs_shap": 0.00716,
+            "mean_shap": 0.00086
+          },
+          {
+            "direction": "neutral",
+            "feature": "automation_policy_permits_failover",
+            "mean_abs_shap": 0.004511,
+            "mean_shap": 0.000159
+          },
+          {
+            "direction": "neutral",
+            "feature": "rollback_safe",
+            "mean_abs_shap": 0.004394,
+            "mean_shap": 0.000589
+          },
+          {
+            "direction": "neutral",
+            "feature": "deploy_regression_suspected",
+            "mean_abs_shap": 0.003721,
+            "mean_shap": 0.000235
+          },
+          {
+            "direction": "neutral",
+            "feature": "failover_ready",
+            "mean_abs_shap": 0.00335,
+            "mean_shap": -5.3e-05
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "telemetry_confidence",
+            "mean_abs_shap": 0.003301,
+            "mean_shap": 0.001638
+          },
+          {
+            "direction": "neutral",
+            "feature": "mitigation_window_remaining",
+            "mean_abs_shap": 0.002659,
+            "mean_shap": 0.000679
+          },
+          {
+            "direction": "neutral",
+            "feature": "recent_restart_attempts",
+            "mean_abs_shap": 0.002478,
+            "mean_shap": -0.000612
+          },
+          {
+            "direction": "neutral",
+            "feature": "secondary_capacity_ready",
+            "mean_abs_shap": 0.002258,
+            "mean_shap": -0.000347
+          },
+          {
+            "direction": "neutral",
+            "feature": "latency",
+            "mean_abs_shap": 0.002049,
+            "mean_shap": 0.00025
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_response_eta",
+            "mean_abs_shap": 0.001969,
+            "mean_shap": 7.7e-05
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "write_path_available",
+            "mean_abs_shap": 0.001911,
+            "mean_shap": -0.001376
+          },
+          {
+            "direction": "neutral",
+            "feature": "runbook_coordination_required",
+            "mean_abs_shap": 0.001475,
+            "mean_shap": 0.000249
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_approval_required",
+            "mean_abs_shap": 0.00081,
+            "mean_shap": 0.000121
+          }
+        ],
+        "rollback_deploy": [
+          {
+            "direction": "pushes_away",
+            "feature": "deployment_recency",
+            "mean_abs_shap": 0.044349,
+            "mean_shap": -0.007796
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "rollback_safe",
+            "mean_abs_shap": 0.025839,
+            "mean_shap": -0.005191
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "replication_lag",
+            "mean_abs_shap": 0.021747,
+            "mean_shap": -0.001411
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "change_failure_blast_radius",
+            "mean_abs_shap": 0.021363,
+            "mean_shap": 0.001628
+          },
+          {
+            "direction": "neutral",
+            "feature": "cross_region_read_staleness",
+            "mean_abs_shap": 0.020093,
+            "mean_shap": -0.000892
+          },
+          {
+            "direction": "neutral",
+            "feature": "dependency_health",
+            "mean_abs_shap": 0.018943,
+            "mean_shap": -0.00061
+          },
+          {
+            "direction": "neutral",
+            "feature": "capacity_headroom",
+            "mean_abs_shap": 0.018792,
+            "mean_shap": 0.000629
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "deploy_regression_suspected",
+            "mean_abs_shap": 0.018535,
+            "mean_shap": -0.003035
+          },
+          {
+            "direction": "neutral",
+            "feature": "error_rate",
+            "mean_abs_shap": 0.018265,
+            "mean_shap": 0.00024
+          },
+          {
+            "direction": "neutral",
+            "feature": "quorum_health",
+            "mean_abs_shap": 0.01781,
+            "mean_shap": -7e-05
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "replica_skew",
+            "mean_abs_shap": 0.014652,
+            "mean_shap": 0.002244
+          },
+          {
+            "direction": "neutral",
+            "feature": "fault_scope",
+            "mean_abs_shap": 0.014402,
+            "mean_shap": -0.000371
+          },
+          {
+            "direction": "neutral",
+            "feature": "control_plane_availability",
+            "mean_abs_shap": 0.011008,
+            "mean_shap": -0.000112
+          },
+          {
+            "direction": "neutral",
+            "feature": "saturation",
+            "mean_abs_shap": 0.010448,
+            "mean_shap": 0.000386
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "node_locality_score",
+            "mean_abs_shap": 0.007172,
+            "mean_shap": 0.002759
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "telemetry_confidence",
+            "mean_abs_shap": 0.006505,
+            "mean_shap": 0.0027
+          },
+          {
+            "direction": "neutral",
+            "feature": "region_health",
+            "mean_abs_shap": 0.005522,
+            "mean_shap": 0.000419
+          },
+          {
+            "direction": "neutral",
+            "feature": "recent_restart_attempts",
+            "mean_abs_shap": 0.004169,
+            "mean_shap": 0.000271
+          },
+          {
+            "direction": "neutral",
+            "feature": "write_path_available",
+            "mean_abs_shap": 0.003265,
+            "mean_shap": 0.000155
+          },
+          {
+            "direction": "neutral",
+            "feature": "latency",
+            "mean_abs_shap": 0.00322,
+            "mean_shap": 0.00012
+          },
+          {
+            "direction": "neutral",
+            "feature": "mitigation_window_remaining",
+            "mean_abs_shap": 0.002577,
+            "mean_shap": 0.000206
+          },
+          {
+            "direction": "neutral",
+            "feature": "automation_policy_permits_failover",
+            "mean_abs_shap": 0.001725,
+            "mean_shap": 0.000633
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_response_eta",
+            "mean_abs_shap": 0.001695,
+            "mean_shap": 0.000716
+          },
+          {
+            "direction": "neutral",
+            "feature": "runbook_coordination_required",
+            "mean_abs_shap": 0.001012,
+            "mean_shap": 0.000383
+          },
+          {
+            "direction": "neutral",
+            "feature": "failover_ready",
+            "mean_abs_shap": 0.000936,
+            "mean_shap": 0.000436
+          },
+          {
+            "direction": "neutral",
+            "feature": "secondary_capacity_ready",
+            "mean_abs_shap": 0.000853,
+            "mean_shap": 0.000336
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_approval_required",
+            "mean_abs_shap": 0.000571,
+            "mean_shap": 0.000112
+          }
+        ],
+        "scale_out": [
+          {
+            "direction": "pushes_away",
+            "feature": "error_rate",
+            "mean_abs_shap": 0.034896,
+            "mean_shap": -0.004487
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "capacity_headroom",
+            "mean_abs_shap": 0.030553,
+            "mean_shap": -0.002449
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "saturation",
+            "mean_abs_shap": 0.030457,
+            "mean_shap": -0.002337
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "replica_skew",
+            "mean_abs_shap": 0.022427,
+            "mean_shap": -0.003753
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "cross_region_read_staleness",
+            "mean_abs_shap": 0.020904,
+            "mean_shap": -0.003938
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "change_failure_blast_radius",
+            "mean_abs_shap": 0.020521,
+            "mean_shap": -0.002811
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "quorum_health",
+            "mean_abs_shap": 0.019435,
+            "mean_shap": -0.003209
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "dependency_health",
+            "mean_abs_shap": 0.01928,
+            "mean_shap": -0.001203
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "fault_scope",
+            "mean_abs_shap": 0.018512,
+            "mean_shap": -0.001388
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "node_locality_score",
+            "mean_abs_shap": 0.013237,
+            "mean_shap": -0.001867
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "control_plane_availability",
+            "mean_abs_shap": 0.01269,
+            "mean_shap": -0.001537
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "replication_lag",
+            "mean_abs_shap": 0.010296,
+            "mean_shap": -0.004492
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "region_health",
+            "mean_abs_shap": 0.008309,
+            "mean_shap": -0.00138
+          },
+          {
+            "direction": "pushes_toward",
+            "feature": "telemetry_confidence",
+            "mean_abs_shap": 0.007682,
+            "mean_shap": 0.003136
+          },
+          {
+            "direction": "pushes_away",
+            "feature": "recent_restart_attempts",
+            "mean_abs_shap": 0.006081,
+            "mean_shap": -0.002182
+          },
+          {
+            "direction": "neutral",
+            "feature": "deployment_recency",
+            "mean_abs_shap": 0.00579,
+            "mean_shap": 0.00095
+          },
+          {
+            "direction": "neutral",
+            "feature": "latency",
+            "mean_abs_shap": 0.004578,
+            "mean_shap": 0.000635
+          },
+          {
+            "direction": "neutral",
+            "feature": "rollback_safe",
+            "mean_abs_shap": 0.003714,
+            "mean_shap": -0.000154
+          },
+          {
+            "direction": "neutral",
+            "feature": "write_path_available",
+            "mean_abs_shap": 0.003632,
+            "mean_shap": -0.000478
+          },
+          {
+            "direction": "neutral",
+            "feature": "deploy_regression_suspected",
+            "mean_abs_shap": 0.003606,
+            "mean_shap": -0.000286
+          },
+          {
+            "direction": "neutral",
+            "feature": "automation_policy_permits_failover",
+            "mean_abs_shap": 0.003426,
+            "mean_shap": 0.000226
+          },
+          {
+            "direction": "neutral",
+            "feature": "mitigation_window_remaining",
+            "mean_abs_shap": 0.003139,
+            "mean_shap": -0.000186
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_response_eta",
+            "mean_abs_shap": 0.002187,
+            "mean_shap": -0.000239
+          },
+          {
+            "direction": "neutral",
+            "feature": "runbook_coordination_required",
+            "mean_abs_shap": 0.001688,
+            "mean_shap": 0.000399
+          },
+          {
+            "direction": "neutral",
+            "feature": "operator_approval_required",
+            "mean_abs_shap": 0.001672,
+            "mean_shap": -5.4e-05
+          },
+          {
+            "direction": "neutral",
+            "feature": "secondary_capacity_ready",
+            "mean_abs_shap": 0.001512,
+            "mean_shap": 0.000396
+          },
+          {
+            "direction": "neutral",
+            "feature": "failover_ready",
+            "mean_abs_shap": 0.001501,
+            "mean_shap": 0.000227
+          }
+        ]
+      },
+      "sample_count": 24
+    }
+  },
+  "generated_at": "2026-04-13T03:02:03.186824+00:00",
+  "model_dir": "kvrm-models",
+  "summary": {
+    "analyzed_domain_count": 9,
+    "skipped_domain_count": 0,
+    "total_domain_count": 9
+  }
+}

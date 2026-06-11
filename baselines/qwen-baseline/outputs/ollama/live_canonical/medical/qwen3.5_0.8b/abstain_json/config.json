@@ -1,0 +1,12 @@
+{
+  "domain": "medical",
+  "model": "qwen3.5:0.8b",
+  "variant": "abstain_json",
+  "runner": "ollama",
+  "registry_version": "1.2.0",
+  "train_cases": 12,
+  "eval_cases": 24,
+  "max_examples_per_action": 2,
+  "timestamp": "2026-04-10T17:41:35.545637+00:00",
+  "refresh": true
+}

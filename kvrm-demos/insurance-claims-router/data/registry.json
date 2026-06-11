@@ -1,0 +1,212 @@
+{
+  "registry_name": "insurance-claims-router",
+  "version": "1.0.0",
+  "required_features": [
+    "claim_amount",
+    "claim_type",
+    "policy_status",
+    "documentation_complete",
+    "fraud_score",
+    "prior_claims_count",
+    "coverage_verified"
+  ],
+  "context_schema": {
+    "claim_amount": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 10000000.0
+    },
+    "claim_type": {
+      "type": "string",
+      "enum": ["auto", "property", "health", "life", "liability"]
+    },
+    "policy_status": {
+      "type": "string",
+      "enum": ["active", "lapsed", "pending"]
+    },
+    "documentation_complete": {
+      "type": "boolean"
+    },
+    "fraud_score": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "prior_claims_count": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 50.0
+    },
+    "coverage_verified": {
+      "type": "boolean"
+    }
+  },
+  "actions": [
+    {
+      "action_id": "auto_approve_claim",
+      "name": "Auto Approve Claim",
+      "description": "Automatically approve low-value claims with complete documentation, verified coverage, and low fraud risk.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "claim_amount", "op": "lte", "value": 5000.0 },
+          { "feature": "policy_status", "op": "eq", "value": "active" },
+          { "feature": "documentation_complete", "op": "eq", "value": true },
+          { "feature": "fraud_score", "op": "lte", "value": 0.2 },
+          { "feature": "prior_claims_count", "op": "lte", "value": 3.0 },
+          { "feature": "coverage_verified", "op": "eq", "value": true },
+          { "feature": "claim_type", "op": "in", "value": ["auto", "property"] }
+        ]
+      },
+      "tags": ["automation", "approval"]
+    },
+    {
+      "action_id": "request_documentation",
+      "name": "Request Documentation",
+      "description": "Request missing documentation when claim cannot be processed due to incomplete records.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "documentation_complete", "op": "eq", "value": false },
+          { "feature": "policy_status", "op": "eq", "value": "active" },
+          { "feature": "fraud_score", "op": "lte", "value": 0.5 },
+          { "feature": "coverage_verified", "op": "eq", "value": true }
+        ]
+      },
+      "tags": ["documentation"]
+    },
+    {
+      "action_id": "assign_adjuster",
+      "name": "Assign Adjuster",
+      "description": "Assign a claims adjuster for moderate-value claims with complete documentation requiring human evaluation.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "claim_amount", "op": "gt", "value": 5000.0 },
+          { "feature": "claim_amount", "op": "lte", "value": 100000.0 },
+          { "feature": "policy_status", "op": "eq", "value": "active" },
+          { "feature": "documentation_complete", "op": "eq", "value": true },
+          { "feature": "fraud_score", "op": "lte", "value": 0.4 },
+          { "feature": "coverage_verified", "op": "eq", "value": true },
+          { "feature": "claim_type", "op": "in", "value": ["auto", "property", "health", "liability"] }
+        ]
+      },
+      "tags": ["adjuster", "review"]
+    },
+    {
+      "action_id": "escalate_medical_review",
+      "name": "Escalate Medical Review",
+      "description": "Escalate health or life claims to medical review board for clinical assessment.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "claim_type", "op": "in", "value": ["health", "life"] },
+          { "feature": "claim_amount", "op": "gt", "value": 25000.0 },
+          { "feature": "policy_status", "op": "eq", "value": "active" },
+          { "feature": "documentation_complete", "op": "eq", "value": true },
+          { "feature": "fraud_score", "op": "lte", "value": 0.5 },
+          { "feature": "coverage_verified", "op": "eq", "value": true }
+        ]
+      },
+      "tags": ["medical", "escalation"]
+    },
+    {
+      "action_id": "flag_fraud_investigation",
+      "name": "Flag Fraud Investigation",
+      "description": "Flag claim for Special Investigations Unit when fraud indicators exceed thresholds.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "fraud_score", "op": "gt", "value": 0.6 },
+          { "feature": "policy_status", "op": "in", "value": ["active", "lapsed"] },
+          {
+            "any": [
+              { "feature": "prior_claims_count", "op": "gt", "value": 5.0 },
+              { "feature": "claim_amount", "op": "gt", "value": 50000.0 },
+              {
+                "all": [
+                  { "feature": "fraud_score", "op": "gt", "value": 0.8 },
+                  { "feature": "prior_claims_count", "op": "gt", "value": 3.0 }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": ["fraud", "investigation"]
+    },
+    {
+      "action_id": "deny_claim",
+      "name": "Deny Claim",
+      "description": "Deny claim when policy is lapsed, coverage is not verified, or claim clearly falls outside coverage.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "any": [
+          {
+            "all": [
+              { "feature": "policy_status", "op": "eq", "value": "lapsed" },
+              { "feature": "coverage_verified", "op": "eq", "value": false },
+              { "feature": "fraud_score", "op": "lte", "value": 0.6 }
+            ]
+          },
+          {
+            "all": [
+              { "feature": "coverage_verified", "op": "eq", "value": false },
+              { "feature": "policy_status", "op": "eq", "value": "active" },
+              { "feature": "documentation_complete", "op": "eq", "value": true },
+              { "feature": "fraud_score", "op": "lte", "value": 0.6 }
+            ]
+          }
+        ]
+      },
+      "tags": ["denial"]
+    },
+    {
+      "action_id": "escalate_to_supervisor",
+      "name": "Escalate to Supervisor",
+      "description": "Escalate to claims supervisor when automated routing cannot safely determine the correct action.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": { "type": "string" }
+        },
+        "required": ["reason"]
+      },
+      "support_spec": {
+        "all": [
+          { "feature": "claim_amount", "op": "gt", "value": 100000.0 },
+          { "feature": "policy_status", "op": "eq", "value": "active" },
+          { "feature": "documentation_complete", "op": "eq", "value": true },
+          { "feature": "coverage_verified", "op": "eq", "value": true },
+          { "feature": "fraud_score", "op": "lte", "value": 0.6 },
+          { "feature": "claim_type", "op": "in", "value": ["liability", "life"] }
+        ]
+      },
+      "tags": ["escalation", "fallback"]
+    }
+  ]
+}

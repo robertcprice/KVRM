@@ -1,0 +1,51 @@
+{
+  "domains": {
+    "medical": {
+      "case_count": 1000,
+      "correctness": {
+        "abstention_rate": 0.0,
+        "calibration_ece": 0.6766913333333333,
+        "fallback_rate": 0.716,
+        "false_accept_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "latency_p50_ms": 16.986040980555117,
+        "latency_p95_ms": 23.917875019833446,
+        "latency_p99_ms": 38.24570798315108,
+        "mean_decision_cost": 0.002,
+        "ood_accuracy_supported_only": 0.9913793103448276,
+        "semantic_correctness_rate": 0.9913793103448276,
+        "structural_validity_rate": 1.0,
+        "support_gate_exhausted_rate": 0.0,
+        "support_gate_trigger_rate": 0.0,
+        "supported_cases": 232,
+        "supported_mean_decision_cost": 0.008620689655172414,
+        "supported_support_gate_rescue_rate": 0.0,
+        "total_cases": 1000,
+        "unsupported_case_rejection_rate": 1.0,
+        "unsupported_cases": 768,
+        "unsupported_mean_decision_cost": 0.0,
+        "unsupported_support_gate_short_circuit_rate": 0.0
+      },
+      "latency": {
+        "max_ms": 64.3913,
+        "mean_ms": 17.9167,
+        "p50_ms": 17.1043,
+        "p95_ms": 24.005,
+        "p99_ms": 38.317,
+        "throughput_decisions_per_sec": 55.69,
+        "total_elapsed_ms": 17957.956
+      },
+      "multi_action_case_count": 3,
+      "supported_case_count": 232,
+      "total_feature_space_size": 25920,
+      "unsupported_case_count": 768
+    }
+  },
+  "generated_at": "2026-04-13T02:09:14.285750+00:00",
+  "summary": {
+    "all_domains_perfect": false,
+    "overall_throughput_decisions_per_sec": 55.69,
+    "total_cases": 1000,
+    "total_elapsed_ms": 17957.956
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "domain": "drone",
+  "model": "qwen3:1.7b",
+  "variant": "abstain_json",
+  "eval_filename": "cases_v2.jsonl",
+  "train_cases": 14,
+  "eval_cases": 110
+}

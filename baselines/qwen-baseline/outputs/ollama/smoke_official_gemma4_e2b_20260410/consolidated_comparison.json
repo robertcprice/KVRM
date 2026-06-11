@@ -1,0 +1,95 @@
+{
+  "generated_at": "2026-04-10T17:52:16.725782+00:00",
+  "domains": [
+    "finance"
+  ],
+  "models": [
+    "gemma4:e2b"
+  ],
+  "kvrm_results": {
+    "finance": {
+      "abstention_rate": 0.0,
+      "calibration_ece": 0.21996296296296308,
+      "fallback_rate": 0.25,
+      "false_accept_rate": 0.0,
+      "invalid_output_rate": 0.0,
+      "latency_p50_ms": 0.15916599659249187,
+      "latency_p95_ms": 0.20433403551578522,
+      "latency_p99_ms": 0.2966250176541507,
+      "mean_decision_cost": 0.0,
+      "ood_accuracy_supported_only": 1.0,
+      "semantic_correctness_rate": 1.0,
+      "structural_validity_rate": 1.0,
+      "support_gate_exhausted_rate": 0.0,
+      "support_gate_trigger_rate": 0.0,
+      "supported_cases": 18,
+      "supported_mean_decision_cost": 0.0,
+      "supported_support_gate_rescue_rate": 0.0,
+      "total_cases": 24,
+      "unsupported_case_rejection_rate": 1.0,
+      "unsupported_cases": 6,
+      "unsupported_mean_decision_cost": 0.0,
+      "unsupported_support_gate_short_circuit_rate": 1.0
+    }
+  },
+  "ollama_results": {
+    "gemma4:e2b": {
+      "finance": {
+        "total_cases": 5,
+        "supported_cases": 5,
+        "unsupported_cases": 0,
+        "structural_validity_rate": 1.0,
+        "semantic_correctness_rate": 0.8,
+        "abstention_rate": 0.0,
+        "fallback_rate": 0.0,
+        "invalid_output_rate": 0.0,
+        "false_accept_rate": 0.0,
+        "latency_p50_ms": 699.9112500016054,
+        "latency_p95_ms": 6849.705917000392,
+        "latency_p99_ms": 6849.705917000392,
+        "calibration_ece": 0.192,
+        "ood_accuracy_supported_only": 0.5,
+        "unsupported_case_rejection_rate": 0.0,
+        "support_gate_trigger_rate": 0.0,
+        "supported_support_gate_rescue_rate": 0.0,
+        "unsupported_support_gate_short_circuit_rate": 0.0,
+        "support_gate_exhausted_rate": 0.0,
+        "mean_decision_cost": 0.2,
+        "supported_mean_decision_cost": 0.2,
+        "unsupported_mean_decision_cost": 0.0
+      }
+    }
+  },
+  "model_summaries": {
+    "gemma4:e2b": {
+      "total_cases": 5,
+      "supported_cases": 5,
+      "unsupported_cases": 0,
+      "structural_validity_rate": 1.0,
+      "semantic_correctness_rate": 0.8,
+      "abstention_rate": 0.0,
+      "fallback_rate": 0.0,
+      "invalid_output_rate": 0.0,
+      "false_accept_rate": 0.0,
+      "latency_p50_ms": 699.9112500016054,
+      "latency_p95_ms": 6849.705917000392,
+      "latency_p99_ms": 6849.705917000392,
+      "calibration_ece": 0.192,
+      "ood_accuracy_supported_only": 0.5,
+      "unsupported_case_rejection_rate": 0.0,
+      "support_gate_trigger_rate": 0.0,
+      "supported_support_gate_rescue_rate": 0.0,
+      "unsupported_support_gate_short_circuit_rate": 0.0,
+      "support_gate_exhausted_rate": 0.0,
+      "mean_decision_cost": 0.2,
+      "supported_mean_decision_cost": 0.2,
+      "unsupported_mean_decision_cost": 0.0,
+      "macro_semantic_correctness_rate": 0.8,
+      "macro_false_accept_rate": 0.0,
+      "macro_unsupported_case_rejection_rate": 0.0,
+      "macro_invalid_output_rate": 0.0,
+      "macro_mean_decision_cost": 0.2,
+      "domain_count": 1
+    }
+  }
+}

@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+dist/
+build/
+
+# Virtual environments
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test/build artifacts
+.pytest_cache/
+htmlcov/
+.coverage
+
+# Research artifacts (keep intentional models/ and kvrm-models/ only)
+*.log
+*.tar.gz
+training_artifacts/
+staged_classifier/
+checkpoints/
+tmp/
+# Do NOT blanket-ignore *.pt / *.joblib — kvrm-models/ and some satellite model dirs are intentional.
+# Prefer per-subproject .gitignore additions for their local large outputs.
+
+# Generated demo outputs (regenerable)
+kvrm-demos/*/outputs/
+# Generated bench working results (the curated committed snapshots live in top-level kvrm-bench-results/)
+kvrm-bench/results/
+
+# Heavy experimental satellites — separate research threads, multi-GB local
+# artifact stores, not part of the flagship paper (kvrm-core + kvrm-bench +
+# kvrm-demos). Excluded to keep the publishable repo lean and citable.
+kvrm-llm-compiler/
+kvrm-os/
+kvrm-vector/
+kvrm-gpu/
+kvrm-ecosystem/
+
+# Fine-tuning experiment checkpoints (1.7G) — the negative result ("finetuning
+# ceiling") is captured in docs/memory; raw checkpoints are not committed.
+# The small Ollama baseline results in baselines/qwen-baseline/ ARE kept.
+baselines/finetune/

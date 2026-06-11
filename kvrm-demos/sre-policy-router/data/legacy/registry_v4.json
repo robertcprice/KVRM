@@ -1,0 +1,510 @@
+{
+  "registry_name": "sre-policy-router",
+  "version": "1.1.0",
+  "actions": [
+    {
+      "action_id": "restart_service",
+      "name": "Restart Service",
+      "description": "Restart unhealthy service when the fault looks service-local and automation remains viable.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "dependency_health",
+            "op": "eq",
+            "value": "degraded"
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "service"
+          },
+          {
+            "feature": "node_locality_score",
+            "op": "lte",
+            "value": 0.35
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "op": "lte",
+            "value": 1.0
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "elevated",
+              "high",
+              "severe",
+              "extreme"
+            ]
+          },
+          {
+            "feature": "saturation",
+            "op": "eq",
+            "value": "high"
+          }
+        ]
+      },
+      "tags": [
+        "service"
+      ]
+    },
+    {
+      "action_id": "failover_region",
+      "name": "Failover Region",
+      "description": "Shift traffic to a healthy region when failover is safe and permitted.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "dependency_health",
+            "op": "eq",
+            "value": "failing"
+          },
+          {
+            "feature": "region_health",
+            "op": "eq",
+            "value": "failing"
+          },
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "error_rate",
+            "op": "eq",
+            "value": "severe"
+          },
+          {
+            "feature": "replication_lag",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "saturation",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "high",
+              "severe",
+              "extreme"
+            ]
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "region"
+          },
+          {
+            "feature": "failover_ready",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "secondary_capacity_ready",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "automation_policy_permits_failover",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "operator_approval_required",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "tags": [
+        "region"
+      ]
+    },
+    {
+      "action_id": "scale_out",
+      "name": "Scale Out",
+      "description": "Add capacity when latency is demand-driven rather than deploy-driven.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "dependency_health",
+            "op": "eq",
+            "value": "healthy"
+          },
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "saturation",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "elevated",
+              "high"
+            ]
+          },
+          {
+            "feature": "capacity_headroom",
+            "op": "eq",
+            "value": "low"
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "service"
+          }
+        ]
+      },
+      "tags": [
+        "capacity"
+      ]
+    },
+    {
+      "action_id": "drain_node",
+      "name": "Drain Node",
+      "description": "Drain one unhealthy node when failure is concentrated to a local replica.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "dependency_health",
+            "op": "eq",
+            "value": "degraded"
+          },
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "node"
+          },
+          {
+            "feature": "node_locality_score",
+            "op": "gte",
+            "value": 0.65
+          },
+          {
+            "feature": "recent_restart_attempts",
+            "op": "lte",
+            "value": 1.0
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "tags": [
+        "node"
+      ]
+    },
+    {
+      "action_id": "rollback_deploy",
+      "name": "Rollback Deploy",
+      "description": "Rollback a suspected bad deployment when rollback is safe.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "deployment_recency",
+            "op": "in",
+            "value": [
+              "fresh",
+              "recent"
+            ]
+          },
+          {
+            "feature": "error_rate",
+            "op": "in",
+            "value": [
+              "elevated",
+              "high",
+              "severe"
+            ]
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "elevated",
+              "high",
+              "severe",
+              "extreme"
+            ]
+          },
+          {
+            "feature": "deploy_regression_suspected",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "rollback_safe",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "service"
+          }
+        ]
+      },
+      "tags": [
+        "deploy"
+      ]
+    },
+    {
+      "action_id": "enable_readonly_mode",
+      "name": "Enable Readonly Mode",
+      "description": "Preserve the service by disabling writes when consistency is at risk.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "replication_lag",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "saturation",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "error_rate",
+            "op": "in",
+            "value": [
+              "high",
+              "severe"
+            ]
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "elevated",
+              "high",
+              "severe",
+              "extreme"
+            ]
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "service"
+          },
+          {
+            "feature": "change_failure_blast_radius",
+            "op": "in",
+            "value": [
+              "cluster",
+              "region"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "safety"
+      ]
+    },
+    {
+      "action_id": "gather_more_telemetry",
+      "name": "Gather More Telemetry",
+      "description": "Collect more evidence before taking disruptive action.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "write_path_available",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "telemetry_confidence",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "service"
+          },
+          {
+            "feature": "error_rate",
+            "op": "in",
+            "value": [
+              "normal",
+              "elevated"
+            ]
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "normal",
+              "elevated"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "telemetry"
+      ]
+    },
+    {
+      "action_id": "page_human_operator",
+      "name": "Page Human Operator",
+      "description": "Escalate to a human operator when the blast radius is severe but automated failover is blocked.",
+      "parameters_schema": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason"
+        ]
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "dependency_health",
+            "op": "eq",
+            "value": "failing"
+          },
+          {
+            "feature": "error_rate",
+            "op": "eq",
+            "value": "severe"
+          },
+          {
+            "feature": "saturation",
+            "op": "eq",
+            "value": "critical"
+          },
+          {
+            "feature": "latency",
+            "op": "in",
+            "value": [
+              "severe",
+              "extreme"
+            ]
+          },
+          {
+            "feature": "fault_scope",
+            "op": "eq",
+            "value": "region"
+          },
+          {
+            "any": [
+              {
+                "feature": "failover_ready",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "feature": "secondary_capacity_ready",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "feature": "automation_policy_permits_failover",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "feature": "operator_approval_required",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "fallback",
+        "safe",
+        "safety"
+      ]
+    }
+  ]
+}

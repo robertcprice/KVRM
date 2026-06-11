@@ -1,0 +1,5058 @@
+{
+  "timestamp": "2026-04-13T03:03:01.735158+00:00",
+  "n_domains": 9,
+  "n_strategies": 6,
+  "total_evaluations": 54,
+  "global_best_calibrated_strategy": "rule",
+  "mean_ece_by_strategy": {
+    "rule": 0.008553,
+    "retrieval": 0.011142,
+    "semantic": 0.024128,
+    "prototype": 0.059635,
+    "learned": 0.107152,
+    "hybrid": 0.274463
+  },
+  "mean_brier_by_strategy": {
+    "hybrid": 0.240113,
+    "prototype": 0.301968,
+    "learned": 0.558321,
+    "semantic": 0.61847,
+    "retrieval": 0.668962,
+    "rule": 0.780742
+  },
+  "best_strategy_per_domain": {
+    "soc": "retrieval",
+    "sre": "rule",
+    "drone": "rule",
+    "grid": "rule",
+    "finance": "retrieval",
+    "medical": "rule",
+    "iam": "semantic",
+    "customer_support": "rule",
+    "content_moderation": "rule"
+  },
+  "per_strategy_domain_results": [
+    {
+      "domain": "soc",
+      "strategy": "rule",
+      "n_cases": 126,
+      "n_confident": 126,
+      "ece": 0.004127,
+      "mce": 0.14,
+      "brier": 0.873537,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 3,
+          "mean_confidence": 0.86,
+          "mean_accuracy": 1.0,
+          "gap": 0.14
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 3,
+          "mean_confidence": 0.9667,
+          "mean_accuracy": 1.0,
+          "gap": 0.0333
+        }
+      ]
+    },
+    {
+      "domain": "soc",
+      "strategy": "retrieval",
+      "n_cases": 126,
+      "n_confident": 126,
+      "ece": 0.002857,
+      "mce": 0.04,
+      "brier": 0.849321,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 9,
+          "mean_confidence": 0.96,
+          "mean_accuracy": 1.0,
+          "gap": 0.04
+        }
+      ]
+    },
+    {
+      "domain": "soc",
+      "strategy": "prototype",
+      "n_cases": 126,
+      "n_confident": 126,
+      "ece": 0.050964,
+      "mce": 0.4,
+      "brier": 0.309269,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 1,
+          "mean_confidence": 0.6,
+          "mean_accuracy": 1.0,
+          "gap": 0.4
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 1,
+          "mean_confidence": 0.65,
+          "mean_accuracy": 1.0,
+          "gap": 0.35
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 3,
+          "mean_confidence": 0.7639,
+          "mean_accuracy": 1.0,
+          "gap": 0.2361
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 15,
+          "mean_confidence": 0.8533,
+          "mean_accuracy": 1.0,
+          "gap": 0.1467
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 58,
+          "mean_confidence": 0.9524,
+          "mean_accuracy": 1.0,
+          "gap": 0.0476
+        }
+      ]
+    },
+    {
+      "domain": "soc",
+      "strategy": "semantic",
+      "n_cases": 126,
+      "n_confident": 126,
+      "ece": 0.005714,
+      "mce": 0.08,
+      "brier": 0.849663,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 9,
+          "mean_confidence": 0.92,
+          "mean_accuracy": 1.0,
+          "gap": 0.08
+        }
+      ]
+    },
+    {
+      "domain": "soc",
+      "strategy": "learned",
+      "n_cases": 126,
+      "n_confident": 126,
+      "ece": 0.050347,
+      "mce": 0.338423,
+      "brier": 0.744704,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 11,
+          "mean_confidence": 0.6616,
+          "mean_accuracy": 1.0,
+          "gap": 0.3384
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 9,
+          "mean_confidence": 0.7678,
+          "mean_accuracy": 1.0,
+          "gap": 0.2322
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 4,
+          "mean_confidence": 0.8672,
+          "mean_accuracy": 1.0,
+          "gap": 0.1328
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        }
+      ]
+    },
+    {
+      "domain": "soc",
+      "strategy": "hybrid",
+      "n_cases": 126,
+      "n_confident": 126,
+      "ece": 0.284565,
+      "mce": 0.4,
+      "brier": 0.262945,
+      "overconfidence_ratio": 0.2,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 1,
+          "mean_confidence": 0.6,
+          "mean_accuracy": 1.0,
+          "gap": 0.4
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 1,
+          "mean_confidence": 0.65,
+          "mean_accuracy": 1.0,
+          "gap": 0.35
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 3,
+          "mean_confidence": 0.7639,
+          "mean_accuracy": 1.0,
+          "gap": 0.2361
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 15,
+          "mean_confidence": 0.8533,
+          "mean_accuracy": 1.0,
+          "gap": 0.1467
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 96,
+          "mean_confidence": 0.9396,
+          "mean_accuracy": 0.6042,
+          "gap": 0.3354
+        }
+      ]
+    },
+    {
+      "domain": "sre",
+      "strategy": "rule",
+      "n_cases": 140,
+      "n_confident": 140,
+      "ece": 0.0,
+      "mce": 0.0,
+      "brier": 0.921429,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        }
+      ]
+    },
+    {
+      "domain": "sre",
+      "strategy": "retrieval",
+      "n_cases": 140,
+      "n_confident": 140,
+      "ece": 0.005143,
+      "mce": 0.04,
+      "brier": 0.793063,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 18,
+          "mean_confidence": 0.96,
+          "mean_accuracy": 1.0,
+          "gap": 0.04
+        }
+      ]
+    },
+    {
+      "domain": "sre",
+      "strategy": "prototype",
+      "n_cases": 140,
+      "n_confident": 140,
+      "ece": 0.052714,
+      "mce": 0.3,
+      "brier": 0.336546,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 1,
+          "mean_confidence": 0.7,
+          "mean_accuracy": 1.0,
+          "gap": 0.3
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 5,
+          "mean_confidence": 0.7688,
+          "mean_accuracy": 1.0,
+          "gap": 0.2312
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 19,
+          "mean_confidence": 0.841,
+          "mean_accuracy": 1.0,
+          "gap": 0.159
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 58,
+          "mean_confidence": 0.9499,
+          "mean_accuracy": 1.0,
+          "gap": 0.0501
+        }
+      ]
+    },
+    {
+      "domain": "sre",
+      "strategy": "semantic",
+      "n_cases": 140,
+      "n_confident": 140,
+      "ece": 0.010857,
+      "mce": 0.04,
+      "brier": 0.650434,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 38,
+          "mean_confidence": 0.96,
+          "mean_accuracy": 1.0,
+          "gap": 0.04
+        }
+      ]
+    },
+    {
+      "domain": "sre",
+      "strategy": "learned",
+      "n_cases": 140,
+      "n_confident": 140,
+      "ece": 0.097935,
+      "mce": 0.335069,
+      "brier": 0.364205,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 9,
+          "mean_confidence": 0.6649,
+          "mean_accuracy": 1.0,
+          "gap": 0.3351
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 19,
+          "mean_confidence": 0.7568,
+          "mean_accuracy": 1.0,
+          "gap": 0.2432
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 31,
+          "mean_confidence": 0.8484,
+          "mean_accuracy": 1.0,
+          "gap": 0.1516
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 22,
+          "mean_confidence": 0.9375,
+          "mean_accuracy": 1.0,
+          "gap": 0.0625
+        }
+      ]
+    },
+    {
+      "domain": "sre",
+      "strategy": "hybrid",
+      "n_cases": 140,
+      "n_confident": 140,
+      "ece": 0.297931,
+      "mce": 0.338281,
+      "brier": 0.282347,
+      "overconfidence_ratio": 0.25,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 1,
+          "mean_confidence": 0.7,
+          "mean_accuracy": 1.0,
+          "gap": 0.3
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 1,
+          "mean_confidence": 0.7667,
+          "mean_accuracy": 1.0,
+          "gap": 0.2333
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 10,
+          "mean_confidence": 0.8402,
+          "mean_accuracy": 1.0,
+          "gap": 0.1598
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 117,
+          "mean_confidence": 0.9451,
+          "mean_accuracy": 0.6068,
+          "gap": 0.3383
+        }
+      ]
+    },
+    {
+      "domain": "drone",
+      "strategy": "rule",
+      "n_cases": 146,
+      "n_confident": 146,
+      "ece": 0.001712,
+      "mce": 0.11,
+      "brier": 0.904265,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 1,
+          "mean_confidence": 0.89,
+          "mean_accuracy": 1.0,
+          "gap": 0.11
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 2,
+          "mean_confidence": 0.93,
+          "mean_accuracy": 1.0,
+          "gap": 0.07
+        }
+      ]
+    },
+    {
+      "domain": "drone",
+      "strategy": "retrieval",
+      "n_cases": 146,
+      "n_confident": 146,
+      "ece": 0.002466,
+      "mce": 0.04,
+      "brier": 0.863112,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 9,
+          "mean_confidence": 0.96,
+          "mean_accuracy": 1.0,
+          "gap": 0.04
+        }
+      ]
+    },
+    {
+      "domain": "drone",
+      "strategy": "prototype",
+      "n_cases": 146,
+      "n_confident": 146,
+      "ece": 0.07287,
+      "mce": 0.362,
+      "brier": 0.342831,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 5,
+          "mean_confidence": 0.638,
+          "mean_accuracy": 1.0,
+          "gap": 0.362
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 9,
+          "mean_confidence": 0.7556,
+          "mean_accuracy": 1.0,
+          "gap": 0.2444
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 24,
+          "mean_confidence": 0.8403,
+          "mean_accuracy": 1.0,
+          "gap": 0.1597
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 49,
+          "mean_confidence": 0.9429,
+          "mean_accuracy": 1.0,
+          "gap": 0.0571
+        }
+      ]
+    },
+    {
+      "domain": "drone",
+      "strategy": "semantic",
+      "n_cases": 146,
+      "n_confident": 146,
+      "ece": 0.008356,
+      "mce": 0.02,
+      "brier": 0.507016,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 61,
+          "mean_confidence": 0.98,
+          "mean_accuracy": 1.0,
+          "gap": 0.02
+        }
+      ]
+    },
+    {
+      "domain": "drone",
+      "strategy": "learned",
+      "n_cases": 146,
+      "n_confident": 146,
+      "ece": 0.107449,
+      "mce": 0.35083,
+      "brier": 0.438192,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 16,
+          "mean_confidence": 0.6492,
+          "mean_accuracy": 1.0,
+          "gap": 0.3508
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 20,
+          "mean_confidence": 0.751,
+          "mean_accuracy": 1.0,
+          "gap": 0.249
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 30,
+          "mean_confidence": 0.8484,
+          "mean_accuracy": 1.0,
+          "gap": 0.1516
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 9,
+          "mean_confidence": 0.9392,
+          "mean_accuracy": 1.0,
+          "gap": 0.0608
+        }
+      ]
+    },
+    {
+      "domain": "drone",
+      "strategy": "hybrid",
+      "n_cases": 146,
+      "n_confident": 146,
+      "ece": 0.291719,
+      "mce": 0.315489,
+      "brier": 0.278482,
+      "overconfidence_ratio": 1.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 135,
+          "mean_confidence": 0.9599,
+          "mean_accuracy": 0.6444,
+          "gap": 0.3155
+        }
+      ]
+    },
+    {
+      "domain": "grid",
+      "strategy": "rule",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.0,
+      "mce": 0.0,
+      "brier": 0.916667,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        }
+      ]
+    },
+    {
+      "domain": "grid",
+      "strategy": "retrieval",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.0,
+      "mce": 0.0,
+      "brier": 0.916667,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        }
+      ]
+    },
+    {
+      "domain": "grid",
+      "strategy": "prototype",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.130093,
+      "mce": 0.311111,
+      "brier": 0.277369,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 1,
+          "mean_confidence": 0.6889,
+          "mean_accuracy": 1.0,
+          "gap": 0.3111
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 6,
+          "mean_confidence": 0.763,
+          "mean_accuracy": 1.0,
+          "gap": 0.237
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 9,
+          "mean_confidence": 0.8457,
+          "mean_accuracy": 1.0,
+          "gap": 0.1543
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        }
+      ]
+    },
+    {
+      "domain": "grid",
+      "strategy": "semantic",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.0,
+      "mce": 0.0,
+      "brier": 0.916667,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        }
+      ]
+    },
+    {
+      "domain": "grid",
+      "strategy": "learned",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.024414,
+      "mce": 0.324219,
+      "brier": 0.840567,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 1,
+          "mean_confidence": 0.6758,
+          "mean_accuracy": 1.0,
+          "gap": 0.3242
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 1,
+          "mean_confidence": 0.7383,
+          "mean_accuracy": 1.0,
+          "gap": 0.2617
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        }
+      ]
+    },
+    {
+      "domain": "grid",
+      "strategy": "hybrid",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.360093,
+      "mce": 0.92,
+      "brier": 0.238969,
+      "overconfidence_ratio": 0.25,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 1,
+          "mean_confidence": 0.6889,
+          "mean_accuracy": 1.0,
+          "gap": 0.3111
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 6,
+          "mean_confidence": 0.763,
+          "mean_accuracy": 1.0,
+          "gap": 0.237
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 9,
+          "mean_confidence": 0.8457,
+          "mean_accuracy": 1.0,
+          "gap": 0.1543
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 6,
+          "mean_confidence": 0.92,
+          "mean_accuracy": 0.0,
+          "gap": 0.92
+        }
+      ]
+    },
+    {
+      "domain": "finance",
+      "strategy": "rule",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.0225,
+      "mce": 0.12,
+      "brier": 0.585408,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 2,
+          "mean_confidence": 0.88,
+          "mean_accuracy": 1.0,
+          "gap": 0.12
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 6,
+          "mean_confidence": 0.95,
+          "mean_accuracy": 1.0,
+          "gap": 0.05
+        }
+      ]
+    },
+    {
+      "domain": "finance",
+      "strategy": "retrieval",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.02,
+      "mce": 0.04,
+      "brier": 0.459133,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 12,
+          "mean_confidence": 0.96,
+          "mean_accuracy": 1.0,
+          "gap": 0.04
+        }
+      ]
+    },
+    {
+      "domain": "finance",
+      "strategy": "prototype",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.029512,
+      "mce": 0.385185,
+      "brier": 0.383569,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 1,
+          "mean_confidence": 0.6148,
+          "mean_accuracy": 1.0,
+          "gap": 0.3852
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 1,
+          "mean_confidence": 0.7778,
+          "mean_accuracy": 1.0,
+          "gap": 0.2222
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 13,
+          "mean_confidence": 0.9922,
+          "mean_accuracy": 1.0,
+          "gap": 0.0078
+        }
+      ]
+    },
+    {
+      "domain": "finance",
+      "strategy": "semantic",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.065,
+      "mce": 0.125714,
+      "brier": 0.256767,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 7,
+          "mean_confidence": 0.8743,
+          "mean_accuracy": 1.0,
+          "gap": 0.1257
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 11,
+          "mean_confidence": 0.9382,
+          "mean_accuracy": 1.0,
+          "gap": 0.0618
+        }
+      ]
+    },
+    {
+      "domain": "finance",
+      "strategy": "learned",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.154134,
+      "mce": 0.342634,
+      "brier": 0.507008,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 7,
+          "mean_confidence": 0.6574,
+          "mean_accuracy": 1.0,
+          "gap": 0.3426
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 4,
+          "mean_confidence": 0.7246,
+          "mean_accuracy": 1.0,
+          "gap": 0.2754
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 1,
+          "mean_confidence": 0.8008,
+          "mean_accuracy": 1.0,
+          "gap": 0.1992
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        }
+      ]
+    },
+    {
+      "domain": "finance",
+      "strategy": "hybrid",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.219963,
+      "mce": 0.22344,
+      "brier": 0.213713,
+      "overconfidence_ratio": 0.5,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 1,
+          "mean_confidence": 0.86,
+          "mean_accuracy": 1.0,
+          "gap": 0.14
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 23,
+          "mean_confidence": 0.9626,
+          "mean_accuracy": 0.7391,
+          "gap": 0.2234
+        }
+      ]
+    },
+    {
+      "domain": "medical",
+      "strategy": "rule",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.013333,
+      "mce": 0.12,
+      "brier": 0.667633,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 1,
+          "mean_confidence": 0.88,
+          "mean_accuracy": 1.0,
+          "gap": 0.12
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 6,
+          "mean_confidence": 0.9667,
+          "mean_accuracy": 1.0,
+          "gap": 0.0333
+        }
+      ]
+    },
+    {
+      "domain": "medical",
+      "strategy": "retrieval",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.02,
+      "mce": 0.04,
+      "brier": 0.5008,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 12,
+          "mean_confidence": 0.96,
+          "mean_accuracy": 1.0,
+          "gap": 0.04
+        }
+      ]
+    },
+    {
+      "domain": "medical",
+      "strategy": "prototype",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.054944,
+      "mce": 0.32,
+      "brier": 0.263008,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 1,
+          "mean_confidence": 0.68,
+          "mean_accuracy": 1.0,
+          "gap": 0.32
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 3,
+          "mean_confidence": 0.76,
+          "mean_accuracy": 1.0,
+          "gap": 0.24
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 2,
+          "mean_confidence": 0.8667,
+          "mean_accuracy": 1.0,
+          "gap": 0.1333
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 12,
+          "mean_confidence": 0.999,
+          "mean_accuracy": 1.0,
+          "gap": 0.001
+        }
+      ]
+    },
+    {
+      "domain": "medical",
+      "strategy": "semantic",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.0775,
+      "mce": 0.136,
+      "brier": 0.259217,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 10,
+          "mean_confidence": 0.864,
+          "mean_accuracy": 1.0,
+          "gap": 0.136
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 8,
+          "mean_confidence": 0.9375,
+          "mean_accuracy": 1.0,
+          "gap": 0.0625
+        }
+      ]
+    },
+    {
+      "domain": "medical",
+      "strategy": "learned",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.153646,
+      "mce": 0.331473,
+      "brier": 0.503583,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 7,
+          "mean_confidence": 0.6685,
+          "mean_accuracy": 1.0,
+          "gap": 0.3315
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 5,
+          "mean_confidence": 0.7641,
+          "mean_accuracy": 1.0,
+          "gap": 0.2359
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 1,
+          "mean_confidence": 0.8125,
+          "mean_accuracy": 1.0,
+          "gap": 0.1875
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        }
+      ]
+    },
+    {
+      "domain": "medical",
+      "strategy": "hybrid",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.237833,
+      "mce": 0.252762,
+      "brier": 0.214467,
+      "overconfidence_ratio": 0.5,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 3,
+          "mean_confidence": 0.8667,
+          "mean_accuracy": 1.0,
+          "gap": 0.1333
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 21,
+          "mean_confidence": 0.967,
+          "mean_accuracy": 0.7143,
+          "gap": 0.2528
+        }
+      ]
+    },
+    {
+      "domain": "iam",
+      "strategy": "rule",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.017083,
+      "mce": 0.045556,
+      "brier": 0.626071,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 9,
+          "mean_confidence": 0.9544,
+          "mean_accuracy": 1.0,
+          "gap": 0.0456
+        }
+      ]
+    },
+    {
+      "domain": "iam",
+      "strategy": "retrieval",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.023333,
+      "mce": 0.04,
+      "brier": 0.4176,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 14,
+          "mean_confidence": 0.96,
+          "mean_accuracy": 1.0,
+          "gap": 0.04
+        }
+      ]
+    },
+    {
+      "domain": "iam",
+      "strategy": "prototype",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.021417,
+      "mce": 0.272727,
+      "brier": 0.254047,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 1,
+          "mean_confidence": 0.7273,
+          "mean_accuracy": 1.0,
+          "gap": 0.2727
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 1,
+          "mean_confidence": 0.8636,
+          "mean_accuracy": 1.0,
+          "gap": 0.1364
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 16,
+          "mean_confidence": 0.9934,
+          "mean_accuracy": 1.0,
+          "gap": 0.0066
+        }
+      ]
+    },
+    {
+      "domain": "iam",
+      "strategy": "semantic",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.016667,
+      "mce": 0.04,
+      "brier": 0.584,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 10,
+          "mean_confidence": 0.96,
+          "mean_accuracy": 1.0,
+          "gap": 0.04
+        }
+      ]
+    },
+    {
+      "domain": "iam",
+      "strategy": "learned",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.166992,
+      "mce": 0.33724,
+      "brier": 0.381521,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 6,
+          "mean_confidence": 0.6628,
+          "mean_accuracy": 1.0,
+          "gap": 0.3372
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 6,
+          "mean_confidence": 0.7331,
+          "mean_accuracy": 1.0,
+          "gap": 0.2669
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 2,
+          "mean_confidence": 0.8906,
+          "mean_accuracy": 1.0,
+          "gap": 0.1094
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 2,
+          "mean_confidence": 0.918,
+          "mean_accuracy": 1.0,
+          "gap": 0.082
+        }
+      ]
+    },
+    {
+      "domain": "iam",
+      "strategy": "hybrid",
+      "n_cases": 24,
+      "n_confident": 24,
+      "ece": 0.222295,
+      "mce": 0.222295,
+      "brier": 0.211906,
+      "overconfidence_ratio": 1.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 24,
+          "mean_confidence": 0.9723,
+          "mean_accuracy": 0.75,
+          "gap": 0.2223
+        }
+      ]
+    },
+    {
+      "domain": "customer_support",
+      "strategy": "rule",
+      "n_cases": 48,
+      "n_confident": 48,
+      "ece": 0.010625,
+      "mce": 0.15,
+      "brier": 0.771823,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 1,
+          "mean_confidence": 0.85,
+          "mean_accuracy": 1.0,
+          "gap": 0.15
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 6,
+          "mean_confidence": 0.94,
+          "mean_accuracy": 1.0,
+          "gap": 0.06
+        }
+      ]
+    },
+    {
+      "domain": "customer_support",
+      "strategy": "retrieval",
+      "n_cases": 48,
+      "n_confident": 48,
+      "ece": 0.011667,
+      "mce": 0.04,
+      "brier": 0.6463,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 14,
+          "mean_confidence": 0.96,
+          "mean_accuracy": 1.0,
+          "gap": 0.04
+        }
+      ]
+    },
+    {
+      "domain": "customer_support",
+      "strategy": "prototype",
+      "n_cases": 48,
+      "n_confident": 48,
+      "ece": 0.084829,
+      "mce": 0.320741,
+      "brier": 0.268473,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 2,
+          "mean_confidence": 0.6793,
+          "mean_accuracy": 1.0,
+          "gap": 0.3207
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 8,
+          "mean_confidence": 0.7581,
+          "mean_accuracy": 1.0,
+          "gap": 0.2419
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 8,
+          "mean_confidence": 0.8474,
+          "mean_accuracy": 1.0,
+          "gap": 0.1526
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 18,
+          "mean_confidence": 0.9847,
+          "mean_accuracy": 1.0,
+          "gap": 0.0153
+        }
+      ]
+    },
+    {
+      "domain": "customer_support",
+      "strategy": "semantic",
+      "n_cases": 48,
+      "n_confident": 48,
+      "ece": 0.010833,
+      "mce": 0.086667,
+      "brier": 0.789133,
+      "overconfidence_ratio": 1.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 6,
+          "mean_confidence": 0.92,
+          "mean_accuracy": 0.8333,
+          "gap": 0.0867
+        }
+      ]
+    },
+    {
+      "domain": "customer_support",
+      "strategy": "learned",
+      "n_cases": 48,
+      "n_confident": 48,
+      "ece": 0.092773,
+      "mce": 0.335938,
+      "brier": 0.653659,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 9,
+          "mean_confidence": 0.6641,
+          "mean_accuracy": 1.0,
+          "gap": 0.3359
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 4,
+          "mean_confidence": 0.7295,
+          "mean_accuracy": 1.0,
+          "gap": 0.2705
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 2,
+          "mean_confidence": 0.8262,
+          "mean_accuracy": 1.0,
+          "gap": 0.1738
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        }
+      ]
+    },
+    {
+      "domain": "customer_support",
+      "strategy": "hybrid",
+      "n_cases": 48,
+      "n_confident": 48,
+      "ece": 0.290295,
+      "mce": 0.331414,
+      "brier": 0.227974,
+      "overconfidence_ratio": 0.25,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 2,
+          "mean_confidence": 0.6793,
+          "mean_accuracy": 1.0,
+          "gap": 0.3207
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 7,
+          "mean_confidence": 0.7634,
+          "mean_accuracy": 1.0,
+          "gap": 0.2366
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 7,
+          "mean_confidence": 0.8527,
+          "mean_accuracy": 1.0,
+          "gap": 0.1473
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 32,
+          "mean_confidence": 0.9564,
+          "mean_accuracy": 0.625,
+          "gap": 0.3314
+        }
+      ]
+    },
+    {
+      "domain": "content_moderation",
+      "strategy": "rule",
+      "n_cases": 54,
+      "n_confident": 54,
+      "ece": 0.007593,
+      "mce": 0.12,
+      "brier": 0.759846,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 1,
+          "mean_confidence": 0.88,
+          "mean_accuracy": 1.0,
+          "gap": 0.12
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 6,
+          "mean_confidence": 0.9517,
+          "mean_accuracy": 1.0,
+          "gap": 0.0483
+        }
+      ]
+    },
+    {
+      "domain": "content_moderation",
+      "strategy": "retrieval",
+      "n_cases": 54,
+      "n_confident": 54,
+      "ece": 0.014815,
+      "mce": 0.04,
+      "brier": 0.574667,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 20,
+          "mean_confidence": 0.96,
+          "mean_accuracy": 1.0,
+          "gap": 0.04
+        }
+      ]
+    },
+    {
+      "domain": "content_moderation",
+      "strategy": "prototype",
+      "n_cases": 54,
+      "n_confident": 54,
+      "ece": 0.039371,
+      "mce": 0.319192,
+      "brier": 0.282599,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 3,
+          "mean_confidence": 0.6808,
+          "mean_accuracy": 1.0,
+          "gap": 0.3192
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 1,
+          "mean_confidence": 0.7576,
+          "mean_accuracy": 1.0,
+          "gap": 0.2424
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 9,
+          "mean_confidence": 0.8481,
+          "mean_accuracy": 0.8889,
+          "gap": 0.0407
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 27,
+          "mean_confidence": 0.9793,
+          "mean_accuracy": 1.0,
+          "gap": 0.0207
+        }
+      ]
+    },
+    {
+      "domain": "content_moderation",
+      "strategy": "semantic",
+      "n_cases": 54,
+      "n_confident": 54,
+      "ece": 0.022222,
+      "mce": 0.15,
+      "brier": 0.753333,
+      "overconfidence_ratio": 1.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 8,
+          "mean_confidence": 0.9,
+          "mean_accuracy": 0.75,
+          "gap": 0.15
+        }
+      ]
+    },
+    {
+      "domain": "content_moderation",
+      "strategy": "learned",
+      "n_cases": 54,
+      "n_confident": 54,
+      "ece": 0.116681,
+      "mce": 0.336293,
+      "brier": 0.591452,
+      "overconfidence_ratio": 0.0,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 11,
+          "mean_confidence": 0.6637,
+          "mean_accuracy": 1.0,
+          "gap": 0.3363
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 10,
+          "mean_confidence": 0.7398,
+          "mean_accuracy": 1.0,
+          "gap": 0.2602
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        }
+      ]
+    },
+    {
+      "domain": "content_moderation",
+      "strategy": "hybrid",
+      "n_cases": 54,
+      "n_confident": 54,
+      "ece": 0.265477,
+      "mce": 0.319192,
+      "brier": 0.230217,
+      "overconfidence_ratio": 0.25,
+      "error": null,
+      "bins": [
+        {
+          "bin_lower": 0.0,
+          "bin_upper": 0.1,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.1,
+          "bin_upper": 0.2,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.2,
+          "bin_upper": 0.3,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.3,
+          "bin_upper": 0.4,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.4,
+          "bin_upper": 0.5,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.5,
+          "bin_upper": 0.6,
+          "count": 0,
+          "mean_confidence": 0.0,
+          "mean_accuracy": 0.0,
+          "gap": 0.0
+        },
+        {
+          "bin_lower": 0.6,
+          "bin_upper": 0.7,
+          "count": 3,
+          "mean_confidence": 0.6808,
+          "mean_accuracy": 1.0,
+          "gap": 0.3192
+        },
+        {
+          "bin_lower": 0.7,
+          "bin_upper": 0.8,
+          "count": 1,
+          "mean_confidence": 0.7576,
+          "mean_accuracy": 1.0,
+          "gap": 0.2424
+        },
+        {
+          "bin_lower": 0.8,
+          "bin_upper": 0.9,
+          "count": 7,
+          "mean_confidence": 0.855,
+          "mean_accuracy": 1.0,
+          "gap": 0.145
+        },
+        {
+          "bin_lower": 0.9,
+          "bin_upper": 1.0,
+          "count": 43,
+          "mean_confidence": 0.9563,
+          "mean_accuracy": 0.6744,
+          "gap": 0.2819
+        }
+      ]
+    }
+  ]
+}

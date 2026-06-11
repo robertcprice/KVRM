@@ -1,0 +1,191 @@
+{
+  "sre/direct_label/append": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 1.0,
+    "false_accept_rate": 1.0
+  },
+  "sre/direct_label/reorder": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 1.0,
+    "false_accept_rate": 1.0
+  },
+  "sre/direct_label/incompatible": {
+    "stale_label_rate": 0.375,
+    "stale_label_count": 6,
+    "structural_validity": 0.625,
+    "semantic_correctness": 1.0,
+    "false_accept_rate": 1.0
+  },
+  "sre/json_action/append": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 1.0,
+    "false_accept_rate": 1.0
+  },
+  "sre/json_action/reorder": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 1.0,
+    "false_accept_rate": 1.0
+  },
+  "sre/json_action/incompatible": {
+    "stale_label_rate": 0.4375,
+    "stale_label_count": 7,
+    "structural_validity": 0.5625,
+    "semantic_correctness": 1.0,
+    "false_accept_rate": 1.0
+  },
+  "sre/constrained/append": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 1.0,
+    "false_accept_rate": 1.0
+  },
+  "sre/constrained/reorder": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 1.0,
+    "false_accept_rate": 1.0
+  },
+  "sre/constrained/incompatible": {
+    "stale_label_rate": 0.375,
+    "stale_label_count": 6,
+    "structural_validity": 0.625,
+    "semantic_correctness": 1.0,
+    "false_accept_rate": 1.0
+  },
+  "soc/direct_label/append": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.75,
+    "false_accept_rate": 1.0
+  },
+  "soc/direct_label/reorder": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.75,
+    "false_accept_rate": 1.0
+  },
+  "soc/direct_label/incompatible": {
+    "stale_label_rate": 0.3125,
+    "stale_label_count": 5,
+    "structural_validity": 0.6875,
+    "semantic_correctness": 0.75,
+    "false_accept_rate": 1.0
+  },
+  "soc/json_action/append": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.6666666666666666,
+    "false_accept_rate": 0.75
+  },
+  "soc/json_action/reorder": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.6666666666666666,
+    "false_accept_rate": 0.75
+  },
+  "soc/json_action/incompatible": {
+    "stale_label_rate": 0.3125,
+    "stale_label_count": 5,
+    "structural_validity": 0.6875,
+    "semantic_correctness": 0.6666666666666666,
+    "false_accept_rate": 0.75
+  },
+  "soc/constrained/append": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.75,
+    "false_accept_rate": 1.0
+  },
+  "soc/constrained/reorder": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.75,
+    "false_accept_rate": 1.0
+  },
+  "soc/constrained/incompatible": {
+    "stale_label_rate": 0.3125,
+    "stale_label_count": 5,
+    "structural_validity": 0.6875,
+    "semantic_correctness": 0.75,
+    "false_accept_rate": 1.0
+  },
+  "drone/direct_label/append": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.8333333333333334,
+    "false_accept_rate": 1.0
+  },
+  "drone/direct_label/reorder": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.8333333333333334,
+    "false_accept_rate": 1.0
+  },
+  "drone/direct_label/incompatible": {
+    "stale_label_rate": 0.1875,
+    "stale_label_count": 3,
+    "structural_validity": 0.8125,
+    "semantic_correctness": 0.8333333333333334,
+    "false_accept_rate": 1.0
+  },
+  "drone/json_action/append": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.8333333333333334,
+    "false_accept_rate": 0.25
+  },
+  "drone/json_action/reorder": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.8333333333333334,
+    "false_accept_rate": 0.25
+  },
+  "drone/json_action/incompatible": {
+    "stale_label_rate": 0.1875,
+    "stale_label_count": 3,
+    "structural_validity": 0.8125,
+    "semantic_correctness": 0.8333333333333334,
+    "false_accept_rate": 0.25
+  },
+  "drone/constrained/append": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.8333333333333334,
+    "false_accept_rate": 1.0
+  },
+  "drone/constrained/reorder": {
+    "stale_label_rate": 0.0,
+    "stale_label_count": 0,
+    "structural_validity": 1.0,
+    "semantic_correctness": 0.8333333333333334,
+    "false_accept_rate": 1.0
+  },
+  "drone/constrained/incompatible": {
+    "stale_label_rate": 0.1875,
+    "stale_label_count": 3,
+    "structural_validity": 0.8125,
+    "semantic_correctness": 0.8333333333333334,
+    "false_accept_rate": 1.0
+  }
+}

@@ -1,0 +1,4 @@
+{"case_id":"c1","input_features":{"risk":"low","anomaly":0.1},"expected_action_id":"allow_low_risk","supported":true,"ood":false}
+{"case_id":"c2","input_features":{"risk":"medium","anomaly":0.4},"expected_action_id":"collect_more_context","supported":true,"ood":false}
+{"case_id":"c3","input_features":{"risk":"high","anomaly":0.9},"expected_action_id":"block_request","supported":true,"ood":false}
+{"case_id":"c4","input_features":{"risk":"unknown","anomaly":0.8},"expected_action_id":null,"supported":false,"ood":true}

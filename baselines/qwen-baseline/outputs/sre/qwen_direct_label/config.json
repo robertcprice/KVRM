@@ -1,0 +1,7 @@
+{
+  "domain": "sre",
+  "variant": "direct_label",
+  "train_cases": 7,
+  "eval_cases": 16,
+  "timestamp": "2026-04-07T03:12:43.500914+00:00"
+}
