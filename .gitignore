@@ -58,3 +58,10 @@ kvrm-ecosystem/
 # ceiling") is captured in docs/memory; raw checkpoints are not committed.
 # The small Ollama baseline results in baselines/qwen-baseline/ ARE kept.
 baselines/finetune/
+
+# Generated LaTeX build outputs (rebuild: python3 docs/papers/latex/build_paper.py)
+docs/papers/latex/paper.tex
+docs/papers/latex/paper.pdf
+docs/papers/latex/paper.log
+docs/papers/latex/_paper_*.md
+docs/papers/latex/_paper_*.json

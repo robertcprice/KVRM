@@ -106,3 +106,19 @@ The one-command publication readiness artifact is:
 ```bash
 python3 kvrm-bench/scripts/run_publication_check.py
 ```
+
+## LaTeX / PDF Build
+
+Generate the submission-facing LaTeX and PDF from the markdown draft:
+
+```bash
+python3 docs/papers/latex/build_paper.py        # writes paper.tex + paper.pdf
+python3 docs/papers/latex/build_paper.py --no-pdf  # paper.tex only
+```
+
+Requires `pandoc` and `tectonic` (both available via Homebrew). The build
+strips the repo-facing "Manuscript Status", "Artifact References", and
+"Bibliography Workflow" sections and lifts the Abstract into a proper
+`\begin{abstract}` block. Citations resolve against `kvrm_refs.bib` via
+citeproc. Outputs are gitignored; the markdown draft remains the source of
+truth.
