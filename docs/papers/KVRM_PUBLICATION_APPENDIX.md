@@ -1,6 +1,6 @@
 # KVRM Publication Appendix
 
-Generated: 2026-06-11T17:55:33.468631+00:00
+Generated: 2026-06-11T18:15:31.133271+00:00
 
 Bundle root: `kvrm-bench/results/publication_bundle`
 

@@ -116,11 +116,13 @@ pins them to committed artifacts.
 | Support gate | Semantic correctness drops from 1.0 to roughly 0.11–0.23 under injected high-confidence invalid evidence |
 | Strict fallback validation | Unsafe-execution rate goes from 0.0 to 1.0 on explicit infeasible-handoff probes |
 
-External baselines: small instruction-tuned models (Qwen3 0.6b/1.7b, Qwen3.5
-0.8b, Gemma4 e2b) evaluated under a strict structured-output protocol reach at
-best 0.74 semantic correctness with a 0.996 false-accept rate. They route
-supported cases tolerably and execute unsupported ones almost every time —
-which is the failure mode KVRM exists to close.
+External baselines: small instruction-tuned models (Qwen3.5 0.8b, Gemma4 e2b)
+evaluated under a strict structured-output protocol on the eight-domain
+external subset (586 cases) reach at best 0.5971 macro semantic correctness
+with a 0.7741 macro false-accept rate (Qwen3.5 false-accepts 100% of
+unsupported cases). Hybrid KVRM on the same subset: 0.9934 macro semantic,
+0.0 false accepts. The baselines route supported cases tolerably and execute
+unsupported ones almost every time — the failure mode KVRM exists to close.
 
 ## Quick start
 
