@@ -6,18 +6,18 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 PROJECT_ROOT = ROOT.parent
-PYTHON = '/opt/homebrew/bin/python3.14'
-COMMON_PATH = f"{PROJECT_ROOT}/kvrm-core/src:{PROJECT_ROOT}/kvrm-bench/src"
+PYTHON = sys.executable
+COMMON_PATH = f"{PROJECT_ROOT}/kvrm-core:{PROJECT_ROOT}/kvrm-bench"
 DEMO_PATHS = {
-    'soc': f"{COMMON_PATH}:{ROOT}/soc-playbook-router/src",
-    'sre': f"{COMMON_PATH}:{ROOT}/sre-policy-router/src",
-    'drone': f"{COMMON_PATH}:{ROOT}/drone-mission-router/src",
-    'grid': f"{COMMON_PATH}:{ROOT}/grid-ops-router/src",
-    'finance': f"{COMMON_PATH}:{ROOT}/finance-risk-router/src",
-    'medical': f"{COMMON_PATH}:{ROOT}/medical-workflow-router/src",
-    'iam': f"{COMMON_PATH}:{ROOT}/iam-access-router/src",
-    'customer_support': f"{COMMON_PATH}:{ROOT}/customer-support-router/src",
-    'content_moderation': f"{COMMON_PATH}:{ROOT}/content-moderation-router/src",
+    'soc': f"{COMMON_PATH}:{ROOT}/soc-playbook-router",
+    'sre': f"{COMMON_PATH}:{ROOT}/sre-policy-router",
+    'drone': f"{COMMON_PATH}:{ROOT}/drone-mission-router",
+    'grid': f"{COMMON_PATH}:{ROOT}/grid-ops-router",
+    'finance': f"{COMMON_PATH}:{ROOT}/finance-risk-router",
+    'medical': f"{COMMON_PATH}:{ROOT}/medical-workflow-router",
+    'iam': f"{COMMON_PATH}:{ROOT}/iam-access-router",
+    'customer_support': f"{COMMON_PATH}:{ROOT}/customer-support-router",
+    'content_moderation': f"{COMMON_PATH}:{ROOT}/content-moderation-router",
 }
 SCRIPTS = {
     'soc': ROOT / 'soc-playbook-router' / 'scripts' / 'run_benchmark.py',

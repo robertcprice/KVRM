@@ -53,14 +53,16 @@ Input Features → [Selector Ensemble] → [Support Gate] → [Validator] → [E
 
 ## Benchmark Results
 
-### Canonical Suite (All 9 Domains)
+### Canonical Suite (9 Domains, 610 Cases)
 
 | Metric | Result |
 |---|---|
-| Semantic Correctness | **1.0000** (428/428 supported cases correct) |
-| False Accept Rate | **0.0000** (0/182 unsupported cases leaked) |
-| Unsupported Case Rejection | **1.0000** (182/182 rejected or fallback) |
-| Invalid Output Rate | **0.0000** |
+| Semantic Correctness | **426/428** supported cases — perfect **1.0000** in 7 of 9 domains; 0.9722 (customer support) and 0.9750 (content moderation) on the two enterprise additions |
+| False Accept Rate | **0.0000** (0/182 unsupported cases leaked, all 9 domains) |
+| Unsupported Case Rejection | **1.0000** (182/182 rejected or fallback, all 9 domains) |
+| Invalid Output Rate | **0.0000** (all 9 domains) |
+
+Regenerate from scratch: `python kvrm-demos/run_demo.py <domain>` for each domain, then `python kvrm-demos/compare_demos.py`.
 
 ### Robustness Families
 
@@ -94,7 +96,7 @@ KVRM/
 │   ── Flagship artifact (the published repo / the paper) ──────────────
 ├── kvrm-core/          # Shared substrate: registry, 6 selectors, support gate, runtime, validator
 ├── kvrm-bench/         # Benchmark suite + publication pipeline (gate, evidence, paper assets)
-├── kvrm-demos/         # 9 domain implementations (registry + cases + selectors + executor each)
+├── kvrm-demos/         # 12 domain implementations (registry + cases + domain config each)
 ├── kvrm-models/        # Trained compact learned-selector artifacts (.joblib), one per domain
 ├── kvrm-bench-results/ # Committed evidence snapshots cited by the manuscript
 ├── baselines/          # External small-model baselines (qwen-baseline; finetune/ is gitignored)
@@ -120,14 +122,34 @@ KVRM/
 ## Quick Start
 
 ```bash
-# Setup
+# Setup — core, bench, and all 12 domain packages
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e kvrm-core/ -e kvrm-bench/
+for d in kvrm-demos/*/; do [ -f "${d}pyproject.toml" ] && pip install -e "$d"; done
+
+# See the architecture in action (supported -> executes, unsupported -> fails closed)
+python examples/quickstart.py
 
 # Run tests
-python -m pytest tests/ -q
+python -m pytest tests kvrm-demos -q --ignore=tests/baselines
+```
 
+### CLI
+
+Installing `kvrm-bench` gives you the `kvrm` command:
+
+```bash
+kvrm domains                          # list all 12 domains with case counts
+kvrm actions grid                     # a domain's registered actions + support constraints
+kvrm case sre -i 3 --matrix           # route an eval case; compare all selector strategies
+kvrm route grid -f '{"outage_scope": "none", ...}'   # route your own features
+kvrm case soc --json                  # full decision + audit record as JSON
+```
+
+### Library
+
+```bash
 # Run a single domain evaluation
 python -c "
 from kvrm_bench.demo import run_demo_case
@@ -160,15 +182,17 @@ Each domain is a self-contained package under `kvrm-demos/` with:
 1. **`data/registry.json`** — Action definitions with support_specs (boolean expression trees defining valid input envelopes)
 2. **`data/train_cases.jsonl`** — Training cases with expected actions and feature vectors
 3. **`data/cases.jsonl`** — Evaluation cases (supported + unsupported)
-4. **`src/{domain}/selectors.py`** — Domain-specific selector builders (rules, prototypes, feature distance functions)
-5. **`src/{domain}/executor.py`** — Domain-specific execution logic
+4. **`{domain}/domain.py`** — A `DomainConfig` (feature schema, rules, executor handlers) passed to `kvrm_core.domain_factory`, which builds all six selectors and the executor — no per-domain selector code needed
+5. **`pyproject.toml`** — Makes the domain installable
 
-Register the domain in `kvrm-bench/src/kvrm_bench/demo.py` by adding an entry to `DOMAIN_CONFIG`.
+Register the domain in `kvrm-bench/src/kvrm_bench/demo.py` by adding an entry to `DOMAIN_CONFIG`. Use any existing domain (e.g. `kvrm-demos/grid-ops-router/`) as a template.
 
 ## Documentation
 
 - **[KVRM Overview](docs/KVRM_OVERVIEW.md)** — What KVRM is, how it works, and when to use it. Start here if you're new.
+- **[examples/quickstart.py](examples/quickstart.py)** — Five-minute walkthrough of the fail-closed pipeline.
 - **[Pre-Submission Checklist](docs/papers/KVRM_PRE_SUBMISSION_CHECKLIST.md)** — Publication readiness gate.
+- **[AGENTS.md](AGENTS.md)** — Repository governance, testing discipline, and working conventions (read this first if you are an AI agent or a new contributor).
 
 ## Publication
 
@@ -178,4 +202,4 @@ See `docs/papers/` for the paper scaffold, evidence matrix, figure source map, a
 
 ## License
 
-Internal research artifact. See `docs/` for publication and release plans.
+MIT — see [LICENSE](LICENSE).

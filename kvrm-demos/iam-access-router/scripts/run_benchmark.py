@@ -2,8 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from iam_access_router.executor import build_executor
-from iam_access_router.selectors import build_hybrid_selector, build_retrieval_selector, build_rule_selector
+from iam_access_router import build_executor
+from iam_access_router import build_hybrid_selector, build_retrieval_selector, build_rule_selector
 from kvrm_bench.runner import BenchmarkRunner
 from kvrm_core.registry import load_registry
 from kvrm_core.runtime import KVRMRuntime

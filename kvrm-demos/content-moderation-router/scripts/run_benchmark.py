@@ -6,8 +6,8 @@ from kvrm_core.registry import load_registry
 from kvrm_core.runtime import KVRMRuntime
 from kvrm_core.validation import DeterministicValidator
 from kvrm_bench.runner import BenchmarkRunner
-from content_moderation_router.executor import build_executor
-from content_moderation_router.selectors import build_retrieval_selector, build_rule_selector, build_hybrid_selector
+from content_moderation_router import build_executor
+from content_moderation_router import build_retrieval_selector, build_rule_selector, build_hybrid_selector
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY_PATH = ROOT / 'data' / 'registry.json'
