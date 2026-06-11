@@ -1,0 +1,147 @@
+{
+  "domain": "soc",
+  "registry": "kvrm-demos/soc-playbook-router/data/registry.json",
+  "train_cases": "kvrm-demos/soc-playbook-router/data/train_cases.jsonl",
+  "eval_cases": "kvrm-demos/soc-playbook-router/data/cases.jsonl",
+  "output_model": "kvrm-models/soc_compact_selector_v1.joblib",
+  "metadata": {
+    "train_case_count": 68,
+    "registry_name": "soc-playbook-router",
+    "registry_digest": "f29d5c51b54fbe1ac67433860608a83a9a59728b74fe0d165ba9005cd0d2bf3f",
+    "random_state": 42,
+    "n_estimators": 256,
+    "train_accuracy": 1.0
+  },
+  "selector_only": {
+    "total_cases": 126,
+    "supported_cases": 88,
+    "unsupported_cases": 38,
+    "structural_validity_rate": 1.0,
+    "semantic_correctness_rate": 0.6818181818181818,
+    "abstention_rate": 0.5555555555555556,
+    "fallback_rate": 0.6031746031746031,
+    "invalid_output_rate": 0.0,
+    "false_accept_rate": 0.0,
+    "latency_p50_ms": 6.43349999882048,
+    "latency_p95_ms": 8.615874998213258,
+    "latency_p99_ms": 9.572082999511622,
+    "calibration_ece": 0.08119419642857142,
+    "ood_accuracy_supported_only": 0.7115384615384616,
+    "unsupported_case_rejection_rate": 1.0,
+    "support_gate_trigger_rate": 0.0,
+    "supported_support_gate_rescue_rate": 0.0,
+    "unsupported_support_gate_short_circuit_rate": 0.0,
+    "support_gate_exhausted_rate": 0.0,
+    "mean_decision_cost": 0.07777777777777777,
+    "supported_mean_decision_cost": 0.11136363636363635,
+    "unsupported_mean_decision_cost": 0.0,
+    "structural_validity_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9704131803674632,
+      "ci_upper": 1.0,
+      "n": 126
+    },
+    "semantic_correctness_ci": {
+      "rate": 0.6818181818181818,
+      "ci_lower": 0.5786503842476456,
+      "ci_upper": 0.7697756013623611,
+      "n": 88
+    },
+    "false_accept_rate_ci": {
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.09181293258383999,
+      "n": 38
+    },
+    "unsupported_rejection_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.90818706741616,
+      "ci_upper": 0.9999999999999999,
+      "n": 38
+    },
+    "abstention_rate_ci": {
+      "rate": 0.5555555555555556,
+      "ci_lower": 0.46842447964780765,
+      "ci_upper": 0.6393992070596883,
+      "n": 126
+    },
+    "fallback_rate_ci": {
+      "rate": 0.6031746031746031,
+      "ci_lower": 0.5159134936356949,
+      "ci_upper": 0.6843304959639404,
+      "n": 126
+    },
+    "ood_accuracy_ci": {
+      "rate": 0.7115384615384616,
+      "ci_lower": 0.5772695428589907,
+      "ci_upper": 0.816701976581713,
+      "n": 52
+    }
+  },
+  "hybrid_augmented": {
+    "total_cases": 126,
+    "supported_cases": 88,
+    "unsupported_cases": 38,
+    "structural_validity_rate": 1.0,
+    "semantic_correctness_rate": 1.0,
+    "abstention_rate": 0.0,
+    "fallback_rate": 0.373015873015873,
+    "invalid_output_rate": 0.0,
+    "false_accept_rate": 0.0,
+    "latency_p50_ms": 6.707542001095135,
+    "latency_p95_ms": 7.910707994597033,
+    "latency_p99_ms": 9.201416993164457,
+    "calibration_ece": 0.26988492063492064,
+    "ood_accuracy_supported_only": 1.0,
+    "unsupported_case_rejection_rate": 1.0,
+    "support_gate_trigger_rate": 0.0,
+    "supported_support_gate_rescue_rate": 0.0,
+    "unsupported_support_gate_short_circuit_rate": 0.0,
+    "support_gate_exhausted_rate": 0.0,
+    "mean_decision_cost": 0.0,
+    "supported_mean_decision_cost": 0.0,
+    "unsupported_mean_decision_cost": 0.0,
+    "structural_validity_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9704131803674632,
+      "ci_upper": 1.0,
+      "n": 126
+    },
+    "semantic_correctness_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9581714604275188,
+      "ci_upper": 1.0,
+      "n": 88
+    },
+    "false_accept_rate_ci": {
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.09181293258383999,
+      "n": 38
+    },
+    "unsupported_rejection_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.90818706741616,
+      "ci_upper": 0.9999999999999999,
+      "n": 38
+    },
+    "abstention_rate_ci": {
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.029586819632536877,
+      "n": 126
+    },
+    "fallback_rate_ci": {
+      "rate": 0.373015873015873,
+      "ci_lower": 0.2935038845287251,
+      "ci_upper": 0.46004197442557004,
+      "n": 126
+    },
+    "ood_accuracy_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9312054095871178,
+      "ci_upper": 1.0,
+      "n": 52
+    }
+  }
+}

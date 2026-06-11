@@ -1,0 +1,695 @@
+{
+  "actions": [
+    {
+      "action_id": "auto_approve_standard_access",
+      "description": "Automatically grant standard access when the request stays inside the low-risk audited envelope.",
+      "name": "Auto Approve Standard Access",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "requested_privilege",
+            "op": "eq",
+            "value": "standard"
+          },
+          {
+            "feature": "resource_sensitivity",
+            "op": "in",
+            "value": [
+              "low",
+              "internal"
+            ]
+          },
+          {
+            "feature": "requester_risk",
+            "op": "eq",
+            "value": "low"
+          },
+          {
+            "feature": "mfa_state",
+            "op": "eq",
+            "value": "verified"
+          },
+          {
+            "feature": "manager_approval",
+            "op": "eq",
+            "value": "approved"
+          },
+          {
+            "feature": "security_review",
+            "op": "eq",
+            "value": "not_required"
+          },
+          {
+            "feature": "justification",
+            "op": "in",
+            "value": [
+              "routine",
+              "project"
+            ]
+          },
+          {
+            "feature": "device_posture",
+            "op": "eq",
+            "value": "compliant"
+          },
+          {
+            "feature": "session_scope",
+            "op": "eq",
+            "value": "persistent"
+          },
+          {
+            "feature": "sod_risk",
+            "op": "eq",
+            "value": "none"
+          },
+          {
+            "feature": "on_call_role",
+            "op": "eq",
+            "value": "none"
+          },
+          {
+            "feature": "ticket_state",
+            "op": "eq",
+            "value": "missing"
+          }
+        ]
+      },
+      "tags": [
+        "stable"
+      ]
+    },
+    {
+      "action_id": "require_manager_approval",
+      "description": "Route the request into the bounded manager-approval workflow before any access is granted.",
+      "name": "Require Manager Approval",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "requested_privilege",
+            "op": "in",
+            "value": [
+              "standard",
+              "elevated"
+            ]
+          },
+          {
+            "feature": "resource_sensitivity",
+            "op": "in",
+            "value": [
+              "internal",
+              "restricted"
+            ]
+          },
+          {
+            "feature": "requester_risk",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "mfa_state",
+            "op": "eq",
+            "value": "verified"
+          },
+          {
+            "feature": "manager_approval",
+            "op": "eq",
+            "value": "pending"
+          },
+          {
+            "feature": "security_review",
+            "op": "eq",
+            "value": "not_required"
+          },
+          {
+            "feature": "justification",
+            "op": "in",
+            "value": [
+              "routine",
+              "project"
+            ]
+          },
+          {
+            "feature": "device_posture",
+            "op": "in",
+            "value": [
+              "compliant",
+              "unknown"
+            ]
+          },
+          {
+            "feature": "session_scope",
+            "op": "in",
+            "value": [
+              "persistent",
+              "timeboxed"
+            ]
+          },
+          {
+            "feature": "sod_risk",
+            "op": "eq",
+            "value": "none"
+          },
+          {
+            "feature": "on_call_role",
+            "op": "eq",
+            "value": "none"
+          },
+          {
+            "feature": "ticket_state",
+            "op": "in",
+            "value": [
+              "linked",
+              "missing"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "fallback"
+      ]
+    },
+    {
+      "action_id": "require_security_review",
+      "description": "Send the request to the audited security-review workflow for elevated or critical access that needs explicit review.",
+      "name": "Require Security Review",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "requested_privilege",
+            "op": "in",
+            "value": [
+              "elevated",
+              "admin"
+            ]
+          },
+          {
+            "feature": "resource_sensitivity",
+            "op": "in",
+            "value": [
+              "restricted",
+              "critical"
+            ]
+          },
+          {
+            "feature": "requester_risk",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "mfa_state",
+            "op": "eq",
+            "value": "verified"
+          },
+          {
+            "feature": "manager_approval",
+            "op": "eq",
+            "value": "approved"
+          },
+          {
+            "feature": "security_review",
+            "op": "eq",
+            "value": "pending"
+          },
+          {
+            "feature": "justification",
+            "op": "in",
+            "value": [
+              "project",
+              "incident_response"
+            ]
+          },
+          {
+            "feature": "device_posture",
+            "op": "eq",
+            "value": "compliant"
+          },
+          {
+            "feature": "session_scope",
+            "op": "eq",
+            "value": "timeboxed"
+          },
+          {
+            "feature": "sod_risk",
+            "op": "eq",
+            "value": "potential"
+          },
+          {
+            "feature": "on_call_role",
+            "op": "in",
+            "value": [
+              "none",
+              "secondary"
+            ]
+          },
+          {
+            "feature": "ticket_state",
+            "op": "eq",
+            "value": "linked"
+          }
+        ]
+      },
+      "tags": [
+        "fallback"
+      ]
+    },
+    {
+      "action_id": "grant_timeboxed_privileged_access",
+      "description": "Grant elevated access inside the approved timeboxed privileged-access workflow.",
+      "name": "Grant Timeboxed Privileged Access",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "requested_privilege",
+            "op": "eq",
+            "value": "elevated"
+          },
+          {
+            "feature": "resource_sensitivity",
+            "op": "eq",
+            "value": "restricted"
+          },
+          {
+            "feature": "requester_risk",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "mfa_state",
+            "op": "eq",
+            "value": "verified"
+          },
+          {
+            "feature": "manager_approval",
+            "op": "eq",
+            "value": "approved"
+          },
+          {
+            "feature": "security_review",
+            "op": "eq",
+            "value": "approved"
+          },
+          {
+            "feature": "justification",
+            "op": "in",
+            "value": [
+              "project",
+              "incident_response"
+            ]
+          },
+          {
+            "feature": "device_posture",
+            "op": "eq",
+            "value": "compliant"
+          },
+          {
+            "feature": "session_scope",
+            "op": "eq",
+            "value": "timeboxed"
+          },
+          {
+            "feature": "sod_risk",
+            "op": "eq",
+            "value": "none"
+          },
+          {
+            "feature": "on_call_role",
+            "op": "in",
+            "value": [
+              "none",
+              "secondary"
+            ]
+          },
+          {
+            "feature": "ticket_state",
+            "op": "eq",
+            "value": "linked"
+          }
+        ]
+      },
+      "tags": [
+        "stable"
+      ]
+    },
+    {
+      "action_id": "grant_break_glass_access",
+      "description": "Grant emergency break-glass access for a primary on-call responder under the audited emergency envelope.",
+      "name": "Grant Break Glass Access",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "requested_privilege",
+            "op": "eq",
+            "value": "admin"
+          },
+          {
+            "feature": "resource_sensitivity",
+            "op": "eq",
+            "value": "critical"
+          },
+          {
+            "feature": "requester_risk",
+            "op": "eq",
+            "value": "low"
+          },
+          {
+            "feature": "mfa_state",
+            "op": "eq",
+            "value": "verified"
+          },
+          {
+            "feature": "manager_approval",
+            "op": "eq",
+            "value": "approved"
+          },
+          {
+            "feature": "security_review",
+            "op": "eq",
+            "value": "pending"
+          },
+          {
+            "feature": "justification",
+            "op": "eq",
+            "value": "break_glass"
+          },
+          {
+            "feature": "device_posture",
+            "op": "eq",
+            "value": "compliant"
+          },
+          {
+            "feature": "session_scope",
+            "op": "eq",
+            "value": "emergency"
+          },
+          {
+            "feature": "sod_risk",
+            "op": "eq",
+            "value": "potential"
+          },
+          {
+            "feature": "on_call_role",
+            "op": "eq",
+            "value": "primary"
+          },
+          {
+            "feature": "ticket_state",
+            "op": "eq",
+            "value": "linked"
+          }
+        ]
+      },
+      "tags": [
+        "fallback"
+      ]
+    },
+    {
+      "action_id": "deny_request",
+      "description": "Deny the request when the context violates an explicit hard stop in the audited IAM contract.",
+      "name": "Deny Request",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "any": [
+          {
+            "feature": "mfa_state",
+            "op": "in",
+            "value": [
+              "missing",
+              "bypassed"
+            ]
+          },
+          {
+            "feature": "manager_approval",
+            "op": "eq",
+            "value": "denied"
+          },
+          {
+            "feature": "security_review",
+            "op": "eq",
+            "value": "blocked"
+          },
+          {
+            "feature": "requester_risk",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "device_posture",
+            "op": "eq",
+            "value": "untrusted"
+          },
+          {
+            "feature": "sod_risk",
+            "op": "eq",
+            "value": "confirmed"
+          },
+          {
+            "feature": "ticket_state",
+            "op": "eq",
+            "value": "expired"
+          }
+        ]
+      },
+      "tags": [
+        "fallback"
+      ]
+    },
+    {
+      "action_id": "escalate_identity_admin",
+      "description": "Escalate to the human IAM administrator when the request is still supportable but requires manual authority control.",
+      "name": "Escalate Identity Admin",
+      "parameters_schema": {
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "requested_privilege",
+            "op": "eq",
+            "value": "admin"
+          },
+          {
+            "feature": "resource_sensitivity",
+            "op": "eq",
+            "value": "critical"
+          },
+          {
+            "feature": "requester_risk",
+            "op": "eq",
+            "value": "medium"
+          },
+          {
+            "feature": "mfa_state",
+            "op": "eq",
+            "value": "verified"
+          },
+          {
+            "feature": "manager_approval",
+            "op": "eq",
+            "value": "approved"
+          },
+          {
+            "feature": "security_review",
+            "op": "eq",
+            "value": "approved"
+          },
+          {
+            "feature": "justification",
+            "op": "eq",
+            "value": "incident_response"
+          },
+          {
+            "feature": "device_posture",
+            "op": "eq",
+            "value": "unknown"
+          },
+          {
+            "feature": "session_scope",
+            "op": "eq",
+            "value": "timeboxed"
+          },
+          {
+            "feature": "sod_risk",
+            "op": "eq",
+            "value": "none"
+          },
+          {
+            "feature": "on_call_role",
+            "op": "eq",
+            "value": "secondary"
+          },
+          {
+            "feature": "ticket_state",
+            "op": "eq",
+            "value": "linked"
+          }
+        ]
+      },
+      "tags": [
+        "fallback"
+      ]
+    }
+  ],
+  "context_schema": {
+    "device_posture": {
+      "enum": [
+        "compliant",
+        "unknown",
+        "untrusted"
+      ],
+      "type": "string"
+    },
+    "justification": {
+      "enum": [
+        "routine",
+        "project",
+        "incident_response",
+        "break_glass",
+        "insufficient"
+      ],
+      "type": "string"
+    },
+    "manager_approval": {
+      "enum": [
+        "approved",
+        "pending",
+        "denied"
+      ],
+      "type": "string"
+    },
+    "mfa_state": {
+      "enum": [
+        "verified",
+        "missing",
+        "bypassed"
+      ],
+      "type": "string"
+    },
+    "on_call_role": {
+      "enum": [
+        "none",
+        "secondary",
+        "primary"
+      ],
+      "type": "string"
+    },
+    "requested_privilege": {
+      "enum": [
+        "standard",
+        "elevated",
+        "admin"
+      ],
+      "type": "string"
+    },
+    "requester_risk": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    },
+    "resource_sensitivity": {
+      "enum": [
+        "low",
+        "internal",
+        "restricted",
+        "critical"
+      ],
+      "type": "string"
+    },
+    "security_review": {
+      "enum": [
+        "not_required",
+        "pending",
+        "approved",
+        "blocked"
+      ],
+      "type": "string"
+    },
+    "session_scope": {
+      "enum": [
+        "persistent",
+        "timeboxed",
+        "emergency"
+      ],
+      "type": "string"
+    },
+    "sod_risk": {
+      "enum": [
+        "none",
+        "potential",
+        "confirmed"
+      ],
+      "type": "string"
+    },
+    "ticket_state": {
+      "enum": [
+        "linked",
+        "missing",
+        "expired"
+      ],
+      "type": "string"
+    }
+  },
+  "digest": "776aaf9415c49bce47cd9f1a3c1271efe4d877b8c7f73cb97f78c47369f5ce2e",
+  "registry_name": "iam-access-router",
+  "required_features": [
+    "requested_privilege",
+    "resource_sensitivity",
+    "requester_risk",
+    "mfa_state",
+    "manager_approval",
+    "security_review",
+    "justification",
+    "device_posture",
+    "session_scope",
+    "sod_risk",
+    "on_call_role",
+    "ticket_state"
+  ],
+  "version": "1.0.0"
+}

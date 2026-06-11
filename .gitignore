@@ -37,8 +37,13 @@ tmp/
 
 # Generated demo outputs (regenerable)
 kvrm-demos/*/outputs/
-# Generated bench working results (the curated committed snapshots live in top-level kvrm-bench-results/)
-kvrm-bench/results/
+# Bench results: Tier-1 evidence reports/cases ARE committed (the paper cites
+# them and the publication tests read them). Only regenerable/scratch outputs
+# are ignored here.
+kvrm-bench/results/publication_bundle/
+kvrm-bench/results/counterfactual_boundary_case_cache/
+kvrm-bench/results/legacy/
+kvrm-bench/results/draft_exports/
 
 # Heavy experimental satellites — separate research threads, multi-GB local
 # artifact stores, not part of the flagship paper (kvrm-core + kvrm-bench +

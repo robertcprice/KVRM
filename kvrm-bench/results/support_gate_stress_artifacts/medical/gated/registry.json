@@ -1,0 +1,569 @@
+{
+  "actions": [
+    {
+      "action_id": "routine_review",
+      "description": "Route to standard clinician review with no emergency pathway.",
+      "name": "Routine Review",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "acuity_score",
+            "op": "in",
+            "value": [
+              "low",
+              "moderate"
+            ]
+          },
+          {
+            "feature": "fever_bucket",
+            "op": "eq",
+            "value": "none"
+          },
+          {
+            "feature": "infection_risk",
+            "op": "eq",
+            "value": "low"
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "chest_pain",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "respiratory_distress",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "hypotension",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "clinician_note_flag",
+            "op": "eq",
+            "value": "none"
+          }
+        ]
+      },
+      "tags": [
+        "routine"
+      ]
+    },
+    {
+      "action_id": "urgent_clinician_review",
+      "description": "Immediate clinician review when acuity is high but no narrow protocol dominates.",
+      "name": "Urgent Clinician Review",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "acuity_score",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "clinician_note_flag",
+            "op": "in",
+            "value": [
+              "none",
+              "complex"
+            ]
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "chest_pain",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "respiratory_distress",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "hypotension",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "not": {
+              "any": [
+                {
+                  "all": [
+                    {
+                      "feature": "focal_neuro_deficit",
+                      "op": "eq",
+                      "value": true
+                    },
+                    {
+                      "feature": "symptom_onset",
+                      "op": "eq",
+                      "value": "sudden"
+                    }
+                  ]
+                },
+                {
+                  "all": [
+                    {
+                      "feature": "infection_risk",
+                      "op": "eq",
+                      "value": "high"
+                    },
+                    {
+                      "feature": "fever_bucket",
+                      "op": "eq",
+                      "value": "high"
+                    },
+                    {
+                      "any": [
+                        {
+                          "feature": "hypotension",
+                          "op": "eq",
+                          "value": true
+                        },
+                        {
+                          "feature": "respiratory_distress",
+                          "op": "eq",
+                          "value": true
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "tags": [
+        "urgent"
+      ]
+    },
+    {
+      "action_id": "sepsis_screen_pathway",
+      "description": "Activate the sepsis-screen workflow.",
+      "name": "Sepsis Screen Pathway",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "infection_risk",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "fever_bucket",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "acuity_score",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "any": [
+              {
+                "feature": "hypotension",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "feature": "respiratory_distress",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "feature": "clinician_note_flag",
+                "op": "eq",
+                "value": "sepsis_concern"
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "critical_pathway"
+      ]
+    },
+    {
+      "action_id": "stroke_alert_pathway",
+      "description": "Activate the stroke-alert workflow.",
+      "name": "Stroke Alert Pathway",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "focal_neuro_deficit",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "symptom_onset",
+            "op": "eq",
+            "value": "sudden"
+          },
+          {
+            "feature": "acuity_score",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "any": [
+              {
+                "feature": "clinician_note_flag",
+                "op": "eq",
+                "value": "stroke_concern"
+              },
+              {
+                "feature": "age_bracket",
+                "op": "in",
+                "value": [
+                  "adult",
+                  "older_adult"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "critical_pathway"
+      ]
+    },
+    {
+      "action_id": "cardiac_chest_pain_pathway",
+      "description": "Route to the chest-pain cardiac workflow.",
+      "name": "Cardiac Chest Pain Pathway",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "chest_pain",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "acuity_score",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "any": [
+              {
+                "feature": "clinician_note_flag",
+                "op": "eq",
+                "value": "cardiac_concern"
+              },
+              {
+                "feature": "age_bracket",
+                "op": "eq",
+                "value": "older_adult"
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "critical_pathway"
+      ]
+    },
+    {
+      "action_id": "respiratory_support_pathway",
+      "description": "Route to the respiratory-support workflow.",
+      "name": "Respiratory Support Pathway",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "respiratory_distress",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "acuity_score",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "chest_pain",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "not": {
+              "all": [
+                {
+                  "feature": "infection_risk",
+                  "op": "eq",
+                  "value": "high"
+                },
+                {
+                  "feature": "fever_bucket",
+                  "op": "eq",
+                  "value": "high"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "tags": [
+        "critical_pathway"
+      ]
+    },
+    {
+      "action_id": "lab_panel_priority_order",
+      "description": "Queue priority lab workup without emergency activation.",
+      "name": "Lab Panel Priority Order",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "acuity_score",
+            "op": "eq",
+            "value": "moderate"
+          },
+          {
+            "feature": "infection_risk",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "fever_bucket",
+            "op": "in",
+            "value": [
+              "mild",
+              "high"
+            ]
+          },
+          {
+            "feature": "hypotension",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "focal_neuro_deficit",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "tags": [
+        "workup"
+      ]
+    },
+    {
+      "action_id": "escalate_supervisor_review",
+      "description": "Escalate to supervising clinician when signals are ambiguous or unsupported for automation.",
+      "name": "Escalate Supervisor Review",
+      "parameters_schema": {
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "any": [
+          {
+            "all": [
+              {
+                "feature": "focal_neuro_deficit",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "feature": "chest_pain",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "feature": "clinician_note_flag",
+                "op": "eq",
+                "value": "complex"
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "feature": "respiratory_distress",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "feature": "hypotension",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "feature": "acuity_score",
+                "op": "eq",
+                "value": "critical"
+              },
+              {
+                "feature": "clinician_note_flag",
+                "op": "eq",
+                "value": "complex"
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "fallback",
+        "safe"
+      ]
+    }
+  ],
+  "context_schema": {
+    "acuity_score": {
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "critical"
+      ],
+      "type": "string"
+    },
+    "age_bracket": {
+      "enum": [
+        "pediatric",
+        "adult",
+        "older_adult"
+      ],
+      "type": "string"
+    },
+    "chest_pain": {
+      "type": "boolean"
+    },
+    "clinician_note_flag": {
+      "enum": [
+        "none",
+        "sepsis_concern",
+        "stroke_concern",
+        "cardiac_concern",
+        "complex"
+      ],
+      "type": "string"
+    },
+    "fever_bucket": {
+      "enum": [
+        "none",
+        "mild",
+        "high"
+      ],
+      "type": "string"
+    },
+    "focal_neuro_deficit": {
+      "type": "boolean"
+    },
+    "hypotension": {
+      "type": "boolean"
+    },
+    "infection_risk": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    },
+    "respiratory_distress": {
+      "type": "boolean"
+    },
+    "symptom_onset": {
+      "enum": [
+        "sudden",
+        "progressive",
+        "unclear"
+      ],
+      "type": "string"
+    }
+  },
+  "digest": "e29d3d364c2197e68119db23c15bfeef53931406454ed38e2452ee0ceffd29ac",
+  "registry_name": "medical-workflow-router",
+  "required_features": [
+    "age_bracket",
+    "acuity_score",
+    "fever_bucket",
+    "hypotension",
+    "focal_neuro_deficit",
+    "chest_pain",
+    "respiratory_distress",
+    "infection_risk",
+    "symptom_onset",
+    "clinician_note_flag"
+  ],
+  "version": "1.2.0"
+}

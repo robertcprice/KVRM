@@ -1,0 +1,883 @@
+{
+  "actions": [
+    {
+      "action_id": "continue_mission",
+      "description": "Continue current mission path.",
+      "name": "Continue Mission",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "battery",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "comms",
+            "op": "eq",
+            "value": "good"
+          },
+          {
+            "feature": "gps",
+            "op": "eq",
+            "value": "good"
+          },
+          {
+            "feature": "threat_level",
+            "op": "in",
+            "value": [
+              "none",
+              "low"
+            ]
+          },
+          {
+            "feature": "wind",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "obstacle_density",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "normal"
+      ]
+    },
+    {
+      "action_id": "return_to_home",
+      "description": "Abort mission and return to home point.",
+      "name": "Return To Home",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "comms",
+            "op": "in",
+            "value": [
+              "good",
+              "degraded",
+              "poor"
+            ]
+          },
+          {
+            "feature": "gps",
+            "op": "in",
+            "value": [
+              "good",
+              "degraded"
+            ]
+          },
+          {
+            "feature": "threat_level",
+            "op": "in",
+            "value": [
+              "none",
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "obstacle_density",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "any": [
+              {
+                "feature": "battery",
+                "op": "eq",
+                "value": "critical"
+              },
+              {
+                "all": [
+                  {
+                    "feature": "battery",
+                    "op": "eq",
+                    "value": "low"
+                  },
+                  {
+                    "feature": "estimated_energy_margin",
+                    "op": "eq",
+                    "value": "negative"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "safe"
+      ]
+    },
+    {
+      "action_id": "hold_position",
+      "description": "Pause mission and hold position.",
+      "name": "Hold Position",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "battery",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "comms",
+            "op": "in",
+            "value": [
+              "degraded",
+              "poor"
+            ]
+          },
+          {
+            "feature": "gps",
+            "op": "in",
+            "value": [
+              "good",
+              "degraded",
+              "poor"
+            ]
+          },
+          {
+            "feature": "threat_level",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "safe_landing_zone_available",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "feature": "obstacle_density",
+                    "op": "eq",
+                    "value": "high"
+                  },
+                  {
+                    "feature": "safe_landing_zone_available",
+                    "op": "eq",
+                    "value": false
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "feature": "wind",
+                    "op": "in",
+                    "value": [
+                      "high",
+                      "severe"
+                    ]
+                  },
+                  {
+                    "feature": "signal_recovery_confidence",
+                    "op": "eq",
+                    "value": "low"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "safe"
+      ]
+    },
+    {
+      "action_id": "switch_to_low_observable_path",
+      "description": "Change to a lower-signature path under threat.",
+      "name": "Switch To Low Observable Path",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "battery",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "comms",
+            "op": "eq",
+            "value": "good"
+          },
+          {
+            "feature": "gps",
+            "op": "eq",
+            "value": "good"
+          },
+          {
+            "feature": "wind",
+            "op": "in",
+            "value": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "threat_level",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "mission_urgency",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "payload_criticality",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "airspace_deconfliction_status",
+            "op": "eq",
+            "value": "clear"
+          },
+          {
+            "feature": "rules_of_engagement_state",
+            "op": "eq",
+            "value": "permissive"
+          },
+          {
+            "feature": "operator_control_latency_budget",
+            "op": "in",
+            "value": [
+              "adequate",
+              "ample"
+            ]
+          },
+          {
+            "feature": "mission_replan_budget",
+            "op": "in",
+            "value": [
+              "limited",
+              "ample"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "threat"
+      ]
+    },
+    {
+      "action_id": "conserve_battery_mode",
+      "description": "Reduce power usage and adapt route for battery preservation.",
+      "name": "Conserve Battery Mode",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "battery",
+            "op": "eq",
+            "value": "low"
+          },
+          {
+            "feature": "comms",
+            "op": "in",
+            "value": [
+              "good",
+              "degraded"
+            ]
+          },
+          {
+            "feature": "gps",
+            "op": "in",
+            "value": [
+              "good",
+              "degraded"
+            ]
+          },
+          {
+            "feature": "obstacle_density",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "threat_level",
+            "op": "in",
+            "value": [
+              "none",
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "estimated_energy_margin",
+            "op": "in",
+            "value": [
+              "tight",
+              "positive"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "battery"
+      ]
+    },
+    {
+      "action_id": "climb_for_signal_recovery",
+      "description": "Climb to recover communications link.",
+      "name": "Climb For Signal Recovery",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "gps",
+            "op": "eq",
+            "value": "good"
+          },
+          {
+            "feature": "comms",
+            "op": "in",
+            "value": [
+              "lost",
+              "degraded",
+              "poor"
+            ]
+          },
+          {
+            "feature": "threat_level",
+            "op": "in",
+            "value": [
+              "none",
+              "low"
+            ]
+          },
+          {
+            "feature": "obstacle_density",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "any": [
+              {
+                "feature": "battery",
+                "op": "eq",
+                "value": "medium"
+              },
+              {
+                "all": [
+                  {
+                    "feature": "battery",
+                    "op": "eq",
+                    "value": "high"
+                  },
+                  {
+                    "feature": "comms",
+                    "op": "in",
+                    "value": [
+                      "degraded",
+                      "poor"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "feature": "altitude_headroom",
+            "op": "in",
+            "value": [
+              "adequate",
+              "ample"
+            ]
+          },
+          {
+            "feature": "signal_recovery_confidence",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "terrain_occlusion_level",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "comms"
+      ]
+    },
+    {
+      "action_id": "descend_for_safety",
+      "description": "Descend to safer flight conditions.",
+      "name": "Descend For Safety",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "battery",
+            "op": "in",
+            "value": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "obstacle_density",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "wind",
+            "op": "in",
+            "value": [
+              "high",
+              "severe"
+            ]
+          },
+          {
+            "feature": "gps",
+            "op": "in",
+            "value": [
+              "poor",
+              "degraded",
+              "lost"
+            ]
+          },
+          {
+            "feature": "comms",
+            "op": "in",
+            "value": [
+              "good",
+              "degraded"
+            ]
+          },
+          {
+            "feature": "safe_landing_zone_available",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "autonomous_recovery_allowed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "airspace_deconfliction_status",
+            "op": "eq",
+            "value": "denied"
+          },
+          {
+            "feature": "rules_of_engagement_state",
+            "op": "eq",
+            "value": "hold"
+          }
+        ]
+      },
+      "tags": [
+        "weather"
+      ]
+    },
+    {
+      "action_id": "manual_handoff",
+      "description": "Escalate to human control or supervisory approval.",
+      "name": "Manual Handoff",
+      "parameters_schema": {
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "threat_level",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "mission_urgency",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "payload_criticality",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "obstacle_density",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "comms",
+            "op": "in",
+            "value": [
+              "degraded",
+              "poor"
+            ]
+          },
+          {
+            "feature": "gps",
+            "op": "in",
+            "value": [
+              "good",
+              "degraded",
+              "poor"
+            ]
+          },
+          {
+            "feature": "autonomous_recovery_allowed",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "pilot_takeover_link_quality",
+            "op": "in",
+            "value": [
+              "degraded",
+              "good"
+            ]
+          },
+          {
+            "feature": "pilot_response_eta",
+            "op": "in",
+            "value": [
+              "fast",
+              "moderate"
+            ]
+          },
+          {
+            "feature": "takeover_window_remaining",
+            "op": "in",
+            "value": [
+              "limited",
+              "ample"
+            ]
+          },
+          {
+            "feature": "airspace_deconfliction_status",
+            "op": "in",
+            "value": [
+              "clear",
+              "contested"
+            ]
+          },
+          {
+            "feature": "rules_of_engagement_state",
+            "op": "in",
+            "value": [
+              "restricted",
+              "hold"
+            ]
+          },
+          {
+            "feature": "operator_control_latency_budget",
+            "op": "in",
+            "value": [
+              "adequate",
+              "ample"
+            ]
+          },
+          {
+            "feature": "mission_replan_budget",
+            "op": "in",
+            "value": [
+              "limited",
+              "ample"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "fallback",
+        "safe"
+      ]
+    }
+  ],
+  "context_schema": {
+    "airspace_deconfliction_status": {
+      "enum": [
+        "clear",
+        "contested",
+        "denied"
+      ],
+      "type": "string"
+    },
+    "altitude_headroom": {
+      "enum": [
+        "limited",
+        "adequate",
+        "ample"
+      ],
+      "type": "string"
+    },
+    "autonomous_recovery_allowed": {
+      "type": "boolean"
+    },
+    "battery": {
+      "enum": [
+        "critical",
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    },
+    "comms": {
+      "enum": [
+        "lost",
+        "poor",
+        "degraded",
+        "good"
+      ],
+      "type": "string"
+    },
+    "distance_to_home": {
+      "enum": [
+        "near",
+        "medium",
+        "far"
+      ],
+      "type": "string"
+    },
+    "estimated_energy_margin": {
+      "enum": [
+        "negative",
+        "tight",
+        "positive"
+      ],
+      "type": "string"
+    },
+    "gps": {
+      "enum": [
+        "lost",
+        "poor",
+        "degraded",
+        "good"
+      ],
+      "type": "string"
+    },
+    "mission_progress": {
+      "enum": [
+        "early",
+        "mid",
+        "late"
+      ],
+      "type": "string"
+    },
+    "mission_replan_budget": {
+      "enum": [
+        "none",
+        "limited",
+        "ample"
+      ],
+      "type": "string"
+    },
+    "mission_urgency": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    },
+    "obstacle_density": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    },
+    "operator_control_latency_budget": {
+      "enum": [
+        "tight",
+        "adequate",
+        "ample"
+      ],
+      "type": "string"
+    },
+    "payload_criticality": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    },
+    "pilot_response_eta": {
+      "enum": [
+        "fast",
+        "moderate",
+        "slow"
+      ],
+      "type": "string"
+    },
+    "pilot_takeover_link_quality": {
+      "enum": [
+        "unavailable",
+        "poor",
+        "degraded",
+        "good"
+      ],
+      "type": "string"
+    },
+    "rules_of_engagement_state": {
+      "enum": [
+        "permissive",
+        "restricted",
+        "hold"
+      ],
+      "type": "string"
+    },
+    "safe_landing_zone_available": {
+      "type": "boolean"
+    },
+    "signal_recovery_confidence": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    },
+    "takeover_window_remaining": {
+      "enum": [
+        "brief",
+        "limited",
+        "ample"
+      ],
+      "type": "string"
+    },
+    "terrain_occlusion_level": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    },
+    "threat_level": {
+      "enum": [
+        "none",
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    },
+    "wind": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "severe"
+      ],
+      "type": "string"
+    }
+  },
+  "digest": "5d85aa07c81c6138ebcafed1ebafbc6da5ef0889689079f0b6ff2e1063cbcb1b",
+  "registry_name": "drone-mission-router",
+  "required_features": [
+    "battery",
+    "comms",
+    "gps",
+    "wind",
+    "obstacle_density",
+    "threat_level",
+    "mission_urgency",
+    "payload_criticality",
+    "distance_to_home",
+    "estimated_energy_margin",
+    "mission_progress",
+    "safe_landing_zone_available",
+    "autonomous_recovery_allowed",
+    "pilot_takeover_link_quality",
+    "pilot_response_eta",
+    "takeover_window_remaining",
+    "altitude_headroom",
+    "signal_recovery_confidence",
+    "terrain_occlusion_level",
+    "airspace_deconfliction_status",
+    "rules_of_engagement_state",
+    "operator_control_latency_budget",
+    "mission_replan_budget"
+  ],
+  "version": "1.4.0"
+}

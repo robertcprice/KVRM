@@ -1,0 +1,6 @@
+{
+  "run_name": "grid_ungated_support_gate_stress",
+  "selector_name": "grid_ungated_support_gate_stress_selector",
+  "threshold": 0.6,
+  "timestamp": "2026-04-10T18:38:09.382946+00:00"
+}

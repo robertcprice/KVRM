@@ -1,0 +1,284 @@
+{
+  "eval_filename": "cases.jsonl",
+  "benchmark_results": "/Users/bobbyprice/projects/KVRM/kvrm-demos/reports/demo_comparison.json",
+  "domains": [
+    {
+      "domain": "soc",
+      "registry_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/soc-playbook-router/data/registry.json",
+      "cases_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/soc-playbook-router/data/cases.jsonl",
+      "supported_case_count": 88,
+      "exact_feature_oracle_accuracy": 1.0,
+      "exact_conflict_group_count": 0,
+      "exact_conflict_case_count": 0,
+      "exact_conflict_groups": [],
+      "supported_overlap_case_count": 0,
+      "supported_overlap_case_rate": 0.0,
+      "top_overlap_pairs": [],
+      "hybrid_semantic_correctness_rate": 1.0,
+      "oracle_gap_pp": 0.0,
+      "hybrid_matches_exact_feature_oracle": true,
+      "feature_recommendations": [
+        {
+          "priority": "monitoring_only",
+          "pairs": [],
+          "why": "The current SOC benchmark is already linearly separable under the existing structured feature schema.",
+          "features": [
+            "asset_isolation_feasibility",
+            "identity_scope_size",
+            "service_criticality_override"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "sre",
+      "registry_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/sre-policy-router/data/registry.json",
+      "cases_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/sre-policy-router/data/cases.jsonl",
+      "supported_case_count": 94,
+      "exact_feature_oracle_accuracy": 1.0,
+      "exact_conflict_group_count": 0,
+      "exact_conflict_case_count": 0,
+      "exact_conflict_groups": [],
+      "supported_overlap_case_count": 0,
+      "supported_overlap_case_rate": 0.0,
+      "top_overlap_pairs": [],
+      "hybrid_semantic_correctness_rate": 1.0,
+      "oracle_gap_pp": 0.0,
+      "hybrid_matches_exact_feature_oracle": true,
+      "feature_recommendations": [
+        {
+          "priority": "monitoring_only",
+          "pairs": [],
+          "why": "The canonical SRE schema now includes locality, failover-policy, deployment-causality, handoff-feasibility, and coordination-state signals, and the current supported pack is separable under the existing audited feature contract.",
+          "features": [
+            "quorum_recovery_eta",
+            "write_consistency_requirement",
+            "traffic_shift_capacity_margin",
+            "incident_command_ready"
+          ]
+        },
+        {
+          "priority": "medium",
+          "pairs": [
+            [
+              "failover_region",
+              "enable_readonly_mode"
+            ],
+            [
+              "failover_region",
+              "page_human_operator"
+            ]
+          ],
+          "why": "The next SRE expansion should target recovery-planning and write-consistency constraints on top of the now-explicit coordination envelope rather than re-adding generic severity features.",
+          "features": [
+            "quorum_recovery_eta",
+            "write_consistency_requirement",
+            "control_plane_rate_limit_state",
+            "incident_command_ready"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "drone",
+      "registry_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/drone-mission-router/data/registry.json",
+      "cases_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/drone-mission-router/data/cases.jsonl",
+      "supported_case_count": 98,
+      "exact_feature_oracle_accuracy": 1.0,
+      "exact_conflict_group_count": 0,
+      "exact_conflict_case_count": 0,
+      "exact_conflict_groups": [],
+      "supported_overlap_case_count": 0,
+      "supported_overlap_case_rate": 0.0,
+      "top_overlap_pairs": [],
+      "hybrid_semantic_correctness_rate": 1.0,
+      "oracle_gap_pp": 0.0,
+      "hybrid_matches_exact_feature_oracle": true,
+      "feature_recommendations": [
+        {
+          "priority": "monitoring_only",
+          "pairs": [],
+          "why": "The canonical drone schema now encodes route-energy, landing safety, takeover feasibility, and airspace-governance signals, and the current supported pack is separable under that audited contract.",
+          "features": [
+            "airspace_corridor_stability",
+            "operator_attention_budget",
+            "replan_authorization_state",
+            "diversion_site_commitment"
+          ]
+        },
+        {
+          "priority": "medium",
+          "pairs": [
+            [
+              "switch_to_low_observable_path",
+              "manual_handoff"
+            ],
+            [
+              "return_to_home",
+              "manual_handoff"
+            ]
+          ],
+          "why": "The next drone expansion should target contested-airspace transitions and command-authority constraints on top of the now-explicit path, recovery, and handoff boundaries.",
+          "features": [
+            "airspace_corridor_stability",
+            "jamming_severity",
+            "operator_attention_budget",
+            "replan_authorization_state"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "grid",
+      "registry_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/grid-ops-router/data/registry.json",
+      "cases_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/grid-ops-router/data/cases.jsonl",
+      "supported_case_count": 18,
+      "exact_feature_oracle_accuracy": 1.0,
+      "exact_conflict_group_count": 0,
+      "exact_conflict_case_count": 0,
+      "exact_conflict_groups": [],
+      "supported_overlap_case_count": 0,
+      "supported_overlap_case_rate": 0.0,
+      "top_overlap_pairs": [],
+      "hybrid_semantic_correctness_rate": 1.0,
+      "oracle_gap_pp": 0.0,
+      "hybrid_matches_exact_feature_oracle": true,
+      "feature_recommendations": [
+        {
+          "priority": "medium",
+          "pairs": [
+            [
+              "dispatch_field_crew",
+              "transfer_load"
+            ],
+            [
+              "isolate_faulted_feeder",
+              "transfer_load"
+            ]
+          ],
+          "why": "The grid registry now cleanly separates audited transfer-vs-dispatch behavior with transfer-path availability, so the next step is richer topology and authorization semantics rather than another generic outage severity field.",
+          "features": [
+            "remote_switching_ready",
+            "alternate_topology_capacity_margin",
+            "protective_zone_confidence",
+            "restoration_sequence_locked"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "finance",
+      "registry_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/finance-risk-router/data/registry.json",
+      "cases_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/finance-risk-router/data/cases.jsonl",
+      "supported_case_count": 18,
+      "exact_feature_oracle_accuracy": 1.0,
+      "exact_conflict_group_count": 0,
+      "exact_conflict_case_count": 0,
+      "exact_conflict_groups": [],
+      "supported_overlap_case_count": 0,
+      "supported_overlap_case_rate": 0.0,
+      "top_overlap_pairs": [],
+      "hybrid_semantic_correctness_rate": 1.0,
+      "oracle_gap_pp": 0.0,
+      "hybrid_matches_exact_feature_oracle": true,
+      "feature_recommendations": [
+        {
+          "priority": "medium",
+          "pairs": [
+            [
+              "enhanced_due_diligence",
+              "manual_review"
+            ],
+            [
+              "require_additional_docs",
+              "manual_review"
+            ]
+          ],
+          "why": "The finance registry now separates bounded due-diligence and documentation workflows from ambiguous human-review cases, so the next gains come from source-of-funds and identity-assurance signals.",
+          "features": [
+            "source_of_funds_confidence",
+            "beneficial_owner_complexity",
+            "document_authenticity_confidence",
+            "merchant_risk_cluster"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "medical",
+      "registry_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/medical-workflow-router/data/registry.json",
+      "cases_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/medical-workflow-router/data/cases.jsonl",
+      "supported_case_count": 18,
+      "exact_feature_oracle_accuracy": 1.0,
+      "exact_conflict_group_count": 0,
+      "exact_conflict_case_count": 0,
+      "exact_conflict_groups": [],
+      "supported_overlap_case_count": 0,
+      "supported_overlap_case_rate": 0.0,
+      "top_overlap_pairs": [],
+      "hybrid_semantic_correctness_rate": 1.0,
+      "oracle_gap_pp": 0.0,
+      "hybrid_matches_exact_feature_oracle": true,
+      "feature_recommendations": [
+        {
+          "priority": "medium",
+          "pairs": [
+            [
+              "sepsis_screen_pathway",
+              "respiratory_support_pathway"
+            ],
+            [
+              "sepsis_screen_pathway",
+              "escalate_supervisor_review"
+            ]
+          ],
+          "why": "The medical registry now forces explicit sepsis precedence over generic respiratory or supervisor escalation, so the next frontier is multi-protocol coordination and contraindication handling.",
+          "features": [
+            "protocol_contraindication_flag",
+            "icu_bed_pressure",
+            "lactate_trend_bucket",
+            "antibiotic_delay_risk"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "iam",
+      "registry_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/iam-access-router/data/registry.json",
+      "cases_path": "/Users/bobbyprice/projects/KVRM/kvrm-demos/iam-access-router/data/cases.jsonl",
+      "supported_case_count": 18,
+      "exact_feature_oracle_accuracy": 1.0,
+      "exact_conflict_group_count": 0,
+      "exact_conflict_case_count": 0,
+      "exact_conflict_groups": [],
+      "supported_overlap_case_count": 0,
+      "supported_overlap_case_rate": 0.0,
+      "top_overlap_pairs": [],
+      "hybrid_semantic_correctness_rate": 1.0,
+      "oracle_gap_pp": 0.0,
+      "hybrid_matches_exact_feature_oracle": true,
+      "feature_recommendations": [
+        {
+          "priority": "medium",
+          "pairs": [
+            [
+              "require_manager_approval",
+              "require_security_review"
+            ],
+            [
+              "grant_break_glass_access",
+              "escalate_identity_admin"
+            ]
+          ],
+          "why": "The IAM registry now cleanly separates bounded approval, review, break-glass, denial, and manual-admin escalation flows, so the next gains come from stronger identity-assurance and delegated-authority signals rather than another generic risk bucket.",
+          "features": [
+            "identity_assurance_level",
+            "resource_owner_approval",
+            "delegated_admin_scope",
+            "just_in_time_token_health"
+          ]
+        }
+      ]
+    }
+  ]
+}

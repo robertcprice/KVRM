@@ -1,0 +1,147 @@
+{
+  "domain": "drone",
+  "registry": "kvrm-demos/drone-mission-router/data/registry.json",
+  "train_cases": "kvrm-demos/drone-mission-router/data/train_cases.jsonl",
+  "eval_cases": "kvrm-demos/drone-mission-router/data/cases.jsonl",
+  "output_model": "kvrm-models/drone_compact_selector_v1.joblib",
+  "metadata": {
+    "train_case_count": 25,
+    "registry_name": "drone-mission-router",
+    "registry_digest": "5d85aa07c81c6138ebcafed1ebafbc6da5ef0889689079f0b6ff2e1063cbcb1b",
+    "random_state": 42,
+    "n_estimators": 256,
+    "train_accuracy": 1.0
+  },
+  "selector_only": {
+    "total_cases": 146,
+    "supported_cases": 98,
+    "unsupported_cases": 48,
+    "structural_validity_rate": 1.0,
+    "semantic_correctness_rate": 0.8775510204081632,
+    "abstention_rate": 0.410958904109589,
+    "fallback_rate": 0.4863013698630137,
+    "invalid_output_rate": 0.0,
+    "false_accept_rate": 0.0,
+    "latency_p50_ms": 6.195000023581088,
+    "latency_p95_ms": 6.483125034719706,
+    "latency_p99_ms": 6.64891698397696,
+    "calibration_ece": 0.10744863013698629,
+    "ood_accuracy_supported_only": 0.8783783783783784,
+    "unsupported_case_rejection_rate": 1.0,
+    "support_gate_trigger_rate": 0.0,
+    "supported_support_gate_rescue_rate": 0.0,
+    "unsupported_support_gate_short_circuit_rate": 0.0,
+    "support_gate_exhausted_rate": 0.0,
+    "mean_decision_cost": 0.02876712328767123,
+    "supported_mean_decision_cost": 0.04285714285714285,
+    "unsupported_mean_decision_cost": 0.0,
+    "structural_validity_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9743622598797664,
+      "ci_upper": 1.0,
+      "n": 146
+    },
+    "semantic_correctness_ci": {
+      "rate": 0.8775510204081632,
+      "ci_lower": 0.7980698895315725,
+      "ci_upper": 0.9285487024779795,
+      "n": 98
+    },
+    "false_accept_rate_ci": {
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0741026511527422,
+      "n": 48
+    },
+    "unsupported_rejection_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9258973488472576,
+      "ci_upper": 0.9999999999999999,
+      "n": 48
+    },
+    "abstention_rate_ci": {
+      "rate": 0.410958904109589,
+      "ci_lower": 0.3344293943372726,
+      "ci_upper": 0.4920540388348239,
+      "n": 146
+    },
+    "fallback_rate_ci": {
+      "rate": 0.4863013698630137,
+      "ci_lower": 0.4066229061099909,
+      "ci_upper": 0.5666822374549472,
+      "n": 146
+    },
+    "ood_accuracy_ci": {
+      "rate": 0.8783783783783784,
+      "ci_lower": 0.7847320910446631,
+      "ci_upper": 0.9346775819322541,
+      "n": 74
+    }
+  },
+  "hybrid_augmented": {
+    "total_cases": 146,
+    "supported_cases": 98,
+    "unsupported_cases": 48,
+    "structural_validity_rate": 1.0,
+    "semantic_correctness_rate": 1.0,
+    "abstention_rate": 0.1095890410958904,
+    "fallback_rate": 0.4041095890410959,
+    "invalid_output_rate": 0.0,
+    "false_accept_rate": 0.0,
+    "latency_p50_ms": 6.461584009230137,
+    "latency_p95_ms": 6.717624957673252,
+    "latency_p99_ms": 7.056666014250368,
+    "calibration_ece": 0.190177725456621,
+    "ood_accuracy_supported_only": 1.0,
+    "unsupported_case_rejection_rate": 1.0,
+    "support_gate_trigger_rate": 0.0,
+    "supported_support_gate_rescue_rate": 0.0,
+    "unsupported_support_gate_short_circuit_rate": 0.0,
+    "support_gate_exhausted_rate": 0.0,
+    "mean_decision_cost": 0.0,
+    "supported_mean_decision_cost": 0.0,
+    "unsupported_mean_decision_cost": 0.0,
+    "structural_validity_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9743622598797664,
+      "ci_upper": 1.0,
+      "n": 146
+    },
+    "semantic_correctness_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9622786759045421,
+      "ci_upper": 1.0,
+      "n": 98
+    },
+    "false_accept_rate_ci": {
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.0741026511527422,
+      "n": 48
+    },
+    "unsupported_rejection_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9258973488472576,
+      "ci_upper": 0.9999999999999999,
+      "n": 48
+    },
+    "abstention_rate_ci": {
+      "rate": 0.1095890410958904,
+      "ci_lower": 0.06858949770917319,
+      "ci_upper": 0.17060709389155718,
+      "n": 146
+    },
+    "fallback_rate_ci": {
+      "rate": 0.4041095890410959,
+      "ci_lower": 0.32795667662674904,
+      "ci_upper": 0.48517932832781646,
+      "n": 146
+    },
+    "ood_accuracy_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9506484964337834,
+      "ci_upper": 0.9999999999999998,
+      "n": 74
+    }
+  }
+}

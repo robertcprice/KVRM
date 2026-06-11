@@ -1,0 +1,806 @@
+{
+  "actions": [
+    {
+      "action_id": "isolate_host",
+      "description": "Network-isolate compromised endpoint or host.",
+      "name": "Isolate Host",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "internet_exposed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "severity",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "threat_confidence",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "any": [
+              {
+                "feature": "endpoint_type",
+                "op": "eq",
+                "value": "host"
+              },
+              {
+                "all": [
+                  {
+                    "feature": "endpoint_type",
+                    "op": "eq",
+                    "value": "server"
+                  },
+                  {
+                    "feature": "asset_criticality",
+                    "op": "eq",
+                    "value": "tier1"
+                  },
+                  {
+                    "feature": "blast_radius",
+                    "op": "eq",
+                    "value": "contained"
+                  },
+                  {
+                    "feature": "threat_confidence",
+                    "op": "eq",
+                    "value": "high"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "not": {
+              "all": [
+                {
+                  "feature": "endpoint_type",
+                  "op": "eq",
+                  "value": "server"
+                },
+                {
+                  "feature": "credential_exposure",
+                  "op": "eq",
+                  "value": true
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "tags": [
+        "containment"
+      ]
+    },
+    {
+      "action_id": "rotate_credentials",
+      "description": "Rotate exposed or suspicious credentials.",
+      "name": "Rotate Credentials",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "credential_exposure",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "lateral_movement",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "threat_confidence",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "feature": "endpoint_type",
+                    "op": "eq",
+                    "value": "server"
+                  },
+                  {
+                    "feature": "internet_exposed",
+                    "op": "eq",
+                    "value": false
+                  },
+                  {
+                    "feature": "severity",
+                    "op": "in",
+                    "value": [
+                      "low",
+                      "medium"
+                    ]
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "feature": "endpoint_type",
+                    "op": "eq",
+                    "value": "cloud_identity"
+                  },
+                  {
+                    "feature": "severity",
+                    "op": "in",
+                    "value": [
+                      "low",
+                      "medium",
+                      "high"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "identity"
+      ]
+    },
+    {
+      "action_id": "collect_forensics",
+      "description": "Preserve artifacts for investigation.",
+      "name": "Collect Forensics",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "credential_exposure",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "endpoint_type",
+            "op": "in",
+            "value": [
+              "host",
+              "server"
+            ]
+          },
+          {
+            "feature": "asset_criticality",
+            "op": "in",
+            "value": [
+              "tier1",
+              "tier2"
+            ]
+          },
+          {
+            "feature": "severity",
+            "op": "in",
+            "value": [
+              "medium",
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "any": [
+              {
+                "feature": "internet_exposed",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "all": [
+                  {
+                    "feature": "endpoint_type",
+                    "op": "eq",
+                    "value": "server"
+                  },
+                  {
+                    "feature": "lateral_movement",
+                    "op": "eq",
+                    "value": true
+                  },
+                  {
+                    "feature": "severity",
+                    "op": "eq",
+                    "value": "critical"
+                  },
+                  {
+                    "feature": "blast_radius",
+                    "op": "eq",
+                    "value": "wide"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "feature": "internet_exposed",
+                    "op": "eq",
+                    "value": true
+                  },
+                  {
+                    "any": [
+                      {
+                        "all": [
+                          {
+                            "feature": "endpoint_type",
+                            "op": "eq",
+                            "value": "host"
+                          },
+                          {
+                            "feature": "severity",
+                            "op": "eq",
+                            "value": "medium"
+                          },
+                          {
+                            "feature": "threat_confidence",
+                            "op": "eq",
+                            "value": "high"
+                          },
+                          {
+                            "feature": "blast_radius",
+                            "op": "eq",
+                            "value": "contained"
+                          }
+                        ]
+                      },
+                      {
+                        "all": [
+                          {
+                            "feature": "endpoint_type",
+                            "op": "eq",
+                            "value": "server"
+                          },
+                          {
+                            "feature": "severity",
+                            "op": "eq",
+                            "value": "high"
+                          },
+                          {
+                            "feature": "threat_confidence",
+                            "op": "eq",
+                            "value": "medium"
+                          },
+                          {
+                            "feature": "blast_radius",
+                            "op": "eq",
+                            "value": "contained"
+                          }
+                        ]
+                      },
+                      {
+                        "all": [
+                          {
+                            "feature": "endpoint_type",
+                            "op": "eq",
+                            "value": "server"
+                          },
+                          {
+                            "feature": "severity",
+                            "op": "eq",
+                            "value": "medium"
+                          },
+                          {
+                            "feature": "threat_confidence",
+                            "op": "eq",
+                            "value": "medium"
+                          },
+                          {
+                            "feature": "blast_radius",
+                            "op": "eq",
+                            "value": "narrow"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "investigation"
+      ]
+    },
+    {
+      "action_id": "escalate_p1",
+      "description": "Escalate to critical incident process.",
+      "name": "Escalate P1",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "asset_criticality",
+            "op": "eq",
+            "value": "tier1"
+          },
+          {
+            "feature": "lateral_movement",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "credential_exposure",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "endpoint_type",
+            "op": "in",
+            "value": [
+              "server",
+              "cloud_identity"
+            ]
+          },
+          {
+            "feature": "severity",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "critical"
+      ]
+    },
+    {
+      "action_id": "block_ip_temporarily",
+      "description": "Apply temporary IP block while investigation proceeds.",
+      "name": "Block IP Temporarily",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "internet_exposed",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "credential_exposure",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "lateral_movement",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "blast_radius",
+            "op": "eq",
+            "value": "narrow"
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "feature": "endpoint_type",
+                    "op": "eq",
+                    "value": "edge"
+                  },
+                  {
+                    "feature": "severity",
+                    "op": "in",
+                    "value": [
+                      "medium",
+                      "high"
+                    ]
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "feature": "endpoint_type",
+                    "op": "eq",
+                    "value": "server"
+                  },
+                  {
+                    "any": [
+                      {
+                        "feature": "threat_confidence",
+                        "op": "eq",
+                        "value": "high"
+                      },
+                      {
+                        "all": [
+                          {
+                            "feature": "severity",
+                            "op": "eq",
+                            "value": "low"
+                          },
+                          {
+                            "feature": "threat_confidence",
+                            "op": "eq",
+                            "value": "medium"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "feature": "endpoint_type",
+                    "op": "eq",
+                    "value": "host"
+                  },
+                  {
+                    "feature": "severity",
+                    "op": "eq",
+                    "value": "medium"
+                  },
+                  {
+                    "feature": "threat_confidence",
+                    "op": "eq",
+                    "value": "high"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "network"
+      ]
+    },
+    {
+      "action_id": "monitor_only",
+      "description": "Observe without taking disruptive action.",
+      "name": "Monitor Only",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "credential_exposure",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "lateral_movement",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "feature": "severity",
+                    "op": "eq",
+                    "value": "low"
+                  },
+                  {
+                    "feature": "asset_criticality",
+                    "op": "in",
+                    "value": [
+                      "tier2",
+                      "tier3"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "feature": "internet_exposed",
+                        "op": "eq",
+                        "value": false
+                      },
+                      {
+                        "all": [
+                          {
+                            "feature": "endpoint_type",
+                            "op": "eq",
+                            "value": "edge"
+                          },
+                          {
+                            "feature": "internet_exposed",
+                            "op": "eq",
+                            "value": true
+                          },
+                          {
+                            "feature": "threat_confidence",
+                            "op": "eq",
+                            "value": "low"
+                          },
+                          {
+                            "feature": "blast_radius",
+                            "op": "eq",
+                            "value": "narrow"
+                          },
+                          {
+                            "feature": "asset_criticality",
+                            "op": "eq",
+                            "value": "tier3"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "feature": "severity",
+                    "op": "eq",
+                    "value": "informational"
+                  },
+                  {
+                    "feature": "blast_radius",
+                    "op": "eq",
+                    "value": "narrow"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "monitoring"
+      ]
+    },
+    {
+      "action_id": "request_human_triage",
+      "description": "Escalate to human analyst when confidence is low or unsupported patterns appear.",
+      "name": "Request Human Triage",
+      "parameters_schema": {
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "lateral_movement",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "asset_criticality",
+            "op": "in",
+            "value": [
+              "tier1",
+              "tier2"
+            ]
+          },
+          {
+            "feature": "severity",
+            "op": "in",
+            "value": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "blast_radius",
+            "op": "in",
+            "value": [
+              "contained",
+              "wide"
+            ]
+          },
+          {
+            "any": [
+              {
+                "feature": "threat_confidence",
+                "op": "eq",
+                "value": "low"
+              },
+              {
+                "all": [
+                  {
+                    "feature": "threat_confidence",
+                    "op": "eq",
+                    "value": "medium"
+                  },
+                  {
+                    "feature": "asset_criticality",
+                    "op": "eq",
+                    "value": "tier1"
+                  },
+                  {
+                    "feature": "endpoint_type",
+                    "op": "eq",
+                    "value": "server"
+                  },
+                  {
+                    "feature": "internet_exposed",
+                    "op": "eq",
+                    "value": true
+                  },
+                  {
+                    "feature": "credential_exposure",
+                    "op": "eq",
+                    "value": false
+                  },
+                  {
+                    "feature": "severity",
+                    "op": "eq",
+                    "value": "medium"
+                  },
+                  {
+                    "feature": "blast_radius",
+                    "op": "eq",
+                    "value": "wide"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "fallback",
+        "safe"
+      ]
+    },
+    {
+      "action_id": "do_nothing_validated",
+      "description": "Validated no-op for informational benign cases.",
+      "name": "Do Nothing Validated",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "severity",
+            "op": "eq",
+            "value": "informational"
+          },
+          {
+            "feature": "blast_radius",
+            "op": "eq",
+            "value": "none"
+          },
+          {
+            "feature": "credential_exposure",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "internet_exposed",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "lateral_movement",
+            "op": "eq",
+            "value": false
+          }
+        ]
+      },
+      "tags": [
+        "noop",
+        "safe"
+      ]
+    }
+  ],
+  "context_schema": {
+    "asset_criticality": {
+      "enum": [
+        "tier3",
+        "tier2",
+        "tier1"
+      ],
+      "type": "string"
+    },
+    "blast_radius": {
+      "enum": [
+        "none",
+        "narrow",
+        "contained",
+        "wide",
+        "massive"
+      ],
+      "type": "string"
+    },
+    "credential_exposure": {
+      "type": "boolean"
+    },
+    "endpoint_type": {
+      "enum": [
+        "host",
+        "server",
+        "cloud_identity",
+        "edge"
+      ],
+      "type": "string"
+    },
+    "internet_exposed": {
+      "type": "boolean"
+    },
+    "lateral_movement": {
+      "type": "boolean"
+    },
+    "severity": {
+      "enum": [
+        "informational",
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "type": "string"
+    },
+    "threat_confidence": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    }
+  },
+  "digest": "f29d5c51b54fbe1ac67433860608a83a9a59728b74fe0d165ba9005cd0d2bf3f",
+  "registry_name": "soc-playbook-router",
+  "required_features": [
+    "severity",
+    "threat_confidence",
+    "asset_criticality",
+    "lateral_movement",
+    "blast_radius",
+    "internet_exposed",
+    "credential_exposure",
+    "endpoint_type"
+  ],
+  "version": "1.1.0"
+}

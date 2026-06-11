@@ -1,0 +1,1024 @@
+{
+  "counterfactual_case_cache_dir": "/Users/bobbyprice/projects/KVRM/kvrm-bench/results/counterfactual_boundary_case_cache",
+  "domains": {
+    "drone": {
+      "case_kind_counts": {
+        "action_id_renamed": 3,
+        "action_split": 4,
+        "tightened_support": 6
+      },
+      "comparison": {
+        "mean_decision_cost_reduction_vs_stale_validated": 0.18846153846153843,
+        "mean_decision_cost_reduction_vs_unvalidated": 1.1153846153846154,
+        "obsolete_execution_reduction_vs_unvalidated": 1.0,
+        "supported_continuity_gain_over_stale_validated": 1.0,
+        "tightened_support_false_accept_reduction_vs_unvalidated": 1.0
+      },
+      "counterfactual_case_pack_signature": "38454f409ff2f5db8e35d861d65e1fe8811fe611135d744549dc098d3dd5fd6d",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "drone",
+      "generated_case_count": 13,
+      "migration_action_counts": {
+        "climb_for_signal_recovery": 3,
+        "descend_for_safety": 2,
+        "return_to_home": 2,
+        "switch_to_low_observable_path": 6
+      },
+      "registry_digest": "5d85aa07c81c6138ebcafed1ebafbc6da5ef0889689079f0b6ff2e1063cbcb1b",
+      "registry_name": "drone-mission-router",
+      "registry_version": "1.4.0",
+      "stale_action_counts": {
+        "legacy_climb_for_signal_recovery": 3,
+        "legacy_route_recovery": 4,
+        "switch_to_low_observable_path": 6
+      },
+      "supported_case_count": 7,
+      "unsupported_case_count": 6,
+      "variants": {
+        "live_hybrid": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 0.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 1.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.46153846153846156,
+            "calibration_ece": 0.009307692307692341,
+            "fallback_rate": 0.46153846153846156,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.62920899958408,
+            "latency_p95_ms": 15.87945800019952,
+            "latency_p99_ms": 15.87945800019952,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_unvalidated": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 1.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 1.0,
+            "tightened_support_safe_rejection_rate": 0.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.99,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 1.0,
+            "invalid_output_rate": 0.5384615384615384,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 1.1153846153846154,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.46153846153846156,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 1.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 0.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 1.25,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_validated": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 1.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 1.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.99,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 1.0,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 0.18846153846153843,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 0.35,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        }
+      }
+    },
+    "finance": {
+      "case_kind_counts": {
+        "action_id_renamed": 2,
+        "action_split": 4,
+        "tightened_support": 6
+      },
+      "comparison": {
+        "mean_decision_cost_reduction_vs_stale_validated": 0.17499999999999996,
+        "mean_decision_cost_reduction_vs_unvalidated": 1.125,
+        "obsolete_execution_reduction_vs_unvalidated": 1.0,
+        "supported_continuity_gain_over_stale_validated": 1.0,
+        "tightened_support_false_accept_reduction_vs_unvalidated": 1.0
+      },
+      "counterfactual_case_pack_signature": "55fc30a42d86dcef47504f13d1aebbc858c65a68dcad9dc691416b471ad6522e",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "finance",
+      "generated_case_count": 12,
+      "migration_action_counts": {
+        "allow_with_monitoring": 1,
+        "approve_low_risk": 5,
+        "enhanced_due_diligence": 2,
+        "lower_limit_temporarily": 2,
+        "require_additional_docs": 2
+      },
+      "registry_digest": "1301f2d4df057ed791e59580a526672e50623884349f38ff9b7f0c4f8d288d21",
+      "registry_name": "finance-risk-router",
+      "registry_version": "1.2.0",
+      "stale_action_counts": {
+        "allow_with_monitoring": 1,
+        "approve_low_risk": 5,
+        "legacy_document_risk_review": 4,
+        "legacy_lower_limit_temporarily": 2
+      },
+      "supported_case_count": 6,
+      "unsupported_case_count": 6,
+      "variants": {
+        "live_hybrid": {
+          "case_count": 12,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 0.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 1.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.4166666666666667,
+            "calibration_ece": 0.0903333333333333,
+            "fallback_rate": 0.4166666666666667,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 7.018250000328408,
+            "latency_p95_ms": 7.936124999105232,
+            "latency_p99_ms": 7.936124999105232,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 6,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 12,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_unvalidated": {
+          "case_count": 12,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 1.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 1.0,
+            "tightened_support_safe_rejection_rate": 0.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.9899999999999999,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 1.0,
+            "invalid_output_rate": 0.5,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 1.125,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.5,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 6,
+            "supported_mean_decision_cost": 1.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 12,
+            "unsupported_case_rejection_rate": 0.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 1.25,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_validated": {
+          "case_count": 12,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 1.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 1.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.9899999999999999,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 1.0,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 0.17499999999999996,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 6,
+            "supported_mean_decision_cost": 0.3499999999999999,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 12,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        }
+      }
+    },
+    "grid": {
+      "case_kind_counts": {
+        "action_id_renamed": 2,
+        "action_split": 4,
+        "tightened_support": 6
+      },
+      "comparison": {
+        "mean_decision_cost_reduction_vs_stale_validated": 0.17499999999999996,
+        "mean_decision_cost_reduction_vs_unvalidated": 1.125,
+        "obsolete_execution_reduction_vs_unvalidated": 1.0,
+        "supported_continuity_gain_over_stale_validated": 1.0,
+        "tightened_support_false_accept_reduction_vs_unvalidated": 1.0
+      },
+      "counterfactual_case_pack_signature": "c18ec54e028ba73526ccfc4a8b1200c702eb53e99411d1c04c62bf43491ea0c1",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "grid",
+      "generated_case_count": 12,
+      "migration_action_counts": {
+        "continue_monitoring": 6,
+        "dispatch_field_crew": 2,
+        "prepare_blackstart": 2,
+        "transfer_load": 2
+      },
+      "registry_digest": "f395682d68d30319a8a93e3bb12765e8d5d0893a6640d537475829f7c10ac84e",
+      "registry_name": "grid-ops-router",
+      "registry_version": "1.1.0",
+      "stale_action_counts": {
+        "continue_monitoring": 6,
+        "legacy_distribution_fault_response": 4,
+        "legacy_prepare_blackstart": 2
+      },
+      "supported_case_count": 6,
+      "unsupported_case_count": 6,
+      "variants": {
+        "live_hybrid": {
+          "case_count": 12,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 0.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 1.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.25,
+            "calibration_ece": 0.3337037037037037,
+            "fallback_rate": 0.5,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.518916999993962,
+            "latency_p95_ms": 6.862542000817484,
+            "latency_p99_ms": 6.862542000817484,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 6,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 12,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_unvalidated": {
+          "case_count": 12,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 1.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 1.0,
+            "tightened_support_safe_rejection_rate": 0.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.9899999999999999,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 1.0,
+            "invalid_output_rate": 0.5,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 1.125,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.5,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 6,
+            "supported_mean_decision_cost": 1.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 12,
+            "unsupported_case_rejection_rate": 0.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 1.25,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_validated": {
+          "case_count": 12,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 1.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 1.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.9899999999999999,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 1.0,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 0.17499999999999996,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 6,
+            "supported_mean_decision_cost": 0.3499999999999999,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 12,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        }
+      }
+    },
+    "iam": {
+      "case_kind_counts": {
+        "action_id_renamed": 3,
+        "action_split": 4,
+        "tightened_support": 6
+      },
+      "comparison": {
+        "mean_decision_cost_reduction_vs_stale_validated": 0.18846153846153843,
+        "mean_decision_cost_reduction_vs_unvalidated": 1.1153846153846154,
+        "obsolete_execution_reduction_vs_unvalidated": 1.0,
+        "supported_continuity_gain_over_stale_validated": 1.0,
+        "tightened_support_false_accept_reduction_vs_unvalidated": 1.0
+      },
+      "counterfactual_case_pack_signature": "41fe5ead14dd5cb3c0bbf78f1c459917e6abc228f6d5077f4762dec94c1f516c",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "iam",
+      "generated_case_count": 13,
+      "migration_action_counts": {
+        "auto_approve_standard_access": 6,
+        "grant_timeboxed_privileged_access": 3,
+        "require_manager_approval": 2,
+        "require_security_review": 2
+      },
+      "registry_digest": "776aaf9415c49bce47cd9f1a3c1271efe4d877b8c7f73cb97f78c47369f5ce2e",
+      "registry_name": "iam-access-router",
+      "registry_version": "1.0.0",
+      "stale_action_counts": {
+        "auto_approve_standard_access": 6,
+        "legacy_access_review_flow": 4,
+        "legacy_grant_timeboxed_privileged_access": 3
+      },
+      "supported_case_count": 7,
+      "unsupported_case_count": 6,
+      "variants": {
+        "live_hybrid": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 0.0,
+            "supported_migration_fail_closed_rate": 0.5714285714285714,
+            "supported_migration_success_rate": 1.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.23076923076923078,
+            "calibration_ece": 0.20834965034965036,
+            "fallback_rate": 0.46153846153846156,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 5.9885000009671785,
+            "latency_p95_ms": 7.9511249987263,
+            "latency_p99_ms": 7.9511249987263,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_unvalidated": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 1.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 1.0,
+            "tightened_support_safe_rejection_rate": 0.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.99,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 1.0,
+            "invalid_output_rate": 0.5384615384615384,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 1.1153846153846154,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.46153846153846156,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 1.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 0.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 1.25,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_validated": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 1.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 1.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.99,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 1.0,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 0.18846153846153843,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 0.35,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        }
+      }
+    },
+    "medical": {
+      "case_kind_counts": {
+        "action_id_renamed": 2,
+        "action_split": 4,
+        "tightened_support": 6
+      },
+      "comparison": {
+        "mean_decision_cost_reduction_vs_stale_validated": 0.17499999999999996,
+        "mean_decision_cost_reduction_vs_unvalidated": 1.125,
+        "obsolete_execution_reduction_vs_unvalidated": 1.0,
+        "supported_continuity_gain_over_stale_validated": 1.0,
+        "tightened_support_false_accept_reduction_vs_unvalidated": 1.0
+      },
+      "counterfactual_case_pack_signature": "a1f3f141cb7314a5273e7ea5575ff7bdd13f14f471e7746b849aa895f74588b7",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "medical",
+      "generated_case_count": 12,
+      "migration_action_counts": {
+        "cardiac_chest_pain_pathway": 2,
+        "lab_panel_priority_order": 2,
+        "routine_review": 6,
+        "sepsis_screen_pathway": 2
+      },
+      "registry_digest": "e29d3d364c2197e68119db23c15bfeef53931406454ed38e2452ee0ceffd29ac",
+      "registry_name": "medical-workflow-router",
+      "registry_version": "1.2.0",
+      "stale_action_counts": {
+        "legacy_acute_pathway_triage": 4,
+        "legacy_lab_panel_priority_order": 2,
+        "routine_review": 6
+      },
+      "supported_case_count": 6,
+      "unsupported_case_count": 6,
+      "variants": {
+        "live_hybrid": {
+          "case_count": 12,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 0.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 1.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.5,
+            "calibration_ece": 0.022000000000000002,
+            "fallback_rate": 0.5,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.333208999421913,
+            "latency_p95_ms": 6.436916000893689,
+            "latency_p99_ms": 6.436916000893689,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 6,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 12,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_unvalidated": {
+          "case_count": 12,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 1.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 1.0,
+            "tightened_support_safe_rejection_rate": 0.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.9899999999999999,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 1.0,
+            "invalid_output_rate": 0.5,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 1.125,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.5,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 6,
+            "supported_mean_decision_cost": 1.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 12,
+            "unsupported_case_rejection_rate": 0.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 1.25,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_validated": {
+          "case_count": 12,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 1.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 1.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.9899999999999999,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 1.0,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 0.17499999999999996,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 6,
+            "supported_mean_decision_cost": 0.3499999999999999,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 12,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        }
+      }
+    },
+    "soc": {
+      "case_kind_counts": {
+        "action_id_renamed": 3,
+        "action_split": 4,
+        "tightened_support": 6
+      },
+      "comparison": {
+        "mean_decision_cost_reduction_vs_stale_validated": 0.18846153846153843,
+        "mean_decision_cost_reduction_vs_unvalidated": 1.1153846153846154,
+        "obsolete_execution_reduction_vs_unvalidated": 1.0,
+        "supported_continuity_gain_over_stale_validated": 1.0,
+        "tightened_support_false_accept_reduction_vs_unvalidated": 1.0
+      },
+      "counterfactual_case_pack_signature": "ca231a766e75bad46e68e49653fddb4e583a50cd650a1d8342ca9cdc6396c2d6",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "soc",
+      "generated_case_count": 13,
+      "migration_action_counts": {
+        "block_ip_temporarily": 2,
+        "collect_forensics": 3,
+        "isolate_host": 5,
+        "rotate_credentials": 3
+      },
+      "registry_digest": "f29d5c51b54fbe1ac67433860608a83a9a59728b74fe0d165ba9005cd0d2bf3f",
+      "registry_name": "soc-playbook-router",
+      "registry_version": "1.1.0",
+      "stale_action_counts": {
+        "isolate_host": 3,
+        "legacy_collect_forensics": 3,
+        "legacy_network_containment": 4,
+        "rotate_credentials": 3
+      },
+      "supported_case_count": 7,
+      "unsupported_case_count": 6,
+      "variants": {
+        "live_hybrid": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 0.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 1.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.38461538461538464,
+            "calibration_ece": 0.052076923076923076,
+            "fallback_rate": 0.46153846153846156,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.359167000482557,
+            "latency_p95_ms": 7.53945799988287,
+            "latency_p99_ms": 7.53945799988287,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_unvalidated": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 1.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 1.0,
+            "tightened_support_safe_rejection_rate": 0.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.99,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 1.0,
+            "invalid_output_rate": 0.5384615384615384,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 1.1153846153846154,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.46153846153846156,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 1.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 0.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 1.25,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_validated": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 1.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 1.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.99,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 1.0,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 0.18846153846153843,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 0.35,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        }
+      }
+    },
+    "sre": {
+      "case_kind_counts": {
+        "action_id_renamed": 3,
+        "action_split": 4,
+        "tightened_support": 6
+      },
+      "comparison": {
+        "mean_decision_cost_reduction_vs_stale_validated": 0.18846153846153843,
+        "mean_decision_cost_reduction_vs_unvalidated": 1.1153846153846154,
+        "obsolete_execution_reduction_vs_unvalidated": 1.0,
+        "supported_continuity_gain_over_stale_validated": 1.0,
+        "tightened_support_false_accept_reduction_vs_unvalidated": 1.0
+      },
+      "counterfactual_case_pack_signature": "546bc64e2b33a513cd3dd33e9acc456bc007205195f5cdd362245e6deed362b4",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "sre",
+      "generated_case_count": 13,
+      "migration_action_counts": {
+        "enable_readonly_mode": 2,
+        "failover_region": 8,
+        "rollback_deploy": 3
+      },
+      "registry_digest": "53fbf4558a629ebe056b59e8d926d77a9b9f53d2881993912c1922a36235baad",
+      "registry_name": "sre-policy-router",
+      "registry_version": "1.5.0",
+      "stale_action_counts": {
+        "failover_region": 6,
+        "legacy_regional_mitigation": 4,
+        "legacy_rollback_deploy": 3
+      },
+      "supported_case_count": 7,
+      "unsupported_case_count": 6,
+      "variants": {
+        "live_hybrid": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 0.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 1.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.46153846153846156,
+            "calibration_ece": 0.018000000000000023,
+            "fallback_rate": 0.46153846153846156,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.711332998747821,
+            "latency_p95_ms": 8.228040998801589,
+            "latency_p99_ms": 8.228040998801589,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_unvalidated": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 1.0,
+            "obsolete_action_fail_closed_rate": 0.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 0.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 1.0,
+            "tightened_support_safe_rejection_rate": 0.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.99,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 1.0,
+            "invalid_output_rate": 0.5384615384615384,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 1.1153846153846154,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.46153846153846156,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 1.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 0.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 1.25,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "stale_validated": {
+          "case_count": 13,
+          "evolution_metrics": {
+            "obsolete_action_execution_rate": 0.0,
+            "obsolete_action_fail_closed_rate": 1.0,
+            "stale_label_selected_rate": 1.0,
+            "supported_migration_fail_closed_rate": 1.0,
+            "supported_migration_success_rate": 0.0,
+            "tightened_support_false_accept_rate": 0.0,
+            "tightened_support_safe_rejection_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.99,
+            "fallback_rate": 0.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 1.0,
+            "latency_p50_ms": 0.0,
+            "latency_p95_ms": 0.0,
+            "latency_p99_ms": 0.0,
+            "mean_decision_cost": 0.18846153846153843,
+            "ood_accuracy_supported_only": 0.0,
+            "semantic_correctness_rate": 0.0,
+            "structural_validity_rate": 0.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 7,
+            "supported_mean_decision_cost": 0.35,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 13,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 6,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        }
+      }
+    }
+  },
+  "generated_at": "2026-04-10T18:42:24.597105+00:00",
+  "summary": {
+    "domain_count": 7,
+    "live_perfect_continuity_domains": 7,
+    "stale_unvalidated_obsolete_execution_domains": 7,
+    "stale_unvalidated_tightened_false_accept_domains": 7,
+    "stale_validated_zero_unsafe_domains": 7
+  },
+  "threshold": 0.6
+}

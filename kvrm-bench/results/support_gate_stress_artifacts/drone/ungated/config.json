@@ -1,0 +1,6 @@
+{
+  "run_name": "drone_ungated_support_gate_stress",
+  "selector_name": "drone_ungated_support_gate_stress_selector",
+  "threshold": 0.6,
+  "timestamp": "2026-04-10T18:38:09.123630+00:00"
+}

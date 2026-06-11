@@ -1,0 +1,147 @@
+{
+  "domain": "sre",
+  "registry": "kvrm-demos/sre-policy-router/data/registry.json",
+  "train_cases": "kvrm-demos/sre-policy-router/data/train_cases.jsonl",
+  "eval_cases": "kvrm-demos/sre-policy-router/data/cases.jsonl",
+  "output_model": "kvrm-models/sre_compact_selector_v1.joblib",
+  "metadata": {
+    "train_case_count": 24,
+    "registry_name": "sre-policy-router",
+    "registry_digest": "53fbf4558a629ebe056b59e8d926d77a9b9f53d2881993912c1922a36235baad",
+    "random_state": 42,
+    "n_estimators": 256,
+    "train_accuracy": 1.0
+  },
+  "selector_only": {
+    "total_cases": 140,
+    "supported_cases": 94,
+    "unsupported_cases": 46,
+    "structural_validity_rate": 1.0,
+    "semantic_correctness_rate": 0.9787234042553191,
+    "abstention_rate": 0.35,
+    "fallback_rate": 0.42142857142857143,
+    "invalid_output_rate": 0.0,
+    "false_accept_rate": 0.0,
+    "latency_p50_ms": 6.45266700303182,
+    "latency_p95_ms": 7.327375002205372,
+    "latency_p99_ms": 9.8607920226641,
+    "calibration_ece": 0.09793526785714285,
+    "ood_accuracy_supported_only": 0.9682539682539683,
+    "unsupported_case_rejection_rate": 1.0,
+    "support_gate_trigger_rate": 0.0,
+    "supported_support_gate_rescue_rate": 0.0,
+    "unsupported_support_gate_short_circuit_rate": 0.0,
+    "support_gate_exhausted_rate": 0.0,
+    "mean_decision_cost": 0.005,
+    "supported_mean_decision_cost": 0.007446808510638297,
+    "unsupported_mean_decision_cost": 0.0,
+    "structural_validity_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9732928443510084,
+      "ci_upper": 1.0,
+      "n": 140
+    },
+    "semantic_correctness_ci": {
+      "rate": 0.9787234042553191,
+      "ci_lower": 0.9257083451044751,
+      "ci_upper": 0.9941457864714599,
+      "n": 94
+    },
+    "false_accept_rate_ci": {
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.07707617732978073,
+      "n": 46
+    },
+    "unsupported_rejection_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9229238226702192,
+      "ci_upper": 1.0,
+      "n": 46
+    },
+    "abstention_rate_ci": {
+      "rate": 0.35,
+      "ci_lower": 0.27595527877221365,
+      "ci_upper": 0.43205686792248393,
+      "n": 140
+    },
+    "fallback_rate_ci": {
+      "rate": 0.42142857142857143,
+      "ci_lower": 0.34280328630053336,
+      "ci_upper": 0.5042506953014512,
+      "n": 140
+    },
+    "ood_accuracy_ci": {
+      "rate": 0.9682539682539683,
+      "ci_lower": 0.8914331816504081,
+      "ci_upper": 0.9912506559597031,
+      "n": 63
+    }
+  },
+  "hybrid_augmented": {
+    "total_cases": 140,
+    "supported_cases": 94,
+    "unsupported_cases": 46,
+    "structural_validity_rate": 1.0,
+    "semantic_correctness_rate": 1.0,
+    "abstention_rate": 0.03571428571428571,
+    "fallback_rate": 0.39285714285714285,
+    "invalid_output_rate": 0.0,
+    "false_accept_rate": 0.0,
+    "latency_p50_ms": 6.740582990460098,
+    "latency_p95_ms": 8.105542045086622,
+    "latency_p99_ms": 9.427291981410235,
+    "calibration_ece": 0.26507343750000006,
+    "ood_accuracy_supported_only": 1.0,
+    "unsupported_case_rejection_rate": 1.0,
+    "support_gate_trigger_rate": 0.0,
+    "supported_support_gate_rescue_rate": 0.0,
+    "unsupported_support_gate_short_circuit_rate": 0.0,
+    "support_gate_exhausted_rate": 0.0,
+    "mean_decision_cost": 0.0,
+    "supported_mean_decision_cost": 0.0,
+    "unsupported_mean_decision_cost": 0.0,
+    "structural_validity_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9732928443510084,
+      "ci_upper": 1.0,
+      "n": 140
+    },
+    "semantic_correctness_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9607365374237544,
+      "ci_upper": 1.0,
+      "n": 94
+    },
+    "false_accept_rate_ci": {
+      "rate": 0.0,
+      "ci_lower": 0.0,
+      "ci_upper": 0.07707617732978073,
+      "n": 46
+    },
+    "unsupported_rejection_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9229238226702192,
+      "ci_upper": 1.0,
+      "n": 46
+    },
+    "abstention_rate_ci": {
+      "rate": 0.03571428571428571,
+      "ci_lower": 0.015349489267215272,
+      "ci_upper": 0.08087858383541985,
+      "n": 140
+    },
+    "fallback_rate_ci": {
+      "rate": 0.39285714285714285,
+      "ci_lower": 0.31585380215457726,
+      "ci_upper": 0.4755834454844925,
+      "n": 140
+    },
+    "ood_accuracy_ci": {
+      "rate": 1.0,
+      "ci_lower": 0.9425268096514744,
+      "ci_upper": 0.9999999999999999,
+      "n": 63
+    }
+  }
+}

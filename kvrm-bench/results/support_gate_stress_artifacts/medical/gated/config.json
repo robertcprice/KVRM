@@ -1,0 +1,6 @@
+{
+  "run_name": "medical_gated_support_gate_stress",
+  "selector_name": "medical_gated_support_gate_stress_selector",
+  "threshold": 0.6,
+  "timestamp": "2026-04-10T18:38:09.769665+00:00"
+}

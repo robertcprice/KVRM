@@ -1,0 +1,207 @@
+{
+  "domains": {
+    "drone": {
+      "case_kind_counts": {
+        "canonical_infeasible_handoff": 19,
+        "generated_combined_infeasible_handoff": 10,
+        "generated_infeasible_handoff": 22,
+        "supported_handoff_control": 11
+      },
+      "comparison": {
+        "feasibility_cost_reduction": 1.028225806451613,
+        "infeasible_handoff_execution_reduction": 1.0,
+        "supported_handoff_success_delta": 0.0,
+        "unsafe_execution_reduction": 1.0
+      },
+      "domain": "drone",
+      "fallback_action_id": "manual_handoff",
+      "generated_case_count": 62,
+      "source_case_count": 146,
+      "supported_case_count": 11,
+      "unsupported_case_count": 51,
+      "variants": {
+        "legacy_bypass": {
+          "case_count": 62,
+          "feasibility_metrics": {
+            "mean_feasibility_cost": 1.028225806451613,
+            "supported_handoff_success_rate": 1.0,
+            "supported_mean_feasibility_cost": 0.0,
+            "unsupported_infeasible_handoff_execution_rate": 1.0,
+            "unsupported_mean_feasibility_cost": 1.25,
+            "unsupported_safe_rejection_rate": 0.0,
+            "unsupported_unsafe_execution_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.7580645161290323,
+            "calibration_ece": 0.0,
+            "fallback_rate": 1.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.674208038020879,
+            "latency_p95_ms": 9.99125000089407,
+            "latency_p99_ms": 12.381500040646642,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 11,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 62,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 51,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "strict": {
+          "case_count": 62,
+          "feasibility_metrics": {
+            "mean_feasibility_cost": 0.0,
+            "supported_handoff_success_rate": 1.0,
+            "supported_mean_feasibility_cost": 0.0,
+            "unsupported_infeasible_handoff_execution_rate": 0.0,
+            "unsupported_mean_feasibility_cost": 0.0,
+            "unsupported_safe_rejection_rate": 1.0,
+            "unsupported_unsafe_execution_rate": 0.0
+          },
+          "metrics": {
+            "abstention_rate": 0.7580645161290323,
+            "calibration_ece": 0.05935483870967742,
+            "fallback_rate": 1.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.538583023939282,
+            "latency_p95_ms": 8.643082983326167,
+            "latency_p99_ms": 10.958999977447093,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 11,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 62,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 51,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        }
+      },
+      "violation_feature_counts": {
+        "pilot_response_eta": 39,
+        "takeover_window_remaining": 39
+      }
+    },
+    "sre": {
+      "case_kind_counts": {
+        "canonical_infeasible_handoff": 5,
+        "generated_combined_infeasible_handoff": 7,
+        "generated_infeasible_handoff": 16,
+        "supported_handoff_control": 8
+      },
+      "comparison": {
+        "feasibility_cost_reduction": 0.9722222222222222,
+        "infeasible_handoff_execution_reduction": 1.0,
+        "supported_handoff_success_delta": 0.0,
+        "unsafe_execution_reduction": 1.0
+      },
+      "domain": "sre",
+      "fallback_action_id": "page_human_operator",
+      "generated_case_count": 36,
+      "source_case_count": 140,
+      "supported_case_count": 8,
+      "unsupported_case_count": 28,
+      "variants": {
+        "legacy_bypass": {
+          "case_count": 36,
+          "feasibility_metrics": {
+            "mean_feasibility_cost": 0.9722222222222222,
+            "supported_handoff_success_rate": 1.0,
+            "supported_mean_feasibility_cost": 0.0,
+            "unsupported_infeasible_handoff_execution_rate": 1.0,
+            "unsupported_mean_feasibility_cost": 1.25,
+            "unsupported_safe_rejection_rate": 0.0,
+            "unsupported_unsafe_execution_rate": 1.0
+          },
+          "metrics": {
+            "abstention_rate": 0.7777777777777778,
+            "calibration_ece": 0.0,
+            "fallback_rate": 1.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.558667053468525,
+            "latency_p95_ms": 9.743499977048486,
+            "latency_p99_ms": 10.9910829924047,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 8,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 36,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 28,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        },
+        "strict": {
+          "case_count": 36,
+          "feasibility_metrics": {
+            "mean_feasibility_cost": 0.0,
+            "supported_handoff_success_rate": 1.0,
+            "supported_mean_feasibility_cost": 0.0,
+            "unsupported_infeasible_handoff_execution_rate": 0.0,
+            "unsupported_mean_feasibility_cost": 0.0,
+            "unsupported_safe_rejection_rate": 1.0,
+            "unsupported_unsafe_execution_rate": 0.0
+          },
+          "metrics": {
+            "abstention_rate": 0.7777777777777778,
+            "calibration_ece": 0.0,
+            "fallback_rate": 1.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.528083002194762,
+            "latency_p95_ms": 7.642957963980734,
+            "latency_p99_ms": 8.373500022571534,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 8,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 36,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 28,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          }
+        }
+      },
+      "violation_feature_counts": {
+        "mitigation_window_remaining": 18,
+        "operator_response_eta": 19
+      }
+    }
+  },
+  "generated_at": "2026-04-10T14:38:52.662039+00:00",
+  "summary": {
+    "domain_count": 2,
+    "legacy_nonzero_unsafe_execution_domains": 2,
+    "strict_zero_unsafe_execution_domains": 2
+  },
+  "threshold": 0.6
+}

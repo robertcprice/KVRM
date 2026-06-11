@@ -1,0 +1,3180 @@
+{
+  "domains": {
+    "drone": {
+      "comparison": {
+        "best_non_hybrid_strategy": "prototype",
+        "hybrid_episode_cost_reduction": 0.11302083333333333,
+        "hybrid_episode_regret_gain": 0.06458333333333334,
+        "hybrid_episode_success_gain": 0.32291666666666663,
+        "hybrid_fail_closed_checkpoint_gain": 0.0
+      },
+      "counterfactual_case_pack_path": "/Users/bobbyprice/projects/KVRM/kvrm-bench/results/counterfactual_boundary_case_cache/drone.json",
+      "counterfactual_case_pack_signature": "38454f409ff2f5db8e35d861d65e1fe8811fe611135d744549dc098d3dd5fd6d",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "drone",
+      "episode_count": 96,
+      "episode_source_counts": {
+        "authored": 4,
+        "counterfactual_derived": 92
+      },
+      "episode_type_counts": {
+        "fail_closed_recover_stabilize": 40,
+        "switch_fail_closed_recover": 56
+      },
+      "event_kind_counts": {
+        "baseline": 96,
+        "deescalation_switch": 1,
+        "degradation_switch": 53,
+        "energy_degradation": 1,
+        "obstacle_spike": 1,
+        "recovery": 96,
+        "stabilize": 40,
+        "unsupported_checkpoint": 96
+      },
+      "mutated_feature_counts": {
+        "airspace_deconfliction_status": 37,
+        "altitude_headroom": 12,
+        "autonomous_recovery_allowed": 1,
+        "battery": 85,
+        "comms": 3,
+        "estimated_energy_margin": 1,
+        "obstacle_density": 3,
+        "pilot_takeover_link_quality": 1,
+        "safe_landing_zone_available": 3,
+        "signal_recovery_confidence": 1,
+        "threat_level": 10
+      },
+      "source_authored_episode_count": 4,
+      "source_counterfactual_case_count": 1518,
+      "source_supported_case_count": 98,
+      "strategies": {
+        "hybrid": {
+          "episode_count": 96,
+          "episode_metrics": {
+            "action_change_success_rate": 1.0,
+            "all_steps_success_rate": 1.0,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 1.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.0,
+            "mean_episode_regret": 0.0,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.18875000000000006,
+            "fallback_rate": 0.3255208333333333,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 7.021082998107886,
+            "latency_p95_ms": 14.668208001239691,
+            "latency_p99_ms": 21.69641600266914,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 288,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 384,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 96,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.0,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.10069444444444445,
+            "supported_mean_decision_regret": 0.0,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 384
+        },
+        "learned": {
+          "episode_count": 96,
+          "episode_metrics": {
+            "action_change_success_rate": 0.0,
+            "all_steps_success_rate": 0.40625,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.40625,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.2953125,
+            "mean_episode_regret": 0.16875000000000004,
+            "recovery_terminal_success_rate": 0.875,
+            "stabilization_success_rate": 0.975
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.25,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.25,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.43749999999999994,
+              "mean_episode_regret": 0.25,
+              "recovery_terminal_success_rate": 0.75,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.41304347826086957,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.41304347826086957,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.2891304347826087,
+              "mean_episode_regret": 0.16521739130434784,
+              "recovery_terminal_success_rate": 0.8804347826086957,
+              "stabilization_success_rate": 0.9743589743589743
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.4348958333333333,
+            "calibration_ece": 0.09745279947916667,
+            "fallback_rate": 0.5364583333333334,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.927250000444474,
+            "latency_p95_ms": 13.772207999863895,
+            "latency_p99_ms": 19.115167000563815,
+            "mean_decision_cost": 0.073828125,
+            "ood_accuracy_supported_only": 0.6681034482758621,
+            "semantic_correctness_rate": 0.71875,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 288,
+            "supported_mean_decision_cost": 0.0984375,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 384,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 96,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.042187499999999996,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.3819444444444444,
+            "supported_mean_decision_regret": 0.056249999999999994,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 384
+        },
+        "prototype": {
+          "episode_count": 96,
+          "episode_metrics": {
+            "action_change_success_rate": 0.44642857142857145,
+            "all_steps_success_rate": 0.6770833333333334,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.6770833333333334,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.11302083333333333,
+            "mean_episode_regret": 0.06458333333333334,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.6666666666666666,
+              "all_steps_success_rate": 0.75,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.75,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0875,
+              "mean_episode_regret": 0.05,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.4339622641509434,
+              "all_steps_success_rate": 0.6739130434782609,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.6739130434782609,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.11413043478260869,
+              "mean_episode_regret": 0.06521739130434782,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.2994791666666667,
+            "calibration_ece": 0.08881944444444445,
+            "fallback_rate": 0.40625,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.12412499927449971,
+            "latency_p95_ms": 0.3954999992856756,
+            "latency_p99_ms": 0.7383330012089573,
+            "mean_decision_cost": 0.028255208333333334,
+            "ood_accuracy_supported_only": 0.8663793103448276,
+            "semantic_correctness_rate": 0.8923611111111112,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 288,
+            "supported_mean_decision_cost": 0.03767361111111111,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 384,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 96,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.016145833333333335,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.20833333333333334,
+            "supported_mean_decision_regret": 0.021527777777777778,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 384
+        },
+        "retrieval": {
+          "episode_count": 96,
+          "episode_metrics": {
+            "action_change_success_rate": 0.0,
+            "all_steps_success_rate": 0.09375,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.09375,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.8713541666666665,
+            "mean_episode_regret": 0.49791666666666673,
+            "recovery_terminal_success_rate": 0.20833333333333334,
+            "stabilization_success_rate": 0.225
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.8749999999999999,
+              "mean_episode_regret": 0.5000000000000001,
+              "recovery_terminal_success_rate": 0.25,
+              "stabilization_success_rate": 0.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.09782608695652174,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.09782608695652174,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.8711956521739129,
+              "mean_episode_regret": 0.4978260869565218,
+              "recovery_terminal_success_rate": 0.20652173913043478,
+              "stabilization_success_rate": 0.23076923076923078
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.9427083333333334,
+            "calibration_ece": 0.0020833333333333355,
+            "fallback_rate": 0.9479166666666666,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.027333000616636127,
+            "latency_p95_ms": 0.03412499791011214,
+            "latency_p99_ms": 0.03654100146377459,
+            "mean_decision_cost": 0.21783854166666664,
+            "ood_accuracy_supported_only": 0.11206896551724138,
+            "semantic_correctness_rate": 0.1701388888888889,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 288,
+            "supported_mean_decision_cost": 0.2904513888888889,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 384,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 96,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.12447916666666668,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.9305555555555556,
+            "supported_mean_decision_regret": 0.16597222222222224,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 384
+        },
+        "rule": {
+          "episode_count": 96,
+          "episode_metrics": {
+            "action_change_success_rate": 0.0,
+            "all_steps_success_rate": 0.07291666666666667,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.07291666666666667,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.9151041666666665,
+            "mean_episode_regret": 0.5229166666666668,
+            "recovery_terminal_success_rate": 0.15625,
+            "stabilization_success_rate": 0.175
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.8749999999999999,
+              "mean_episode_regret": 0.5000000000000001,
+              "recovery_terminal_success_rate": 0.25,
+              "stabilization_success_rate": 0.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.07608695652173914,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.07608695652173914,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.9168478260869563,
+              "mean_episode_regret": 0.523913043478261,
+              "recovery_terminal_success_rate": 0.15217391304347827,
+              "stabilization_success_rate": 0.1794871794871795
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.9791666666666666,
+            "calibration_ece": 0.0018229166666666676,
+            "fallback_rate": 0.9791666666666666,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.028624999686144292,
+            "latency_p95_ms": 0.12283300020499155,
+            "latency_p99_ms": 0.23070799943525344,
+            "mean_decision_cost": 0.22877604166666665,
+            "ood_accuracy_supported_only": 0.09482758620689655,
+            "semantic_correctness_rate": 0.1284722222222222,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 288,
+            "supported_mean_decision_cost": 0.3050347222222222,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 384,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 96,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.13072916666666667,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.9722222222222222,
+            "supported_mean_decision_regret": 0.17430555555555557,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 384
+        },
+        "semantic": {
+          "episode_count": 96,
+          "episode_metrics": {
+            "action_change_success_rate": 0.8571428571428571,
+            "all_steps_success_rate": 0.6875,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.6875,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.24791666666666665,
+            "mean_episode_regret": 0.1416666666666667,
+            "recovery_terminal_success_rate": 0.7395833333333334,
+            "stabilization_success_rate": 0.75
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 0.75,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.75,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.175,
+              "mean_episode_regret": 0.1,
+              "recovery_terminal_success_rate": 0.75,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.8490566037735849,
+              "all_steps_success_rate": 0.6847826086956522,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.6847826086956522,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.2510869565217391,
+              "mean_episode_regret": 0.14347826086956522,
+              "recovery_terminal_success_rate": 0.7391304347826086,
+              "stabilization_success_rate": 0.7435897435897436
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.3958333333333333,
+            "calibration_ece": 0.009947916666666674,
+            "fallback_rate": 0.5026041666666666,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.0413330017181579,
+            "latency_p95_ms": 0.05483299901243299,
+            "latency_p99_ms": 0.06787500024074689,
+            "mean_decision_cost": 0.06197916666666666,
+            "ood_accuracy_supported_only": 0.7801724137931034,
+            "semantic_correctness_rate": 0.7638888888888888,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 288,
+            "supported_mean_decision_cost": 0.08263888888888887,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 384,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 96,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.03541666666666667,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.3368055555555556,
+            "supported_mean_decision_regret": 0.04722222222222223,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 384
+        }
+      }
+    },
+    "finance": {
+      "comparison": {
+        "best_non_hybrid_strategy": "semantic",
+        "hybrid_episode_cost_reduction": 0.016666666666666666,
+        "hybrid_episode_regret_gain": 0.009523809523809525,
+        "hybrid_episode_success_gain": 0.04761904761904767,
+        "hybrid_fail_closed_checkpoint_gain": 0.0
+      },
+      "counterfactual_case_pack_path": "/Users/bobbyprice/projects/KVRM/kvrm-bench/results/counterfactual_boundary_case_cache/finance.json",
+      "counterfactual_case_pack_signature": "55fc30a42d86dcef47504f13d1aebbc858c65a68dcad9dc691416b471ad6522e",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "finance",
+      "episode_count": 21,
+      "episode_source_counts": {
+        "authored": 4,
+        "counterfactual_derived": 17
+      },
+      "episode_type_counts": {
+        "fail_closed_recover_stabilize": 2,
+        "switch_fail_closed_recover": 19
+      },
+      "event_kind_counts": {
+        "baseline": 21,
+        "compliance_escalation": 1,
+        "degradation_switch": 16,
+        "freeze_escalation": 1,
+        "monitoring_gate": 1,
+        "recovery": 21,
+        "stabilize": 2,
+        "unsupported_checkpoint": 21
+      },
+      "mutated_feature_counts": {
+        "account_history": 14,
+        "anomaly_score": 14,
+        "document_mismatch": 1,
+        "kyc_completeness": 2,
+        "sanctions_hit": 8,
+        "transaction_amount": 1
+      },
+      "source_authored_episode_count": 4,
+      "source_counterfactual_case_count": 191,
+      "source_supported_case_count": 18,
+      "strategies": {
+        "hybrid": {
+          "episode_count": 21,
+          "episode_metrics": {
+            "action_change_success_rate": 1.0,
+            "all_steps_success_rate": 1.0,
+            "any_fallback_rate": 0.6666666666666666,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 1.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.0,
+            "mean_episode_regret": 0.0,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 0.5882352941176471,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.18837037037037035,
+            "fallback_rate": 0.16666666666666666,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.879750002553919,
+            "latency_p95_ms": 15.443415999470744,
+            "latency_p99_ms": 19.236333002481842,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 63,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 84,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 21,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.0,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.09523809523809523,
+            "supported_mean_decision_regret": 0.0,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 84
+        },
+        "learned": {
+          "episode_count": 21,
+          "episode_metrics": {
+            "action_change_success_rate": 0.0,
+            "all_steps_success_rate": 0.0,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.5499999999999999,
+            "mean_episode_regret": 0.31428571428571433,
+            "recovery_terminal_success_rate": 0.7142857142857143,
+            "stabilization_success_rate": 0.0
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.5249999999999999,
+              "mean_episode_regret": 0.30000000000000004,
+              "recovery_terminal_success_rate": 0.75,
+              "stabilization_success_rate": 0.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.5558823529411764,
+              "mean_episode_regret": 0.31764705882352945,
+              "recovery_terminal_success_rate": 0.7058823529411765,
+              "stabilization_success_rate": 0.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.6428571428571429,
+            "calibration_ece": 0.08523995535714285,
+            "fallback_rate": 0.6428571428571429,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.655500001215842,
+            "latency_p95_ms": 13.41662499908125,
+            "latency_p99_ms": 18.71529200070654,
+            "mean_decision_cost": 0.13749999999999998,
+            "ood_accuracy_supported_only": 0.32653061224489793,
+            "semantic_correctness_rate": 0.47619047619047616,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 63,
+            "supported_mean_decision_cost": 0.18333333333333332,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 84,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 21,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.07857142857142858,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.6190476190476191,
+            "supported_mean_decision_regret": 0.10476190476190476,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 84
+        },
+        "prototype": {
+          "episode_count": 21,
+          "episode_metrics": {
+            "action_change_success_rate": 0.47368421052631576,
+            "all_steps_success_rate": 0.42857142857142855,
+            "any_fallback_rate": 0.8095238095238095,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.42857142857142855,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.2833333333333333,
+            "mean_episode_regret": 0.1619047619047619,
+            "recovery_terminal_success_rate": 0.8571428571428571,
+            "stabilization_success_rate": 0.5
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.3333333333333333,
+              "all_steps_success_rate": 0.5,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.5,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.175,
+              "mean_episode_regret": 0.1,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.5,
+              "all_steps_success_rate": 0.4117647058823529,
+              "any_fallback_rate": 0.7647058823529411,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.4117647058823529,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.30882352941176466,
+              "mean_episode_regret": 0.17647058823529416,
+              "recovery_terminal_success_rate": 0.8235294117647058,
+              "stabilization_success_rate": 0.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.35714285714285715,
+            "calibration_ece": 0.03446031746031745,
+            "fallback_rate": 0.35714285714285715,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.08183399768313393,
+            "latency_p95_ms": 0.2292500030307565,
+            "latency_p99_ms": 0.6095419994380791,
+            "mean_decision_cost": 0.07083333333333333,
+            "ood_accuracy_supported_only": 0.6530612244897959,
+            "semantic_correctness_rate": 0.7301587301587301,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 63,
+            "supported_mean_decision_cost": 0.09444444444444443,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 84,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 21,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.04047619047619048,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.36507936507936506,
+            "supported_mean_decision_regret": 0.05396825396825397,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 84
+        },
+        "retrieval": {
+          "episode_count": 21,
+          "episode_metrics": {
+            "action_change_success_rate": 0.0,
+            "all_steps_success_rate": 0.0,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.5499999999999999,
+            "mean_episode_regret": 0.31428571428571433,
+            "recovery_terminal_success_rate": 0.7142857142857143,
+            "stabilization_success_rate": 0.0
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.5249999999999999,
+              "mean_episode_regret": 0.30000000000000004,
+              "recovery_terminal_success_rate": 0.75,
+              "stabilization_success_rate": 0.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.5558823529411764,
+              "mean_episode_regret": 0.31764705882352945,
+              "recovery_terminal_success_rate": 0.7058823529411765,
+              "stabilization_success_rate": 0.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.6666666666666666,
+            "calibration_ece": 0.013333333333333345,
+            "fallback_rate": 0.6666666666666666,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.026666999474400654,
+            "latency_p95_ms": 0.029625000024680048,
+            "latency_p99_ms": 0.0375420022464823,
+            "mean_decision_cost": 0.13749999999999998,
+            "ood_accuracy_supported_only": 0.32653061224489793,
+            "semantic_correctness_rate": 0.47619047619047616,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 63,
+            "supported_mean_decision_cost": 0.18333333333333332,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 84,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 21,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.07857142857142858,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.6190476190476191,
+            "supported_mean_decision_regret": 0.10476190476190476,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 84
+        },
+        "rule": {
+          "episode_count": 21,
+          "episode_metrics": {
+            "action_change_success_rate": 0.0,
+            "all_steps_success_rate": 0.0,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.6499999999999999,
+            "mean_episode_regret": 0.37142857142857144,
+            "recovery_terminal_success_rate": 0.5714285714285714,
+            "stabilization_success_rate": 0.0
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.5249999999999999,
+              "mean_episode_regret": 0.30000000000000004,
+              "recovery_terminal_success_rate": 0.75,
+              "stabilization_success_rate": 0.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.6794117647058823,
+              "mean_episode_regret": 0.38823529411764707,
+              "recovery_terminal_success_rate": 0.5294117647058824,
+              "stabilization_success_rate": 0.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.7619047619047619,
+            "calibration_ece": 0.017380952380952386,
+            "fallback_rate": 0.7619047619047619,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.026875000912696123,
+            "latency_p95_ms": 0.030916999094188213,
+            "latency_p99_ms": 0.05220799721428193,
+            "mean_decision_cost": 0.16249999999999998,
+            "ood_accuracy_supported_only": 0.20408163265306123,
+            "semantic_correctness_rate": 0.38095238095238093,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 63,
+            "supported_mean_decision_cost": 0.21666666666666665,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 84,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 21,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.09285714285714286,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.7142857142857143,
+            "supported_mean_decision_regret": 0.12380952380952383,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 84
+        },
+        "semantic": {
+          "episode_count": 21,
+          "episode_metrics": {
+            "action_change_success_rate": 0.9473684210526315,
+            "all_steps_success_rate": 0.9523809523809523,
+            "any_fallback_rate": 0.6666666666666666,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.9523809523809523,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.016666666666666666,
+            "mean_episode_regret": 0.009523809523809525,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.9375,
+              "all_steps_success_rate": 0.9411764705882353,
+              "any_fallback_rate": 0.5882352941176471,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.9411764705882353,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.020588235294117647,
+              "mean_episode_regret": 0.011764705882352941,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.16666666666666666,
+            "calibration_ece": 0.07714285714285714,
+            "fallback_rate": 0.16666666666666666,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.04920900028082542,
+            "latency_p95_ms": 0.061333001212915406,
+            "latency_p99_ms": 0.08933299977798015,
+            "mean_decision_cost": 0.004166666666666667,
+            "ood_accuracy_supported_only": 0.9795918367346939,
+            "semantic_correctness_rate": 0.9841269841269841,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 63,
+            "supported_mean_decision_cost": 0.005555555555555555,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 84,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 21,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.002380952380952381,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.1111111111111111,
+            "supported_mean_decision_regret": 0.0031746031746031746,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 84
+        }
+      }
+    },
+    "grid": {
+      "comparison": {
+        "best_non_hybrid_strategy": "prototype",
+        "hybrid_episode_cost_reduction": 0.0,
+        "hybrid_episode_regret_gain": 0.0,
+        "hybrid_episode_success_gain": 0.0,
+        "hybrid_fail_closed_checkpoint_gain": 0.0
+      },
+      "counterfactual_case_pack_path": "/Users/bobbyprice/projects/KVRM/kvrm-bench/results/counterfactual_boundary_case_cache/grid.json",
+      "counterfactual_case_pack_signature": "c18ec54e028ba73526ccfc4a8b1200c702eb53e99411d1c04c62bf43491ea0c1",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "grid",
+      "episode_count": 18,
+      "episode_source_counts": {
+        "counterfactual_derived": 18
+      },
+      "episode_type_counts": {
+        "fail_closed_recover_stabilize": 7,
+        "switch_fail_closed_recover": 11
+      },
+      "event_kind_counts": {
+        "baseline": 18,
+        "degradation_switch": 11,
+        "recovery": 18,
+        "stabilize": 7,
+        "unsupported_checkpoint": 18
+      },
+      "mutated_feature_counts": {
+        "blackstart_required": 12,
+        "crew_availability": 5,
+        "customer_impact": 4,
+        "fault_isolation_ready": 4,
+        "switching_authorized": 1,
+        "transfer_path_available": 2,
+        "weather_risk": 1
+      },
+      "source_authored_episode_count": 0,
+      "source_counterfactual_case_count": 236,
+      "source_supported_case_count": 18,
+      "strategies": {
+        "hybrid": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 1.0,
+            "all_steps_success_rate": 1.0,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 1.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.0,
+            "mean_episode_regret": 0.0,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.35509413580246907,
+            "fallback_rate": 0.3055555555555556,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 7.102458999725059,
+            "latency_p95_ms": 16.864665998582495,
+            "latency_p99_ms": 27.329791999363806,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.0,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.07407407407407407,
+            "supported_mean_decision_regret": 0.0,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        },
+        "learned": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 0.09090909090909091,
+            "all_steps_success_rate": 0.1111111111111111,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.1111111111111111,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.8555555555555554,
+            "mean_episode_regret": 0.48888888888888893,
+            "recovery_terminal_success_rate": 0.2222222222222222,
+            "stabilization_success_rate": 0.14285714285714285
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.09090909090909091,
+              "all_steps_success_rate": 0.1111111111111111,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.1111111111111111,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.8555555555555554,
+              "mean_episode_regret": 0.48888888888888893,
+              "recovery_terminal_success_rate": 0.2222222222222222,
+              "stabilization_success_rate": 0.14285714285714285
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.875,
+            "calibration_ece": 0.02349175347222222,
+            "fallback_rate": 0.9166666666666666,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.725208997522714,
+            "latency_p95_ms": 13.54933399852598,
+            "latency_p99_ms": 16.891625000425847,
+            "mean_decision_cost": 0.21388888888888888,
+            "ood_accuracy_supported_only": 0.18518518518518517,
+            "semantic_correctness_rate": 0.18518518518518517,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.28518518518518515,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.12222222222222223,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.8888888888888888,
+            "supported_mean_decision_regret": 0.16296296296296298,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        },
+        "prototype": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 1.0,
+            "all_steps_success_rate": 1.0,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 1.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.0,
+            "mean_episode_regret": 0.0,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.2361111111111111,
+            "calibration_ece": 0.13789969135802466,
+            "fallback_rate": 0.3055555555555556,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.08195800182875246,
+            "latency_p95_ms": 0.08787499973550439,
+            "latency_p99_ms": 0.12087499999324791,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.0,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.07407407407407407,
+            "supported_mean_decision_regret": 0.0,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        },
+        "retrieval": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 0.09090909090909091,
+            "all_steps_success_rate": 0.05555555555555555,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.05555555555555555,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.9527777777777777,
+            "mean_episode_regret": 0.5444444444444445,
+            "recovery_terminal_success_rate": 0.1111111111111111,
+            "stabilization_success_rate": 0.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.09090909090909091,
+              "all_steps_success_rate": 0.05555555555555555,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.05555555555555555,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.9527777777777777,
+              "mean_episode_regret": 0.5444444444444445,
+              "recovery_terminal_success_rate": 0.1111111111111111,
+              "stabilization_success_rate": 0.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.9722222222222222,
+            "calibration_ece": 0.000555555555555556,
+            "fallback_rate": 0.9861111111111112,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.02587499693618156,
+            "latency_p95_ms": 0.03074999767704867,
+            "latency_p99_ms": 0.04050000279676169,
+            "mean_decision_cost": 0.23819444444444443,
+            "ood_accuracy_supported_only": 0.09259259259259259,
+            "semantic_correctness_rate": 0.09259259259259259,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.3175925925925926,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.13611111111111113,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.9814814814814815,
+            "supported_mean_decision_regret": 0.1814814814814815,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        },
+        "rule": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 0.09090909090909091,
+            "all_steps_success_rate": 0.05555555555555555,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.05555555555555555,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.9527777777777777,
+            "mean_episode_regret": 0.5444444444444445,
+            "recovery_terminal_success_rate": 0.1111111111111111,
+            "stabilization_success_rate": 0.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.09090909090909091,
+              "all_steps_success_rate": 0.05555555555555555,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.05555555555555555,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.9527777777777777,
+              "mean_episode_regret": 0.5444444444444445,
+              "recovery_terminal_success_rate": 0.1111111111111111,
+              "stabilization_success_rate": 0.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.9861111111111112,
+            "calibration_ece": 0.000277777777777778,
+            "fallback_rate": 0.9861111111111112,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.027374997443985194,
+            "latency_p95_ms": 0.06354099969030358,
+            "latency_p99_ms": 0.13729199781664647,
+            "mean_decision_cost": 0.23819444444444443,
+            "ood_accuracy_supported_only": 0.09259259259259259,
+            "semantic_correctness_rate": 0.09259259259259259,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.3175925925925926,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.13611111111111113,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.9814814814814815,
+            "supported_mean_decision_regret": 0.1814814814814815,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        },
+        "semantic": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 0.0,
+            "all_steps_success_rate": 0.0,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.972222222222222,
+            "mean_episode_regret": 0.5555555555555557,
+            "recovery_terminal_success_rate": 0.1111111111111111,
+            "stabilization_success_rate": 0.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.972222222222222,
+              "mean_episode_regret": 0.5555555555555557,
+              "recovery_terminal_success_rate": 0.1111111111111111,
+              "stabilization_success_rate": 0.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.9305555555555556,
+            "calibration_ece": 0.0,
+            "fallback_rate": 1.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.012915999832330272,
+            "latency_p95_ms": 0.039375001506414264,
+            "latency_p99_ms": 0.04691699723480269,
+            "mean_decision_cost": 0.24305555555555555,
+            "ood_accuracy_supported_only": 0.07407407407407407,
+            "semantic_correctness_rate": 0.07407407407407407,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.32407407407407407,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.1388888888888889,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 1.0,
+            "supported_mean_decision_regret": 0.18518518518518517,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        }
+      }
+    },
+    "iam": {
+      "comparison": {
+        "best_non_hybrid_strategy": "prototype",
+        "hybrid_episode_cost_reduction": 0.0,
+        "hybrid_episode_regret_gain": 0.0,
+        "hybrid_episode_success_gain": 0.0,
+        "hybrid_fail_closed_checkpoint_gain": 0.0
+      },
+      "counterfactual_case_pack_path": "/Users/bobbyprice/projects/KVRM/kvrm-bench/results/counterfactual_boundary_case_cache/iam.json",
+      "counterfactual_case_pack_signature": "41fe5ead14dd5cb3c0bbf78f1c459917e6abc228f6d5077f4762dec94c1f516c",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "iam",
+      "episode_count": 20,
+      "episode_source_counts": {
+        "authored": 4,
+        "counterfactual_derived": 16
+      },
+      "episode_type_counts": {
+        "fail_closed_recover_stabilize": 16,
+        "switch_fail_closed_recover": 4
+      },
+      "event_kind_counts": {
+        "baseline": 20,
+        "degradation_switch": 2,
+        "recovery": 20,
+        "review_gate": 1,
+        "review_reopen": 1,
+        "stabilize": 16,
+        "unsupported_checkpoint": 20
+      },
+      "mutated_feature_counts": {
+        "device_posture": 16,
+        "justification": 2,
+        "manager_approval": 3,
+        "requested_privilege": 1,
+        "requester_risk": 1,
+        "resource_sensitivity": 1,
+        "security_review": 1,
+        "session_scope": 4,
+        "ticket_state": 1
+      },
+      "source_authored_episode_count": 4,
+      "source_counterfactual_case_count": 419,
+      "source_supported_case_count": 18,
+      "strategies": {
+        "hybrid": {
+          "episode_count": 20,
+          "episode_metrics": {
+            "action_change_success_rate": 1.0,
+            "all_steps_success_rate": 1.0,
+            "any_fallback_rate": 0.75,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 1.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.0,
+            "mean_episode_regret": 0.0,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 0.6875,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.22206363636363646,
+            "fallback_rate": 0.1875,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 7.2341250015597325,
+            "latency_p95_ms": 17.096542000217596,
+            "latency_p99_ms": 30.674833000375656,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 60,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 80,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 20,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.0,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.6,
+            "supported_mean_decision_regret": 0.0,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 80
+        },
+        "learned": {
+          "episode_count": 20,
+          "episode_metrics": {
+            "action_change_success_rate": 0.75,
+            "all_steps_success_rate": 0.85,
+            "any_fallback_rate": 0.95,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.85,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.12249999999999998,
+            "mean_episode_regret": 0.07,
+            "recovery_terminal_success_rate": 0.9,
+            "stabilization_success_rate": 0.875
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.5,
+              "all_steps_success_rate": 0.75,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.75,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0875,
+              "mean_episode_regret": 0.05,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 0.875,
+              "any_fallback_rate": 0.9375,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.875,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.13124999999999998,
+              "mean_episode_regret": 0.07500000000000001,
+              "recovery_terminal_success_rate": 0.875,
+              "stabilization_success_rate": 0.8571428571428571
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.3125,
+            "calibration_ece": 0.16108398437500004,
+            "fallback_rate": 0.3125,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.989958001213381,
+            "latency_p95_ms": 12.671958000282757,
+            "latency_p99_ms": 18.413208999845665,
+            "mean_decision_cost": 0.030624999999999996,
+            "ood_accuracy_supported_only": 0.8292682926829268,
+            "semantic_correctness_rate": 0.8833333333333333,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 60,
+            "supported_mean_decision_cost": 0.040833333333333326,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 80,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 20,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.0175,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.6,
+            "supported_mean_decision_regret": 0.023333333333333334,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 80
+        },
+        "prototype": {
+          "episode_count": 20,
+          "episode_metrics": {
+            "action_change_success_rate": 1.0,
+            "all_steps_success_rate": 1.0,
+            "any_fallback_rate": 0.75,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 1.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.0,
+            "mean_episode_regret": 0.0,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 0.6875,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.1875,
+            "calibration_ece": 0.052669696969697,
+            "fallback_rate": 0.1875,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.09279200094169937,
+            "latency_p95_ms": 0.12762500045937486,
+            "latency_p99_ms": 0.6657920021098107,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 60,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 80,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 20,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.0,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.6,
+            "supported_mean_decision_regret": 0.0,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 80
+        },
+        "retrieval": {
+          "episode_count": 20,
+          "episode_metrics": {
+            "action_change_success_rate": 0.5,
+            "all_steps_success_rate": 0.7,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.7,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.2799999999999999,
+            "mean_episode_regret": 0.16000000000000003,
+            "recovery_terminal_success_rate": 0.75,
+            "stabilization_success_rate": 0.75
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.5,
+              "all_steps_success_rate": 0.75,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.75,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.26249999999999996,
+              "mean_episode_regret": 0.15000000000000002,
+              "recovery_terminal_success_rate": 0.75,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.5,
+              "all_steps_success_rate": 0.6875,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.6875,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.28437499999999993,
+              "mean_episode_regret": 0.16250000000000003,
+              "recovery_terminal_success_rate": 0.75,
+              "stabilization_success_rate": 0.7142857142857143
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.45,
+            "calibration_ece": 0.022000000000000082,
+            "fallback_rate": 0.45,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.028124999516876414,
+            "latency_p95_ms": 0.03125000148429535,
+            "latency_p99_ms": 0.0469170008727815,
+            "mean_decision_cost": 0.06999999999999999,
+            "ood_accuracy_supported_only": 0.6097560975609756,
+            "semantic_correctness_rate": 0.7333333333333333,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 60,
+            "supported_mean_decision_cost": 0.09333333333333332,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 80,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 20,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.04,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.75,
+            "supported_mean_decision_regret": 0.05333333333333334,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 80
+        },
+        "rule": {
+          "episode_count": 20,
+          "episode_metrics": {
+            "action_change_success_rate": 0.25,
+            "all_steps_success_rate": 0.4,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.4,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.6299999999999999,
+            "mean_episode_regret": 0.36000000000000004,
+            "recovery_terminal_success_rate": 0.4,
+            "stabilization_success_rate": 0.4375
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.25,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.25,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.7874999999999999,
+              "mean_episode_regret": 0.45000000000000007,
+              "recovery_terminal_success_rate": 0.25,
+              "stabilization_success_rate": 0.5
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.5,
+              "all_steps_success_rate": 0.4375,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.4375,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.590625,
+              "mean_episode_regret": 0.3375,
+              "recovery_terminal_success_rate": 0.4375,
+              "stabilization_success_rate": 0.42857142857142855
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.7,
+            "calibration_ece": 0.012875000000000013,
+            "fallback_rate": 0.7,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.029667000490007922,
+            "latency_p95_ms": 0.14154200107441284,
+            "latency_p99_ms": 0.3043329998035915,
+            "mean_decision_cost": 0.1575,
+            "ood_accuracy_supported_only": 0.24390243902439024,
+            "semantic_correctness_rate": 0.4,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 60,
+            "supported_mean_decision_cost": 0.21,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 80,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 20,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.09,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.8833333333333333,
+            "supported_mean_decision_regret": 0.12000000000000001,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 80
+        },
+        "semantic": {
+          "episode_count": 20,
+          "episode_metrics": {
+            "action_change_success_rate": 0.5,
+            "all_steps_success_rate": 0.4,
+            "any_fallback_rate": 0.9,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.4,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.5599999999999998,
+            "mean_episode_regret": 0.32000000000000006,
+            "recovery_terminal_success_rate": 0.45,
+            "stabilization_success_rate": 0.5
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 0.25,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.25,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.6124999999999999,
+              "mean_episode_regret": 0.35000000000000003,
+              "recovery_terminal_success_rate": 0.25,
+              "stabilization_success_rate": 0.5
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.4375,
+              "any_fallback_rate": 0.875,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.4375,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.5468749999999999,
+              "mean_episode_regret": 0.31250000000000006,
+              "recovery_terminal_success_rate": 0.5,
+              "stabilization_success_rate": 0.5
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.6125,
+            "calibration_ece": 0.021999999999999995,
+            "fallback_rate": 0.6125,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.020832998416153714,
+            "latency_p95_ms": 0.052041999879293144,
+            "latency_p99_ms": 0.057957997341873124,
+            "mean_decision_cost": 0.13999999999999999,
+            "ood_accuracy_supported_only": 0.4146341463414634,
+            "semantic_correctness_rate": 0.4666666666666667,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 60,
+            "supported_mean_decision_cost": 0.18666666666666665,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 80,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 20,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.08,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 1.0,
+            "supported_mean_decision_regret": 0.10666666666666667,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 80
+        }
+      }
+    },
+    "medical": {
+      "comparison": {
+        "best_non_hybrid_strategy": "semantic",
+        "hybrid_episode_cost_reduction": 0.0,
+        "hybrid_episode_regret_gain": 0.0,
+        "hybrid_episode_success_gain": 0.0,
+        "hybrid_fail_closed_checkpoint_gain": 0.0
+      },
+      "counterfactual_case_pack_path": "/Users/bobbyprice/projects/KVRM/kvrm-bench/results/counterfactual_boundary_case_cache/medical.json",
+      "counterfactual_case_pack_signature": "a1f3f141cb7314a5273e7ea5575ff7bdd13f14f471e7746b849aa895f74588b7",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "medical",
+      "episode_count": 18,
+      "episode_source_counts": {
+        "counterfactual_derived": 18
+      },
+      "episode_type_counts": {
+        "fail_closed_recover_stabilize": 2,
+        "switch_fail_closed_recover": 16
+      },
+      "event_kind_counts": {
+        "baseline": 18,
+        "degradation_switch": 16,
+        "recovery": 18,
+        "stabilize": 2,
+        "unsupported_checkpoint": 18
+      },
+      "mutated_feature_counts": {
+        "acuity_score": 24,
+        "chest_pain": 4,
+        "clinician_note_flag": 1,
+        "fever_bucket": 2,
+        "focal_neuro_deficit": 2,
+        "respiratory_distress": 1
+      },
+      "source_authored_episode_count": 0,
+      "source_counterfactual_case_count": 160,
+      "source_supported_case_count": 18,
+      "strategies": {
+        "hybrid": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 1.0,
+            "all_steps_success_rate": 1.0,
+            "any_fallback_rate": 0.8888888888888888,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 1.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.0,
+            "mean_episode_regret": 0.0,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 0.8888888888888888,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.23778703703703707,
+            "fallback_rate": 0.2222222222222222,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 7.147583000914892,
+            "latency_p95_ms": 12.524500001745764,
+            "latency_p99_ms": 18.82520800063503,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.0,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.09259259259259259,
+            "supported_mean_decision_regret": 0.0,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        },
+        "learned": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 0.0625,
+            "all_steps_success_rate": 0.1111111111111111,
+            "any_fallback_rate": 0.9444444444444444,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.1111111111111111,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.486111111111111,
+            "mean_episode_regret": 0.27777777777777785,
+            "recovery_terminal_success_rate": 0.7222222222222222,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0625,
+              "all_steps_success_rate": 0.1111111111111111,
+              "any_fallback_rate": 0.9444444444444444,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.1111111111111111,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.486111111111111,
+              "mean_episode_regret": 0.27777777777777785,
+              "recovery_terminal_success_rate": 0.7222222222222222,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.5694444444444444,
+            "calibration_ece": 0.09375000000000001,
+            "fallback_rate": 0.5694444444444444,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.915124999068212,
+            "latency_p95_ms": 15.729125003417721,
+            "latency_p99_ms": 19.237709002482006,
+            "mean_decision_cost": 0.12152777777777778,
+            "ood_accuracy_supported_only": 0.32432432432432434,
+            "semantic_correctness_rate": 0.5370370370370371,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.16203703703703703,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.06944444444444445,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.5555555555555556,
+            "supported_mean_decision_regret": 0.09259259259259259,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        },
+        "prototype": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 0.8125,
+            "all_steps_success_rate": 0.8333333333333334,
+            "any_fallback_rate": 0.8888888888888888,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.8333333333333334,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.05833333333333332,
+            "mean_episode_regret": 0.03333333333333334,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.8125,
+              "all_steps_success_rate": 0.8333333333333334,
+              "any_fallback_rate": 0.8888888888888888,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.8333333333333334,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.05833333333333332,
+              "mean_episode_regret": 0.03333333333333334,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.25,
+            "calibration_ece": 0.12399074074074075,
+            "fallback_rate": 0.25,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.06479200237663463,
+            "latency_p95_ms": 0.08062499910010956,
+            "latency_p99_ms": 0.1110420016630087,
+            "mean_decision_cost": 0.01458333333333333,
+            "ood_accuracy_supported_only": 0.918918918918919,
+            "semantic_correctness_rate": 0.9444444444444444,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.01944444444444444,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.008333333333333335,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.14814814814814814,
+            "supported_mean_decision_regret": 0.011111111111111113,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        },
+        "retrieval": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 0.0,
+            "all_steps_success_rate": 0.1111111111111111,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.1111111111111111,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.5444444444444444,
+            "mean_episode_regret": 0.3111111111111111,
+            "recovery_terminal_success_rate": 0.6666666666666666,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.1111111111111111,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.1111111111111111,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.5444444444444444,
+              "mean_episode_regret": 0.3111111111111111,
+              "recovery_terminal_success_rate": 0.6666666666666666,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.6388888888888888,
+            "calibration_ece": 0.014444444444444418,
+            "fallback_rate": 0.6388888888888888,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.027083999157184735,
+            "latency_p95_ms": 0.03191599898855202,
+            "latency_p99_ms": 0.03920800008927472,
+            "mean_decision_cost": 0.1361111111111111,
+            "ood_accuracy_supported_only": 0.24324324324324326,
+            "semantic_correctness_rate": 0.48148148148148145,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.18148148148148147,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.07777777777777778,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.6111111111111112,
+            "supported_mean_decision_regret": 0.10370370370370371,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        },
+        "rule": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 0.0,
+            "all_steps_success_rate": 0.1111111111111111,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.1111111111111111,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.6999999999999998,
+            "mean_episode_regret": 0.4000000000000001,
+            "recovery_terminal_success_rate": 0.4444444444444444,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.1111111111111111,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.1111111111111111,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.6999999999999998,
+              "mean_episode_regret": 0.4000000000000001,
+              "recovery_terminal_success_rate": 0.4444444444444444,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.7916666666666666,
+            "calibration_ece": 0.009027777777777773,
+            "fallback_rate": 0.7916666666666666,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.027333000616636127,
+            "latency_p95_ms": 0.03308399755042046,
+            "latency_p99_ms": 0.05379199865274131,
+            "mean_decision_cost": 0.175,
+            "ood_accuracy_supported_only": 0.08108108108108109,
+            "semantic_correctness_rate": 0.3333333333333333,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.23333333333333334,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.1,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.7592592592592593,
+            "supported_mean_decision_regret": 0.13333333333333333,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        },
+        "semantic": {
+          "episode_count": 18,
+          "episode_metrics": {
+            "action_change_success_rate": 1.0,
+            "all_steps_success_rate": 1.0,
+            "any_fallback_rate": 0.8888888888888888,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 1.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.0,
+            "mean_episode_regret": 0.0,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 0.8888888888888888,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.2222222222222222,
+            "calibration_ece": 0.050555555555555534,
+            "fallback_rate": 0.2222222222222222,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.04199999966658652,
+            "latency_p95_ms": 0.048541998694418,
+            "latency_p99_ms": 0.06174999725772068,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 54,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 72,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 18,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.0,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.09259259259259259,
+            "supported_mean_decision_regret": 0.0,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 72
+        }
+      }
+    },
+    "soc": {
+      "comparison": {
+        "best_non_hybrid_strategy": "prototype",
+        "hybrid_episode_cost_reduction": 0.0,
+        "hybrid_episode_regret_gain": 0.0,
+        "hybrid_episode_success_gain": 0.0,
+        "hybrid_fail_closed_checkpoint_gain": 0.0
+      },
+      "counterfactual_case_pack_path": "/Users/bobbyprice/projects/KVRM/kvrm-bench/results/counterfactual_boundary_case_cache/soc.json",
+      "counterfactual_case_pack_signature": "ca231a766e75bad46e68e49653fddb4e583a50cd650a1d8342ca9cdc6396c2d6",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "soc",
+      "episode_count": 80,
+      "episode_source_counts": {
+        "counterfactual_derived": 80
+      },
+      "episode_type_counts": {
+        "fail_closed_recover_stabilize": 13,
+        "switch_fail_closed_recover": 67
+      },
+      "event_kind_counts": {
+        "baseline": 80,
+        "degradation_switch": 67,
+        "recovery": 80,
+        "stabilize": 13,
+        "unsupported_checkpoint": 80
+      },
+      "mutated_feature_counts": {
+        "asset_criticality": 36,
+        "blast_radius": 26,
+        "credential_exposure": 21,
+        "endpoint_type": 30,
+        "internet_exposed": 14,
+        "lateral_movement": 2,
+        "severity": 16,
+        "threat_confidence": 2
+      },
+      "source_authored_episode_count": 0,
+      "source_counterfactual_case_count": 698,
+      "source_supported_case_count": 88,
+      "strategies": {
+        "hybrid": {
+          "episode_count": 80,
+          "episode_metrics": {
+            "action_change_success_rate": 0.9850746268656716,
+            "all_steps_success_rate": 0.9875,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.9875,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.0043749999999999995,
+            "mean_episode_regret": 0.0025,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.9850746268656716,
+              "all_steps_success_rate": 0.9875,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.9875,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0043749999999999995,
+              "mean_episode_regret": 0.0025,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.003125,
+            "calibration_ece": 0.23381979166666672,
+            "fallback_rate": 0.31875,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 7.075458001054358,
+            "latency_p95_ms": 15.59566599826212,
+            "latency_p99_ms": 18.97866699800943,
+            "mean_decision_cost": 0.0010937499999999999,
+            "ood_accuracy_supported_only": 0.9941176470588236,
+            "semantic_correctness_rate": 0.9958333333333333,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 240,
+            "supported_mean_decision_cost": 0.0014583333333333332,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 320,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 80,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.000625,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.09166666666666666,
+            "supported_mean_decision_regret": 0.0008333333333333334,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 320
+        },
+        "learned": {
+          "episode_count": 80,
+          "episode_metrics": {
+            "action_change_success_rate": 0.13432835820895522,
+            "all_steps_success_rate": 0.0625,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.0625,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.7393749999999999,
+            "mean_episode_regret": 0.42250000000000004,
+            "recovery_terminal_success_rate": 0.3625,
+            "stabilization_success_rate": 0.3076923076923077
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.13432835820895522,
+              "all_steps_success_rate": 0.0625,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0625,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.7393749999999999,
+              "mean_episode_regret": 0.42250000000000004,
+              "recovery_terminal_success_rate": 0.3625,
+              "stabilization_success_rate": 0.3076923076923077
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.84375,
+            "calibration_ece": 0.04238281249999999,
+            "fallback_rate": 0.84375,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 6.873166999866953,
+            "latency_p95_ms": 13.130125000316184,
+            "latency_p99_ms": 15.480500002013287,
+            "mean_decision_cost": 0.18484375,
+            "ood_accuracy_supported_only": 0.25882352941176473,
+            "semantic_correctness_rate": 0.29583333333333334,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 240,
+            "supported_mean_decision_cost": 0.24645833333333333,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 320,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 80,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.10562500000000001,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.7916666666666666,
+            "supported_mean_decision_regret": 0.14083333333333334,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 320
+        },
+        "prototype": {
+          "episode_count": 80,
+          "episode_metrics": {
+            "action_change_success_rate": 0.9850746268656716,
+            "all_steps_success_rate": 0.9875,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.9875,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.0043749999999999995,
+            "mean_episode_regret": 0.0025,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.9850746268656716,
+              "all_steps_success_rate": 0.9875,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.9875,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0043749999999999995,
+              "mean_episode_regret": 0.0025,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.31875,
+            "calibration_ece": 0.06741979166666666,
+            "fallback_rate": 0.31875,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.06679199941572733,
+            "latency_p95_ms": 0.0882499989529606,
+            "latency_p99_ms": 0.0977079980657436,
+            "mean_decision_cost": 0.0010937499999999999,
+            "ood_accuracy_supported_only": 0.9941176470588236,
+            "semantic_correctness_rate": 0.9958333333333333,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 240,
+            "supported_mean_decision_cost": 0.0014583333333333332,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 320,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 80,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.000625,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.09166666666666666,
+            "supported_mean_decision_regret": 0.0008333333333333334,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 320
+        },
+        "retrieval": {
+          "episode_count": 80,
+          "episode_metrics": {
+            "action_change_success_rate": 0.029850746268656716,
+            "all_steps_success_rate": 0.025,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.025,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.8881249999999998,
+            "mean_episode_regret": 0.5075000000000001,
+            "recovery_terminal_success_rate": 0.2125,
+            "stabilization_success_rate": 0.07692307692307693
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.029850746268656716,
+              "all_steps_success_rate": 0.025,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.025,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.8881249999999998,
+              "mean_episode_regret": 0.5075000000000001,
+              "recovery_terminal_success_rate": 0.2125,
+              "stabilization_success_rate": 0.07692307692307693
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.95,
+            "calibration_ece": 0.0020000000000000018,
+            "fallback_rate": 0.95,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.023292002879315987,
+            "latency_p95_ms": 0.027334001060808077,
+            "latency_p99_ms": 0.0295409990940243,
+            "mean_decision_cost": 0.22203124999999999,
+            "ood_accuracy_supported_only": 0.13529411764705881,
+            "semantic_correctness_rate": 0.15416666666666667,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 240,
+            "supported_mean_decision_cost": 0.29604166666666665,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 320,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 80,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.12687500000000002,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.9333333333333333,
+            "supported_mean_decision_regret": 0.16916666666666666,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 320
+        },
+        "rule": {
+          "episode_count": 80,
+          "episode_metrics": {
+            "action_change_success_rate": 0.029850746268656716,
+            "all_steps_success_rate": 0.025,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.025,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.9143749999999999,
+            "mean_episode_regret": 0.5225000000000001,
+            "recovery_terminal_success_rate": 0.175,
+            "stabilization_success_rate": 0.07692307692307693
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.029850746268656716,
+              "all_steps_success_rate": 0.025,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.025,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.9143749999999999,
+              "mean_episode_regret": 0.5225000000000001,
+              "recovery_terminal_success_rate": 0.175,
+              "stabilization_success_rate": 0.07692307692307693
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.96875,
+            "calibration_ece": 0.0030624999999999975,
+            "fallback_rate": 0.96875,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.02358399797230959,
+            "latency_p95_ms": 0.02824999683070928,
+            "latency_p99_ms": 0.03154200021526776,
+            "mean_decision_cost": 0.22859374999999998,
+            "ood_accuracy_supported_only": 0.1,
+            "semantic_correctness_rate": 0.12916666666666668,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 240,
+            "supported_mean_decision_cost": 0.3047916666666666,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 320,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 80,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.13062500000000002,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.9583333333333334,
+            "supported_mean_decision_regret": 0.1741666666666667,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 320
+        },
+        "semantic": {
+          "episode_count": 80,
+          "episode_metrics": {
+            "action_change_success_rate": 0.05970149253731343,
+            "all_steps_success_rate": 0.0125,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.0125,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.8968749999999999,
+            "mean_episode_regret": 0.5125000000000001,
+            "recovery_terminal_success_rate": 0.1875,
+            "stabilization_success_rate": 0.07692307692307693
+          },
+          "episode_metrics_by_source": {
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.05970149253731343,
+              "all_steps_success_rate": 0.0125,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0125,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.8968749999999999,
+              "mean_episode_regret": 0.5125000000000001,
+              "recovery_terminal_success_rate": 0.1875,
+              "stabilization_success_rate": 0.07692307692307693
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.853125,
+            "calibration_ece": 0.0035000000000000027,
+            "fallback_rate": 0.95625,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.012583997886395082,
+            "latency_p95_ms": 0.03779200051212683,
+            "latency_p99_ms": 0.04129199805902317,
+            "mean_decision_cost": 0.22421875,
+            "ood_accuracy_supported_only": 0.1588235294117647,
+            "semantic_correctness_rate": 0.14583333333333334,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 240,
+            "supported_mean_decision_cost": 0.2989583333333333,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 320,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 80,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.128125,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.9416666666666667,
+            "supported_mean_decision_regret": 0.17083333333333334,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 320
+        }
+      }
+    },
+    "sre": {
+      "comparison": {
+        "best_non_hybrid_strategy": "prototype",
+        "hybrid_episode_cost_reduction": 0.03684210526315789,
+        "hybrid_episode_regret_gain": 0.021052631578947368,
+        "hybrid_episode_success_gain": 0.10526315789473684,
+        "hybrid_fail_closed_checkpoint_gain": 0.0
+      },
+      "counterfactual_case_pack_path": "/Users/bobbyprice/projects/KVRM/kvrm-bench/results/counterfactual_boundary_case_cache/sre.json",
+      "counterfactual_case_pack_signature": "546bc64e2b33a513cd3dd33e9acc456bc007205195f5cdd362245e6deed362b4",
+      "counterfactual_case_pack_source": "cache",
+      "domain": "sre",
+      "episode_count": 76,
+      "episode_source_counts": {
+        "authored": 4,
+        "counterfactual_derived": 72
+      },
+      "episode_type_counts": {
+        "fail_closed_recover_stabilize": 67,
+        "switch_fail_closed_recover": 9
+      },
+      "event_kind_counts": {
+        "baseline": 76,
+        "degradation_switch": 7,
+        "recovery": 76,
+        "recovery_switch": 1,
+        "rollback_switch": 1,
+        "stabilize": 67,
+        "unsupported_checkpoint": 76
+      },
+      "mutated_feature_counts": {
+        "automation_policy_permits_failover": 13,
+        "capacity_headroom": 11,
+        "change_failure_blast_radius": 9,
+        "control_plane_availability": 2,
+        "dependency_health": 21,
+        "deploy_regression_suspected": 11,
+        "deployment_recency": 1,
+        "error_rate": 8,
+        "node_locality_score": 1,
+        "replica_skew": 2,
+        "rollback_safe": 1,
+        "write_path_available": 6
+      },
+      "source_authored_episode_count": 4,
+      "source_counterfactual_case_count": 1976,
+      "source_supported_case_count": 94,
+      "strategies": {
+        "hybrid": {
+          "episode_count": 76,
+          "episode_metrics": {
+            "action_change_success_rate": 1.0,
+            "all_steps_success_rate": 1.0,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 1.0,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.0,
+            "mean_episode_regret": 0.0,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 1.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 1.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0,
+              "mean_episode_regret": 0.0,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.0,
+            "calibration_ece": 0.19747203947368422,
+            "fallback_rate": 0.32894736842105265,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 7.2121250013879035,
+            "latency_p95_ms": 14.32470800136798,
+            "latency_p99_ms": 17.546708000736544,
+            "mean_decision_cost": 0.0,
+            "ood_accuracy_supported_only": 1.0,
+            "semantic_correctness_rate": 1.0,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 228,
+            "supported_mean_decision_cost": 0.0,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 304,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 76,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.0,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.10526315789473684,
+            "supported_mean_decision_regret": 0.0,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 304
+        },
+        "learned": {
+          "episode_count": 76,
+          "episode_metrics": {
+            "action_change_success_rate": 0.1111111111111111,
+            "all_steps_success_rate": 0.868421052631579,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.868421052631579,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.06447368421052631,
+            "mean_episode_regret": 0.0368421052631579,
+            "recovery_terminal_success_rate": 0.9736842105263158,
+            "stabilization_success_rate": 0.9701492537313433
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.5,
+              "all_steps_success_rate": 0.75,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.75,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0875,
+              "mean_episode_regret": 0.05,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.875,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.875,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.06319444444444444,
+              "mean_episode_regret": 0.036111111111111115,
+              "recovery_terminal_success_rate": 0.9722222222222222,
+              "stabilization_success_rate": 0.9692307692307692
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.28289473684210525,
+            "calibration_ece": 0.11385947779605261,
+            "fallback_rate": 0.375,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 7.073291999404319,
+            "latency_p95_ms": 16.303790998790646,
+            "latency_p99_ms": 18.194415999460034,
+            "mean_decision_cost": 0.016118421052631577,
+            "ood_accuracy_supported_only": 0.9190751445086706,
+            "semantic_correctness_rate": 0.9385964912280702,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 228,
+            "supported_mean_decision_cost": 0.021491228070175436,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 304,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 76,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.009210526315789475,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.16666666666666666,
+            "supported_mean_decision_regret": 0.012280701754385967,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 304
+        },
+        "prototype": {
+          "episode_count": 76,
+          "episode_metrics": {
+            "action_change_success_rate": 0.1111111111111111,
+            "all_steps_success_rate": 0.8947368421052632,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.8947368421052632,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.03684210526315789,
+            "mean_episode_regret": 0.021052631578947368,
+            "recovery_terminal_success_rate": 1.0,
+            "stabilization_success_rate": 1.0
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.5,
+              "all_steps_success_rate": 0.75,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.75,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0875,
+              "mean_episode_regret": 0.05,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.9027777777777778,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.9027777777777778,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.034027777777777775,
+              "mean_episode_regret": 0.019444444444444445,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.26973684210526316,
+            "calibration_ece": 0.06221052631578949,
+            "fallback_rate": 0.35526315789473684,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.13595899872598238,
+            "latency_p95_ms": 0.3907089994754642,
+            "latency_p99_ms": 0.581208001676714,
+            "mean_decision_cost": 0.009210526315789473,
+            "ood_accuracy_supported_only": 0.953757225433526,
+            "semantic_correctness_rate": 0.9649122807017544,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 228,
+            "supported_mean_decision_cost": 0.012280701754385965,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 304,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 76,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.005263157894736842,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.14035087719298245,
+            "supported_mean_decision_regret": 0.007017543859649123,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 304
+        },
+        "retrieval": {
+          "episode_count": 76,
+          "episode_metrics": {
+            "action_change_success_rate": 0.1111111111111111,
+            "all_steps_success_rate": 0.23684210526315788,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.23684210526315788,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.7828947368421052,
+            "mean_episode_regret": 0.4473684210526317,
+            "recovery_terminal_success_rate": 0.2631578947368421,
+            "stabilization_success_rate": 0.2537313432835821
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.5,
+              "all_steps_success_rate": 0.75,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.75,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.0875,
+              "mean_episode_regret": 0.05,
+              "recovery_terminal_success_rate": 1.0,
+              "stabilization_success_rate": 1.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.20833333333333334,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.20833333333333334,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.8215277777777776,
+              "mean_episode_regret": 0.4694444444444445,
+              "recovery_terminal_success_rate": 0.2222222222222222,
+              "stabilization_success_rate": 0.23076923076923078
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.8782894736842105,
+            "calibration_ece": 0.00447368421052632,
+            "fallback_rate": 0.8881578947368421,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.03183299850206822,
+            "latency_p95_ms": 0.042584000766510144,
+            "latency_p99_ms": 0.13633300113724545,
+            "mean_decision_cost": 0.1957236842105263,
+            "ood_accuracy_supported_only": 0.18497109826589594,
+            "semantic_correctness_rate": 0.2543859649122807,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 228,
+            "supported_mean_decision_cost": 0.26096491228070173,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 304,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 76,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.1118421052631579,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.8508771929824561,
+            "supported_mean_decision_regret": 0.14912280701754385,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 304
+        },
+        "rule": {
+          "episode_count": 76,
+          "episode_metrics": {
+            "action_change_success_rate": 0.0,
+            "all_steps_success_rate": 0.10526315789473684,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.10526315789473684,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.9394736842105262,
+            "mean_episode_regret": 0.5368421052631579,
+            "recovery_terminal_success_rate": 0.10526315789473684,
+            "stabilization_success_rate": 0.11940298507462686
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.0,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.0,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 1.0499999999999998,
+              "mean_episode_regret": 0.6000000000000001,
+              "recovery_terminal_success_rate": 0.0,
+              "stabilization_success_rate": 0.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 0.0,
+              "all_steps_success_rate": 0.1111111111111111,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.1111111111111111,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.9333333333333331,
+              "mean_episode_regret": 0.5333333333333334,
+              "recovery_terminal_success_rate": 0.1111111111111111,
+              "stabilization_success_rate": 0.12307692307692308
+            }
+          },
+          "metrics": {
+            "abstention_rate": 1.0,
+            "calibration_ece": 0.0,
+            "fallback_rate": 1.0,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.03324999852338806,
+            "latency_p95_ms": 0.07862500206101686,
+            "latency_p99_ms": 0.21166700025787577,
+            "mean_decision_cost": 0.23486842105263156,
+            "ood_accuracy_supported_only": 0.10404624277456648,
+            "semantic_correctness_rate": 0.10526315789473684,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 228,
+            "supported_mean_decision_cost": 0.3131578947368421,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 304,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 76,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.13421052631578947,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 1.0,
+            "supported_mean_decision_regret": 0.17894736842105266,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 304
+        },
+        "semantic": {
+          "episode_count": 76,
+          "episode_metrics": {
+            "action_change_success_rate": 0.8888888888888888,
+            "all_steps_success_rate": 0.5263157894736842,
+            "any_fallback_rate": 1.0,
+            "any_invalid_output_rate": 0.0,
+            "episode_success_rate": 0.5263157894736842,
+            "fail_closed_checkpoint_success_rate": 1.0,
+            "mean_episode_cost": 0.488157894736842,
+            "mean_episode_regret": 0.27894736842105267,
+            "recovery_terminal_success_rate": 0.5394736842105263,
+            "stabilization_success_rate": 0.47761194029850745
+          },
+          "episode_metrics_by_source": {
+            "authored": {
+              "action_change_success_rate": 0.5,
+              "all_steps_success_rate": 0.25,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.25,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.6124999999999999,
+              "mean_episode_regret": 0.35000000000000003,
+              "recovery_terminal_success_rate": 0.5,
+              "stabilization_success_rate": 0.0
+            },
+            "counterfactual_derived": {
+              "action_change_success_rate": 1.0,
+              "all_steps_success_rate": 0.5416666666666666,
+              "any_fallback_rate": 1.0,
+              "any_invalid_output_rate": 0.0,
+              "episode_success_rate": 0.5416666666666666,
+              "fail_closed_checkpoint_success_rate": 1.0,
+              "mean_episode_cost": 0.4812499999999999,
+              "mean_episode_regret": 0.2750000000000001,
+              "recovery_terminal_success_rate": 0.5416666666666666,
+              "stabilization_success_rate": 0.49230769230769234
+            }
+          },
+          "metrics": {
+            "abstention_rate": 0.5723684210526315,
+            "calibration_ece": 0.012894736842105275,
+            "fallback_rate": 0.6776315789473685,
+            "false_accept_rate": 0.0,
+            "invalid_output_rate": 0.0,
+            "latency_p50_ms": 0.02454099740134552,
+            "latency_p95_ms": 0.05291599882184528,
+            "latency_p99_ms": 0.055374999647028744,
+            "mean_decision_cost": 0.1220394736842105,
+            "ood_accuracy_supported_only": 0.5606936416184971,
+            "semantic_correctness_rate": 0.5350877192982456,
+            "structural_validity_rate": 1.0,
+            "support_gate_exhausted_rate": 0.0,
+            "support_gate_trigger_rate": 0.0,
+            "supported_cases": 228,
+            "supported_mean_decision_cost": 0.162719298245614,
+            "supported_support_gate_rescue_rate": 0.0,
+            "total_cases": 304,
+            "unsupported_case_rejection_rate": 1.0,
+            "unsupported_cases": 76,
+            "unsupported_mean_decision_cost": 0.0,
+            "unsupported_support_gate_short_circuit_rate": 0.0
+          },
+          "regret": {
+            "mean_decision_regret": 0.06973684210526317,
+            "severe_regret_rate": 0.0,
+            "supported_abstention_regret_rate": 0.5701754385964912,
+            "supported_mean_decision_regret": 0.09298245614035089,
+            "unsupported_mean_decision_regret": 0.0
+          },
+          "step_case_count": 304
+        }
+      }
+    }
+  },
+  "generated_at": "2026-04-10T20:23:45.598770+00:00",
+  "summary": {
+    "domain_count": 7,
+    "hybrid_loss_count": 0,
+    "hybrid_tie_count": 4,
+    "hybrid_win_count": 3
+  },
+  "threshold": 0.6
+}

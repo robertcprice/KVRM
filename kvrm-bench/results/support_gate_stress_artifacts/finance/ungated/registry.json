@@ -1,0 +1,686 @@
+{
+  "actions": [
+    {
+      "action_id": "approve_low_risk",
+      "description": "Approve the transaction with no extra controls.",
+      "name": "Approve Low Risk",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "transaction_amount",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "jurisdiction_risk",
+            "op": "eq",
+            "value": "low"
+          },
+          {
+            "feature": "anomaly_score",
+            "op": "eq",
+            "value": "low"
+          },
+          {
+            "feature": "account_history",
+            "op": "eq",
+            "value": "clean"
+          },
+          {
+            "feature": "kyc_completeness",
+            "op": "eq",
+            "value": "complete"
+          },
+          {
+            "feature": "velocity_indicator",
+            "op": "eq",
+            "value": "normal"
+          },
+          {
+            "feature": "sanctions_hit",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "document_mismatch",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "device_trust",
+            "op": "in",
+            "value": [
+              "trusted",
+              "new"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "approve"
+      ]
+    },
+    {
+      "action_id": "allow_with_monitoring",
+      "description": "Allow the transaction and add targeted post-transaction monitoring.",
+      "name": "Allow With Monitoring",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "sanctions_hit",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "document_mismatch",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "kyc_completeness",
+            "op": "eq",
+            "value": "complete"
+          },
+          {
+            "feature": "anomaly_score",
+            "op": "eq",
+            "value": "medium"
+          },
+          {
+            "feature": "jurisdiction_risk",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "transaction_amount",
+            "op": "in",
+            "value": [
+              "low",
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "account_history",
+            "op": "in",
+            "value": [
+              "clean",
+              "watch"
+            ]
+          },
+          {
+            "feature": "velocity_indicator",
+            "op": "in",
+            "value": [
+              "normal",
+              "elevated"
+            ]
+          },
+          {
+            "feature": "device_trust",
+            "op": "in",
+            "value": [
+              "trusted",
+              "new"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "monitoring"
+      ]
+    },
+    {
+      "action_id": "enhanced_due_diligence",
+      "description": "Queue the transaction for elevated but non-emergency review.",
+      "name": "Enhanced Due Diligence",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "sanctions_hit",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "document_mismatch",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "kyc_completeness",
+            "op": "eq",
+            "value": "complete"
+          },
+          {
+            "feature": "anomaly_score",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "account_history",
+            "op": "in",
+            "value": [
+              "clean",
+              "watch"
+            ]
+          },
+          {
+            "feature": "velocity_indicator",
+            "op": "in",
+            "value": [
+              "normal",
+              "elevated"
+            ]
+          },
+          {
+            "any": [
+              {
+                "feature": "jurisdiction_risk",
+                "op": "eq",
+                "value": "high"
+              },
+              {
+                "feature": "transaction_amount",
+                "op": "eq",
+                "value": "very_high"
+              },
+              {
+                "all": [
+                  {
+                    "feature": "transaction_amount",
+                    "op": "eq",
+                    "value": "high"
+                  },
+                  {
+                    "feature": "anomaly_score",
+                    "op": "eq",
+                    "value": "low"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "not": {
+              "all": [
+                {
+                  "feature": "jurisdiction_risk",
+                  "op": "eq",
+                  "value": "high"
+                },
+                {
+                  "feature": "anomaly_score",
+                  "op": "eq",
+                  "value": "medium"
+                },
+                {
+                  "feature": "account_history",
+                  "op": "eq",
+                  "value": "watch"
+                },
+                {
+                  "feature": "device_trust",
+                  "op": "in",
+                  "value": [
+                    "new",
+                    "anonymous"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "feature": "device_trust",
+            "op": "in",
+            "value": [
+              "trusted",
+              "new"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "review"
+      ]
+    },
+    {
+      "action_id": "require_additional_docs",
+      "description": "Pause and request more KYC or supporting documentation.",
+      "name": "Require Additional Docs",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "sanctions_hit",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "anomaly_score",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "any": [
+              {
+                "feature": "kyc_completeness",
+                "op": "in",
+                "value": [
+                  "partial",
+                  "missing"
+                ]
+              },
+              {
+                "feature": "document_mismatch",
+                "op": "eq",
+                "value": true
+              }
+            ]
+          },
+          {
+            "feature": "velocity_indicator",
+            "op": "in",
+            "value": [
+              "normal",
+              "elevated"
+            ]
+          },
+          {
+            "feature": "transaction_amount",
+            "op": "in",
+            "value": [
+              "low",
+              "medium"
+            ]
+          },
+          {
+            "feature": "device_trust",
+            "op": "in",
+            "value": [
+              "trusted",
+              "new"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "docs"
+      ]
+    },
+    {
+      "action_id": "lower_limit_temporarily",
+      "description": "Allow limited activity while reducing exposure and flagging the account.",
+      "name": "Lower Limit Temporarily",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "sanctions_hit",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "document_mismatch",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "kyc_completeness",
+            "op": "eq",
+            "value": "complete"
+          },
+          {
+            "feature": "anomaly_score",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "velocity_indicator",
+            "op": "eq",
+            "value": "high"
+          },
+          {
+            "feature": "account_history",
+            "op": "in",
+            "value": [
+              "clean",
+              "watch"
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "control"
+      ]
+    },
+    {
+      "action_id": "freeze_for_investigation",
+      "description": "Freeze the account or transaction pending urgent investigation.",
+      "name": "Freeze For Investigation",
+      "parameters_schema": {
+        "properties": {},
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "all": [
+          {
+            "feature": "sanctions_hit",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "any": [
+              {
+                "feature": "anomaly_score",
+                "op": "eq",
+                "value": "severe"
+              },
+              {
+                "all": [
+                  {
+                    "feature": "anomaly_score",
+                    "op": "eq",
+                    "value": "high"
+                  },
+                  {
+                    "feature": "account_history",
+                    "op": "eq",
+                    "value": "prior_incident"
+                  },
+                  {
+                    "feature": "device_trust",
+                    "op": "eq",
+                    "value": "anonymous"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "feature": "velocity_indicator",
+            "op": "eq",
+            "value": "high"
+          }
+        ]
+      },
+      "tags": [
+        "safety"
+      ]
+    },
+    {
+      "action_id": "escalate_compliance",
+      "description": "Escalate to sanctions or compliance specialists.",
+      "name": "Escalate Compliance",
+      "parameters_schema": {
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "any": [
+          {
+            "feature": "sanctions_hit",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "all": [
+              {
+                "feature": "jurisdiction_risk",
+                "op": "eq",
+                "value": "high"
+              },
+              {
+                "feature": "kyc_completeness",
+                "op": "eq",
+                "value": "missing"
+              },
+              {
+                "feature": "document_mismatch",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "feature": "anomaly_score",
+                "op": "in",
+                "value": [
+                  "high",
+                  "severe"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "compliance",
+        "safety"
+      ]
+    },
+    {
+      "action_id": "manual_review",
+      "description": "Escalate the case to a human reviewer when the risk is ambiguous or unsupported for automation.",
+      "name": "Manual Review",
+      "parameters_schema": {
+        "properties": {
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [],
+        "type": "object"
+      },
+      "support_spec": {
+        "any": [
+          {
+            "all": [
+              {
+                "feature": "transaction_amount",
+                "op": "in",
+                "value": [
+                  "high",
+                  "very_high"
+                ]
+              },
+              {
+                "feature": "kyc_completeness",
+                "op": "eq",
+                "value": "partial"
+              },
+              {
+                "feature": "anomaly_score",
+                "op": "in",
+                "value": [
+                  "medium",
+                  "high"
+                ]
+              },
+              {
+                "feature": "device_trust",
+                "op": "in",
+                "value": [
+                  "new",
+                  "anonymous"
+                ]
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "feature": "account_history",
+                "op": "eq",
+                "value": "prior_incident"
+              },
+              {
+                "feature": "anomaly_score",
+                "op": "eq",
+                "value": "medium"
+              }
+            ]
+          },
+          {
+            "all": [
+              {
+                "feature": "jurisdiction_risk",
+                "op": "eq",
+                "value": "high"
+              },
+              {
+                "feature": "anomaly_score",
+                "op": "eq",
+                "value": "medium"
+              },
+              {
+                "feature": "account_history",
+                "op": "eq",
+                "value": "watch"
+              },
+              {
+                "feature": "sanctions_hit",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "feature": "device_trust",
+                "op": "in",
+                "value": [
+                  "new",
+                  "anonymous"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "tags": [
+        "fallback",
+        "review",
+        "safe"
+      ]
+    }
+  ],
+  "context_schema": {
+    "account_history": {
+      "enum": [
+        "clean",
+        "watch",
+        "prior_incident"
+      ],
+      "type": "string"
+    },
+    "anomaly_score": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "severe"
+      ],
+      "type": "string"
+    },
+    "device_trust": {
+      "enum": [
+        "trusted",
+        "new",
+        "anonymous"
+      ],
+      "type": "string"
+    },
+    "document_mismatch": {
+      "type": "boolean"
+    },
+    "jurisdiction_risk": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ],
+      "type": "string"
+    },
+    "kyc_completeness": {
+      "enum": [
+        "complete",
+        "partial",
+        "missing"
+      ],
+      "type": "string"
+    },
+    "sanctions_hit": {
+      "type": "boolean"
+    },
+    "transaction_amount": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "very_high"
+      ],
+      "type": "string"
+    },
+    "velocity_indicator": {
+      "enum": [
+        "normal",
+        "elevated",
+        "high"
+      ],
+      "type": "string"
+    }
+  },
+  "digest": "1301f2d4df057ed791e59580a526672e50623884349f38ff9b7f0c4f8d288d21",
+  "registry_name": "finance-risk-router",
+  "required_features": [
+    "transaction_amount",
+    "jurisdiction_risk",
+    "anomaly_score",
+    "account_history",
+    "kyc_completeness",
+    "velocity_indicator",
+    "sanctions_hit",
+    "document_mismatch",
+    "device_trust"
+  ],
+  "version": "1.2.0"
+}
