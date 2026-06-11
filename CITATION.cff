@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use KVRM in your research, please cite it as below."
+title: "KVRM: Registry-Constrained Decision Architectures for Audited Finite Action Spaces"
+authors:
+  - family-names: Price
+    given-names: Robert
+type: software
+repository-code: "https://github.com/robertcprice/KVRM"
+license: MIT
+version: 0.1.0
+date-released: 2026-06-11
+abstract: >-
+  KVRM is a registry-constrained decision architecture for routing among
+  finite audited actions in safety-adjacent, infrastructure-adjacent, and
+  enterprise domains. Decision-making is restricted to a versioned action
+  registry with deterministic validation and execution boundaries between
+  prediction and effect. Across nine benchmarked domains (610 cases), hybrid
+  KVRM holds a 0.0 false-accept rate and 1.0 unsupported-case rejection rate,
+  with perfect semantic correctness in seven domains.
+keywords:
+  - decision-routing
+  - fail-closed
+  - action-registry
+  - guardrails
+  - auditability
+preferred-citation:
+  type: article
+  title: "KVRM: Registry-Constrained Decision Architectures for Audited Finite Action Spaces"
+  authors:
+    - family-names: Price
+      given-names: Robert
+  year: 2026
+  notes: "Working manuscript; PDF available in the repository's releases."
