@@ -83,45 +83,38 @@ Input Features → [Selector Ensemble] → [Support Gate] → [Validator] → [E
 
 ## Project Structure
 
+Every directory carries its own `README.md`. The repository is organized in
+three tiers: the **flagship artifact** (what the paper is built from and what
+ships in the published repo), **supporting tooling**, and **experimental
+satellites** (large local-only research threads that are gitignored and are
+*not* part of the flagship paper).
+
 ```
 KVRM/
-├── kvrm-core/           # Shared substrate (2,296 LOC)
-│   └── src/kvrm_core/
-│       ├── registry.py       # Versioned action registry with SHA-256 digests
-│       ├── selectors.py      # 6 selector types + evidence fusion
-│       ├── context.py        # Feature key computation
-│       ├── context_schema.py # Support spec evaluation
-│       ├── learned.py        # Compact selector (RandomForest) training/inference
-│       ├── runtime.py        # Decision runtime (selector → validator → executor)
-│       └── validation.py     # Deterministic output validation
-├── kvrm-bench/          # Benchmark suite
-│   └── src/kvrm_bench/
-│       ├── demo.py               # Domain discovery and case evaluation
-│       ├── metrics.py            # Metric computation (SC, CC, ECE, regret)
-│       ├── stress.py             # Support gate stress testing
-│       ├── counterfactual.py     # Boundary perturbation benchmarks
-│       ├── coordination.py       # Multi-step coordination chains (3+5 step)
-│       ├── adversarial_stress.py # Near-boundary adversarial mutations
-│       ├── scale_test.py         # Feature-space enumeration at scale
-│       ├── interpretability.py   # Feature importance analysis
-│       └── publication_*.py      # Publication artifact generation
-├── kvrm-demos/          # 9 domain implementations
-│   ├── sre-policy-router/
-│   ├── soc-playbook-router/
-│   ├── drone-mission-router/
-│   ├── grid-ops-router/
-│   ├── finance-risk-router/
-│   ├── medical-workflow-router/
-│   ├── iam-access-router/
-│   ├── customer-support-router/
-│   └── content-moderation-router/
-├── kvrm-models/         # 9 trained compact selector models (.joblib)
-├── kvrm-compiler/       # Registry compiler tooling
-├── kvrm-gpu/            # GPU-accelerated selector inference
-├── kvrm-llm-compiler/   # LLM-based registry compilation
-├── kvrm-vector/         # Vector similarity selectors
-├── tests/               # 228 tests
-└── docs/                # Papers, figures, reports, specs
+│   ── Flagship artifact (the published repo / the paper) ──────────────
+├── kvrm-core/          # Shared substrate: registry, 6 selectors, support gate, runtime, validator
+├── kvrm-bench/         # Benchmark suite + publication pipeline (gate, evidence, paper assets)
+├── kvrm-demos/         # 9 domain implementations (registry + cases + selectors + executor each)
+├── kvrm-models/        # Trained compact learned-selector artifacts (.joblib), one per domain
+├── kvrm-bench-results/ # Committed evidence snapshots cited by the manuscript
+├── baselines/          # External small-model baselines (qwen-baseline; finetune/ is gitignored)
+├── scripts/            # Entry points (TUI, train, benchmarks) + dataset/maintenance utilities
+├── tests/              # Test suite — tests/kvrm_bench is the publication-critical suite (131 tests)
+├── docs/               # papers/ (manuscript + LaTeX build), figures, specs, plans, reports
+├── archive/            # Superseded/historical material (not imported by anything)
+├── memory/             # Dated dev-session notes (context, not code)
+│
+│   ── Supporting tooling ──────────────────────────────────────────────
+├── kvrm-compiler/      # Registry / DSL compiler tooling
+├── kvrm-rate-limiter/  # Rate-limiting component
+│
+│   ── Experimental satellites (GITIGNORED — local-only research threads, ──
+│      multi-GB, NOT part of the flagship paper or the published repo) ──
+├── kvrm-llm-compiler/  # Earlier neural instruction-decoder thread (~6GB)
+├── kvrm-os/            # OS experiment
+├── kvrm-gpu/           # GPU-accelerated selector experiments
+├── kvrm-vector/        # Vector-similarity selector experiments
+└── kvrm-ecosystem/     # Productization sketches
 ```
 
 ## Quick Start
