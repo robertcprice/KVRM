@@ -135,16 +135,29 @@ python examples/quickstart.py
 python -m pytest tests kvrm-demos -q --ignore=tests/baselines
 ```
 
-### CLI
+### CLI — bring your own domain
 
-Installing `kvrm-bench` gives you the `kvrm` command:
+Installing `kvrm-core` gives you the `kvrm` command. A domain is a plain
+directory (registry + cases, no Python code), so you can use KVRM on your own
+action space in minutes:
 
 ```bash
-kvrm domains                          # list all 12 domains with case counts
-kvrm actions grid                     # a domain's registered actions + support constraints
-kvrm case sre -i 3 --matrix           # route an eval case; compare all selector strategies
-kvrm route grid -f '{"outage_scope": "none", ...}'   # route your own features
-kvrm case soc --json                  # full decision + audit record as JSON
+kvrm init my-domain                   # scaffold a small working example domain
+kvrm validate my-domain               # registry, support specs, and case schemas
+kvrm train my-domain                  # train the compact learned selector
+kvrm route my-domain -f '{"risk_level": "low", "amount": 250, "account_verified": true}'
+kvrm explain my-domain -f '{...}'     # routed decision + support-spec reasoning
+kvrm eval my-domain                   # fail-closed metrics over cases.jsonl
+```
+
+The 12 bundled research packs are available behind `kvrm demo` (requires the
+demo packages from a repo checkout):
+
+```bash
+kvrm demo domains                     # list all 12 domains with case counts
+kvrm demo actions grid                # registered actions + support constraints
+kvrm demo case sre -i 3 --matrix      # route an eval case; compare all strategies
+kvrm demo route grid -f '{"outage_scope": "none", ...}'
 ```
 
 ### Library

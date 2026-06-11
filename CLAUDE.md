@@ -21,8 +21,8 @@ python kvrm-bench/scripts/run_publication_check.py              # publication ga
 
 | Path | What it is |
 |---|---|
-| `kvrm-core/src/kvrm_core/` | The library: types, registry, selectors, support gate, runtime, validation, `domain_factory` |
-| `kvrm-bench/src/kvrm_bench/` | Benchmarks + publication pipeline; `cli.py` is the `kvrm` console command |
+| `kvrm-core/src/kvrm_core/` | The library: types, registry, selectors, support gate, runtime, validation, `domain_factory`; `cli.py` is the `kvrm` console command and `domain_dir.py` is the bring-your-own-domain loader behind it |
+| `kvrm-bench/src/kvrm_bench/` | Benchmarks + publication pipeline; its `cli.py` backs `kvrm demo` (bundled research packs) |
 | `kvrm-demos/<domain>-router/` | 12 domains; each = `data/` (registry + cases) + `<domain>/domain.py` (a `DomainConfig`) |
 | `kvrm-demos/run_demo.py` + `compare_demos.py` | Regenerate the canonical evidence (`kvrm-demos/reports/demo_comparison.json`) |
 | `docs/papers/` | Manuscript (markdown = source of truth), evidence matrix, LaTeX build (`latex/build_paper.py`) |

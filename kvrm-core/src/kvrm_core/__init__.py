@@ -40,6 +40,15 @@ from .calibration import (
     apply_abstention_policy,
 )
 from .domain_factory import DomainConfig, DomainSelectors, build_domain_selectors, build_domain_executor
+from .domain_dir import (
+    DomainDir,
+    DomainDirError,
+    build_domain_runtime,
+    derive_domain_config,
+    evaluate_domain,
+    load_domain_dir,
+    scaffold_domain,
+)
 
 __all__ = [
     "ActionSpec",
@@ -88,4 +97,11 @@ __all__ = [
     "DomainSelectors",
     "build_domain_selectors",
     "build_domain_executor",
+    "DomainDir",
+    "DomainDirError",
+    "build_domain_runtime",
+    "derive_domain_config",
+    "evaluate_domain",
+    "load_domain_dir",
+    "scaffold_domain",
 ]

@@ -16,6 +16,9 @@ dependencies = [
   "numpy>=1.24",
 ]
 
+[project.scripts]
+kvrm = "kvrm_core.cli:main"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

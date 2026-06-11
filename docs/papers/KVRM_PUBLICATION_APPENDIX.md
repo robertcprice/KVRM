@@ -1,6 +1,6 @@
 # KVRM Publication Appendix
 
-Generated: 2026-06-11T15:02:28.741057+00:00
+Generated: 2026-06-11T15:30:53.638284+00:00
 
 Bundle root: `kvrm-bench/results/publication_bundle`
 
@@ -120,7 +120,7 @@ Supported inputs are routed to audited actions when their support specs hold; un
 File: `docs/figures/fig4_canonical_suite.svg`
 Source: `kvrm-demos/reports/demo_comparison.json`
 
-Canonical hybrid KVRM results across 9 domains and 610 total cases. Every domain remains at semantic correctness 1.0, false-accept rate 0.0, unsupported-case rejection 1.0, and invalid-output rate 0.0.
+Canonical hybrid KVRM results across 9 domains and 610 total cases. Semantic correctness is 1.0 in 7/9 domains (minimum 0.9722); every domain holds false-accept rate 0.0, unsupported-case rejection 1.0, and invalid-output rate 0.0.
 
 ### Figure 5: Gated vs ungated support-gate stress
 

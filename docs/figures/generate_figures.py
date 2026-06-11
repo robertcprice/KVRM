@@ -36,9 +36,12 @@ FOOTER = "</svg>"
 
 FONT = "font-family='Inter, Helvetica, Arial, sans-serif'"
 
+def _esc(content):
+    return str(content).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
 def _text(x, y, size, content, anchor="start", bold=False, fill="#1a1a2e"):
     weight = "font-weight='700'" if bold else "font-weight='400'"
-    return f"<text x='{x}' y='{y}' {FONT} font-size='{size}' {weight} text-anchor='{anchor}' fill='{fill}'>{content}</text>"
+    return f"<text x='{x}' y='{y}' {FONT} font-size='{size}' {weight} text-anchor='{anchor}' fill='{fill}'>{_esc(content)}</text>"
 
 def _rect(x, y, w, h, fill, rx=4, stroke="none", sw=0):
     return f"<rect x='{x}' y='{y}' width='{w}' height='{h}' rx='{rx}' fill='{fill}' stroke='{stroke}' stroke-width='{sw}'/>"
@@ -323,7 +326,6 @@ def fig7_architecture_comparison():
 # Figure 4 (current): canonical seven-domain suite summary
 # ---------------------------------------------------------------------------
 def fig4_canonical_suite():
-    w, h = 920, 360
     demos = _load_json("kvrm-demos/reports/demo_comparison.json")["demos"]
     order = [
         ("soc_hybrid", "SOC"),
@@ -332,7 +334,11 @@ def fig4_canonical_suite():
         ("grid_hybrid", "Grid"),
         ("finance_hybrid", "Finance"),
         ("medical_hybrid", "Medical"),
+        ("iam_hybrid", "IAM"),
+        ("customer_support_hybrid", "Cust. Support"),
+        ("content_moderation_hybrid", "Content Mod."),
     ]
+    w, h = 920, 78 + 34 * (len(order) + 1) + 60
     headers = [
         ("Domain", 80),
         ("Pack", 80),
@@ -350,13 +356,13 @@ def fig4_canonical_suite():
     table_w = sum(width for _, width in headers)
 
     parts = [_header(w, h)]
-    parts.append(_text(w / 2, 28, 16, "Figure 4: Canonical Seven-Domain Benchmark Suite", anchor="middle", bold=True))
+    parts.append(_text(w / 2, 28, 16, "Figure 4: Canonical Nine-Domain Benchmark Suite", anchor="middle", bold=True))
     parts.append(
         _text(
             w / 2,
             50,
             11,
-            "Hybrid KVRM is perfect on the live canonical packs across all seven active internal domains.",
+            "Fail-closed metrics hold in all nine domains; semantic correctness is perfect in seven.",
             anchor="middle",
             fill="#666",
         )
@@ -392,7 +398,7 @@ def fig4_canonical_suite():
     parts.append(
         _text(
             w / 2,
-            330,
+            h - 18,
             10,
             "Source: kvrm-demos/reports/demo_comparison.json",
             anchor="middle",

@@ -456,8 +456,11 @@ def _build_figures(summary: dict[str, Any]) -> list[dict[str, Any]]:
             "source": "kvrm-demos/reports/demo_comparison.json",
             "caption": (
                 f"Canonical hybrid KVRM results across {canonical['domain_count']} domains and "
-                f"{canonical['total_case_count']} total cases. Every domain remains at semantic correctness "
-                "1.0, false-accept rate 0.0, unsupported-case rejection 1.0, and invalid-output rate 0.0."
+                f"{canonical['total_case_count']} total cases. Semantic correctness is 1.0 in "
+                f"{sum(1 for d in canonical['domains'] if d['semantic_correctness_rate'] == 1.0)}"
+                f"/{canonical['domain_count']} domains (minimum "
+                f"{_fmt(min(d['semantic_correctness_rate'] for d in canonical['domains']))}); every domain "
+                "holds false-accept rate 0.0, unsupported-case rejection 1.0, and invalid-output rate 0.0."
             ),
         },
         {

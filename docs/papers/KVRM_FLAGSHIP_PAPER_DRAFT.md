@@ -2,7 +2,7 @@
 
 Manuscript Status:
 - artifact-anchored working manuscript as of 2026-04-12
-- grounded in the live nine-domain internal artifact set plus a six-domain external-baseline subset
+- grounded in the live nine-domain internal artifact set plus an eight-domain external-baseline subset
 - bibliography file: `docs/papers/kvrm_refs.bib`
 - paper workflow entrypoint: `docs/papers/README.md`
 - generated appendix, tables, and figure captions in `kvrm-bench/results/publication_bundle/` are the canonical paper-facing artifact summaries for this manuscript
@@ -14,7 +14,7 @@ We present KVRM, a registry-constrained decision architecture for routing among 
 
 Across the live canonical benchmark packs, hybrid KVRM achieves `false_accept_rate=0.0`, `unsupported_case_rejection_rate=1.0`, `invalid_output_rate=0.0`, and `mean_decision_cost=0.0` in all nine internal domains, with `semantic_correctness_rate=1.0` on the seven original canonical domains (508 cases) and `0.972`/`0.975` on the two enterprise trust-and-safety additions (customer support and content moderation; 102 cases). We then evaluate the architecture on benchmark families that directly target its claimed structural properties. Under support-gate stress, where high-confidence support-incompatible candidates are injected into upstream selector stages, the gated hybrid preserves `semantic_correctness_rate=1.0` while an otherwise similar ungated baseline falls to roughly `0.11-0.23` semantic correctness with nonzero decision cost. On explicit infeasible-handoff slices in SRE and drone, strict runtime validation yields `unsupported_unsafe_execution_rate=0.0`, while a legacy fallback-bypass baseline reaches `1.0`. On schema-valid counterfactual, temporal-transition, and coordination-chain robustness families, hybrid KVRM incurs zero losses against the best non-hybrid baseline.
 
-We also evaluate real small-model external baselines using Ollama-backed models under a strict structured-output selector protocol on the current six-domain external-comparison subset. The evaluated selector family now includes `qwen3:0.6b`, `qwen3:1.7b`, `qwen3.5:0.8b`, and the official `gemma4:e2b` model. The strongest external selector, `gemma4:e2b`, reaches macro semantic correctness `0.7406` with macro mean decision cost `0.5421`, but it still records macro `false_accept_rate=0.9964` and macro `unsupported_case_rejection_rate=0.0036`. `qwen3:1.7b` still collapses structurally with `invalid_output_rate=1.0`. We additionally evaluate controlled registry-evolution probes and find that live hybrid KVRM preserves `supported_migration_success_rate=1.0` across all nine internal domains, while a stale validated baseline drops to `0.0` continuity and a stale unvalidated baseline executes obsolete or newly unsupported actions in every domain. These results reinforce that KVRM's main advantage is architectural rather than purely predictive.
+We also evaluate real small-model external baselines using Ollama-backed models under a strict structured-output selector protocol on the current eight-domain external-comparison subset (586 cases). The evaluated selectors are `qwen3.5:0.8b` and the official `gemma4:e2b` model. The stronger external selector, `gemma4:e2b`, reaches macro semantic correctness `0.5971` with macro mean decision cost `0.5706`, but it still records macro `false_accept_rate=0.7741` and macro `unsupported_case_rejection_rate=0.0027`. `qwen3.5:0.8b` over-executes every unsupported state, with macro `false_accept_rate=1.0`. Hybrid KVRM on the same subset holds macro semantic correctness `0.9934` with zero false accepts. We additionally evaluate controlled registry-evolution probes and find that live hybrid KVRM preserves `supported_migration_success_rate=1.0` across all nine internal domains, while a stale validated baseline drops to `0.0` continuity and a stale unvalidated baseline executes obsolete or newly unsupported actions in every domain. These results reinforce that KVRM's main advantage is architectural rather than purely predictive.
 
 The main contribution of KVRM is therefore not a better classifier in the narrow sense, but a systems architecture for fail-closed finite-action routing. Its measurable advantages arise from registry-constrained actions, support-aware evidence fusion, strict runtime validation, and audited execution boundaries.
 
@@ -97,7 +97,7 @@ The key open-world assumption is that unsupported inputs are normal. The system 
 
 ## 3. KVRM Architecture
 
-KVRM has four architectural layers.
+KVRM has four architectural layers (Figure 1). The registry lifecycle that versions, hashes, and validates the action contract is shown in Figure 2, and the resulting supported-versus-unsupported routing flow in Figure 3.
 
 ### 3.1 Action Registry
 
@@ -222,7 +222,7 @@ This matters for the paper claim because it shows that the main current challeng
 
 ## 6. Results on the Canonical Seven-Domain Suite
 
-Hybrid KVRM achieves perfect semantic correctness on the original seven canonical domains (508 cases) and near-perfect on the two enterprise/trust-and-safety additions (97.2% customer support, 97.5% content moderation), covering 610 total cases across nine domains.
+Hybrid KVRM achieves perfect semantic correctness on the original seven canonical domains (508 cases) and near-perfect on the two enterprise/trust-and-safety additions (97.2% customer support, 97.5% content moderation), covering 610 total cases across nine domains (Figure 4).
 
 The per-domain canonical result table is maintained in generated Appendix Table 1 in `docs/papers/KVRM_PUBLICATION_APPENDIX.md` so the manuscript does not duplicate a table that is already derived directly from `kvrm-demos/reports/demo_comparison.json`.
 
@@ -375,14 +375,13 @@ That claim is stronger than a model-comparison claim for three reasons.
 
 ### 9.2 What the External Small-Model Baseline Shows
 
-The live artifact set now includes a real small-model LLM comparison under the same structured-output selector protocol across the six-domain external-comparison subset.
+The live artifact set now includes a real small-model LLM comparison under the same structured-output selector protocol across the eight-domain external-comparison subset (586 cases).
 
 Appendix Table 5 is the canonical generated summary for the strongest evaluated external baseline on that subset.
 
-The evaluated external baselines fail in three distinct ways:
-- `qwen3:1.7b` fails structurally under the strict JSON protocol. It frequently emits empty-object responses, which the benchmark counts as `invalid_output_rate=1.0` rather than treating them as safe abstentions.
-- `qwen3:0.6b` and `qwen3.5:0.8b` behave like over-aggressive classifiers. They improve supported-case routing in places, but they still over-execute unsupported states, with macro false-accept rates of `0.6773` and `1.0000`.
-- The strongest evaluated external selector, the official `gemma4:e2b` model, improves supported routing substantially with macro semantic correctness `0.7406`, but it still almost never fails closed (`false_accept_rate=0.9964`, `unsupported_case_rejection_rate=0.0036`).
+The evaluated external baselines fail in two distinct ways:
+- `qwen3.5:0.8b` produces structurally valid output (`structural_validity_rate=1.0`, `invalid_output_rate=0.0`) but behaves like an over-aggressive classifier: macro semantic correctness `0.5141` with macro `false_accept_rate=1.0` — it executes every unsupported state rather than failing closed.
+- The stronger external selector, the official `gemma4:e2b` model, improves supported routing (macro semantic correctness `0.5971`) but still almost never fails closed (macro `false_accept_rate=0.7741`, `unsupported_case_rejection_rate=0.0027`) and emits structurally invalid output on `0.1416` of cases.
 
 These results answer the narrower external-comparison question directly:
 
@@ -420,7 +419,7 @@ The current evidence base is sufficient for some claims and not for others. The 
 - Live registry-aware routing is necessary to preserve supported continuity under registry evolution; validation alone preserves safety but not continuity.
 - Hybrid KVRM also remains robust on the current short-horizon replay-style incident logs.
 - Hybrid KVRM has zero losses to the best non-hybrid baseline across the current counterfactual, temporal, and coordination benchmark families.
-- Hybrid KVRM outperforms the evaluated Ollama small-model selector baselines on the live six-domain external-comparison subset under the current strict structured-output protocol.
+- Hybrid KVRM outperforms the evaluated Ollama small-model selector baselines on the live eight-domain external-comparison subset under the current strict structured-output protocol.
 - A fine-tuned Qwen2.5-0.5B baseline (LoRA, same 295 training cases, 3 epochs) achieves only 5.6-27.8% semantic correctness across 9 domains with 67-100% false accept rates — worse than few-shot prompting and catastrophically unsafe. This proves KVRM's value is architectural, not data-dependent.
 - Hybrid KVRM also preserves continuity under controlled registry evolution better than stale-selector baselines.
 - The hybrid ensemble compensates for individual selector weakness: LOOCV shows compact selector accuracy ranging 6-100%, while hybrid achieves 100% everywhere.

@@ -151,11 +151,10 @@ def _emit(payload: dict, args: argparse.Namespace) -> None:
 
 
 def main(argv: list[str] | None = None) -> None:
-    parser = argparse.ArgumentParser(prog="kvrm", description=__doc__.split("\n")[0])
-    parser.add_argument("--repo-root", help="path to a KVRM checkout (default: auto-detect)")
+    parser = argparse.ArgumentParser(prog="kvrm demo", description=__doc__.split("\n")[0])
     sub = parser.add_subparsers(dest="command", required=True)
 
-    sub.add_parser("domains", help="list available domains")
+    p_domains = sub.add_parser("domains", help="list available domains")
 
     p_actions = sub.add_parser("actions", help="list a domain's registered actions")
     p_actions.add_argument("domain", choices=sorted(DOMAIN_CONFIG))
@@ -174,6 +173,9 @@ def main(argv: list[str] | None = None) -> None:
     p_route.add_argument("--eval-file", default="cases.jsonl")
     p_route.add_argument("--threshold", type=float, default=0.60)
     p_route.add_argument("--json", action="store_true", help="print full JSON payload")
+
+    for sub_parser in (p_domains, p_actions, p_case, p_route):
+        sub_parser.add_argument("--repo-root", help="path to a KVRM checkout (default: auto-detect)")
 
     args = parser.parse_args(argv)
     {

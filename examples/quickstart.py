@@ -94,8 +94,8 @@ def main() -> None:
         "\nunsupported states are rejected rather than approximated, and"
         "\nevery decision carries a deterministic audit trail."
         "\n\nNext steps:"
-        "\n  kvrm domains                    # the same pipeline, from the CLI"
-        "\n  kvrm case sre -i 3 --matrix     # compare selector strategies"
+        "\n  kvrm init my-domain             # scaffold YOUR OWN domain (no Python needed)"
+        "\n  kvrm demo case sre -i 3 --matrix  # compare selector strategies on bundled packs"
         "\n  README 'Adding a New Domain'    # build your own registry"
     )
 

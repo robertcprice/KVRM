@@ -15,8 +15,5 @@ dependencies = [
   "shap>=0.44",
 ]
 
-[project.scripts]
-kvrm = "kvrm_bench.cli:main"
-
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -10,7 +10,7 @@ The current paper draft references a newer figure set than the historical classi
 
 This file makes the figure pipeline explicit:
 - which figures already exist and can still be used
-- which figures should be generated from the live seven-domain internal artifacts plus the six-domain external-baseline subset
+- which figures should be generated from the live nine-domain internal artifacts plus the eight-domain external-baseline subset
 - which JSON fields should be treated as the source of truth
 - where the generated manuscript-facing caption snapshot now lives (`docs/papers/KVRM_PUBLICATION_APPENDIX.md`)
 
