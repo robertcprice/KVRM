@@ -1,19 +1,34 @@
 # KVRM — Registry-Constrained Decision Architecture
 
-**Fail-closed finite-action routing for safety-critical domains.**
+KVRM is a decision architecture for systems where a model's output triggers a
+real action: an incident runbook, a drone maneuver, an account suspension. In
+those settings the usual machine-learning question — *which label is most
+likely?* — is the wrong question. The right one is: *which registered action,
+if any, is both supported by the current input and still valid to execute?*
+KVRM is built around that question.
 
-KVRM is a decision architecture that routes among finite, audited actions under uncertainty. Instead of treating model output as directly executable free-form text, KVRM restricts decision-making to a versioned action registry and places deterministic validation and execution boundaries between prediction and effect.
+Instead of treating model output as directly executable, KVRM restricts every
+decision to a versioned action registry and places deterministic checks between
+prediction and effect. The result is a router that can say "none of the above"
+and mean it:
 
-## Key Properties
+- Every output is either a registered action or an explicit abstention. The
+  system cannot emit an action that does not exist.
+- Inputs that fall outside every action's declared support envelope are
+  rejected, not coerced into the nearest label. On the benchmark suite the
+  false-accept rate is 0.0 in all nine benchmarked domains.
+- Every decision is logged with its candidate scores, support-spec evaluation,
+  validation outcome, and the SHA-256 digest of the registry version it ran
+  against, so any decision can be audited after the fact.
+- One shared substrate (about 2,300 lines of Python) runs all twelve domains.
+  A new domain is a directory of data plus one config file, not a fork of the
+  codebase.
 
-| Property | Guarantee |
-|---|---|
-| **Structural validity** | Every decision output is a valid registered action or an explicit abstention — never a hallucinated action |
-| **Fail-closed** | Unsupported inputs are rejected, not guessed at — `false_accept_rate = 0.0` across all 9 domains |
-| **Auditable** | Versioned registries with SHA-256 digests, full candidate scores, and validation reasons logged per decision |
-| **Domain-agnostic** | One shared 2,296-LOC substrate powers 9 domains across infrastructure, enterprise, and trust-and-safety verticals |
+This matters because a classifier always answers, even when it shouldn't. KVRM
+treats unsupported inputs as normal — the open-world case, not an error — and
+routes them to rejection or a safe handoff instead of a guess.
 
-## Architecture
+## How it works
 
 ```
 Input Features → [Selector Ensemble] → [Support Gate] → [Validator] → [Executor]
@@ -24,194 +39,214 @@ Input Features → [Selector Ensemble] → [Support Gate] → [Validator] → [E
                  calibration
 ```
 
-**Selector Ensemble** — Six selector types (rule, retrieval, prototype, semantic, learned, hybrid) fused via `EvidenceFusionHybridSelector` with source bonus, agreement bonus, margin bonus, specificity bonus, and calibrated fallback/ambiguity penalties.
+1. **Selector ensemble.** Six selector types (rule, retrieval, prototype,
+   semantic, learned, hybrid) score candidate actions. The hybrid selector
+   fuses their evidence with calibrated bonuses for source agreement, margin,
+   and specificity, and penalties for ambiguity.
+2. **Support gate.** Each action declares the input envelope it is valid for,
+   as a boolean expression tree (`all`/`any`/`not` over leaf tests like `eq`,
+   `in`, `gt`, `lte`). Candidates whose envelope the input does not satisfy are
+   filtered *before* calibration. Inputs that satisfy no envelope are rejected
+   outright.
+3. **Validator.** A deterministic check that the selected action exists in the
+   live registry version and its parameters match the schema. Nothing executes
+   without passing it — including fallback actions.
+4. **Executor.** Domain-specific execution logic, reached only after
+   validation succeeds.
 
-**Support Gate** — Boolean expression trees (`all`, `any`, `not` combinators with leaf operators like `eq`, `in`, `gt`, `lte`) that define the valid input envelope for each action. Inputs outside all envelopes are explicitly rejected.
-
-**Validator** — Deterministic check that the selected action exists in the versioned registry and its parameters match the schema. No action executes without passing validation.
-
-**Executor** — Domain-specific execution logic that runs only after validation succeeds.
+The ordering is the point. Removing the support gate collapses correctness
+under confident-but-invalid upstream evidence; removing strict validation
+guarantees unsafe execution on infeasible handoffs. Both ablations are
+measured below.
 
 ## Domains
 
-| Domain | Vertical | Actions | Eval Cases | Description |
-|---|---|---|---|---|
-| **SRE** | Infrastructure | 8 | 140 | Remediation policy routing for incident response |
-| **SOC** | Infrastructure | 8 | 126 | Security operations playbook routing |
-| **Drone** | Infrastructure | 8 | 146 | Mission-policy routing for autonomous drones |
-| **Grid** | Infrastructure | 8 | 24 | Power grid operations routing |
-| **Finance** | Enterprise | 8 | 24 | Risk workflow routing |
-| **Medical** | Enterprise | 8 | 24 | Clinical workflow routing |
-| **IAM** | Enterprise | 7 | 24 | Identity access management routing |
-| **Customer Support** | Enterprise | 7 | 48 | Support ticket routing |
-| **Content Moderation** | Trust & Safety | 7 | 54 | Content moderation routing |
-| **Legal/Compliance** | Enterprise | 7 | 24 | Contract review and compliance routing |
-| **CI/CD Pipeline** | Infrastructure | 7 | 24 | Merge, deploy, and rollback decisions |
-| **Insurance Claims** | Enterprise | 7 | 24 | Claims processing and fraud escalation |
+Twelve domains are implemented. Nine form the canonical benchmark suite; the
+last three (legal/compliance, CI/CD, insurance) have registries and cases but
+are not yet wired into the suite.
 
-**Total: 12 domains, 90 actions, 682 eval cases, 596 training cases.**
+| Domain | Vertical | Actions | Eval cases |
+|---|---|---|---|
+| SRE remediation | Infrastructure | 8 | 140 |
+| SOC playbooks | Infrastructure | 8 | 126 |
+| Drone missions | Infrastructure | 8 | 146 |
+| Grid operations | Infrastructure | 8 | 24 |
+| Finance risk | Enterprise | 8 | 24 |
+| Medical workflow | Enterprise | 8 | 24 |
+| IAM access | Enterprise | 7 | 24 |
+| Customer support | Enterprise | 7 | 48 |
+| Content moderation | Trust & safety | 7 | 54 |
+| Legal/compliance* | Enterprise | 7 | 24 |
+| CI/CD pipeline* | Infrastructure | 7 | 24 |
+| Insurance claims* | Enterprise | 7 | 24 |
 
-## Benchmark Results
+\* implemented, not yet in the canonical suite.
 
-### Canonical Suite (9 Domains, 610 Cases)
+Total: 12 domains, 90 actions, 682 eval cases, 596 training cases.
+
+## Results
+
+All numbers below regenerate from the repo (`python kvrm-demos/run_demo.py
+<domain>`, then `python kvrm-demos/compare_demos.py`); the publication bundle
+pins them to committed artifacts.
+
+**Canonical suite** (9 domains, 610 cases — 428 supported, 182 unsupported):
 
 | Metric | Result |
 |---|---|
-| Semantic Correctness | **426/428** supported cases — perfect **1.0000** in 7 of 9 domains; 0.9722 (customer support) and 0.9750 (content moderation) on the two enterprise additions |
-| False Accept Rate | **0.0000** (0/182 unsupported cases leaked, all 9 domains) |
-| Unsupported Case Rejection | **1.0000** (182/182 rejected or fallback, all 9 domains) |
-| Invalid Output Rate | **0.0000** (all 9 domains) |
+| Semantic correctness | 426/428 supported cases. 1.0 in seven domains; 0.9722 (customer support) and 0.9750 (content moderation) in the two newest |
+| False accepts | 0/182 unsupported cases executed, all nine domains |
+| Unsupported-case rejection | 182/182 rejected or routed to safe fallback |
+| Invalid outputs | 0, all nine domains |
 
-Regenerate from scratch: `python kvrm-demos/run_demo.py <domain>` for each domain, then `python kvrm-demos/compare_demos.py`.
+**Robustness families**, hybrid KVRM vs. the best non-hybrid baseline:
 
-### Robustness Families
-
-| Family | Win/Tie/Loss vs Best Non-Hybrid | Description |
+| Family | Win / tie / loss | What it tests |
 |---|---|---|
-| Counterfactual Boundary | 2/5/0 | Schema-valid boundary perturbations |
-| Temporal Transition | 3/4/0 | Short-horizon state transitions |
-| Coordination Chain | 3/4/0 | Multi-step coordination (up to 5-step) |
-| Incident Replay | 3/4/0 | Timestamped incident log replay |
-| **Total** | **11/17/0** | **Zero losses across all families** |
+| Counterfactual boundary | 2 / 5 / 0 | Schema-valid perturbations at decision boundaries |
+| Temporal transition | 3 / 4 / 0 | Short-horizon state transitions |
+| Coordination chain | 3 / 4 / 0 | Multi-step coordination, up to 5 steps |
+| Incident replay | 3 / 4 / 0 | Timestamped incident-log replay |
+| Total | 11 / 17 / 0 | No losses in any family |
 
-### Architecture Stress Tests
+**Ablations** (why the architecture is shaped this way):
 
-| Test | Result |
+| Removed component | Consequence |
 |---|---|
-| Support Gate Stress | Gated hybrid: SC=1.0; ungated baseline: SC≈0.11-0.23 |
-| Fallback Feasibility | Strict: unsafe_execution=0.0; legacy bypass: 1.0 |
-| Adversarial Near-Boundary | Systematic mutation testing across 9 domains |
-| Scale (1000+ cases) | Throughput and latency profiling per domain |
+| Support gate | Semantic correctness drops from 1.0 to roughly 0.11–0.23 under injected high-confidence invalid evidence |
+| Strict fallback validation | Unsafe-execution rate goes from 0.0 to 1.0 on explicit infeasible-handoff probes |
 
-## Project Structure
+External baselines: small instruction-tuned models (Qwen3 0.6b/1.7b, Qwen3.5
+0.8b, Gemma4 e2b) evaluated under a strict structured-output protocol reach at
+best 0.74 semantic correctness with a 0.996 false-accept rate. They route
+supported cases tolerably and execute unsupported ones almost every time —
+which is the failure mode KVRM exists to close.
 
-Every directory carries its own `README.md`. The repository is organized in
-three tiers: the **flagship artifact** (what the paper is built from and what
-ships in the published repo), **supporting tooling**, and **experimental
-satellites** (large local-only research threads that are gitignored and are
-*not* part of the flagship paper).
-
-```
-KVRM/
-│   ── Flagship artifact (the published repo / the paper) ──────────────
-├── kvrm-core/          # Shared substrate: registry, 6 selectors, support gate, runtime, validator
-├── kvrm-bench/         # Benchmark suite + publication pipeline (gate, evidence, paper assets)
-├── kvrm-demos/         # 12 domain implementations (registry + cases + domain config each)
-├── kvrm-models/        # Trained compact learned-selector artifacts (.joblib), one per domain
-├── kvrm-bench-results/ # Committed evidence snapshots cited by the manuscript
-├── baselines/          # External small-model baselines (qwen-baseline; finetune/ is gitignored)
-├── scripts/            # Entry points (TUI, train, benchmarks) + dataset/maintenance utilities
-├── tests/              # Test suite — tests/kvrm_bench is the publication-critical suite (131 tests)
-├── docs/               # papers/ (manuscript + LaTeX build), figures, specs, plans, reports
-├── archive/            # Superseded/historical material (not imported by anything)
-├── memory/             # Dated dev-session notes (context, not code)
-│
-│   ── Supporting tooling ──────────────────────────────────────────────
-├── kvrm-compiler/      # Registry / DSL compiler tooling
-├── kvrm-rate-limiter/  # Rate-limiting component
-│
-│   ── Experimental satellites (GITIGNORED — local-only research threads, ──
-│      multi-GB, NOT part of the flagship paper or the published repo) ──
-├── kvrm-llm-compiler/  # Earlier neural instruction-decoder thread (~6GB)
-├── kvrm-os/            # OS experiment
-├── kvrm-gpu/           # GPU-accelerated selector experiments
-├── kvrm-vector/        # Vector-similarity selector experiments
-└── kvrm-ecosystem/     # Productization sketches
-```
-
-## Quick Start
+## Quick start
 
 ```bash
-# Setup — core, bench, and all 12 domain packages
+# Setup — core, bench, and the bundled domain packages
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e kvrm-core/ -e kvrm-bench/
 for d in kvrm-demos/*/; do [ -f "${d}pyproject.toml" ] && pip install -e "$d"; done
 
-# See the architecture in action (supported -> executes, unsupported -> fails closed)
+# Watch the pipeline run: supported input executes, unsupported fails closed
 python examples/quickstart.py
 
-# Run tests
+# Run the test suite
 python -m pytest tests kvrm-demos -q --ignore=tests/baselines
 ```
 
 ### CLI — bring your own domain
 
-Installing `kvrm-core` gives you the `kvrm` command. A domain is a plain
-directory (registry + cases, no Python code), so you can use KVRM on your own
-action space in minutes:
+Installing `kvrm-core` provides the `kvrm` command. A domain is a plain
+directory of data (registry plus cases, no Python required), so you can route
+your own action space in minutes:
 
 ```bash
-kvrm init my-domain                   # scaffold a small working example domain
-kvrm validate my-domain               # registry, support specs, and case schemas
+kvrm init my-domain                   # scaffold a small working example
+kvrm validate my-domain               # check registry, support specs, case schemas
 kvrm train my-domain                  # train the compact learned selector
 kvrm route my-domain -f '{"risk_level": "low", "amount": 250, "account_verified": true}'
-kvrm explain my-domain -f '{...}'     # routed decision + support-spec reasoning
+kvrm explain my-domain -f '{...}'     # decision plus support-spec reasoning
 kvrm eval my-domain                   # fail-closed metrics over cases.jsonl
 ```
 
-The 12 bundled research packs are available behind `kvrm demo` (requires the
-demo packages from a repo checkout):
+The bundled research domains are available behind `kvrm demo` (requires a repo
+checkout with the demo packages installed):
 
 ```bash
 kvrm demo domains                     # list all 12 domains with case counts
 kvrm demo actions grid                # registered actions + support constraints
-kvrm demo case sre -i 3 --matrix      # route an eval case; compare all strategies
+kvrm demo case sre -i 3 --matrix      # route one eval case; compare all strategies
 kvrm demo route grid -f '{"outage_scope": "none", ...}'
 ```
 
 ### Library
 
 ```bash
-# Run a single domain evaluation
+# Evaluate a single case
 python -c "
 from kvrm_bench.demo import run_demo_case
 result = run_demo_case(repo_root='.', domain='sre', eval_filename='cases.jsonl', case_index=0)
 print(result['decision'])
 "
 
-# Train a compact selector
-python -c "
-from kvrm_core.learned import train_compact_model, save_compact_model_artifact
-from kvrm_core.registry import load_registry
-import json
-from pathlib import Path
-
-cases = [json.loads(l) for l in open('kvrm-demos/sre-policy-router/data/train_cases.jsonl') if l.strip()]
-registry = load_registry('kvrm-demos/sre-policy-router/data/registry.json')
-artifact = train_compact_model(train_cases=cases, registry=registry)
-save_compact_model_artifact('kvrm-models/sre_compact_selector_v1.joblib', artifact)
-print(f'Accuracy: {artifact[\"metadata\"][\"train_accuracy\"]:.4f}')
-"
-
-# Regenerate publication bundle
+# Regenerate the publication bundle
 python kvrm-bench/scripts/run_publication_bundle.py
 ```
 
-## Adding a New Domain
+## Adding a domain
 
-Each domain is a self-contained package under `kvrm-demos/` with:
+Each domain under `kvrm-demos/` is a self-contained package:
 
-1. **`data/registry.json`** — Action definitions with support_specs (boolean expression trees defining valid input envelopes)
-2. **`data/train_cases.jsonl`** — Training cases with expected actions and feature vectors
-3. **`data/cases.jsonl`** — Evaluation cases (supported + unsupported)
-4. **`{domain}/domain.py`** — A `DomainConfig` (feature schema, rules, executor handlers) passed to `kvrm_core.domain_factory`, which builds all six selectors and the executor — no per-domain selector code needed
-5. **`pyproject.toml`** — Makes the domain installable
+1. `data/registry.json` — action definitions, each with a `support_spec`
+   boolean expression tree defining its valid input envelope
+2. `data/train_cases.jsonl` — training cases (features plus expected action)
+3. `data/cases.jsonl` — evaluation cases, supported and unsupported
+4. `{domain}/domain.py` — a `DomainConfig` (feature schema, rules, executor
+   handlers) passed to `kvrm_core.domain_factory`, which builds all six
+   selectors and the executor; no per-domain selector code
+5. `pyproject.toml` — makes the domain installable
 
-Register the domain in `kvrm-bench/src/kvrm_bench/demo.py` by adding an entry to `DOMAIN_CONFIG`. Use any existing domain (e.g. `kvrm-demos/grid-ops-router/`) as a template.
+Register it in `kvrm-bench/src/kvrm_bench/demo.py` (`DOMAIN_CONFIG`). Any
+existing domain, e.g. `kvrm-demos/grid-ops-router/`, works as a template.
+
+## Repository layout
+
+Every directory has its own `README.md`. Three tiers: the published artifact,
+supporting tooling, and large experimental satellites that are local-only
+(gitignored) and not part of the paper.
+
+```
+KVRM/
+│   ── Published artifact ──────────────────────────────────────────────
+├── kvrm-core/          # The library: registry, selectors, support gate, runtime, validator
+├── kvrm-bench/         # Benchmark suite + publication pipeline
+├── kvrm-demos/         # 12 domain implementations (registry + cases + domain config)
+├── kvrm-models/        # Trained learned-selector artifacts (.joblib), one per domain
+├── kvrm-bench-results/ # Committed evidence snapshots cited by the manuscript
+├── baselines/          # External small-model baselines (finetune/ is gitignored)
+├── scripts/            # Entry points (TUI, training, benchmarks) and maintenance utilities
+├── tests/              # Test suite; tests/kvrm_bench is the publication-critical part
+├── docs/               # papers/ (manuscript + LaTeX build), figures, specs, reports
+├── examples/           # quickstart.py walkthrough
+├── archive/            # Superseded material, kept for provenance
+├── memory/             # Dated development-session notes
+│
+│   ── Supporting tooling ──────────────────────────────────────────────
+├── kvrm-compiler/      # Registry / DSL compiler tooling
+├── kvrm-rate-limiter/  # Rate-limiting component
+│
+│   ── Experimental satellites (gitignored, local-only, not in the paper) ──
+├── kvrm-llm-compiler/  # Earlier neural instruction-decoder research thread
+├── kvrm-os/            # OS experiment
+├── kvrm-gpu/           # GPU-accelerated selector experiments
+├── kvrm-vector/        # Vector-similarity selector experiments
+└── kvrm-ecosystem/     # Productization sketches
+```
 
 ## Documentation
 
-- **[KVRM Overview](docs/KVRM_OVERVIEW.md)** — What KVRM is, how it works, and when to use it. Start here if you're new.
-- **[examples/quickstart.py](examples/quickstart.py)** — Five-minute walkthrough of the fail-closed pipeline.
-- **[Pre-Submission Checklist](docs/papers/KVRM_PRE_SUBMISSION_CHECKLIST.md)** — Publication readiness gate.
-- **[AGENTS.md](AGENTS.md)** — Repository governance, testing discipline, and working conventions (read this first if you are an AI agent or a new contributor).
+- [KVRM Overview](docs/KVRM_OVERVIEW.md) — what KVRM is, how it works, when to
+  use it. Start here.
+- [examples/quickstart.py](examples/quickstart.py) — five-minute walkthrough of
+  the fail-closed pipeline.
+- [AGENTS.md](AGENTS.md) — repository governance, testing discipline, working
+  conventions. Read first if you are contributing (human or agent).
+- [Pre-submission checklist](docs/papers/KVRM_PRE_SUBMISSION_CHECKLIST.md) —
+  the publication readiness gate.
 
-## Publication
+## Paper
 
-Working title: *Registry-Constrained Decision Architectures for Audited Finite Action Spaces*
-
-See `docs/papers/` for the paper scaffold, evidence matrix, figure source map, and generated appendix. The publication bundle can be regenerated deterministically via `kvrm-bench/scripts/run_publication_bundle.py`.
+*Registry-Constrained Decision Architectures for Audited Finite Action Spaces*
+(working title). The manuscript source is
+`docs/papers/KVRM_FLAGSHIP_PAPER_DRAFT.md`; `docs/papers/latex/build_paper.py`
+renders the PDF. Every benchmark number in the paper traces to a committed
+artifact via the evidence matrix, and
+`kvrm-bench/scripts/run_publication_check.py` verifies the whole bundle
+deterministically.
 
 ## License
 
