@@ -65,3 +65,6 @@ docs/papers/latex/paper.pdf
 docs/papers/latex/paper.log
 docs/papers/latex/_paper_*.md
 docs/papers/latex/_paper_*.json
+
+# kvrm-server runtime data (created when the server runs)
+kvrm-server-data/
