@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kvrm-server"
+version = "0.1.0"
+description = "KVRM fail-closed action routing as an HTTP service: domain upload, routing, eval, and audit log"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Robert Price" }]
+dependencies = [
+  "kvrm-core",
+  "fastapi>=0.110",
+  "uvicorn>=0.27",
+]
+
+[project.urls]
+Repository = "https://github.com/robertcprice/KVRM"
+
+[tool.setuptools.packages.find]
+where = ["src"]

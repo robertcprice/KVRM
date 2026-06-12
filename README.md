@@ -161,6 +161,13 @@ kvrm demo case sre -i 3 --matrix      # route one eval case; compare all strateg
 kvrm demo route grid -f '{"outage_scope": "none", ...}'
 ```
 
+### Server
+
+`kvrm-server/` wraps the same pipeline in a FastAPI service: upload a domain
+(registry + cases as JSON), then `/route`, `/eval`, `/train`, and a SQLite
+audit log of every decision, API-key auth, Dockerfile included. See
+[kvrm-server/README.md](kvrm-server/README.md).
+
 ### Library
 
 ```bash
