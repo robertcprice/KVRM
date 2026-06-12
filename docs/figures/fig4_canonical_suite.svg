@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="920" height="478" viewBox="0 0 920 478">
-<text x='460.0' y='28' font-family='Inter, Helvetica, Arial, sans-serif' font-size='16' font-weight='700' text-anchor='middle' fill='#1a1a2e'>Figure 4: Canonical Nine-Domain Benchmark Suite</text>
-<text x='460.0' y='50' font-family='Inter, Helvetica, Arial, sans-serif' font-size='11' font-weight='400' text-anchor='middle' fill='#666'>Fail-closed metrics hold in all nine domains; semantic correctness is perfect in seven.</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="580" viewBox="0 0 920 580">
+<text x='460.0' y='28' font-family='Inter, Helvetica, Arial, sans-serif' font-size='16' font-weight='700' text-anchor='middle' fill='#1a1a2e'>Figure 4: Canonical Twelve-Domain Benchmark Suite</text>
+<text x='460.0' y='50' font-family='Inter, Helvetica, Arial, sans-serif' font-size='11' font-weight='400' text-anchor='middle' fill='#666'>Hybrid KVRM is perfect on the live canonical packs across all twelve domains.</text>
 <rect x='35' y='78' width='720' height='34' rx='6' fill='#12304a' stroke='none' stroke-width='0'/>
 <text x='75.0' y='100' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='700' text-anchor='middle' fill='#ffffff'>Domain</text>
 <text x='155.0' y='100' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='700' text-anchor='middle' fill='#ffffff'>Pack</text>
@@ -93,23 +93,56 @@
 <text x='155.0' y='372' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>48</text>
 <text x='230.0' y='372' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>36</text>
 <text x='305.0' y='372' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>12</text>
-<text x='390.0' y='372' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>0.9722</text>
+<text x='390.0' y='372' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>1.0000</text>
 <text x='480.0' y='372' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
 <text x='565.0' y='372' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>1.0000</text>
 <text x='645.0' y='372' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
-<text x='720.0' y='372' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>0.0073</text>
+<text x='720.0' y='372' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
 <line x1='35' y1='384' x2='755' y2='384' stroke='#d7e0e8' stroke-width='1'/>
 <rect x='35' y='384' width='720' height='34' rx='0' fill='#f7fafc' stroke='none' stroke-width='0'/>
 <text x='75.0' y='406' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>Content Mod.</text>
 <text x='155.0' y='406' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>54</text>
 <text x='230.0' y='406' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>40</text>
 <text x='305.0' y='406' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>14</text>
-<text x='390.0' y='406' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>0.9750</text>
+<text x='390.0' y='406' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>1.0000</text>
 <text x='480.0' y='406' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
 <text x='565.0' y='406' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>1.0000</text>
 <text x='645.0' y='406' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
-<text x='720.0' y='406' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>0.0065</text>
+<text x='720.0' y='406' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
 <line x1='35' y1='418' x2='755' y2='418' stroke='#d7e0e8' stroke-width='1'/>
-<rect x='35' y='78' width='720' height='340' rx='6' fill='none' stroke='#b8c7d6' stroke-width='1'/>
-<text x='460.0' y='460' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#777'>Source: kvrm-demos/reports/demo_comparison.json</text>
+<rect x='35' y='418' width='720' height='34' rx='0' fill='#edf3f8' stroke='none' stroke-width='0'/>
+<text x='75.0' y='440' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>Legal</text>
+<text x='155.0' y='440' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>24</text>
+<text x='230.0' y='440' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>18</text>
+<text x='305.0' y='440' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>6</text>
+<text x='390.0' y='440' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>1.0000</text>
+<text x='480.0' y='440' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
+<text x='565.0' y='440' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>1.0000</text>
+<text x='645.0' y='440' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
+<text x='720.0' y='440' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
+<line x1='35' y1='452' x2='755' y2='452' stroke='#d7e0e8' stroke-width='1'/>
+<rect x='35' y='452' width='720' height='34' rx='0' fill='#f7fafc' stroke='none' stroke-width='0'/>
+<text x='75.0' y='474' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>CI/CD</text>
+<text x='155.0' y='474' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>24</text>
+<text x='230.0' y='474' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>18</text>
+<text x='305.0' y='474' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>6</text>
+<text x='390.0' y='474' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>1.0000</text>
+<text x='480.0' y='474' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
+<text x='565.0' y='474' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>1.0000</text>
+<text x='645.0' y='474' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
+<text x='720.0' y='474' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
+<line x1='35' y1='486' x2='755' y2='486' stroke='#d7e0e8' stroke-width='1'/>
+<rect x='35' y='486' width='720' height='34' rx='0' fill='#edf3f8' stroke='none' stroke-width='0'/>
+<text x='75.0' y='508' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>Insurance</text>
+<text x='155.0' y='508' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>24</text>
+<text x='230.0' y='508' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>18</text>
+<text x='305.0' y='508' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#1a1a2e'>6</text>
+<text x='390.0' y='508' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>1.0000</text>
+<text x='480.0' y='508' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
+<text x='565.0' y='508' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>1.0000</text>
+<text x='645.0' y='508' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
+<text x='720.0' y='508' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#0b6e4f'>0.0000</text>
+<line x1='35' y1='520' x2='755' y2='520' stroke='#d7e0e8' stroke-width='1'/>
+<rect x='35' y='78' width='720' height='442' rx='6' fill='none' stroke='#b8c7d6' stroke-width='1'/>
+<text x='460.0' y='562' font-family='Inter, Helvetica, Arial, sans-serif' font-size='10' font-weight='400' text-anchor='middle' fill='#777'>Source: kvrm-demos/reports/demo_comparison.json</text>
 </svg>

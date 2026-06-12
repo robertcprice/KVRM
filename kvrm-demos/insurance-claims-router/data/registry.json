@@ -1,6 +1,6 @@
 {
   "registry_name": "insurance-claims-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "required_features": [
     "claim_amount",
     "claim_type",
@@ -18,11 +18,21 @@
     },
     "claim_type": {
       "type": "string",
-      "enum": ["auto", "property", "health", "life", "liability"]
+      "enum": [
+        "auto",
+        "property",
+        "health",
+        "life",
+        "liability"
+      ]
     },
     "policy_status": {
       "type": "string",
-      "enum": ["active", "lapsed", "pending"]
+      "enum": [
+        "active",
+        "lapsed",
+        "pending"
+      ]
     },
     "documentation_complete": {
       "type": "boolean"
@@ -53,16 +63,50 @@
       },
       "support_spec": {
         "all": [
-          { "feature": "claim_amount", "op": "lte", "value": 5000.0 },
-          { "feature": "policy_status", "op": "eq", "value": "active" },
-          { "feature": "documentation_complete", "op": "eq", "value": true },
-          { "feature": "fraud_score", "op": "lte", "value": 0.2 },
-          { "feature": "prior_claims_count", "op": "lte", "value": 3.0 },
-          { "feature": "coverage_verified", "op": "eq", "value": true },
-          { "feature": "claim_type", "op": "in", "value": ["auto", "property"] }
+          {
+            "feature": "claim_amount",
+            "op": "lte",
+            "value": 5000.0
+          },
+          {
+            "feature": "policy_status",
+            "op": "eq",
+            "value": "active"
+          },
+          {
+            "feature": "documentation_complete",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "fraud_score",
+            "op": "lte",
+            "value": 0.2
+          },
+          {
+            "feature": "prior_claims_count",
+            "op": "lte",
+            "value": 3.0
+          },
+          {
+            "feature": "coverage_verified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "claim_type",
+            "op": "in",
+            "value": [
+              "auto",
+              "property"
+            ]
+          }
         ]
       },
-      "tags": ["automation", "approval"]
+      "tags": [
+        "automation",
+        "approval"
+      ]
     },
     {
       "action_id": "request_documentation",
@@ -75,13 +119,31 @@
       },
       "support_spec": {
         "all": [
-          { "feature": "documentation_complete", "op": "eq", "value": false },
-          { "feature": "policy_status", "op": "eq", "value": "active" },
-          { "feature": "fraud_score", "op": "lte", "value": 0.5 },
-          { "feature": "coverage_verified", "op": "eq", "value": true }
+          {
+            "feature": "documentation_complete",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "policy_status",
+            "op": "eq",
+            "value": "active"
+          },
+          {
+            "feature": "fraud_score",
+            "op": "lte",
+            "value": 0.5
+          },
+          {
+            "feature": "coverage_verified",
+            "op": "eq",
+            "value": true
+          }
         ]
       },
-      "tags": ["documentation"]
+      "tags": [
+        "documentation"
+      ]
     },
     {
       "action_id": "assign_adjuster",
@@ -94,16 +156,52 @@
       },
       "support_spec": {
         "all": [
-          { "feature": "claim_amount", "op": "gt", "value": 5000.0 },
-          { "feature": "claim_amount", "op": "lte", "value": 100000.0 },
-          { "feature": "policy_status", "op": "eq", "value": "active" },
-          { "feature": "documentation_complete", "op": "eq", "value": true },
-          { "feature": "fraud_score", "op": "lte", "value": 0.4 },
-          { "feature": "coverage_verified", "op": "eq", "value": true },
-          { "feature": "claim_type", "op": "in", "value": ["auto", "property", "health", "liability"] }
+          {
+            "feature": "claim_amount",
+            "op": "gt",
+            "value": 5000.0
+          },
+          {
+            "feature": "claim_amount",
+            "op": "lte",
+            "value": 100000.0
+          },
+          {
+            "feature": "policy_status",
+            "op": "eq",
+            "value": "active"
+          },
+          {
+            "feature": "documentation_complete",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "fraud_score",
+            "op": "lte",
+            "value": 0.4
+          },
+          {
+            "feature": "coverage_verified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "claim_type",
+            "op": "in",
+            "value": [
+              "auto",
+              "property",
+              "health",
+              "liability"
+            ]
+          }
         ]
       },
-      "tags": ["adjuster", "review"]
+      "tags": [
+        "adjuster",
+        "review"
+      ]
     },
     {
       "action_id": "escalate_medical_review",
@@ -116,15 +214,50 @@
       },
       "support_spec": {
         "all": [
-          { "feature": "claim_type", "op": "in", "value": ["health", "life"] },
-          { "feature": "claim_amount", "op": "gt", "value": 25000.0 },
-          { "feature": "policy_status", "op": "eq", "value": "active" },
-          { "feature": "documentation_complete", "op": "eq", "value": true },
-          { "feature": "fraud_score", "op": "lte", "value": 0.5 },
-          { "feature": "coverage_verified", "op": "eq", "value": true }
+          {
+            "feature": "claim_type",
+            "op": "in",
+            "value": [
+              "health",
+              "life"
+            ]
+          },
+          {
+            "feature": "claim_amount",
+            "op": "gt",
+            "value": 25000.0
+          },
+          {
+            "feature": "policy_status",
+            "op": "eq",
+            "value": "active"
+          },
+          {
+            "feature": "documentation_complete",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "fraud_score",
+            "op": "lte",
+            "value": 0.5
+          },
+          {
+            "feature": "coverage_verified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "claim_amount",
+            "op": "lte",
+            "value": 500000.0
+          }
         ]
       },
-      "tags": ["medical", "escalation"]
+      "tags": [
+        "medical",
+        "escalation"
+      ]
     },
     {
       "action_id": "flag_fraud_investigation",
@@ -137,23 +270,53 @@
       },
       "support_spec": {
         "all": [
-          { "feature": "fraud_score", "op": "gt", "value": 0.6 },
-          { "feature": "policy_status", "op": "in", "value": ["active", "lapsed"] },
+          {
+            "feature": "fraud_score",
+            "op": "gt",
+            "value": 0.6
+          },
+          {
+            "feature": "policy_status",
+            "op": "in",
+            "value": [
+              "active",
+              "lapsed"
+            ]
+          },
           {
             "any": [
-              { "feature": "prior_claims_count", "op": "gt", "value": 5.0 },
-              { "feature": "claim_amount", "op": "gt", "value": 50000.0 },
+              {
+                "feature": "prior_claims_count",
+                "op": "gt",
+                "value": 5.0
+              },
+              {
+                "feature": "claim_amount",
+                "op": "gt",
+                "value": 50000.0
+              },
               {
                 "all": [
-                  { "feature": "fraud_score", "op": "gt", "value": 0.8 },
-                  { "feature": "prior_claims_count", "op": "gt", "value": 3.0 }
+                  {
+                    "feature": "fraud_score",
+                    "op": "gt",
+                    "value": 0.8
+                  },
+                  {
+                    "feature": "prior_claims_count",
+                    "op": "gt",
+                    "value": 3.0
+                  }
                 ]
               }
             ]
           }
         ]
       },
-      "tags": ["fraud", "investigation"]
+      "tags": [
+        "fraud",
+        "investigation"
+      ]
     },
     {
       "action_id": "deny_claim",
@@ -168,22 +331,52 @@
         "any": [
           {
             "all": [
-              { "feature": "policy_status", "op": "eq", "value": "lapsed" },
-              { "feature": "coverage_verified", "op": "eq", "value": false },
-              { "feature": "fraud_score", "op": "lte", "value": 0.6 }
+              {
+                "feature": "policy_status",
+                "op": "eq",
+                "value": "lapsed"
+              },
+              {
+                "feature": "coverage_verified",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "feature": "fraud_score",
+                "op": "lte",
+                "value": 0.6
+              }
             ]
           },
           {
             "all": [
-              { "feature": "coverage_verified", "op": "eq", "value": false },
-              { "feature": "policy_status", "op": "eq", "value": "active" },
-              { "feature": "documentation_complete", "op": "eq", "value": true },
-              { "feature": "fraud_score", "op": "lte", "value": 0.6 }
+              {
+                "feature": "coverage_verified",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "feature": "policy_status",
+                "op": "eq",
+                "value": "active"
+              },
+              {
+                "feature": "documentation_complete",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "feature": "fraud_score",
+                "op": "lte",
+                "value": 0.6
+              }
             ]
           }
         ]
       },
-      "tags": ["denial"]
+      "tags": [
+        "denial"
+      ]
     },
     {
       "action_id": "escalate_to_supervisor",
@@ -192,21 +385,55 @@
       "parameters_schema": {
         "type": "object",
         "properties": {
-          "reason": { "type": "string" }
+          "reason": {
+            "type": "string"
+          }
         },
-        "required": ["reason"]
+        "required": [
+          "reason"
+        ]
       },
       "support_spec": {
         "all": [
-          { "feature": "claim_amount", "op": "gt", "value": 100000.0 },
-          { "feature": "policy_status", "op": "eq", "value": "active" },
-          { "feature": "documentation_complete", "op": "eq", "value": true },
-          { "feature": "coverage_verified", "op": "eq", "value": true },
-          { "feature": "fraud_score", "op": "lte", "value": 0.6 },
-          { "feature": "claim_type", "op": "in", "value": ["liability", "life"] }
+          {
+            "feature": "claim_amount",
+            "op": "gt",
+            "value": 100000.0
+          },
+          {
+            "feature": "policy_status",
+            "op": "eq",
+            "value": "active"
+          },
+          {
+            "feature": "documentation_complete",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "coverage_verified",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "fraud_score",
+            "op": "lte",
+            "value": 0.6
+          },
+          {
+            "feature": "claim_type",
+            "op": "in",
+            "value": [
+              "liability",
+              "life"
+            ]
+          }
         ]
       },
-      "tags": ["escalation", "fallback"]
+      "tags": [
+        "escalation",
+        "fallback"
+      ]
     }
   ]
 }

@@ -21,10 +21,8 @@ def test_build_publication_summary_reads_live_artifacts_and_writes_outputs(tmp_p
     sections = summary["sections"]
 
     assert sections["canonical_suite"]["available"] is True
-    assert sections["canonical_suite"]["domain_count"] == 9
-    # customer_support (97.2%) and content_moderation (97.5%) are not at 100%
-    # so this is False with 9 domains; the original 7 canonical domains are still perfect
-    assert sections["canonical_suite"]["all_semantic_correctness_one"] is False
+    assert sections["canonical_suite"]["domain_count"] == 12
+    assert sections["canonical_suite"]["all_semantic_correctness_one"] is True
     assert sections["canonical_suite"]["all_false_accept_zero"] is True
     assert sections["support_gate_stress"]["available"] is True
     assert sections["support_gate_stress"]["gated_perfect_semantic_domain_count"] == 7

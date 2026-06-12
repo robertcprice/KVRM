@@ -40,7 +40,7 @@ FIGURE_PLACEMENT = {
     1: ("fig1_architecture.svg", "# 3. KVRM Architecture"),
     2: ("fig2_registry_lifecycle.svg", "# 3. KVRM Architecture"),
     3: ("fig3_supported_vs_unsupported.svg", "# 3. KVRM Architecture"),
-    4: ("fig4_canonical_suite.svg", "# 6. Results on the Canonical Seven-Domain Suite"),
+    4: ("fig4_canonical_suite.svg", "# 6. Results on the Canonical Suite"),
     5: ("fig5_support_gate_stress.svg", "# 7. Support-Gate Stress and Strict Runtime Validation"),
     6: ("fig6_fallback_feasibility.svg", "# 7. Support-Gate Stress and Strict Runtime Validation"),
     7: ("fig7_robustness_families.svg", "# 8. Counterfactual, Temporal, and Coordination Robustness"),

@@ -37,5 +37,5 @@ flagship artifact; do not import from them.
 - **Never hand-edit generated artifacts** (`docs/papers/KVRM_PUBLICATION_APPENDIX.md`, `kvrm-bench/results/publication_bundle/`, benchmark report tables). Regenerate them.
 - **Benchmark numbers in prose must match the generated appendix.** After touching any registry, cases, or selector logic, rerun the affected domain benchmark and `run_publication_check.py`.
 - **Domains use the factory pattern**: behavior lives in `DomainConfig` in `domain.py`. Do not add per-domain `selectors.py`/`executor.py` — that duplication was deliberately removed.
-- **Distinguish "9 domains" (canonical suite) from "12 domains" (implemented)** — legal, insurance, and cicd are not yet in the canonical benchmark suite, and "7 canonical" applies to ceiling/frontier analyses (see `docs/papers/KVRM_PRE_SUBMISSION_CHECKLIST.md`).
+- **All 12 domains are in the canonical suite (682 cases).** "7 canonical" still applies to the ceiling, frontier, robustness-family, and registry-evolution analyses, which cover the original seven only (see `docs/papers/KVRM_PRE_SUBMISSION_CHECKLIST.md`).
 - Tests live in `tests/` and `kvrm-demos/tests/`; new behavior needs tests in the matching tree.

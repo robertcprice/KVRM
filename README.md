@@ -16,7 +16,7 @@ and mean it:
   system cannot emit an action that does not exist.
 - Inputs that fall outside every action's declared support envelope are
   rejected, not coerced into the nearest label. On the benchmark suite the
-  false-accept rate is 0.0 in all nine benchmarked domains.
+  false-accept rate is 0.0 in all twelve benchmarked domains.
 - Every decision is logged with its candidate scores, support-spec evaluation,
   validation outcome, and the SHA-256 digest of the registry version it ran
   against, so any decision can be audited after the fact.
@@ -61,9 +61,7 @@ measured below.
 
 ## Domains
 
-Twelve domains are implemented. Nine form the canonical benchmark suite; the
-last three (legal/compliance, CI/CD, insurance) have registries and cases but
-are not yet wired into the suite.
+Twelve domains are implemented, and all twelve form the canonical benchmark suite.
 
 | Domain | Vertical | Actions | Eval cases |
 |---|---|---|---|
@@ -76,11 +74,9 @@ are not yet wired into the suite.
 | IAM access | Enterprise | 7 | 24 |
 | Customer support | Enterprise | 7 | 48 |
 | Content moderation | Trust & safety | 7 | 54 |
-| Legal/compliance* | Enterprise | 7 | 24 |
-| CI/CD pipeline* | Infrastructure | 7 | 24 |
-| Insurance claims* | Enterprise | 7 | 24 |
-
-\* implemented, not yet in the canonical suite.
+| Legal/compliance | Enterprise | 7 | 24 |
+| CI/CD pipeline | Infrastructure | 7 | 24 |
+| Insurance claims | Enterprise | 7 | 24 |
 
 Total: 12 domains, 90 actions, 682 eval cases, 596 training cases.
 
@@ -90,14 +86,14 @@ All numbers below regenerate from the repo (`python kvrm-demos/run_demo.py
 <domain>`, then `python kvrm-demos/compare_demos.py`); the publication bundle
 pins them to committed artifacts.
 
-**Canonical suite** (9 domains, 610 cases — 428 supported, 182 unsupported):
+**Canonical suite** (12 domains, 682 cases — 482 supported, 200 unsupported):
 
 | Metric | Result |
 |---|---|
-| Semantic correctness | 426/428 supported cases. 1.0 in seven domains; 0.9722 (customer support) and 0.9750 (content moderation) in the two newest |
-| False accepts | 0/182 unsupported cases executed, all nine domains |
-| Unsupported-case rejection | 182/182 rejected or routed to safe fallback |
-| Invalid outputs | 0, all nine domains |
+| Semantic correctness | 482/482 supported cases — 1.0 in all twelve domains |
+| False accepts | 0/200 unsupported cases executed, all twelve domains |
+| Unsupported-case rejection | 200/200 rejected or routed to safe fallback |
+| Invalid outputs | 0, all twelve domains |
 
 **Robustness families**, hybrid KVRM vs. the best non-hybrid baseline:
 

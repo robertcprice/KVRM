@@ -1,6 +1,6 @@
 {
   "registry_name": "legal-compliance-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "required_features": [
     "contract_value",
     "jurisdiction",
@@ -18,15 +18,30 @@
     },
     "jurisdiction": {
       "type": "string",
-      "enum": ["domestic", "international", "restricted"]
+      "enum": [
+        "domestic",
+        "international",
+        "restricted"
+      ]
     },
     "document_type": {
       "type": "string",
-      "enum": ["nda", "msa", "sow", "amendment", "license"]
+      "enum": [
+        "nda",
+        "msa",
+        "sow",
+        "amendment",
+        "license"
+      ]
     },
     "risk_tier": {
       "type": "string",
-      "enum": ["low", "medium", "high", "critical"]
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ]
     },
     "prior_counsel_approval": {
       "type": "boolean"
@@ -36,7 +51,12 @@
     },
     "counterparty_reputation": {
       "type": "string",
-      "enum": ["trusted", "neutral", "unknown", "flagged"]
+      "enum": [
+        "trusted",
+        "neutral",
+        "unknown",
+        "flagged"
+      ]
     }
   },
   "actions": [
@@ -51,15 +71,45 @@
       },
       "support_spec": {
         "all": [
-          { "feature": "risk_tier", "op": "eq", "value": "low" },
-          { "feature": "jurisdiction", "op": "eq", "value": "domestic" },
-          { "feature": "counterparty_reputation", "op": "eq", "value": "trusted" },
-          { "feature": "legal_hold_active", "op": "eq", "value": false },
-          { "feature": "contract_value", "op": "lte", "value": 100000.0 },
-          { "feature": "document_type", "op": "in", "value": ["nda", "sow", "amendment"] }
+          {
+            "feature": "risk_tier",
+            "op": "eq",
+            "value": "low"
+          },
+          {
+            "feature": "jurisdiction",
+            "op": "eq",
+            "value": "domestic"
+          },
+          {
+            "feature": "counterparty_reputation",
+            "op": "eq",
+            "value": "trusted"
+          },
+          {
+            "feature": "legal_hold_active",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "contract_value",
+            "op": "lte",
+            "value": 100000.0
+          },
+          {
+            "feature": "document_type",
+            "op": "in",
+            "value": [
+              "nda",
+              "sow",
+              "amendment"
+            ]
+          }
         ]
       },
-      "tags": ["approval"]
+      "tags": [
+        "approval"
+      ]
     },
     {
       "action_id": "request_legal_review",
@@ -72,15 +122,50 @@
       },
       "support_spec": {
         "all": [
-          { "feature": "risk_tier", "op": "in", "value": ["medium", "high"] },
-          { "feature": "legal_hold_active", "op": "eq", "value": false },
-          { "feature": "counterparty_reputation", "op": "in", "value": ["neutral", "unknown"] },
-          { "feature": "jurisdiction", "op": "in", "value": ["domestic", "international"] },
-          { "feature": "contract_value", "op": "lte", "value": 5000000.0 },
-          { "feature": "prior_counsel_approval", "op": "eq", "value": false }
+          {
+            "feature": "risk_tier",
+            "op": "in",
+            "value": [
+              "medium",
+              "high"
+            ]
+          },
+          {
+            "feature": "legal_hold_active",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "counterparty_reputation",
+            "op": "in",
+            "value": [
+              "neutral",
+              "unknown"
+            ]
+          },
+          {
+            "feature": "jurisdiction",
+            "op": "in",
+            "value": [
+              "domestic",
+              "international"
+            ]
+          },
+          {
+            "feature": "contract_value",
+            "op": "lte",
+            "value": 5000000.0
+          },
+          {
+            "feature": "prior_counsel_approval",
+            "op": "eq",
+            "value": false
+          }
         ]
       },
-      "tags": ["review"]
+      "tags": [
+        "review"
+      ]
     },
     {
       "action_id": "flag_compliance_audit",
@@ -95,22 +180,62 @@
         "any": [
           {
             "all": [
-              { "feature": "legal_hold_active", "op": "eq", "value": true },
-              { "feature": "risk_tier", "op": "in", "value": ["low", "medium"] },
-              { "feature": "counterparty_reputation", "op": "in", "value": ["trusted", "neutral"] }
+              {
+                "feature": "legal_hold_active",
+                "op": "eq",
+                "value": true
+              },
+              {
+                "feature": "risk_tier",
+                "op": "in",
+                "value": [
+                  "low",
+                  "medium"
+                ]
+              },
+              {
+                "feature": "counterparty_reputation",
+                "op": "in",
+                "value": [
+                  "trusted",
+                  "neutral"
+                ]
+              }
             ]
           },
           {
             "all": [
-              { "feature": "jurisdiction", "op": "eq", "value": "restricted" },
-              { "feature": "risk_tier", "op": "in", "value": ["low", "medium"] },
-              { "feature": "legal_hold_active", "op": "eq", "value": false },
-              { "feature": "contract_value", "op": "lte", "value": 1000000.0 }
+              {
+                "feature": "jurisdiction",
+                "op": "eq",
+                "value": "restricted"
+              },
+              {
+                "feature": "risk_tier",
+                "op": "in",
+                "value": [
+                  "low",
+                  "medium"
+                ]
+              },
+              {
+                "feature": "legal_hold_active",
+                "op": "eq",
+                "value": false
+              },
+              {
+                "feature": "contract_value",
+                "op": "lte",
+                "value": 1000000.0
+              }
             ]
           }
         ]
       },
-      "tags": ["compliance", "audit"]
+      "tags": [
+        "compliance",
+        "audit"
+      ]
     },
     {
       "action_id": "require_redline",
@@ -123,17 +248,57 @@
       },
       "support_spec": {
         "all": [
-          { "feature": "document_type", "op": "in", "value": ["msa", "license"] },
-          { "feature": "risk_tier", "op": "eq", "value": "medium" },
-          { "feature": "counterparty_reputation", "op": "in", "value": ["neutral", "unknown"] },
-          { "feature": "legal_hold_active", "op": "eq", "value": false },
-          { "feature": "jurisdiction", "op": "eq", "value": "domestic" },
-          { "feature": "prior_counsel_approval", "op": "eq", "value": false },
-          { "feature": "contract_value", "op": "gt", "value": 100000.0 },
-          { "feature": "contract_value", "op": "lte", "value": 2000000.0 }
+          {
+            "feature": "document_type",
+            "op": "in",
+            "value": [
+              "msa",
+              "license"
+            ]
+          },
+          {
+            "feature": "risk_tier",
+            "op": "eq",
+            "value": "medium"
+          },
+          {
+            "feature": "counterparty_reputation",
+            "op": "in",
+            "value": [
+              "neutral",
+              "unknown"
+            ]
+          },
+          {
+            "feature": "legal_hold_active",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "jurisdiction",
+            "op": "eq",
+            "value": "domestic"
+          },
+          {
+            "feature": "prior_counsel_approval",
+            "op": "eq",
+            "value": false
+          },
+          {
+            "feature": "contract_value",
+            "op": "gt",
+            "value": 100000.0
+          },
+          {
+            "feature": "contract_value",
+            "op": "lte",
+            "value": 2000000.0
+          }
         ]
       },
-      "tags": ["negotiation"]
+      "tags": [
+        "negotiation"
+      ]
     },
     {
       "action_id": "escalate_to_counsel",
@@ -142,28 +307,56 @@
       "parameters_schema": {
         "type": "object",
         "properties": {
-          "reason": { "type": "string" }
+          "reason": {
+            "type": "string"
+          }
         },
-        "required": ["reason"]
+        "required": [
+          "reason"
+        ]
       },
       "support_spec": {
         "all": [
-          { "feature": "risk_tier", "op": "in", "value": ["high", "critical"] },
+          {
+            "feature": "risk_tier",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
           {
             "any": [
-              { "feature": "contract_value", "op": "gt", "value": 5000000.0 },
-              { "feature": "counterparty_reputation", "op": "eq", "value": "flagged" },
-              { "feature": "jurisdiction", "op": "eq", "value": "restricted" }
+              {
+                "feature": "contract_value",
+                "op": "gt",
+                "value": 5000000.0
+              },
+              {
+                "feature": "counterparty_reputation",
+                "op": "eq",
+                "value": "flagged"
+              },
+              {
+                "feature": "jurisdiction",
+                "op": "eq",
+                "value": "restricted"
+              }
             ]
           },
           {
             "not": {
-              "feature": "prior_counsel_approval", "op": "eq", "value": true
+              "feature": "prior_counsel_approval",
+              "op": "eq",
+              "value": true
             }
           }
         ]
       },
-      "tags": ["escalation", "fallback"]
+      "tags": [
+        "escalation",
+        "fallback"
+      ]
     },
     {
       "action_id": "escalate_to_general_counsel",
@@ -172,20 +365,45 @@
       "parameters_schema": {
         "type": "object",
         "properties": {
-          "reason": { "type": "string" }
+          "reason": {
+            "type": "string"
+          }
         },
-        "required": ["reason"]
+        "required": []
       },
       "support_spec": {
         "all": [
-          { "feature": "risk_tier", "op": "eq", "value": "critical" },
-          { "feature": "contract_value", "op": "gt", "value": 10000000.0 },
-          { "feature": "counterparty_reputation", "op": "eq", "value": "flagged" },
-          { "feature": "legal_hold_active", "op": "eq", "value": true },
-          { "feature": "prior_counsel_approval", "op": "eq", "value": false }
+          {
+            "feature": "risk_tier",
+            "op": "eq",
+            "value": "critical"
+          },
+          {
+            "feature": "contract_value",
+            "op": "gt",
+            "value": 10000000.0
+          },
+          {
+            "feature": "counterparty_reputation",
+            "op": "eq",
+            "value": "flagged"
+          },
+          {
+            "feature": "legal_hold_active",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "prior_counsel_approval",
+            "op": "eq",
+            "value": false
+          }
         ]
       },
-      "tags": ["escalation", "critical"]
+      "tags": [
+        "escalation",
+        "critical"
+      ]
     },
     {
       "action_id": "request_external_opinion",
@@ -198,15 +416,51 @@
       },
       "support_spec": {
         "all": [
-          { "feature": "jurisdiction", "op": "in", "value": ["international", "restricted"] },
-          { "feature": "prior_counsel_approval", "op": "eq", "value": true },
-          { "feature": "risk_tier", "op": "in", "value": ["high", "critical"] },
-          { "feature": "contract_value", "op": "gt", "value": 2000000.0 },
-          { "feature": "counterparty_reputation", "op": "in", "value": ["unknown", "flagged"] },
-          { "feature": "legal_hold_active", "op": "eq", "value": false }
+          {
+            "feature": "jurisdiction",
+            "op": "in",
+            "value": [
+              "international",
+              "restricted"
+            ]
+          },
+          {
+            "feature": "prior_counsel_approval",
+            "op": "eq",
+            "value": true
+          },
+          {
+            "feature": "risk_tier",
+            "op": "in",
+            "value": [
+              "high",
+              "critical"
+            ]
+          },
+          {
+            "feature": "contract_value",
+            "op": "gt",
+            "value": 2000000.0
+          },
+          {
+            "feature": "counterparty_reputation",
+            "op": "in",
+            "value": [
+              "unknown",
+              "flagged"
+            ]
+          },
+          {
+            "feature": "legal_hold_active",
+            "op": "eq",
+            "value": false
+          }
         ]
       },
-      "tags": ["external", "advisory"]
+      "tags": [
+        "external",
+        "advisory"
+      ]
     }
   ]
 }

@@ -337,6 +337,9 @@ def fig4_canonical_suite():
         ("iam_hybrid", "IAM"),
         ("customer_support_hybrid", "Cust. Support"),
         ("content_moderation_hybrid", "Content Mod."),
+        ("legal_hybrid", "Legal"),
+        ("cicd_hybrid", "CI/CD"),
+        ("insurance_hybrid", "Insurance"),
     ]
     w, h = 920, 78 + 34 * (len(order) + 1) + 60
     headers = [
@@ -356,13 +359,13 @@ def fig4_canonical_suite():
     table_w = sum(width for _, width in headers)
 
     parts = [_header(w, h)]
-    parts.append(_text(w / 2, 28, 16, "Figure 4: Canonical Nine-Domain Benchmark Suite", anchor="middle", bold=True))
+    parts.append(_text(w / 2, 28, 16, "Figure 4: Canonical Twelve-Domain Benchmark Suite", anchor="middle", bold=True))
     parts.append(
         _text(
             w / 2,
             50,
             11,
-            "Fail-closed metrics hold in all nine domains; semantic correctness is perfect in seven.",
+            "Hybrid KVRM is perfect on the live canonical packs across all twelve domains.",
             anchor="middle",
             fill="#666",
         )

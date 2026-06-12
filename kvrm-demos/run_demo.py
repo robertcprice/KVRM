@@ -18,6 +18,9 @@ DEMO_PATHS = {
     'iam': f"{COMMON_PATH}:{ROOT}/iam-access-router",
     'customer_support': f"{COMMON_PATH}:{ROOT}/customer-support-router",
     'content_moderation': f"{COMMON_PATH}:{ROOT}/content-moderation-router",
+    'legal': f"{COMMON_PATH}:{ROOT}/legal-compliance-router",
+    'cicd': f"{COMMON_PATH}:{ROOT}/cicd-pipeline-router",
+    'insurance': f"{COMMON_PATH}:{ROOT}/insurance-claims-router",
 }
 SCRIPTS = {
     'soc': ROOT / 'soc-playbook-router' / 'scripts' / 'run_benchmark.py',
@@ -29,12 +32,15 @@ SCRIPTS = {
     'iam': ROOT / 'iam-access-router' / 'scripts' / 'run_benchmark.py',
     'customer_support': ROOT / 'customer-support-router' / 'scripts' / 'run_benchmark.py',
     'content_moderation': ROOT / 'content-moderation-router' / 'scripts' / 'run_benchmark.py',
+    'legal': ROOT / 'legal-compliance-router' / 'scripts' / 'run_benchmark.py',
+    'cicd': ROOT / 'cicd-pipeline-router' / 'scripts' / 'run_benchmark.py',
+    'insurance': ROOT / 'insurance-claims-router' / 'scripts' / 'run_benchmark.py',
 }
 
 
 def main() -> None:
     if len(sys.argv) != 2 or sys.argv[1] not in SCRIPTS:
-        print('usage: run_demo.py [soc|sre|drone|grid|finance|medical|iam|customer_support|content_moderation]')
+        print('usage: run_demo.py [soc|sre|drone|grid|finance|medical|iam|customer_support|content_moderation|legal|cicd|insurance]')
         raise SystemExit(1)
     key = sys.argv[1]
     cmd = f"PYTHONPATH={DEMO_PATHS[key]} {PYTHON} {SCRIPTS[key]}"

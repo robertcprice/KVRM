@@ -64,7 +64,7 @@ def test_build_publication_portal_writes_bundle_landing_page(tmp_path: Path) -> 
 
     payload = json.loads(json_path.read_text(encoding="utf-8"))
     assert payload["status"]["paper_doc_all_checks_passed"] is True
-    assert payload["status"]["canonical_domain_count"] == 9
+    assert payload["status"]["canonical_domain_count"] == 12
     assert any(item["path"] == "paper_doc_audit.md" for item in payload["bundle_files"])
     assert any(item["path"] == "docs/papers/README.md" for item in payload["docs_files"])
 

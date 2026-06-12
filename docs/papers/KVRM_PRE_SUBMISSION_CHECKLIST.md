@@ -1,6 +1,6 @@
 # KVRM Pre-Submission Checklist
 
-**Domain note.** The benchmark suite spans 9 domains total. The original 7 "canonical" domains (SOC, SRE, drone, grid, finance, medical, IAM) have full ceiling analysis and ambiguity-frontier coverage. The 2 later domains (customer_support, content_moderation) extend the suite into enterprise and trust-and-safety verticals and participate in all nine-domain benchmarks, but some per-domain analyses (e.g., feature ceiling, external baselines) currently cover only the canonical 7. Use "nine domains" for aggregate claims and "seven canonical domains" when citing ceiling or frontier results that exclude the two newer domains.
+**Domain note.** The benchmark suite spans 12 domains, all in the canonical suite (682 cases). The original 7 "canonical" domains (SOC, SRE, drone, grid, finance, medical, IAM) additionally have full ceiling analysis, ambiguity-frontier, robustness-family, and registry-evolution coverage. The 5 later domains (customer_support, content_moderation, legal, cicd, insurance) participate in the canonical aggregate benchmarks; the external-baseline comparison covers an 8-domain subset (586 cases). Use "twelve domains" for canonical aggregate claims and "seven canonical domains" when citing ceiling, frontier, robustness-family, or evolution results.
 
 ---
 

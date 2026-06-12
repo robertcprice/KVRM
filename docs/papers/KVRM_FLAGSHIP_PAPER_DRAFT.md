@@ -2,7 +2,7 @@
 
 Manuscript Status:
 - artifact-anchored working manuscript as of 2026-04-12
-- grounded in the live nine-domain internal artifact set plus an eight-domain external-baseline subset
+- grounded in the live twelve-domain internal artifact set plus an eight-domain external-baseline subset
 - bibliography file: `docs/papers/kvrm_refs.bib`
 - paper workflow entrypoint: `docs/papers/README.md`
 - generated appendix, tables, and figure captions in `kvrm-bench/results/publication_bundle/` are the canonical paper-facing artifact summaries for this manuscript
@@ -10,11 +10,11 @@ Manuscript Status:
 
 ## Abstract
 
-We present KVRM, a registry-constrained decision architecture for routing among finite audited actions in safety-adjacent, infrastructure-adjacent, and enterprise domains. Instead of treating model output as directly executable free-form text or as an unconstrained class label, KVRM restricts decision-making to a versioned action registry and places deterministic validation and execution boundaries between prediction and effect. We instantiate KVRM across nine internal domains: security operations playbook routing, SRE remediation policy routing, drone mission-policy routing, grid operations routing, financial risk workflow routing, medical workflow routing, IAM access-operations routing, customer support ticket routing, and content moderation routing.
+We present KVRM, a registry-constrained decision architecture for routing among finite audited actions in safety-adjacent, infrastructure-adjacent, and enterprise domains. Instead of treating model output as directly executable free-form text or as an unconstrained class label, KVRM restricts decision-making to a versioned action registry and places deterministic validation and execution boundaries between prediction and effect. We instantiate KVRM across twelve internal domains: security operations playbook routing, SRE remediation policy routing, drone mission-policy routing, grid operations routing, financial risk workflow routing, medical workflow routing, IAM access-operations routing, customer support ticket routing, content moderation routing, legal-compliance contract routing, CI/CD pipeline gating, and insurance claims routing.
 
-Across the live canonical benchmark packs, hybrid KVRM achieves `false_accept_rate=0.0`, `unsupported_case_rejection_rate=1.0`, `invalid_output_rate=0.0`, and `mean_decision_cost=0.0` in all nine internal domains, with `semantic_correctness_rate=1.0` on the seven original canonical domains (508 cases) and `0.972`/`0.975` on the two enterprise trust-and-safety additions (customer support and content moderation; 102 cases). We then evaluate the architecture on benchmark families that directly target its claimed structural properties. Under support-gate stress, where high-confidence support-incompatible candidates are injected into upstream selector stages, the gated hybrid preserves `semantic_correctness_rate=1.0` while an otherwise similar ungated baseline falls to roughly `0.11-0.23` semantic correctness with nonzero decision cost. On explicit infeasible-handoff slices in SRE and drone, strict runtime validation yields `unsupported_unsafe_execution_rate=0.0`, while a legacy fallback-bypass baseline reaches `1.0`. On schema-valid counterfactual, temporal-transition, and coordination-chain robustness families, hybrid KVRM incurs zero losses against the best non-hybrid baseline.
+Across the live canonical benchmark packs, hybrid KVRM achieves `semantic_correctness_rate=1.0`, `false_accept_rate=0.0`, `unsupported_case_rejection_rate=1.0`, `invalid_output_rate=0.0`, and `mean_decision_cost=0.0` in all twelve internal domains (682 cases: 482 supported, 200 unsupported). We then evaluate the architecture on benchmark families that directly target its claimed structural properties. Under support-gate stress, where high-confidence support-incompatible candidates are injected into upstream selector stages, the gated hybrid preserves `semantic_correctness_rate=1.0` while an otherwise similar ungated baseline falls to roughly `0.11-0.23` semantic correctness with nonzero decision cost. On explicit infeasible-handoff slices in SRE and drone, strict runtime validation yields `unsupported_unsafe_execution_rate=0.0`, while a legacy fallback-bypass baseline reaches `1.0`. On schema-valid counterfactual, temporal-transition, and coordination-chain robustness families, hybrid KVRM incurs zero losses against the best non-hybrid baseline.
 
-We also evaluate real small-model external baselines using Ollama-backed models under a strict structured-output selector protocol on the current eight-domain external-comparison subset (586 cases). The evaluated selectors are `qwen3.5:0.8b` and the official `gemma4:e2b` model. The stronger external selector, `gemma4:e2b`, reaches macro semantic correctness `0.5971` with macro mean decision cost `0.5706`, but it still records macro `false_accept_rate=0.7741` and macro `unsupported_case_rejection_rate=0.0027`. `qwen3.5:0.8b` over-executes every unsupported state, with macro `false_accept_rate=1.0`. Hybrid KVRM on the same subset holds macro semantic correctness `0.9934` with zero false accepts. We additionally evaluate controlled registry-evolution probes and find that live hybrid KVRM preserves `supported_migration_success_rate=1.0` across all nine internal domains, while a stale validated baseline drops to `0.0` continuity and a stale unvalidated baseline executes obsolete or newly unsupported actions in every domain. These results reinforce that KVRM's main advantage is architectural rather than purely predictive.
+We also evaluate real small-model external baselines using Ollama-backed models under a strict structured-output selector protocol on the current eight-domain external-comparison subset (586 cases). The evaluated selectors are `qwen3.5:0.8b` and the official `gemma4:e2b` model. The stronger external selector, `gemma4:e2b`, reaches macro semantic correctness `0.5971` with macro mean decision cost `0.5706`, but it still records macro `false_accept_rate=0.7741` and macro `unsupported_case_rejection_rate=0.0027`. `qwen3.5:0.8b` over-executes every unsupported state, with macro `false_accept_rate=1.0`. Hybrid KVRM on the same subset holds macro semantic correctness `0.9934` with zero false accepts. We additionally evaluate controlled registry-evolution probes and find that live hybrid KVRM preserves `supported_migration_success_rate=1.0` across all seven evaluated domains, while a stale validated baseline drops to `0.0` continuity and a stale unvalidated baseline executes obsolete or newly unsupported actions in every domain. These results reinforce that KVRM's main advantage is architectural rather than purely predictive.
 
 The main contribution of KVRM is therefore not a better classifier in the narrow sense, but a systems architecture for fail-closed finite-action routing. Its measurable advantages arise from registry-constrained actions, support-aware evidence fusion, strict runtime validation, and audited execution boundaries.
 
@@ -31,13 +31,13 @@ A plain classifier is a poor fit for this setting. A classifier predicts a label
 
 KVRM is designed around those questions. It treats finite-action routing as a contract-governed systems problem rather than only as a label prediction problem. Prediction remains important, but it is embedded inside a runtime that constrains actions to a live registry, validates support before execution, and records the decision path.
 
-The current version of KVRM is evaluated on nine active internal domains spanning three verticals:
-- **Infrastructure**: SOC playbook routing, SRE policy routing, drone mission-policy routing, grid operations routing
-- **Enterprise**: finance risk workflow routing, medical workflow routing, IAM access-operations routing, customer support ticket routing
+The current version of KVRM is evaluated on twelve active internal domains spanning three verticals:
+- **Infrastructure**: SOC playbook routing, SRE policy routing, drone mission-policy routing, grid operations routing, CI/CD pipeline gating
+- **Enterprise**: finance risk workflow routing, medical workflow routing, IAM access-operations routing, customer support ticket routing, legal-compliance contract routing, insurance claims routing
 - **Trust & Safety**: content moderation routing
 
 The live benchmark set now supports a stronger claim than earlier phase-1 comparisons. We no longer rely mainly on small static packs or proxy classifier comparisons. Instead, we evaluate the architecture on:
-- canonical supported/unsupported benchmark packs (610 cases across 9 domains)
+- canonical supported/unsupported benchmark packs (682 cases across 12 domains)
 - injected invalid-evidence stress tests
 - infeasible-handoff runtime-validation probes
 - single-feature counterfactual mutations
@@ -54,7 +54,7 @@ This lets the paper argue for KVRM on the right axis: fail-closed routing proper
 
 The manuscript advances five core claims.
 
-1. KVRM is a reusable architecture pattern across nine distinct bounded workflow domains spanning infrastructure, enterprise, and trust-and-safety verticals.
+1. KVRM is a reusable architecture pattern across twelve distinct bounded workflow domains spanning infrastructure, enterprise, and trust-and-safety verticals.
 2. KVRM preserves structural validity, unsupported-case rejection, and zero false accepts on the live canonical packs.
 3. Support-aware gating before calibration is architecturally necessary; removing it collapses supported-case correctness under invalid high-confidence upstream evidence.
 4. Strict runtime validation of fallback-tagged actions is architecturally necessary; removing it causes guaranteed unsafe execution on explicit infeasible-handoff probes.
@@ -163,7 +163,7 @@ Put differently: a classifier answers “which label is most likely?” KVRM ans
 
 ### 5.1 Domains and Canonical Packs
 
-The internal evaluation suite spans nine domains across three verticals (infrastructure, enterprise, trust-and-safety). The original seven canonical domains have full benchmark coverage including ceiling analysis, ambiguity frontier, and robustness families. Two additional domains (Customer Support and Content Moderation) were added to validate cross-vertical generalization and participate in all aggregate benchmarks.
+The internal evaluation suite spans twelve domains across three verticals (infrastructure, enterprise, trust-and-safety). The original seven canonical domains have full benchmark coverage including ceiling analysis, ambiguity frontier, and robustness families. Five additional domains (Customer Support, Content Moderation, Legal-Compliance, CI/CD, and Insurance Claims) validate cross-vertical generalization and participate in the canonical aggregate benchmarks.
 
 | Domain | Vertical | Total | Supported | Unsupported |
 |---|---|---:|---:|---:|
@@ -176,7 +176,10 @@ The internal evaluation suite spans nine domains across three verticals (infrast
 | IAM | Enterprise | 24 | 18 | 6 |
 | Customer Support | Enterprise | 48 | 36 | 12 |
 | Content Moderation | Trust & Safety | 54 | 40 | 14 |
-| **Total** | | **610** | **428** | **182** |
+| Legal-Compliance | Enterprise | 24 | 18 | 6 |
+| CI/CD | Infrastructure | 24 | 18 | 6 |
+| Insurance Claims | Enterprise | 24 | 18 | 6 |
+| **Total** | | **682** | **482** | **200** |
 
 The SRE registry is currently `1.5.0`, and the drone registry is `1.4.0`. Both now include explicit handoff-feasibility and coordination-state features.
 
@@ -216,13 +219,13 @@ We evaluate KVRM in five layers.
 
 ### 5.4 Feature Ceiling Analysis
 
-Feature-ceiling analysis is used to separate selector failure from schema failure. On the current live canonical packs, all nine active internal domains are separable with zero supported support-spec overlaps, and hybrid KVRM matches the exact-feature oracle on those canonical packs.
+Feature-ceiling analysis is used to separate selector failure from schema failure. On the current live ceiling analysis, all seven original canonical domains are separable with zero supported support-spec overlaps, and hybrid KVRM matches the exact-feature oracle on those packs.
 
 This matters for the paper claim because it shows that the main current challenge is not contradictory labeling inside the canonical suite. The live frontier is now richer recovery-planning, authority-state, and multi-step coordination structure.
 
-## 6. Results on the Canonical Seven-Domain Suite
+## 6. Results on the Canonical Suite
 
-Hybrid KVRM achieves perfect semantic correctness on the original seven canonical domains (508 cases) and near-perfect on the two enterprise/trust-and-safety additions (97.2% customer support, 97.5% content moderation), covering 610 total cases across nine domains (Figure 4).
+Hybrid KVRM achieves perfect semantic correctness across all twelve domains: 682 total cases, 482 supported (all routed correctly), 200 unsupported (all rejected or routed to safe fallback), with zero false accepts and zero invalid outputs (Figure 4).
 
 The per-domain canonical result table is maintained in generated Appendix Table 1 in `docs/papers/KVRM_PUBLICATION_APPENDIX.md` so the manuscript does not duplicate a table that is already derived directly from `kvrm-demos/reports/demo_comparison.json`.
 
@@ -274,7 +277,7 @@ Each domain is evaluated under three variants:
 - a stale selector that still passes through the live validator
 - a stale selector that executes without live validation
 
-The result is clean across all nine internal domains. Live hybrid KVRM preserves perfect supported continuity and perfect fail-closed behavior. The stale validated baseline remains safe but loses all supported continuity on the rename and split slices, while the stale unvalidated baseline executes obsolete or newly unsupported actions throughout.
+The result is clean across all seven evaluated domains. Live hybrid KVRM preserves perfect supported continuity and perfect fail-closed behavior. The stale validated baseline remains safe but loses all supported continuity on the rename and split slices, while the stale unvalidated baseline executes obsolete or newly unsupported actions throughout.
 
 Appendix Table 2 is the canonical generated summary for this benchmark family. The domain-level pattern is uniform: live continuity stays at `1.0` in all seven domains, stale validated continuity drops to `0.0` in all seven, and stale unvalidated execution of obsolete actions remains nonzero in all seven.
 
@@ -412,7 +415,7 @@ Any one of these elements in isolation is not enough. The publication claim depe
 The current evidence base is sufficient for some claims and not for others. The paper should state that boundary plainly.
 
 **Directly supported now.**
-- KVRM is reusable across nine active bounded workflow domains spanning infrastructure, enterprise, and trust-and-safety verticals.
+- KVRM is reusable across twelve active bounded workflow domains spanning infrastructure, enterprise, and trust-and-safety verticals.
 - Hybrid KVRM achieves perfect canonical-pack correctness, zero false accepts, zero invalid outputs, and perfect unsupported rejection on the current live packs.
 - Support-aware gating is necessary to preserve supported-case correctness under injected support-incompatible high-confidence evidence.
 - Strict runtime validation of fallback-tagged actions is necessary to prevent unsafe execution on infeasible handoff cases.
@@ -453,7 +456,7 @@ The current evidence base is strong for an architecture paper, but there are rea
 
 KVRM is best understood as a bounded decision architecture for audited finite action spaces. Its key value is not that it predicts labels well, although it does; its value is that it preserves executable safety contracts under uncertainty.
 
-On the live nine-domain internal suite, KVRM now demonstrates:
+On the live twelve-domain internal suite, KVRM now demonstrates:
 - perfect canonical-pack correctness with zero false accepts and zero invalid outputs
 - resilience to injected invalid high-confidence upstream evidence
 - strict fail-closure on infeasible fallback and handoff cases

@@ -15,6 +15,9 @@ RUNS = {
     'iam_hybrid': ROOT / 'iam-access-router' / 'outputs' / 'iam_access_router_hybrid' / 'metrics.json',
     'customer_support_hybrid': ROOT / 'customer-support-router' / 'outputs' / 'customer_support_router_hybrid' / 'metrics.json',
     'content_moderation_hybrid': ROOT / 'content-moderation-router' / 'outputs' / 'content_moderation_router_hybrid' / 'metrics.json',
+    'legal_hybrid': ROOT / 'legal-compliance-router' / 'outputs' / 'legal_compliance_router_hybrid' / 'metrics.json',
+    'cicd_hybrid': ROOT / 'cicd-pipeline-router' / 'outputs' / 'cicd_pipeline_router_hybrid' / 'metrics.json',
+    'insurance_hybrid': ROOT / 'insurance-claims-router' / 'outputs' / 'insurance_claims_router_hybrid' / 'metrics.json',
 }
 REPORT_DIR = ROOT / 'reports'
 REPORT_JSON = REPORT_DIR / 'demo_comparison.json'
