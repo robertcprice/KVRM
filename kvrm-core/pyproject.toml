@@ -26,6 +26,10 @@ dependencies = [
   "numpy>=1.24",
 ]
 
+[project.optional-dependencies]
+# `kvrm verify` (SMT registry verification) needs Z3; routing/eval do not.
+verify = ["z3-solver>=4.12"]
+
 [project.urls]
 Homepage = "https://github.com/robertcprice/KVRM"
 Repository = "https://github.com/robertcprice/KVRM"
