@@ -148,6 +148,21 @@ def cmd_validate(args: argparse.Namespace) -> None:
     print("\nvalidation passed")
 
 
+def cmd_verify(args: argparse.Namespace) -> None:
+    from .verify import render_report_text, verify_registry_file
+
+    try:
+        report = verify_registry_file(args.domain_dir, coverage=args.coverage)
+    except (FileNotFoundError, json.JSONDecodeError, RuntimeError) as exc:
+        raise SystemExit(f"error: {exc}")
+    if args.json:
+        print(json.dumps(report.to_dict(), indent=2))
+    else:
+        print(render_report_text(report))
+    if not report.passed(strict=args.strict):
+        raise SystemExit(1)
+
+
 def cmd_train(args: argparse.Namespace) -> None:
     domain = _domain(args)
     train_cases = _load_jsonl(domain.train_cases_path)
@@ -266,6 +281,17 @@ def main(argv: list[str] | None = None) -> None:
     p_validate.add_argument("domain_dir")
     p_validate.add_argument("--max-errors", type=int, default=10)
 
+    p_verify = sub.add_parser(
+        "verify",
+        help="SMT-verify a registry (disjointness, fail-closure gaps, dead actions)",
+    )
+    p_verify.add_argument("domain_dir", help="domain directory or path to registry.json")
+    p_verify.add_argument("--json", action="store_true", help="emit the JSON report")
+    p_verify.add_argument("--strict", action="store_true",
+                          help="exit nonzero on warnings as well as errors")
+    p_verify.add_argument("--coverage", action="store_true",
+                          help="also check for an abstention region (schema-valid, no envelope)")
+
     p_train = sub.add_parser("train", help="train the compact learned selector")
     p_train.add_argument("domain_dir")
     p_train.add_argument("--out", help="model output path (default: <domain>/model.joblib)")
@@ -296,6 +322,7 @@ def main(argv: list[str] | None = None) -> None:
         {
             "init": cmd_init,
             "validate": cmd_validate,
+            "verify": cmd_verify,
             "train": cmd_train,
             "route": cmd_route,
             "explain": cmd_explain,
